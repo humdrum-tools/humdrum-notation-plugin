@@ -32,7 +32,5 @@ Here is a simple example:
 </script>
 ```
 
-Which generates the following music notation:
-
-<iframe src="example.html" width="600" height="400" frameborder="0"></iframe>
+Which generates a music notation example on <a href="example.html">this page</a>.
 
