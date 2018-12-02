@@ -34,20 +34,5 @@ Here is a simple example:
 
 Which generates the following music notation:
 
-<script>
-   displayHumdrum({source: "example"});
-</script>
-<script type="text/x-humdrum" id="example">
-**kern
-*M4/4
-=1-
-4c
-8dL
-8eJ
-4f
-4g
-=
-*-
-</script>
-
+<iframe src="example.html">
 
