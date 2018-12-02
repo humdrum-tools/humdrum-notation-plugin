@@ -32,5 +32,5 @@ Here is a simple example:
 </script>
 ```
 
-Which generates a music notation example on <a href="example.html">this page</a>.
+Which generates a music notation example on <a href="https://plugin.humdrum.org/example.html">this page</a>.
 
