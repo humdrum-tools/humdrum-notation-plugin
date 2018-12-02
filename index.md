@@ -146,7 +146,7 @@ web browser:
 <head>
 <title>My musical example</title>
 <script src="https://verovio-script.humdrum.org/scripts/verovio-toolkit.js"></script>
-<script src="/scripts/humdrum-plugin.js"></script>
+<script src="https://plugin.humdrum.org/scripts/humdrum-plugin.js"></script>
 <script>
    var vrvToolkit = new verovio.toolkit();
 </script>
