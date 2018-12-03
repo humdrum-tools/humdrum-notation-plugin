@@ -1,4 +1,5 @@
-theme: jekyll-theme-tactile
+
+theme: jekyll-theme-leap-day
 
 # the preview server used. Leave as is.
 host: 127.0.0.1

@@ -2,30 +2,18 @@
 vim:	ts=3
 ---
 
-<script src="https://verovio-script.humdrum.org/scripts/verovio-toolkit.js"></script>
-<script src="/scripts/humdrum-plugin.js"></script>
-<script>
-var vrvToolkit = new verovio.toolkit();
-</script>
+{% include style.html %}
+{% include music-banner.html %}
+{% include plugin-setup.html %}
 
-<style>
-
-h1 {
-	color: #5555ff;
-	font-weight: bold;
-}
-
-pre {
-	text-align: left;
-}
-
-</style>
+# Introduction #
 
 This website hosts a javascript plugin that allows you to display Humdrum
 data as graphical musical notation on any webpage.  Multiple examples
 can be shown on the same page and editing the Humdrum data on the page
 will dynamically update the corresponding music notation.  In addition,
 the Humdrum data can be hidden, showing only the graphical music notation.
+
 
 # Setup #
 

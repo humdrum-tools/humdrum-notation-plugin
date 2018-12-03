@@ -1,0 +1,182 @@
+
+<script>
+// vim: ts=3
+
+document.addEventListener("DOMContentLoaded", function() {
+	var header = document.querySelector("header");
+	
+	if (!header) {
+		console.log("Error: no header div found");
+		return;
+	}
+
+	var banner = document.createElement('div');
+
+	banner.id = "newbanner";
+	banner.style.paddingTop = (header.offsetHeight + 0) + "px";
+	header.parentNode.insertBefore(banner, header.nextSibling);
+
+	var e = "<div id='title'><a href='https://www.youtube.com/watch?v=XEN-Xhx8aDA'>J.S. Bach cello suite no. 5 in C minor, BWV 1011, Sarabande</a></div>";
+	e += '<div style="display:none;" type="text/x-humdrum" id="bach">\n';
+	e += '**kern\n';
+//	e += '*I"Violoncello\n';
+	e += '*clefF4\n';
+	e += '*k[b-e-a-]\n';
+	e += '*M3/4\n';
+	e += '=1-\n';
+	e += '(8GL\n';
+	e += '8E-)\n';
+	e += '(8BBn\n';
+	e += '8CJ)\n';
+	e += '4AA-\n';
+	e += '=2\n';
+	e += '(8cL\n';
+	e += '8A-)\n';
+	e += '(8En\n';
+	e += '8FJ)\n';
+	e += '4BBn\n';
+	e += '=3\n';
+	e += '(8dL\n';
+	e += '8A-)\n';
+	e += '(8En\n';
+	e += '8FJ)\n';
+	e += '(8GGL\n';
+	e += '8GJ)\n';
+	e += '=4\n';
+	e += '(8FL\n';
+	e += '8E-)\n';
+	e += '(8BBn\n';
+	e += '8CJ)\n';
+	e += '4CC\n';
+	e += '=5\n';
+	e += '(8CL\n';
+	e += '8E-\n';
+	e += '8A-)\n';
+	e += '(8G\n';
+	e += '8d-X\n';
+	e += '8cJ)\n';
+	e += '=6\n';
+	e += '(8DL\n';
+	e += '8F\n';
+	e += '8B-)\n';
+	e += '(8A-\n';
+	e += '8c\n';
+	e += '8B-J)\n';
+	e += '=7\n';
+	e += '(8A-L\n';
+	e += '8G)\n';
+	e += '(8D\n';
+	e += '8E-)\n';
+	e += '(8BB-\n';
+	e += '8DJ)\n';
+	e += '=8\n';
+	e += '2.EE-\n';
+	e += '=9:|!|:\n';
+	e += '(8B-L\n';
+	e += '8G)\n';
+	e += '(8D\n';
+	e += '8E-J)\n';
+	e += '4DD-X\n';
+	e += '=10\n';
+	e += '(8B-L\n';
+	e += '8G)\n';
+	e += '(8En\n';
+	e += '8FJ)\n';
+	e += '4GG\n';
+	e += '=11\n';
+	e += '(8d-XL\n';
+	e += '8B-)\n';
+	e += '(8En\n';
+	e += '8FJ)\n';
+	e += '8CCL\n';
+	e += '8cJ\n';
+	e += '=12\n';
+	e += '(8B-L\n';
+	e += '8A-)\n';
+	e += '(8En\n';
+	e += '8FJ)\n';
+	e += '4FF\n';
+	e += '=13\n';
+	e += '(8EE-L\n';
+	e += '8C\n';
+	e += '8F)\n';
+	e += '(8E-\n';
+	e += '8B-\n';
+	e += '8AnJ)\n';
+	e += '=14\n';
+	e += '(8DDL\n';
+	e += '8D\n';
+	e += '8G)\n';
+	e += '(8F\n';
+	e += '8c\n';
+	e += '8BnJ)\n';
+	e += '=15\n';
+	e += '(8cL\n';
+	e += '8A-)\n';
+	e += '(8F#X\n';
+	e += '8G)\n';
+	e += '8BBn\n';
+	e += '8CJ\n';
+	e += '=16\n';
+	e += '(8GGL\n';
+	e += '8D)\n';
+	e += '(8G\n';
+	e += '8F#X)\n';
+	e += '8c\n';
+	e += '8BnJ\n';
+	e += '=17\n';
+	e += '(8e-L\n';
+	e += '8c)\n';
+	e += '(8F#X\n';
+	e += '8GJ)\n';
+	e += '8AAnL\n';
+	e += '8e-J\n';
+	e += '=18\n';
+	e += '(8dL\n';
+	e += '8A-X)\n';
+	e += '(8En\n';
+	e += '8FJ)\n';
+	e += '8BBnL\n';
+	e += '8GJ\n';
+	e += '=19\n';
+	e += '(8FL\n';
+	e += '8E-\n';
+	e += '8BBn\n';
+	e += '8CJ)\n';
+	e += '(8GGL\n';
+	e += '8BnJ)\n';
+	e += '=20\n';
+	e += '(8CCL\n';
+	e += '8GG\n';
+	e += '8F\n';
+	e += '8E-J\n';
+	e += '4c)\n';
+	e += '=:|!\n';
+	e += '*-\n';
+	e += '</div>\n';
+
+	banner.innerHTML = e;
+	displayHumdrum({source:"bach", scale:20});
+});
+
+window.addEventListener("resize", function() {
+	var banner = document.querySelector("#newbanner");
+	if (!banner) {
+		console.log("Error: Cannot find banner to resize it");
+		return;
+	}
+	var header = document.querySelector("header");
+	if (!banner) {
+		console.log("Error: Cannot find header to resize banner");
+		return;
+	}
+	var headerHeight = header.offsetHeight;
+	if (headerHeight > 60) {
+		banner.style.paddingTop = headerHeight + "px";
+	} else {
+		banner.style.paddingTop = 0 + "px";
+	}
+	displayHumdrum({source:"bach", scale:20});
+});
+
+</script>

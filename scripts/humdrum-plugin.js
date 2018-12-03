@@ -46,42 +46,52 @@
 //
 
 function displayHumdrum(opts) {
-	document.addEventListener("DOMContentLoaded", function() {
-		if (opts.source && !opts.sourceId) {
-			opts.sourceId = opts.source;
-		}
-		if (opts.sourceID && !opts.sourceId) {
-			opts.sourceId = opts.sourceID;
-		}
-		if (opts["source-id"] && !opts.sourceId) {
-			opts.sourceId = opts["source-id"];
-		}
+	if (document.readyState === "complete" || document.readyState === "loaded" || document.readyState === "interactive") {
+     	displayHumdrumNow(opts);
+	} else {
+		// Wait until the page has finished loading resources.
+		document.addEventListener("DOMContentLoaded", function() {
+			displayHumdrumNow(opts);
+		});
+	}
+}
 
-		var sourceid = opts["sourceId"];
-		if (!sourceid) {
-			console.log("Error: Missing Humdrum data source ID");
-			return;
-		}
-		var source = document.querySelector("#" + sourceid);
-		if (!source) {
-			console.log("Error: Humdrum source location " + sourceid + " cannot be found.");
-			return;
-		}
 
-		var targetid = opts["targetid"] || opts["target"];
-		if (!targetid) {
-			targetid = sourceid + "-container";
-		}
-		var target = document.querySelector("#" + targetid);
-		if (!target) {
-			target = createTarget(source, targetid);
-		}
+function displayHumdrumNow(opts) {
+	if (opts.source && !opts.sourceId) {
+		opts.sourceId = opts.source;
+	}
+	if (opts.sourceID && !opts.sourceId) {
+		opts.sourceId = opts.sourceID;
+	}
+	if (opts["source-id"] && !opts.sourceId) {
+		opts.sourceId = opts["source-id"];
+	}
 
-		initializeTarget(target, opts);
-		copyContentToContainer(target, sourceid);
-		var toolkit = opts.renderer;
-		displaySvg(toolkit, target);
-	});
+	var sourceid = opts["sourceId"];
+	if (!sourceid) {
+		console.log("Error: Missing Humdrum data source ID");
+		return;
+	}
+	var source = document.querySelector("#" + sourceid);
+	if (!source) {
+		console.log("Error: Humdrum source location " + sourceid + " cannot be found.");
+		return;
+	}
+
+	var targetid = opts["targetid"] || opts["target"];
+	if (!targetid) {
+		targetid = sourceid + "-container";
+	}
+	var target = document.querySelector("#" + targetid);
+	if (!target) {
+		target = createTarget(source, targetid);
+	}
+
+	initializeTarget(target, opts);
+	copyContentToContainer(target, sourceid);
+	var toolkit = opts.renderer;
+	displaySvg(toolkit, target);
 }
 
 
@@ -111,6 +121,15 @@ function displaySvg(toolkit, container) {
 		vrvOptions = JSON.parse(options.textContent);
 	} 
 
+	if (!vrvOptions.pageWidth) {
+		var style = window.getComputedStyle(container, null);
+		var width = parseInt(style.getPropertyValue("width"));
+		vrvOptions.pageWidth = width;
+		if (vrvOptions.scale) {
+			vrvOptions.pageWidth /= (parseInt(vrvOptions.scale)/100.0);
+		}
+	}
+
 	var target = container.querySelector("#" + baseid + "-svg");
 	var svg = toolkit.renderData(sourcetext, vrvOptions);
 	target.innerHTML = svg;
@@ -139,16 +158,65 @@ function copyContentToContainer(target, sourceid) {
 
 //////////////////////////////
 //
-// initializeTarget --  Fill in a table with the given option.
+// initializeTarget --  Generate contents for the main humdrum-plugin div that is used to
+//      hold the verovio options, the input humdrum text and the output verovio SVG image.
+//
+// The main container is a div element with an ID that matches the ID of the
+// source Humdrum data script followed by an optional variant tag and then
+// the string "-container".
+// 
+// Inside the main target div there are two elements of interest:
+//    (1) a div element with an similar ID that ends in "-options" rather
+//        than "-container".
+//    (2) a table element that contains the potentially visible Humdrum text
+//        that create the SVG image in one cell, and another cell that contains
+//        the SVG rendering of the Humdrum data.
+//        
+//        The Humdrum data is stored within a pre element (may be changed later)
+//        that has an ID in the form of the container div, but with "-humdrum" as
+//        the extension for the ID.
+// 
+//        The SVG image is stored in a div that has an ID that is similar to the
+//        containing element, but has "-svg" as an extension rather than "-container".
+//
+// How the humdrum and svg containers are stored in the table will be dependend on how
+// the layout of the two elements are set, with the Humdrum data either above, below,
+// to the left or two the right of the SVG image.
+//
+// So a typical organization of the resulting code from this function might be:
+//
+// <div class="humdrum-plugin" id="bach-container">
+//    <div id="bach-options">[Options for rendering with verovio]</div>
+//    <table class="humdrum-verovio">
+//       <tbody>
+//       <tr>
+//          <td>
+//          <div>
+//             <pre class="humdrum-tet" id="bach-humdrum">[Humdrum contents]</pre>
+//          </div>
+//          </td>
+//          <td>
+//             <div class="verovio-svg" id="bach-svg">[SVG image of music notation]</div>
+//          </td>
+//       </tr>
+//       </tbody>
+//    </table>
+// </div>
+//
+// Also notice the class names which can be used for styling the notation or humdrum text:
+//    humdrum-plugin  == The main div container for the musical example.
+//    humdrum-verovio == The class name of the table that contains the humdrum and rendered svg.
+//    humdrum-text    == The potentially visible Humdrum text for the example.
+//    verovio-svg     == The div container that holes the verovio-generated SVG image.
 //
 
 function initializeTarget(target, opts) {
 	var output = "";
-	hvisible = opts["humdrumVisible"] != "false";
+	hvisible = opts["humdrumVisible"] == "true";
 
 	var vrvOptions = extractVerovioOptions(opts);
 
-	output += "<div style='display:none;' id='" + opts.sourceId + "-options'>";
+	output += "<div class='humdrum-plugin' style='display:none;' id='" + opts.sourceId + "-options'>";
 	output += JSON.stringify(vrvOptions);
 	output += "</div>\n";
 
@@ -170,15 +238,15 @@ function initializeTarget(target, opts) {
 	}
 
 	output += "<div>\n";
-	output += "<pre style='display:none;' class='humdrum'";
+	output += "<pre style='display:none;' class='humdrum-text'";
 	output += " contenteditable='true' id='";
-	output += opts.sourceId + "-humdrum'>xxxx</pre>\n";
+	output += opts.sourceId + "-humdrum'></pre>\n";
 	output += "</div>\n";
 	output += "</td>\n";
 	
 	output += "<td style='border:0;'>\n";
 	output += "<div class='verovio-svg'";
-	output += " style='margin-top:-20px;'";
+	// output += " style='margin-top:-20px;'";
 	output += " id='" + opts.sourceId + "-svg'></div>\n";
 	output += "</td>\n";
 	output += "</tr>\n";
@@ -198,6 +266,7 @@ function initializeTarget(target, opts) {
 function extractVerovioOptions(opts) {
 	var output = {};
 
+	// Default settings:
 	output.adjustPageHeight = 1;
 	output.breaks = "auto";
 	output.font = "Leipzig";
@@ -210,6 +279,17 @@ function extractVerovioOptions(opts) {
 	output.staffLineWidth = 0.12;
 	output.barLineWidth = 0.12;
 	output.inputFormat = "auto";
+
+	if (opts.scale) {
+		var scale = parseFloat(opts.scale);
+		if (scale < 0.0) {
+			scale = -scale;
+		}
+		if (scale <= 1.0) {
+			scale = 100.0 * scale;
+		}
+		output.scale = scale;
+	}
 
 	return output;
 }
@@ -236,6 +316,7 @@ function createTarget(source, targetid) {
 	}
 	target = document.createElement('div');
 	target.id = targetid;
+	target.className = "humdrum-plugin";
 	source.parentNode.insertBefore(target, source);
 	return target;
 }
