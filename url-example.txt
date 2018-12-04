@@ -1,0 +1,9 @@
+<script>
+   displayHumdrum({
+      source: "url-example1",
+      scale: 32,
+      url: "sonata06-3a.krn"
+   });
+</script>
+
+<script type="text/x-humdrum" id="url-example1"></script>

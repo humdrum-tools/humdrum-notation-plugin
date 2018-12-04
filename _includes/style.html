@@ -13,7 +13,14 @@ p {
 h1 {
 	color: #4276b6;
 	font-weight: bold;
+	padding-bottom: 20px;
 }
+
+
+h1:not(:first-of-type) {
+	padding-top: 40px;
+}
+
 
 pre {
 	text-align: left;
@@ -50,8 +57,9 @@ nav ul a {
 div#title {
 	margin-top: -20px;
 	padding-left: 3px;
-	position: relative;
+	position: absolute;
 	z-index: 2000;
+	color: #ffcc00;
 }
 
 div#title a {
@@ -62,6 +70,10 @@ div#title a {
 	div#title {
 		display: none;
 	}
+}
+
+footer p:nth-child(2) { 
+	display: none;
 }
 
 </style>

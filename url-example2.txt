@@ -1,0 +1,9 @@
+<script>
+   displayHumdrum({
+      source: "url-example2",
+      scale: 17,
+      url: "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/master/kern/sonata06-3a.krn"
+   });
+</script>
+
+<script type="text/x-humdrum" id="url-example2"></script>

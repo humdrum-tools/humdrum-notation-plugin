@@ -6,31 +6,37 @@ vim:	ts=3
 {% include music-banner.html %}
 {% include plugin-setup.html %}
 
+
+
 # Introduction #
 
-This website hosts a javascript plugin that allows you to display Humdrum
-data as graphical musical notation on any webpage.  Multiple examples
-can be shown on the same page and editing the Humdrum data on the page
-will dynamically update the corresponding music notation.  In addition,
-the Humdrum data can be hidden, showing only the graphical music notation.
+
+This website hosts a javascript plugin that allows you to display
+Humdrum data as graphical musical notation on any webpage.  Multiple
+examples can be shown on the same page and editing the Humdrum data
+on the page will dynamically update the corresponding music notation.
+In addition, the Humdrum data can be hidden, showing only the
+graphical music notation.
+
 
 
 # Setup #
 
-To use the Humdrum plugin on a webpage, add the following lines of HTML code 
-at the top of the page (in the `<head>` section):
+
+To use the Humdrum notation plugin on a webpage, add the following
+lines of HTML code at the top of your webpage (preferably in the `<head>` section):
 
 ```html
 <script src="https://verovio-script.humdrum.org/scripts/verovio-toolkit.js"></script>
 <script src="https://plugin.humdrum.org/scripts/humdrum-plugin.js"></script>
 ```
 
-The first line loads the <a href="http://www.verovio.org">verovio
-toolkit</a> that is used to convert a Humdrum score into an SVG image
-of the music notation, and the second line loads the plugin itself.
-If you want to guarantee a stable setup, then copy these two javascript
-files into your website (and update periodically as needed with the
-latest version of verovio and/or the plugin).
+The first line loads the <a target="_blank" href="http://www.verovio.org">verovio
+toolkit</a> that is used to convert a Humdrum score into an SVG
+image of the music notation, and the second line loads the plugin
+itself.  If you want to guarantee a stable setup, then copy these
+two javascript files into your website (and update periodically as
+needed with the latest version of verovio and/or the plugin).
 
 Then add the following script after the above two lines if the 
 verovio toolkit is not already initialized somewhere else on your webpage:
@@ -42,11 +48,13 @@ verovio toolkit is not already initialized somewhere else on your webpage:
 ```
 
 
-# Adding a musical example to a webpage #
 
-Creating a musical example on a website consists of two components: (1) a 
-javascript function call to `displayHumdrum()` with a list if display options,
-such as:
+# Display some music #
+
+
+Adding a musical example on a webpage consists of two components:
+(1) a javascript function call to `displayHumdrum()` with a list
+of display options, such as:
 
 ```html
 <script>
@@ -79,7 +87,7 @@ and it must be set to the id of the Humdrum content script.  In this case the
 value is `example` since the `id` of the humdrum data is `example`.
 
 The `renderer` parameter specifies the variable name of the verovio toolkit.  This parameter can be omitted if its variable name is `vrvToolkit`.  So a
-minimal example would be:
+minimal example using the standard setup described above would be:
 
 ```html
 <script>
@@ -99,9 +107,7 @@ minimal example would be:
 </script>
 ```
 
-
-Here is the resulting example for the above plugin code:
-
+Here is the resulting display for the above example plugin code:
 
 <script>
 displayHumdrum({
@@ -123,136 +129,42 @@ displayHumdrum({
 </script>
 
 
-# Complete example #
+
+# Complete example page #
+
 
 Try copy-and-pasting the following HTML content into a file and view it in a
 web browser:
 
 
 ```html
-<html>
-<head>
-<title>My musical example</title>
-<script src="https://verovio-script.humdrum.org/scripts/verovio-toolkit.js"></script>
-<script src="https://plugin.humdrum.org/scripts/humdrum-plugin.js"></script>
-<script>
-   var vrvToolkit = new verovio.toolkit();
-</script>
-</head>
-<body>
-
-A musical example:
-
-<script>
-   displayHumdrum({source: "example"});
-</script>
-<script type="text/x-humdrum" id="cue1">
-**kern
-*M4/4
-=1-
-4c
-8dL
-8eJ
-4f
-4g
-=
-*-
-</script>
-</body>
-</html>
+{% include_relative example.html %}
 ```
 
 
 The browser display should look something like:
 
-
 <img src="/images/example.png">
 
 
-# Multiple examples on a webpage #
+
+# Multiple examples #
+
 
 More than one musical example can be placed on a page by giving
 a unique id name to each Humdrum data script:
 
 ```html
-<script>
-   displayHumdrum({source: "example1"});
-   displayHumdrum({source: "example2"});
-</script>
-
-Falling melody:
-<script type="text/x-humdrum" id="example2">
-**kern
-*M4/4
-=1-
-4g
-8fL
-8eJ
-4d
-4c
-=
-*-
-</script>
-
-Rising melody:
-<script type="text/x-humdrum" id="example1">
-**kern
-*M4/4
-=1-
-4c
-8dL
-8eJ
-4f
-4g
-=
-*-
-</script>
+{% include_relative multiple-example.txt %}
 ```
 
 The above HTML code produces the following two musical examples:
 
-<table>
-<tr>
-<td style="width:600px; padding:50px; text-align:left; background-color:#ffffff;">
+<div style="width:450px; border: 1px solid #dddddd; padding:50px; text-align:left; background-color:#ffffff;">
+{% include_relative multiple-example.txt %}
+</div>
 
-<script>
-   displayHumdrum({source: "example1"});
-   displayHumdrum({source: "example2"});
-</script>
-
-Falling melody:
-<script type="text/x-humdrum" id="example2">
-**kern
-*M4/4
-=1-
-4g
-8fL
-8eJ
-4d
-4c
-=
-*-
-</script>
-
-Rising melody:
-<script type="text/x-humdrum" id="example1">
-**kern
-*M4/4
-=1-
-4c
-8dL
-8eJ
-4f
-4g
-=
-*-
-</script>
-
-
-</td>
-</tr>
-</table>
-
+<br/>
 Notice that the placement of the music notation depends on the location
 of the Humdrum data script in the page (`example2` is placed above
 `example1` in this case).
@@ -264,111 +176,112 @@ are adjacent to the humdrum data, which allows easier editing of styling
 options for each example:
 
 ```html
-Falling melody:
-<script>
-   displayHumdrum({source: "example2"});
-</script>
-<script type="text/x-humdrum" id="example2">
-**kern
-*M4/4
-=1-
-4g
-8fL
-8eJ
-4d
-4c
-=
-*-
-</script>
-
-Rising melody:
-<script>
-   displayHumdrum({source: "example1"});
-</script>
-<script type="text/x-humdrum" id="example1">
-**kern
-*M4/4
-=1-
-4c
-8dL
-8eJ
-4f
-4g
-=
-*-
-</script>
+{% include_relative multiple-example2.txt %}
 ```
+
+
+
+# URL content #
+
+
+Humdrum data can be downloaded from the server that hosts the webpage
+or from another website that disables the <a target="_blank"
+href="https://en.wikipedia.org/wiki/Same-origin_policy">same-orgin
+policy</a> by specifying a URL for the Humdrum data in the `url`
+parameter given to `displayHumdrum()`:
+
+```html
+{% include_relative url-example.txt %}
+```
+
+Notice that the Humdrum script element is empty, since it will be
+filled in later with the downloaded Humdrum data.  The Humdrum
+script's location on the page will control the display location of
+the final notation, and any initial contents of the script will be
+ignored if a `url` parameter is given to the `displayHumdrum()`
+function.  In this case the URL is relative to the current page,
+so the full URL address of the downloaded data is <a target="_blank"
+href="sonata06-3a.krn">https://plugin.humdrum.org/sonata06-3a.krn</a>.
+
+{% include_relative url-example.txt %}
+
+Here is an example of downloading the same data using a Github URL
+from the <a target="_blank"
+href="https://github.com/craigsapp/mozart-piano-sonatas">Mozart
+piano sonata repository</a>:
+
+```html
+{% include_relative url-example2.txt %}
+```
+
+{% include_relative url-example2.txt %}
+
 
 
 # Options #
 
+
 This section will describe how to set verovio display options, and how
-to show/hide Humdrum text as well as position is above/below/left/right
+to show/hide Humdrum text as well as position it above/below/left/right
 of the music notation.
+
 
 
 # Filters #
 
-<a href="https://doc.verovio.humdrum.org/filters/index.html">Verovio Humdrum Viewer filters</a> can be included with the Humdrum data to manipulate the final
-notation display.  Here is an example of using the 
-<a href="http://doc.verovio.humdrum.org/filters/transpose">transpose</a> tool:
+
+<a target="_blank" href="https://doc.verovio.humdrum.org/filters/index.html">Verovio
+Humdrum Viewer filters</a> can be included within the Humdrum data
+to manipulate the final notation display.  Here is an example of
+using the <a target="_blank"
+href="http://doc.verovio.humdrum.org/filters/transpose">transpose</a> tool:
 
 ```html
-<script>
-   displayHumdrum({source: "transpose"});
-</script>
-<script type="text/x-humdrum" id="transpose">
-**kern
-*M4/4
-*k[]
-*C:
-=1-
-4c
-8dL
-8eJ
-4f
-4g
-=
-*-
-!!!filter: transpose -k e-
-</script>
+{% include_relative transpose-example.txt %}
 ```
 
-<script>
-   displayHumdrum({source: "transpose"});
-</script>
-<script type="text/x-humdrum" id="transpose">
-**kern
-*M4/4
-*k[]
-*C:
-=1-
-4c
-8dL
-8eJ
-4f
-4g
-=
-*-
-!!!filter: transpose -k e-
-</script>
+Notice that the Humdrum encoding is in C major, but the filter
+command at the end of the data transposes the music to E-flat major
+before the music notation is generated:
 
+{% include_relative transpose-example.txt %}
+
+Another useful filtering tool used in this example is the <a target="_blank"
+href="http://doc.verovio.humdrum.org/filters/autobeam">autobeam</a> tool, which
+was used in this example to beam the eighth notes together by
+quarter-note durations.  In this case the tools are used in separate filter lines, 
+but they can be given on the same line like this:
+
+```
+!!!filter: transpose -k e- | autobeam
+```
 
 Other interesting filtering tools include 
-<a href="http://doc.verovio.humdrum.org/filters/maynk">myank</a> for
+<a target="_blank" href="http://doc.verovio.humdrum.org/filters/maynk">myank</a> for
 extracting a range of measures from a longer example, and
-<a href="http://doc.verovio.humdrum.org/filters/extract">extract</a>
+<a target="_blank" href="http://doc.verovio.humdrum.org/filters/extract">extract</a>
 for extracting parts or removing lyrics from the rendered musical notation.
 
 
 # TODO #
 
 * Make examples interactive
-* Set default style to hide Humdrum text
 * Allow for shift-click in SVG image to toggle display of Humdrum text
 * Allow humdrum text to be shown above/below/left/right of the musical example.
-* Allow for auto and manual tab widths
+* Allow for auto and manual tab widths in Humdrum text
 * Add newline fix from VHV documentation jekyll plugin.
 
 
 
+
+{% comment %}
+	The following data is used to print some music in the header of this page.
+	The include file _includes/music-banner.html reads this data and create
+	the notation in the header.  If there is a !!!title: record in the
+	Humdrum data below, then it will be placed above the musical example.
+{% endcomment %}
+
+<div style="display:none" id="title-notation-source">
+!!!title: <a target="_blank" title="Pablo Casals playing the sarabande" href='https://www.youtube.com/watch?v=XEN-Xhx8aDA'>J.S. Bach cello suite no. 5 in C minor, BWV 1011, Sarabande</a>
+{% include_relative bach-sarabande.krn %}
+</div>

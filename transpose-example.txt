@@ -1,0 +1,22 @@
+<script>
+   displayHumdrum({source: "transpose"});
+</script>
+<script type="text/x-humdrum" id="transpose">
+**kern
+*M4/4
+*k[]
+*C:
+=1-
+8c
+8d
+8e
+8f
+8g
+8a
+8b
+8cc
+=
+*-
+!!!filter: transpose -k e-
+!!!filter: autobeam
+</script>

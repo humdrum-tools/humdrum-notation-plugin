@@ -75,34 +75,71 @@ function displayHumdrumNow(opts) {
 	}
 	var source = document.querySelector("#" + sourceid);
 	if (!source) {
-		console.log("Error: Humdrum source location " + sourceid + " cannot be found.");
+		console.log("Error: Humdrum source location " + 
+				sourceid + " cannot be found.");
 		return;
 	}
 
-	var targetid = opts["targetid"] || opts["target"];
-	if (!targetid) {
-		targetid = sourceid + "-container";
-	}
-	var target = document.querySelector("#" + targetid);
-	if (!target) {
-		target = createTarget(source, targetid);
-	}
+	if (opts.hasOwnProperty("url")) {
+		console.log("DOWNLOADING URL", opts.url);
+		// download data from URL, and then display downloaded contents.
+		opts.processedUrl = opts.url;
+		delete opts.url;
+		downloadHumdrumUrlData(source, opts);
+	} else {
+		var targetid = opts["targetid"] || opts["target"];
+		if (!targetid) {
+			targetid = sourceid + "-container";
+		}
+		var target = document.querySelector("#" + targetid);
+		if (!target) {
+			target = createTarget(source, targetid);
+		}
 
-	initializeTarget(target, opts);
-	copyContentToContainer(target, sourceid);
-	var toolkit = opts.renderer;
-	displaySvg(toolkit, target);
+		initializeTarget(target, opts);
+		copyContentToContainer(target, sourceid);
+		var toolkit = opts.renderer;
+		displaySvg(toolkit, target);
+	}
+}
+
+
+
+///////////////////////////////
+//
+// downloadHumdrumUrlData -- Download Humdrum data from a URL and then convert the data into an SVG.
+//
+
+function downloadHumdrumUrlData(source, opts) {
+	if (!source) {
+		return;
+	}
+	if (opts.processedUrl.match(/^\s*$/)) {
+		return;
+	}
+	var url = opts.processedUrl;
+	var request = new XMLHttpRequest();
+	request.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			source.textContent = this.responseText;
+		}
+		displayHumdrumNow(opts);
+	};
+	request.open("GET", url);
+	request.send();
 }
 
 
 
 //////////////////////////////
 //
-// displaySvg --
+// displaySvg -- Add default settings to options and then render and
+//     show the Humdrum data as an SVG image on the page.
 //
 
 function displaySvg(toolkit, container) {
 	if (!toolkit) {
+		// search for the verovio toolkit if not explicitly specified
 		if (typeof vrvToolkit !== "undefined") {
 			toolkit = vrvToolkit;
 		}
@@ -121,7 +158,13 @@ function displaySvg(toolkit, container) {
 		vrvOptions = JSON.parse(options.textContent);
 	} 
 
+	if (!vrvOptions.hasOwnProperty("scale")) {
+		// scale must be set before automatic pageWidth calculations
+		vrvOptions.scale = 40;
+	}
+
 	if (!vrvOptions.pageWidth) {
+		// set the width of the notation automatically to the width of the parent element
 		var style = window.getComputedStyle(container, null);
 		var width = parseInt(style.getPropertyValue("width"));
 		vrvOptions.pageWidth = width;
@@ -129,6 +172,58 @@ function displaySvg(toolkit, container) {
 			vrvOptions.pageWidth /= (parseInt(vrvOptions.scale)/100.0);
 		}
 	}
+
+	if (!vrvOptions.hasOwnProperty("pageHeight")) {
+		vrvOptions.pageHeight = 60000;
+	}
+
+	if (!vrvOptions.hasOwnProperty("spacingLinear")) {
+		vrvOptions.spacingLinear = 0.25;
+	}
+
+	if (!vrvOptions.hasOwnProperty("spacingNonLinear")) {
+		vrvOptions.spacingNonLinear = 0.6;
+	}
+
+	if (!vrvOptions.hasOwnProperty("adjustPageHeight")) {
+		vrvOptions.adjustPageHeight = 1;
+	}
+
+	if (!vrvOptions.hasOwnProperty("breaks")) {
+		vrvOptions.breaks = "auto";
+	}
+
+	if (!vrvOptions.hasOwnProperty("font")) {
+		vrvOptions.font = "Leipzig";
+	}
+
+	if (!vrvOptions.hasOwnProperty("humType")) {
+		vrvOptions.humType = 1;
+	}
+
+	if (!vrvOptions.hasOwnProperty("noFooter")) {
+		vrvOptions.noFooter = 1;
+	}
+
+	if (!vrvOptions.hasOwnProperty("noHeader")) {
+		vrvOptions.noHeader = 1;
+	}
+
+	if (!vrvOptions.hasOwnProperty("staffLineWidth")) {
+		vrvOptions.staffLineWidth = 0.12;
+	}
+
+	if (!vrvOptions.hasOwnProperty("barLineWidth")) {
+		vrvOptions.barLineWidth = 0.12;
+	}
+
+	if (!vrvOptions.hasOwnProperty("inputFormat")) {
+		vrvOptions.inputFormat = "auto";
+	}
+
+	// Add more default options here
+
+	console.log("OPTIONS USED ARE", vrvOptions);
 
 	var target = container.querySelector("#" + baseid + "-svg");
 	var svg = toolkit.renderData(sourcetext, vrvOptions);
@@ -260,25 +355,12 @@ function initializeTarget(target, opts) {
 
 //////////////////////////////
 //
-// extractVerovioOptions --
+// extractVerovioOptions -- Extract all of the verovio options
+//   from the Humdrum plugin options object.
 //
 
 function extractVerovioOptions(opts) {
 	var output = {};
-
-	// Default settings:
-	output.adjustPageHeight = 1;
-	output.breaks = "auto";
-	output.font = "Leipzig";
-	output.humType = 1;
-	output.noFooter = 1;
-	output.noHeader = 1;
-	output.scale = 40;
-	output.spacingLinear = 0.25;
-	output.spacingNonLinear = 0.6;
-	output.staffLineWidth = 0.12;
-	output.barLineWidth = 0.12;
-	output.inputFormat = "auto";
 
 	if (opts.scale) {
 		var scale = parseFloat(opts.scale);
@@ -290,6 +372,64 @@ function extractVerovioOptions(opts) {
 		}
 		output.scale = scale;
 	}
+
+	if (opts.hasOwnProperty("pageHeight")) {
+		output.pageHeight = opts.pageHeight;
+	}
+
+	if (opts.hasOwnProperty("pageWidth")) {
+		output.pageWidth = opts.pageWidth;
+	}
+
+	if (opts.hasOwnProperty("spacingLinear")) {
+		output.spacingLinear = opts.spacingLinear;
+	}
+
+	if (opts.hasOwnProperty("spacingNonLinear")) {
+		output.spacingNonLinear = opts.spacingNonLinear;
+	}
+
+	if (opts.hasOwnProperty("spacingLinear")) {
+		output.spacingLinear = opts.spacingLinear;
+	}
+
+	if (opts.hasOwnProperty("adjustPageHeight")) {
+		output.adjustPageHeight = opts.adjustPageHeight;
+	}
+
+	if (opts.hasOwnProperty("breaks")) {
+		output.breaks = opts.breaks;
+	}
+
+	if (opts.hasOwnProperty("font")) {
+		output.font = opts.font;
+	}
+
+	if (opts.hasOwnProperty("humType")) {
+		output.humType = opts.humType;
+	}
+
+	if (opts.hasOwnProperty("noFooter")) {
+		output.noFooter = opts.noFooter;
+	}
+
+	if (opts.hasOwnProperty("noHeader")) {
+		output.noHeader = opts.noHeader;
+	}
+
+	if (opts.hasOwnProperty("staffLineWidth")) {
+		output.staffLineWidth = opts.staffLineWidth;
+	}
+
+	if (opts.hasOwnProperty("barLineWidth")) {
+		output.barLineWidth = opts.barLineWidth;
+	}
+
+	if (opts.hasOwnProperty("inputFormat")) {
+		output.inputFormat = opts.inputFormat;
+	}
+
+	// Add more options here
 
 	return output;
 }
