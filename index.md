@@ -12,11 +12,22 @@ vim:	ts=3
 
 
 This website hosts a javascript plugin that allows you to display
-Humdrum data as graphical musical notation on any webpage.  Multiple
-examples can be shown on the same page and editing the Humdrum data
-on the page will dynamically update the corresponding music notation.
-In addition, the Humdrum data can be hidden, showing only the
-graphical music notation.
+Humdrum data as graphical musical notation on any webpage.  Here is an example
+usage of the plugin to display J.N.&nbsp;Hummel's prelude in D-flat major, op.&nbsp;67/15:
+
+{% include_relative hummel-example.txt %}
+
+
+The above music notation was generated dynamically within the browser from
+<a target="_blank" href="hummel-prelude-op67n15.txt">musical data</a>
+stored within the webpage in the <a target="_blank" href="https://www.humdrum.org">Humdrum
+file format</a>.
+
+
+Multiple notation examples can be shown on the same page and editing the Humdrum
+data on the page will dynamically update the corresponding music notation.
+In addition, the Humdrum data can be hidden, showing only the graphical
+music notation.
 
 
 

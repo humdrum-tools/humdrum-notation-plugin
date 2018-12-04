@@ -1,0 +1,572 @@
+
+Verovio 2.0.0-dev-bd2039c
+
+Example usage:
+
+ verovio [-s scale] [-t type] [-r resources] [-o outfile] infile
+
+Options (marked as * are repeatable)
+ -                     Use "-" as input file for reading from the standard input
+ -?, --help            Display this message
+ -a, --all-pages       Output all pages
+ -f, --format <s>      Select input format: darms, mei, pae, xml (default is mei)
+ -o, --outfile <s>     Output file name (use "-" for standard output)
+ -p, --page <i>        Select the page to engrave (default is 1)
+ -r, --resources <s>   Path to SVG resources (default is /usr/local/share/verovio)
+ -s, --scale <i>       Scale percent (default is 100)
+ -t, --type <s>        Select output format: mei, svg, or midi (default is svg)
+ -v, --version         Display the version number
+ -x, --xml-id-seed <i> Seed the random number generator for XML IDs
+
+Input and page layout options
+ --adjust-page-height              Crop the page height to the height of the content
+ --breaks <s>                      Define page and system breaks layout (default: "auto"; other values: "none", "encoded")
+ --even-note-spacing               Specify the linear spacing factor
+ --hum-type                        Include type attributes when importing from Humdrum
+ --landscape                       The landscape paper orientation flag
+ --mensural-to-measure             Convert mensural sections to measure-based MEI
+ --mm-output                       Specify that the output in the SVG is given in mm (default is px)
+ --no-footer                       Do not add any footer
+ --no-header                       Do not add any header
+ --no-justification                Do not justify the system
+ --page-height <i>                 The page height (default: 2970; min: 100; max: 60000)
+ --page-margin-bottom <i>          The page bottom margin (default: 50; min: 0; max: 500)
+ --page-margin-left <i>            The page left margin (default: 50; min: 0; max: 500)
+ --page-margin-right <i>           The page right margin (default: 50; min: 0; max: 500)
+ --page-margin-top <i>             The page top margin (default: 50; min: 0; max: 500)
+ --page-width <i>                  The page width (default: 2100; min: 100; max: 60000)
+ --unit <i>                        The MEI unit (1⁄2 of the distance between the staff lines) (default: 9; min: 6; max: 20)
+
+
+
+
+{
+	"NAME":	"barLineWidth",
+	"CAT":	"general layout",
+	"ARG":	"float",
+	"INFO":	"The width of a barline in MEI units",
+	"DEF":	0.30,
+	"MIN":	0.10,
+	"MAX":	0.80
+}, {
+	"NAME":	"beamMaxSlope",
+	"ARG":	"integer",
+	"INFO":	"The maximum beam slope",
+	"CAT":	"general layout",
+	"DEF":	10,
+	"MIN":	1,
+	"MAX":	20
+}, {
+	"NAME":	"beamMinSlope",
+	"ARG":	"integer",
+	"INFO":	"The minimum beam slope",
+	"CAT":	"general layout",
+	"DEF":	0,
+	"MIN":	0,
+	"MAX":	0
+}, {
+	"NAME":	"font",
+	"ARG":	"string",
+	"INFO":	"Set the music font",
+	"CAT":	"general layout",
+	"DEF":	"Leipzig"
+}, {
+	"NAME":	"graceFactor",
+	"CAT":	"general layout",
+	"ARG":	"float",
+	"INFO":	"The grace size ratio numerator",
+	"DEF":	0.75,
+	"MIN":	0.50,
+	"MAX":	1.00
+}, {
+	"NAME":	"graceRhythmAlign",
+	"ARG":	"none",
+	"INFO":	"Align grace notes rhythmically with all staves",
+	"CAT":	"general layout"
+}, {
+	"NAME":	"graceRightAlign",
+	"ARG":	"none",
+	"INFO":	"Align the right position of a grace group with all staves",
+	"CAT":	"general layout"
+}, {
+	"NAME":	"hairpinSize",
+	"CAT":	"general layout",
+	"ARG":	"float",
+	"INFO":	"The haripin size in MEI units",
+	"DEF":	3.00,
+	"MIN":	1.00,
+	"MAX":	8.00
+}, {
+	"NAME":	"leftPosition",
+	"CAT":	"general layout",
+	"ARG":	"float",
+	"INFO":	"The left position",
+	"DEF":	0.80,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"lyricHyphenWidth",
+	"CAT":	"general layout",
+	"ARG":	"float",
+	"INFO":	"The lyric hyphen and dash width",
+	"DEF":	0.20,
+	"MIN":	0.10,
+	"MAX":	0.50
+}, {
+	"NAME":	"lyricSize",
+	"CAT":	"general layout",
+	"ARG":	"float",
+	"INFO":	"The lyrics size in MEI units",
+	"DEF":	4.50,
+	"MIN":	2.00,
+	"MAX":	8.00
+}, {
+	"NAME":	"lyricTopMinMargin",
+	"CAT":	"general layout",
+	"ARG":	"float",
+	"INFO":	"The minmal margin above the lyrics in MEI units",
+	"DEF":	2.00,
+	"MIN":	0.00,
+	"MAX":	8.00
+}, {
+	"NAME":	"minMeasureWidth",
+	"ARG":	"integer",
+	"INFO":	"The minimal measure width in MEI units",
+	"CAT":	"general layout",
+	"DEF":	15,
+	"MIN":	1,
+	"MAX":	30
+}, {
+	"NAME":	"measureNumber",
+	"ARG":	"string",
+	"INFO":	"The measure numbering rule (unused)",
+	"CAT":	"general layout",
+	"DEF":	"system"; other values: "interval"
+}, {
+	"NAME":	"slurControlPointsr",
+	"ARG":	"integer",
+	"INFO":	"Slur control points - higher value means more curved at the end",
+	"CAT":	"general layout",
+	"DEF":	5,
+	"MIN":	1,
+	"MAX":	10
+}, {
+	"NAME":	"slurCurveFactor",
+	"ARG":	"integer",
+	"INFO":	"Slur curve factor - high value means rounder slurs",
+	"CAT":	"general layout",
+	"DEF":	10,
+	"MIN":	1,
+	"MAX":	100
+}, {
+	"NAME":	"slurHeightFactor",
+	"ARG":	"integer",
+	"INFO":	"Slur height factor -  high value means flatter slurs",
+	"CAT":	"general layout",
+	"DEF":	5,
+	"MIN":	1,
+	"MAX":	100
+}, {
+	"NAME":	"slurMinHeight",
+	"CAT":	"general layout",
+	"ARG":	"float",
+	"INFO":	"The minimum slur height in MEI units",
+	"DEF":	1.20,
+	"MIN":	0.30,
+	"MAX":	2.00
+}, {
+	"NAME":	"slurMaxHeight",
+	"CAT":	"general layout",
+	"ARG":	"float",
+	"INFO":	"The maximum slur height in MEI units",
+	"DEF":	3.00,
+	"MIN":	2.00,
+	"MAX":	6.00
+}, {
+	"NAME":	"slurMaxSlope",
+	"ARG":	"integer",
+	"INFO":	"The maximum slur slope in degrees",
+	"CAT":	"general layout",
+	"DEF":	20,
+	"MIN":	0,
+	"MAX":	45
+}, {
+	"NAME":	"slurThickness",
+	"CAT":	"general layout",
+	"ARG":	"float",
+	"INFO":	"The slur thickness in MEI units",
+	"DEF":	0.60,
+	"MIN":	0.20,
+	"MAX":	1.20
+}, {
+	"NAME":	"spacingLinear",
+	"CAT":	"general layout",
+	"ARG":	"float",
+	"INFO":	"Specify the linear spacing factor",
+	"DEF":	0.25,
+	"MIN":	0.00,
+	"MAX":	1.00
+}, {
+	"NAME":	"spacingNonLinear",
+	"CAT":	"general layout",
+	"ARG":	"float",
+	"INFO":	"Specify the non-linear spacing factor",
+	"DEF":	0.60,
+	"MIN":	0.00,
+	"MAX":	1.00
+}, {
+	"NAME":	"spacingStaff",
+	"ARG":	"integer",
+	"INFO":	"The staff minimal spacing in MEI units",
+	"CAT":	"general layout",
+	"DEF":	8,
+	"MIN":	0,
+	"MAX":	24
+}, {
+	"NAME":	"spacingSystem",
+	"ARG":	"integer",
+	"INFO":	"The system minimal spacing in MEI units",
+	"CAT":	"general layout",
+	"DEF":	3,
+	"MIN":	0,
+	"MAX":	12
+}, {
+	"NAME":	"staffLineWidth",
+	"CAT":	"general layout",
+	"ARG":	"float",
+	"INFO":	"The staff line width in unit",
+	"DEF":	0.15,
+	"MIN":	0.10,
+	"MAX":	0.30
+}, {
+	"NAME":	"stemWidth",
+	"CAT":	"general layout",
+	"ARG":	"float",
+	"INFO":	"The stem width",
+	"DEF":	0.20,
+	"MIN":	0.10,
+	"MAX":	0.50
+}, {
+	"NAME":	"tieThickness",
+	"CAT":	"general layout",
+	"ARG":	"float",
+	"INFO":	"The tie thickness in MEI units",
+	"DEF":	0.50,
+	"MIN":	0.20,
+	"MAX":	1.00
+}, {
+	"NAME":	"appXPathQuery",
+	"CAT":	"element selectors",
+	"ARG":	"string",
+	"INFO":	"Set the xPath query for selecting <app> child elements. By default the <lem> or the first <rdg> is selected.",
+	EXAM:	"./rdg[contains(@source, 'source-id')]"
+}, {
+	"NAME":	"choiceXPathQuery",
+	"CAT":	"element selectors",
+	"ARG":	"string",
+	"INFO":	"Set the xPath query for selecting <choice> child elements. By default the first child is selected.",
+	EXAM:	"./orig"
+}, {
+	"NAME":	"mdivXPathQuery",
+	"CAT":	"element selectors",
+	"ARG":	"string",
+	"INFO":	"Set the xPath query for selecting the <mdiv> to be rendered; only one <mdiv> can be rendered.",
+	"DEF":	""
+}, {
+	"NAME":	"substXPathQuery",
+	"CAT":	"element selectors",
+	"ARG":	"string",
+	"INFO":	"Set the xPath query for selecting <subst> child elements.  By default the first child is selected.",
+	EXAM:	"./del"
+}, {
+	"NAME":	"defaultBottomMargin",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The default bottom margin",
+	"DEF":	0.50,
+	"MIN":	0.00,
+	"MAX":	5.00
+}, {
+	"NAME":	"defaultLeftMargin",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The default left margin",
+	"DEF":	0.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"defaultRightMargin",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The default right margin",
+	"DEF":	0.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"defaultTopMargin",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The default top margin",
+	"DEF":	0.50,
+	"MIN":	0.00,
+	"MAX":	6.00
+}, {
+	"NAME":	"leftMarginAccid",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The margin for accid in MEI units",
+	"DEF":	1.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"leftMarginBarLine",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The margin for barLine in MEI units",
+	"DEF":	0.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"leftMarginBeatRpt",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The margin for beatRpt in MEI units",
+	"DEF":	2.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"leftMarginChord",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The margin for chord in MEI units",
+	"DEF":	1.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"leftMarginClef",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The margin for clef in MEI units",
+	"DEF":	1.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"leftMarginKeySig",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The margin for keySig in MEI units",
+	"DEF":	1.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"leftMarginLeftBarLine",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The margin for left barLine in MEI units",
+	"DEF":	1.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"leftMarginMensur",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The margin for mensur in MEI units",
+	"DEF":	1.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"leftMarginMeterSig",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The margin for meterSig in MEI units",
+	"DEF":	1.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"leftMarginMRest",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The margin for mRest in MEI units("DEF":	0.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"leftMarginMRpt2",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The margin for mRpt2 in MEI units",
+	"DEF":	0.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"leftMarginMultiRest",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The margin for multiRest in MEI units",
+	"DEF":	0.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"leftMarginMultiRpt",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The margin for multiRpt in MEI units",
+	"DEF":	0.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"leftMarginNote",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The margin for note in MEI units",
+	"DEF":	1.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"leftMarginRest",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The margin for rest in MEI units",
+	"DEF":	1.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"leftMarginRightBarLine",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The margin for right barLine in MEI units",
+	"DEF":	1.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"rightMarginAccid",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The right margin for accid in MEI units",
+	"DEF":	0.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"rightMarginBarLine",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The right margin for barLine in MEI units",
+	"DEF":	0.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"rightMarginBeatRpt",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The right margin for beatRpt in MEI units",
+	"DEF":	0.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"rightMarginChord",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The right margin for chord in MEI units",
+	"DEF":	0.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"rightMarginClef",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The right margin for clef in MEI units",
+	"DEF":	1.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"rightMarginKeySig",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The right margin for keySig in MEI units",
+	"DEF":	1.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"rightMarginLeftBarLine",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The right margin for left barLine in MEI units",
+	"DEF":	1.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"rightMarginMensur",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The right margin for mensur in MEI units",
+	"DEF":	1.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"rightMarginMeterSig",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The right margin for meterSig in MEI units",
+	"DEF":	1.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"rightMarginMRest",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The right margin for mRest in MEI units",
+	"DEF":	0.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"rightMarginMRpt2",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The right margin for mRpt2 in MEI units",
+	"DEF":	0.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"rightMarginMultiRest",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The right margin for multiRest in MEI units",
+	"DEF":	0.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"rightMarginMultiRpt",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The right margin for multiRpt in MEI units",
+	"DEF":	0.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"rightMarginNote",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The right margin for note in MEI units",
+	"DEF":	0.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"rightMarginRest",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The right margin for rest in MEI units",
+	"DEF":	0.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}, {
+	"NAME":	"rightMarginRightBarLine",
+	"CAT":	"element margins",
+	"ARG":	"float",
+	"INFO":	"The right margin for right barLine in MEI units",
+	"DEF":	0.00,
+	"MIN":	0.00,
+	"MAX":	2.00
+}
+
+
+
+

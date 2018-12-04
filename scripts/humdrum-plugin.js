@@ -389,6 +389,14 @@ function extractVerovioOptions(opts) {
 		output.spacingNonLinear = opts.spacingNonLinear;
 	}
 
+	if (opts.hasOwnProperty("spacingStaff")) {
+		output.spacingStaff = opts.spacingStaff;
+	}
+
+	if (opts.hasOwnProperty("spacingSystem")) {
+		output.spacingSystem = opts.spacingSystem;
+	}
+
 	if (opts.hasOwnProperty("spacingLinear")) {
 		output.spacingLinear = opts.spacingLinear;
 	}
