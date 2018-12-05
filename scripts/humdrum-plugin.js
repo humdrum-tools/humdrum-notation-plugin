@@ -223,8 +223,6 @@ function displaySvg(toolkit, container) {
 
 	// Add more default options here
 
-	console.log("OPTIONS USED ARE", vrvOptions);
-
 	var target = container.querySelector("#" + baseid + "-svg");
 	var svg = toolkit.renderData(sourcetext, vrvOptions);
 	target.innerHTML = svg;

@@ -2,62 +2,51 @@
 vim:	ts=3
 ---
 
-{% include style.html %}
-{% include music-banner.html %}
-{% include plugin-setup.html %}
+{% include default-header.html %}
 
 
 
 # Introduction #
 
 
-This website hosts a javascript plugin that allows you to display
-Humdrum data as graphical musical notation on any webpage.  Here is an example
-usage of the plugin to display J.N.&nbsp;Hummel's prelude in D-flat major, op.&nbsp;67/15:
+This website documents a javascript plugin that allows you to display
+graphical musical notation on any webpage. The notation is generated from
+embedded <a target="_blank" href="https://www.humdrum.org">Humdrum</a>
+data stored within the webpage.  Here is an example usage of the plugin
+to display all ten measures J.N.&nbsp;Hummel's prelude in D-flat major,
+op.&nbsp;67/15:
 
 {% include_relative hummel-example.txt %}
 
-
-The above music notation was generated dynamically within the browser from
-<a target="_blank" href="hummel-prelude-op67n15.txt">musical data</a>
-stored within the webpage in the <a target="_blank" href="https://www.humdrum.org">Humdrum
-file format</a>.
-
-
-Multiple notation examples can be shown on the same page and editing the Humdrum
-data on the page will dynamically update the corresponding music notation.
-In addition, the Humdrum data can be hidden, showing only the graphical
-music notation.
+The above music notation was generated dynamically inside of your
+web browser as the page was loaded, using a <a target="_blank"
+href="hummel-prelude-op67n15.txt">digital score</a> stored inside the
+webpage.  Multiple notation examples can be shown on the same page,
+and music data can also be loaded from outside of the webpage.
 
 
 
 # Setup #
 
 
-To use the Humdrum notation plugin on a webpage, add the following
-lines of HTML code at the top of your webpage (preferably in the `<head>` section):
+To use the Humdrum notation plugin on a webpage, copy the following 
+lines of text into your webpage:
 
 ```html
 <script src="https://verovio-script.humdrum.org/scripts/verovio-toolkit.js"></script>
 <script src="https://plugin.humdrum.org/scripts/humdrum-plugin.js"></script>
+<script>var vrvToolkit = new verovio.toolkit()</script>
 ```
 
-The first line loads the <a target="_blank" href="http://www.verovio.org">verovio
-toolkit</a> that is used to convert a Humdrum score into an SVG
-image of the music notation, and the second line loads the plugin
-itself.  If you want to guarantee a stable setup, then copy these
-two javascript files into your website (and update periodically as
-needed with the latest version of verovio and/or the plugin).
-
-Then add the following script after the above two lines if the 
-verovio toolkit is not already initialized somewhere else on your webpage:
-
-```html
-<script>
-   var vrvToolkit = new verovio.toolkit();
-</script>
-```
-
+The first line loads the <a target="_blank"
+href="http://www.verovio.org">verovio toolkit</a> that is used to convert
+a Humdrum score into an SVG image, and the second line loads the plugin
+itself.  If you want to guarantee a stable setup, then copy these two
+javascript files into your website (and update periodically as needed
+with the latest version of verovio and/or the plugin).  The last 
+line of the setup code is a short javascript program that initializes
+the verovio toolkit on the webpage so that it can be used by the
+Humdrum notation plugin.
 
 
 # Display some music #
@@ -80,64 +69,31 @@ and (2) a corresponding Humdrum data script on the page, such as:
 
 ```html
 <script type="text/x-humdrum" id="example">
-**kern
-*M4/4
-=1-
-4c
-8dL
-8eJ
-4f
-4g
-=
-*-
+{% include_relative example.krn -%}
 </script>
 ```
+
+Here is the resulting display for the above plugin code:
+
+{% include_relative short-example.txt %}
+
+
+## Required source parameter ##
 
 For the input to `displayHumdrum()`, the `source` parameter is required,
-and it must be set to the id of the Humdrum content script.  In this case the
-value is `example` since the `id` of the humdrum data is `example`.
+and it must be set to the id of the Humdrum content script.  In this case
+the value is `example` since the `id` of the humdrum data is `example`.
 
-The `renderer` parameter specifies the variable name of the verovio toolkit.  This parameter can be omitted if its variable name is `vrvToolkit`.  So a
-minimal example using the standard setup described above would be:
+## Default render parameter ##
+
+The `renderer` parameter specifies the variable name of the verovio
+toolkit.  This parameter can be omitted if its variable name is
+`vrvToolkit`.  So a minimal example using the standard setup described
+above would be:
 
 ```html
-<script>
-   displayHumdrum({source: "example"});
-</script>
-<script type="text/x-humdrum" id="example">
-**kern
-*M4/4
-=1-
-4c
-8dL
-8eJ
-4f
-4g
-=
-*-
-</script>
+{% include_relative short-example.txt -%}
 ```
-
-Here is the resulting display for the above example plugin code:
-
-<script>
-displayHumdrum({
-	source:   "example",
-	renderer: vrvToolkit
-});
-</script>
-<script type="text/x-humdrum" id="example">
-**kern
-*M4/4
-=1-
-4c
-8dL
-8eJ
-4f
-4g
-=
-*-
-</script>
 
 
 
@@ -149,13 +105,16 @@ web browser:
 
 
 ```html
-{% include_relative example.html %}
+{% include_relative example2.html -%}
 ```
 
 
-The browser display should look something like:
+(or <a target="_blank" href="example.html"> click here</a> to view it
+online).  Notice that the function call `displayHumdrum()` can be moved
+into the same script as the one that initializes the verovio toolkit.
+After opening the webpage in a browser, it should look something like:
 
-<img src="/images/example.png">
+<img style="border: 1px solid #999999; border-radius: 3px; box-shadow: 10px 10px 5px #cccccc;" src="/images/example.png">
 
 
 
