@@ -1,0 +1,38 @@
+<script>
+// vim: ts=3
+// 
+// Highlight pitch classes in Hummel example on main page
+//
+
+
+
+//////////////////////////////
+//
+// highlightPitchClasses -- When the mouse is moved over a note in Humdrum-generated
+//   notation, similar pitch classes in the notation will be highlighted.
+//
+
+function highlightPitchClasses(id) {
+	var humcontainer = document.querySelector("#" + id + "-container");
+	if (!humcontainer) {
+		console.log("Cannot find humdrum plugin container for", id);
+		return;
+	}
+	var svgcontainer = humcontainer.querySelector("#" + id + "-svg");
+	if (!svgcontainer) {
+		console.log("Cannot find SVG image container for", id);
+		return;
+	}
+	var svg = svgcontainer.querySelector("svg");
+	if (!svg) {
+		console.log("Cannot find SVG image for", id);
+		return;
+	}
+
+	console.log("+++++++++++++++++++++++++++ SVG:", svg);
+
+
+}
+
+
+</script>

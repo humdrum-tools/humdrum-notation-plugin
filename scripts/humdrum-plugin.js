@@ -7,8 +7,8 @@
 // vim:           ts=3
 //
 //	This script sets up an editiable humdrum text region
-//	on a webpage plus a dynamcially calculated SVG image 
-//	generated from the humdrum text using verovio. 
+//	on a webpage plus a dynamcially calculated SVG image
+//	generated from the humdrum text using verovio.
 //
 //	Input parameters for plugin styling:
 //		tabsize:            default none (browser default)
@@ -46,7 +46,8 @@
 //
 
 function displayHumdrum(opts) {
-	if (document.readyState === "complete" || document.readyState === "loaded" || document.readyState === "interactive") {
+	if (document.readyState === "complete" || document.readyState === "loaded"
+			|| document.readyState === "interactive") {
      	displayHumdrumNow(opts);
 	} else {
 		// Wait until the page has finished loading resources.
@@ -75,7 +76,7 @@ function displayHumdrumNow(opts) {
 	}
 	var source = document.querySelector("#" + sourceid);
 	if (!source) {
-		console.log("Error: Humdrum source location " + 
+		console.log("Error: Humdrum source location " +
 				sourceid + " cannot be found.");
 		return;
 	}
@@ -152,11 +153,25 @@ function displaySvg(toolkit, container) {
 		exit(1);
 	}
 	var sourcetext = source.textContent.replace(/^\s+/sm, "");
+
+	if (sourcetext.match(/^\s*$/)) {
+		// No data so don't try to render.
+		// One problem may be that URL downloading is not suppressing display
+		// of music until after URL data has been downloaded, so check on that.
+		return;
+	}
+
 	var options = container.querySelector("#" + baseid + "-options");
+
+	
+	var pluginOptions = {};
 	var vrvOptions = {};
 	if (options) {
-		vrvOptions = JSON.parse(options.textContent);
-	} 
+		pluginOptions = JSON.parse(options.textContent);
+		vrvOptions = extractVerovioOptions(pluginOptions);
+	}
+
+	sourcetext += getFilters(pluginOptions);
 
 	if (!vrvOptions.hasOwnProperty("scale")) {
 		// scale must be set before automatic pageWidth calculations
@@ -175,6 +190,10 @@ function displaySvg(toolkit, container) {
 
 	if (!vrvOptions.hasOwnProperty("pageHeight")) {
 		vrvOptions.pageHeight = 60000;
+	}
+	if (pluginOptions.incipit === "true" || pluginOptions.incipit === 1 ||
+			pluginOptions.incipit === true) {
+		vrvOptions.pageHeight = 100;
 	}
 
 	if (!vrvOptions.hasOwnProperty("spacingLinear")) {
@@ -225,7 +244,59 @@ function displaySvg(toolkit, container) {
 
 	var target = container.querySelector("#" + baseid + "-svg");
 	var svg = toolkit.renderData(sourcetext, vrvOptions);
+
 	target.innerHTML = svg;
+	if (pluginOptions.post) {
+		// Need to run a function after the image has been created
+		executeFunctionByName(pluginOptions.post, window, [baseid]);
+	}
+}
+
+
+
+//////////////////////////////
+//
+// getFilters -- Extract filters from the options and format for insertion
+//    onto the end of the Humdrum data inpt to verovio.
+//
+
+function getFilters(options) {
+	var filters = options.filter;
+	if (!filters) {
+		filters = options.filters;
+	}
+	if (!filters) {
+		return "";
+	}
+	if (Object.prototype.toString.call(filters) === "[object String]") {
+		filters = [filters];
+	} else if (Object.prototype.toString.call(filters) !== "[object Array]") {
+		// expected to be a string or array, so giving up
+		return "";
+	}
+	var output = "";
+	for (var i=0; i<filters.length; i++) {
+		output += "!!!filter: " + filters[i] + "\n";
+	}
+
+	return output;
+}
+
+
+
+//////////////////////////////
+//
+// executeFunctionByName --
+//
+
+function executeFunctionByName(functionName, context /*, args */) {
+  var args = Array.prototype.slice.call(arguments, 2);
+  var namespaces = functionName.split(".");
+  var func = namespaces.pop();
+  for(var i = 0; i < namespaces.length; i++) {
+    context = context[namespaces[i]];
+  }
+  return context[func].apply(context, args);
 }
 
 
@@ -257,18 +328,18 @@ function copyContentToContainer(target, sourceid) {
 // The main container is a div element with an ID that matches the ID of the
 // source Humdrum data script followed by an optional variant tag and then
 // the string "-container".
-// 
+//
 // Inside the main target div there are two elements of interest:
 //    (1) a div element with an similar ID that ends in "-options" rather
 //        than "-container".
 //    (2) a table element that contains the potentially visible Humdrum text
 //        that create the SVG image in one cell, and another cell that contains
 //        the SVG rendering of the Humdrum data.
-//        
+//
 //        The Humdrum data is stored within a pre element (may be changed later)
 //        that has an ID in the form of the container div, but with "-humdrum" as
 //        the extension for the ID.
-// 
+//
 //        The SVG image is stored in a div that has an ID that is similar to the
 //        containing element, but has "-svg" as an extension rather than "-container".
 //
@@ -307,10 +378,16 @@ function initializeTarget(target, opts) {
 	var output = "";
 	hvisible = opts["humdrumVisible"] == "true";
 
-	var vrvOptions = extractVerovioOptions(opts);
+	// convert function names into strings
+	if (opts.post) {
+		if ({}.toString.call(opts.post) === '[object Function]') {
+			opts.post = functionName(opts.post);
+		}
+	}
 
-	output += "<div class='humdrum-plugin' style='display:none;' id='" + opts.sourceId + "-options'>";
-	output += JSON.stringify(vrvOptions);
+	output += "<div class='humdrum-plugin' style='display:none;' id='";
+	output += opts.sourceId + "-options'>";
+	output += JSON.stringify(opts);
 	output += "</div>\n";
 
 	output += "<table class='humdrum-verovio'";
@@ -347,6 +424,20 @@ function initializeTarget(target, opts) {
 	output += "</table>\n";
 
 	target.innerHTML = output;
+}
+
+
+
+//////////////////////////////
+//
+// functionName --
+//
+
+function functionName(fun) {
+  var ret = fun.toString();
+  ret = ret.substr('function '.length);
+  ret = ret.substr(0, ret.indexOf('('));
+  return ret;
 }
 
 

@@ -6,7 +6,8 @@
 		source: "hummel-prelude-op67n15",
 		spacingStaff: 14,
 		spacingSystem: 0,
-		scale: 25
+		scale: 25,
+		post: highlightPitchClasses
 	});
 </script>
 

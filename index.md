@@ -3,6 +3,7 @@ vim:	ts=3
 ---
 
 {% include default-header.html %}
+{% include hummel-interaction.html %}
 
 
 
@@ -17,6 +18,7 @@ to display all ten measures J.N.&nbsp;Hummel's prelude in D-flat major,
 op.&nbsp;67/15:
 
 {% include_relative hummel-example.txt %}
+{% include hummel-interaction.html %}
 
 The above music notation was generated dynamically inside of your
 web browser as the page was loaded, using a <a target="_blank"
@@ -191,10 +193,9 @@ piano sonata repository</a>:
 # Options #
 
 
-This section will describe how to set verovio display options, and how
-to show/hide Humdrum text as well as position it above/below/left/right
-of the music notation.
+Here is a list of the options that can be given to `displayHumdrum()`:
 
+{% include options.md %}
 
 
 # Filters #
@@ -204,7 +205,8 @@ of the music notation.
 Humdrum Viewer filters</a> can be included within the Humdrum data
 to manipulate the final notation display.  Here is an example of
 using the <a target="_blank"
-href="http://doc.verovio.humdrum.org/filters/transpose">transpose</a> tool:
+href="http://doc.verovio.humdrum.org/filters/transpose">transpose</a> tool to 
+transpose music in C major to E-flat major:
 
 ```html
 {% include_relative transpose-example.txt %}
@@ -216,11 +218,12 @@ before the music notation is generated:
 
 {% include_relative transpose-example.txt %}
 
-Another useful filtering tool used in this example is the <a target="_blank"
-href="http://doc.verovio.humdrum.org/filters/autobeam">autobeam</a> tool, which
-was used in this example to beam the eighth notes together by
-quarter-note durations.  In this case the tools are used in separate filter lines, 
-but they can be given on the same line like this:
+Another useful filtering tool used
+in this example is the <a target="_blank"
+href="http://doc.verovio.humdrum.org/filters/autobeam">autobeam</a> tool,
+which connected eighth notes together by quarter-note durations based on
+the key signature.  In this case the tools are used in separate filter
+lines, but they can be given on the same line like this:
 
 ```
 !!!filter: transpose -k e- | autobeam
@@ -231,6 +234,43 @@ Other interesting filtering tools include
 extracting a range of measures from a longer example, and
 <a target="_blank" href="http://doc.verovio.humdrum.org/filters/extract">extract</a>
 for extracting parts or removing lyrics from the rendered musical notation.
+
+
+## Filter option ##
+
+One or more filter commands can be specified in the
+plugin input options.  Here is an example that downloads
+Obrecht's motet *Salve crux* from the <a target="_blank"
+href="https://github.com/josquin-research-project/jrp-scores">Josquin
+Research Project score repository</a>, and then a dissonance analysis
+of the musical data is done, followed by extracting measures 1&ndash;18
+from the full score, and then extracting only the bass part to display:
+
+
+```html
+{% include_relative obrecht.txt %}
+```
+
+The digital score downloaded from the `url` parameter does not contain any
+filtering instructions, but by adding the option:
+
+```javascript
+filter: "dissonant --colorize | myank -m 1-18 | extract -k 1"
+```
+
+the music will be processed by this filter before notation is generated from 
+the Humdrum data:
+
+{% include_relative obrecht.txt %}
+
+Colored notes form a dissonance with other voices in the polyphonic
+texture (blue means a seventh against another note, green is a second
+against another note, and red means the note forms forth with the
+lowest sounding note). The dissonant notes are labeled according to
+their function: `p` is a falling passing tone, `g` is a suspension agent (initiates
+a suspension, but is considered the consonant note of the suspension), and `v`
+is a descending accented passing tone.
+
 
 
 # TODO #
