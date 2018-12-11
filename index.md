@@ -292,6 +292,6 @@ is a descending accented passing tone.
 {% endcomment %}
 
 <div style="display:none" id="title-notation-source">
-!!!title: <a target="_blank" title="Pablo Casals playing the sarabande" href='https://www.youtube.com/watch?v=XEN-Xhx8aDA'>J.S. Bach cello suite no. 5 in C minor, BWV 1011, Sarabande</a>
+!!!title: <a target="_blank" title="Pablo Casals playing the sarabande" href='https://www.youtube.com/watch?v=XEN-Xhx8aDA'>J.S. Bach: Cello suite no. 5 in C minor, BWV 1011, Sarabande</a>
 {% include_relative bach-sarabande.krn %}
 </div>

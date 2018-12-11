@@ -1,0 +1,27 @@
+
+
+Here is an example of how to color the lyrics of a musical example.
+This is not controlled directly by the plugin, but rather with CSS
+styling of the resulting SVG image.
+
+
+
+
+```html
+{% include_relative lyricColor.txt %}
+```
+
+
+{% include_relative lyricColor.txt %}
+
+
+The SVG image generated from the musical data is placed into a div element
+that matches the ID of the target container, adding an extension of "-svg" to the
+base ID.  So in this case the CSS selector `#lyricColor-svg .verse tspan.text` means
+to find the container element for the SVG of this example, then within elements having 
+a class label of `verse`, set the style of the `tspan` elements that have a class label
+of `text` (i.e., where the lyrics are stored in the SVG imges).  In normal HTML content,
+text is colored using the `text` CSS attribute; however, in this case the SVG equivalent
+is to use `fill` (and for other type of elements, `stroke` may need to be set).
+
+

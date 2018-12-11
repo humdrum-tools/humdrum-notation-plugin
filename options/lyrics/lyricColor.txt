@@ -1,0 +1,15 @@
+<style>
+#lyricColor-svg .verse tspan.text,
+#lyricColor-svg .verse rect
+{
+   fill: red;
+}
+</style>
+<script>
+   displayHumdrum({
+      source: "lyricExample",
+      target: "lyricColor",
+      scale: 30,
+   });
+</script>
+<script type="text/x-humdrum" id="lyricColor"></script>

@@ -1,0 +1,1027 @@
+@@ Verovio version 2.0.0-dev-bd2039c option list
+@@ This file is converted into a JSON file (verovio-options.json) and
+@@ Then copied directly into ../scripts/humdrum-plugin.js for easier
+@@ portability.
+@@ 
+@@ Description of each possible paramter:
+@@
+@@ @@BEGIN     -- Start of OPTION record
+@@ @NAME       -- Name of the option
+@@ @ABBR       -- Abbreviation for option name (command-line version only)
+@@ @CAT        -- Option category
+@@ @INFO       -- Description of option
+@@ @ARG        -- Type of argument expected for option (none, string, integer, float)
+@@ @DEF        -- Default value of option
+@@ @MIN        -- Minimum value for option (for integer and float args)
+@@ @MAX        -- Maximum value for option (for integer and float args)
+@@ @ALT        -- Alternate argument values (for string args)
+@@ @EXAM       -- Example string argument for option
+@@ @REPEAT     -- True if option can be repeated
+@@ @CLI_ONLY   -- True if option is only applicable to the command-line version
+@@ @@END       -- End of OPTION record
+@@
+
+
+@@BEGIN: OPTION
+@NAME:	help
+@ABBR:	?
+@INFO:	Display help message
+@ARG:	none
+@CLI_ONLY:	true
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	allPages
+@ABBR:	a
+@INFO:	Output all pages
+@ARG:	none
+@CLI_ONLY:	true?
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	format
+@ABBR:	f
+@INFO:	Select input format
+@ARG:	string
+@DEF:	mei
+@ALT:	auto
+@ALT:	darms
+@ALT:	pae
+@ALT:	xml
+@ALT:	humdrum
+@ALT:	humdrum-xml
+@CLI_ONLY:	true?
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	outfile
+@ABBR:	o
+@INFO:	Output file name (use "-" for standard output)
+@ARG:	string
+@CLI_ONLY:	true
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	page
+@ABBR:	p
+@INFO:	Select the page to engrave
+@ARG:	integer
+@DEF:	1
+@MIN:	1
+@CLI_ONLY:	true
+@@ For the javascript version of the verovio toolkit, all pages
+@@ are calculated at the same time, and a separate function to the toolkit
+@@ is used to access a particular page.
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	resources
+@ABBR:	r
+@INFO:	Path to SVG resources
+@ARG:	string
+@DEF:	/usr/local/share/verovio
+@CLI_ONLY:	true
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	scale
+@ABBR:	s
+@INFO:	Scale percent
+@ARG:	integer
+@DEF:	100
+@MIN:	1
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	type
+@ABBR:	t
+@INFO:	Select output format
+@ARG:	string
+@DEF:	svg
+@ALT:	mei
+@ALT:	midi
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	version
+@ABBR:	v
+@INFO:	Display the version number
+@ARG:	none
+@CLI_ONLY:	true
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	xmlIdSeed
+@ABBR:	x
+@INFO:	See the random number generator for XML IDs
+@ARG:	integer
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	adjustPageHeight
+@CAT:	input and page layout options
+@INFO:	Crop the page height to the height of the content
+@ARG:	none
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	Breaks
+@CAT:	input and page layout options
+@INFO:	Define page and system breaks layout
+@ARG:	string
+@DEF:	auto
+@ALT:	encoded
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	evenNoteSpacing
+@CAT:	input and page layout options
+@INFO:	Specify the linear spacing factor
+@ARG:	none
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	humType
+@CAT:	input and page layout options
+@INFO:	Include type attributes when importing from Humdrum
+@ARG:	none
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	landscape
+@CAT:	input and page layout options
+@INFO:	The landscape paper orientation flag
+@ARG:	none
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	mensuralToMeasure
+@CAT:	input and page layout options
+@INFO:	Convert mensural sections to measure-based MEI
+@ARG:	none
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	mmOutput
+@CAT:	input and page layout options
+@INFO:	Specify that the output in the SVG is given in mm (default is px)
+@ARG:	none
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	noFooter
+@CAT:	input and page layout options
+@INFO:	Do not add any footer
+@ARG:	none
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	noHeader
+@CAT:	input and page layout options
+@INFO:	Do not add any header
+@ARG:	none
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	noJustification
+@CAT:	input and page layout options
+@INFO:	Do not justify the system
+@ARG:	none
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	pageHeight
+@CAT:	input and page layout options
+@INFO:	The page height
+@ARG:	integer
+@DEF:	2970
+@MIN:	100
+@MAX:	60000
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	pageMarginBottom
+@CAT:	input and page layout options
+@INFO:	The page bottom margin
+@ARG:	integer
+@DEF:	50
+@MIN:	0
+@MAX:	500
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	pageMarginLeft
+@CAT:	input and page layout options
+@INFO:	The page left margin (default: 50;
+@ARG:	integer
+@MIN:	0
+@MAX:	500
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	pageMarginRight
+@CAT:	input and page layout options
+@INFO:	The page right margin
+@ARG:	integer
+@DEF:	50
+@MIN:	0
+@MAX:	500
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	pageMarginTop
+@CAT:	input and page layout options
+@INFO:	The page top margin
+@ARG:	integer
+@DEF:	50
+@MIN:	0
+@MAX:	500
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	pageWidth
+@CAT:	input and page layout options
+@INFO:	The page width
+@ARG:	integer
+@DEF:	2100
+@MIN:	100
+@MAX:	60000
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	unit
+@CAT:	input and page layout options
+@INFO:	The MEI unit (1/2 of the distance between the staff lines)
+@ARG:	integer
+@DEF:	9
+@MIN:	6
+@MAX:	20
+@@END:	OPTION
+
+
+
+@@BEGIN: OPTION
+@NAME:	barLineWidth
+@CAT:	general layout
+@ARG:	float
+@INFO:	The width of a barline in MEI units
+@DEF:	0.30
+@MIN:	0.10
+@MAX:	0.80
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	beamMaxSlope
+@ARG:	integer
+@INFO:	The maximum beam slope
+@CAT:	general layout
+@DEF:	10
+@MIN:	1
+@MAX:	20
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	beamMinSlope
+@ARG:	integer
+@INFO:	The minimum beam slope
+@CAT:	general layout
+@DEF:	0
+@MIN:	0
+@MAX:	0
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	font
+@ARG:	string
+@INFO:	Set the music font
+@CAT:	general layout
+@DEF:	Leipzig
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	graceFactor
+@CAT:	general layout
+@ARG:	float
+@INFO:	The grace size ratio numerator
+@DEF:	0.75
+@MIN:	0.50
+@MAX:	1.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	graceRhythmAlign
+@ARG:	none
+@INFO:	Align grace notes rhythmically with all staves
+@CAT:	general layout
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	graceRightAlign
+@ARG:	none
+@INFO:	Align the right position of a grace group with all staves
+@CAT:	general layout
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	hairpinSize
+@CAT:	general layout
+@ARG:	float
+@INFO:	The haripin size in MEI units
+@DEF:	3.00
+@MIN:	1.00
+@MAX:	8.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	leftPosition
+@CAT:	general layout
+@ARG:	float
+@INFO:	The left position
+@DEF:	0.80
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	lyricHyphenWidth
+@CAT:	general layout
+@ARG:	float
+@INFO:	The lyric hyphen and dash width
+@DEF:	0.20
+@MIN:	0.10
+@MAX:	0.50
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	lyricSize
+@CAT:	general layout
+@ARG:	float
+@INFO:	The lyrics size in MEI units
+@DEF:	4.50
+@MIN:	2.00
+@MAX:	8.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	lyricTopMinMargin
+@CAT:	general layout
+@ARG:	float
+@INFO:	The minmal margin above the lyrics in MEI units
+@@ Official documentation from -? on command line says that
+@@ the default is 2.0, the min is 0.0 and the max is 8.0.
+@@ Studying the output from the javascript version of the toolkit
+@@ indicates that the default is 3.0, the min is 3.0 and the max is 8.0.
+@DEF:	3.00
+@MIN:	3.00
+@MAX:	8.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	minMeasureWidth
+@ARG:	integer
+@INFO:	The minimal measure width in MEI units
+@CAT:	general layout
+@DEF:	15
+@MIN:	1
+@MAX:	30
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	measureNumber
+@ARG:	string
+@INFO:	The measure numbering rule (unused)
+@CAT:	general layout
+@DEF:	system
+@ALT:	interval
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	slurControlPointsr
+@ARG:	integer
+@INFO:	Slur control points - higher value means more curved at the end
+@CAT:	general layout
+@DEF:	5
+@MIN:	1
+@MAX:	10
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	slurCurveFactor
+@ARG:	integer
+@INFO:	Slur curve factor - high value means rounder slurs
+@CAT:	general layout
+@DEF:	10
+@MIN:	1
+@MAX:	100
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	slurHeightFactor
+@ARG:	integer
+@INFO:	Slur height factor -  high value means flatter slurs
+@CAT:	general layout
+@DEF:	5
+@MIN:	1
+@MAX:	100
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	slurMinHeight
+@CAT:	general layout
+@ARG:	float
+@INFO:	The minimum slur height in MEI units
+@DEF:	1.20
+@MIN:	0.30
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	slurMaxHeight
+@CAT:	general layout
+@ARG:	float
+@INFO:	The maximum slur height in MEI units
+@DEF:	3.00
+@MIN:	2.00
+@MAX:	6.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	slurMaxSlope
+@ARG:	integer
+@INFO:	The maximum slur slope in degrees
+@CAT:	general layout
+@DEF:	20
+@MIN:	0
+@MAX:	45
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	slurThickness
+@CAT:	general layout
+@ARG:	float
+@INFO:	The slur thickness in MEI units
+@DEF:	0.60
+@MIN:	0.20
+@MAX:	1.20
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	spacingLinear
+@CAT:	general layout
+@ARG:	float
+@INFO:	Specify the linear spacing factor
+@DEF:	0.25
+@MIN:	0.00
+@MAX:	1.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	spacingNonLinear
+@CAT:	general layout
+@ARG:	float
+@INFO:	Specify the non-linear spacing factor
+@DEF:	0.60
+@MIN:	0.00
+@MAX:	1.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	spacingStaff
+@ARG:	integer
+@INFO:	The staff minimal spacing in MEI units
+@CAT:	general layout
+@DEF:	8
+@MIN:	0
+@MAX:	24
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	spacingSystem
+@ARG:	integer
+@INFO:	The system minimal spacing in MEI units
+@CAT:	general layout
+@DEF:	3
+@MIN:	0
+@MAX:	12
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	staffLineWidth
+@CAT:	general layout
+@ARG:	float
+@INFO:	The staff line width in unit
+@DEF:	0.15
+@MIN:	0.10
+@MAX:	0.30
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	stemWidth
+@CAT:	general layout
+@ARG:	float
+@INFO:	The stem width
+@DEF:	0.20
+@MIN:	0.10
+@MAX:	0.50
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	tieThickness
+@CAT:	general layout
+@ARG:	float
+@INFO:	The tie thickness in MEI units
+@DEF:	0.50
+@MIN:	0.20
+@MAX:	1.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	appXPathQuery
+@CAT:	element selectors
+@ARG:	string
+@INFO:	Set the xPath query for selecting <app> child elements. By default the <lem> or the first <rdg> is selected.
+@EXAM:	@./rdg[contains(@source, 'source-id')]
+@REPEAT:	true
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	choiceXPathQuery
+@CAT:	element selectors
+@ARG:	string
+@INFO:	Set the xPath query for selecting <choice> child elements. By default the first child is selected.
+@EXAM:	@./orig
+@REPEAT:	true
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	mdivXPathQuery
+@CAT:	element selectors
+@ARG:	string
+@INFO:	Set the xPath query for selecting the <mdiv> to be rendered; only one <mdiv> can be rendered.
+@DEF:	
+@REPEAT:	true
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	substXPathQuery
+@CAT:	element selectors
+@ARG:	string
+@INFO:	Set the xPath query for selecting <subst> child elements.  By default the first child is selected.
+@EXAM:	@./del
+@REPEAT:	true
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	defaultBottomMargin
+@CAT:	element margins
+@ARG:	float
+@INFO:	The default bottom margin
+@DEF:	0.50
+@MIN:	0.00
+@MAX:	5.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	defaultLeftMargin
+@CAT:	element margins
+@ARG:	float
+@INFO:	The default left margin
+@DEF:	0.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	defaultRightMargin
+@CAT:	element margins
+@ARG:	float
+@INFO:	The default right margin
+@DEF:	0.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	defaultTopMargin
+@CAT:	element margins
+@ARG:	float
+@INFO:	The default top margin
+@DEF:	0.50
+@MIN:	0.00
+@MAX:	6.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	leftMarginAccid
+@CAT:	element margins
+@ARG:	float
+@INFO:	The margin for accid in MEI units
+@DEF:	1.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	leftMarginBarLine
+@CAT:	element margins
+@ARG:	float
+@INFO:	The margin for barLine in MEI units
+@DEF:	0.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	leftMarginBeatRpt
+@CAT:	element margins
+@ARG:	float
+@INFO:	The margin for beatRpt in MEI units
+@DEF:	2.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	leftMarginChord
+@CAT:	element margins
+@ARG:	float
+@INFO:	The margin for chord in MEI units
+@DEF:	1.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	leftMarginClef
+@CAT:	element margins
+@ARG:	float
+@INFO:	The margin for clef in MEI units
+@DEF:	1.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	leftMarginKeySig
+@CAT:	element margins
+@ARG:	float
+@INFO:	The margin for keySig in MEI units
+@DEF:	1.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	leftMarginLeftBarLine
+@CAT:	element margins
+@ARG:	float
+@INFO:	The margin for left barLine in MEI units
+@DEF:	1.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	leftMarginMensur
+@CAT:	element margins
+@ARG:	float
+@INFO:	The margin for mensur in MEI units
+@DEF:	1.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	leftMarginMeterSig
+@CAT:	element margins
+@ARG:	float
+@INFO:	The margin for meterSig in MEI units
+@DEF:	1.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	leftMarginMRest
+@CAT:	element margins
+@ARG:	float
+@INFO:	The margin for mRest in MEI units
+@DEF:	0.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	leftMarginMRpt2
+@CAT:	element margins
+@ARG:	float
+@INFO:	The margin for mRpt2 in MEI units
+@DEF:	0.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	leftMarginMultiRest
+@CAT:	element margins
+@ARG:	float
+@INFO:	The margin for multiRest in MEI units
+@DEF:	0.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	leftMarginMultiRpt
+@CAT:	element margins
+@ARG:	float
+@INFO:	The margin for multiRpt in MEI units
+@DEF:	0.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	leftMarginNote
+@CAT:	element margins
+@ARG:	float
+@INFO:	The margin for note in MEI units
+@DEF:	1.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	leftMarginRest
+@CAT:	element margins
+@ARG:	float
+@INFO:	The margin for rest in MEI units
+@DEF:	1.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	leftMarginRightBarLine
+@CAT:	element margins
+@ARG:	float
+@INFO:	The margin for right barLine in MEI units
+@DEF:	1.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	rightMarginAccid
+@CAT:	element margins
+@ARG:	float
+@INFO:	The right margin for accid in MEI units
+@DEF:	0.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	rightMarginBarLine
+@CAT:	element margins
+@ARG:	float
+@INFO:	The right margin for barLine in MEI units
+@DEF:	0.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	rightMarginBeatRpt
+@CAT:	element margins
+@ARG:	float
+@INFO:	The right margin for beatRpt in MEI units
+@DEF:	0.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	rightMarginChord
+@CAT:	element margins
+@ARG:	float
+@INFO:	The right margin for chord in MEI units
+@DEF:	0.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	rightMarginClef
+@CAT:	element margins
+@ARG:	float
+@INFO:	The right margin for clef in MEI units
+@DEF:	1.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	rightMarginKeySig
+@CAT:	element margins
+@ARG:	float
+@INFO:	The right margin for keySig in MEI units
+@DEF:	1.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	rightMarginLeftBarLine
+@CAT:	element margins
+@ARG:	float
+@INFO:	The right margin for left barLine in MEI units
+@DEF:	1.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	rightMarginMensur
+@CAT:	element margins
+@ARG:	float
+@INFO:	The right margin for mensur in MEI units
+@DEF:	1.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	rightMarginMeterSig
+@CAT:	element margins
+@ARG:	float
+@INFO:	The right margin for meterSig in MEI units
+@DEF:	1.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	rightMarginMRest
+@CAT:	element margins
+@ARG:	float
+@INFO:	The right margin for mRest in MEI units
+@DEF:	0.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	rightMarginMRpt2
+@CAT:	element margins
+@ARG:	float
+@INFO:	The right margin for mRpt2 in MEI units
+@DEF:	0.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	rightMarginMultiRest
+@CAT:	element margins
+@ARG:	float
+@INFO:	The right margin for multiRest in MEI units
+@DEF:	0.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	rightMarginMultiRpt
+@CAT:	element margins
+@ARG:	float
+@INFO:	The right margin for multiRpt in MEI units
+@DEF:	0.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	rightMarginNote
+@CAT:	element margins
+@ARG:	float
+@INFO:	The right margin for note in MEI units
+@DEF:	0.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	rightMarginRest
+@CAT:	element margins
+@ARG:	float
+@INFO:	The right margin for rest in MEI units
+@DEF:	0.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
+@NAME:	rightMarginRightBarLine
+@CAT:	element margins
+@ARG:	float
+@INFO:	The right margin for right barLine in MEI units
+@DEF:	0.00
+@MIN:	0.00
+@MAX:	2.00
+@@END: OPTION
+
+

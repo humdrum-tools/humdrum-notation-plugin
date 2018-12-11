@@ -1,0 +1,32 @@
+
+
+
+The `lyricTopMinMargin` option controls spacing between lyrics and the
+music (or lyrics) above them.  The default spacing is 3.0 diatonic steps:
+
+
+```html
+{% include_relative lyricTopMinMargin-default.txt -%}
+```
+
+{% include_relative lyricTopMinMargin-default.txt %}
+
+The minimum spacing is 3.0:
+
+```html
+{% include_relative lyricTopMinMargin-min.txt -%}
+```
+
+{% include_relative lyricTopMinMargin-min.txt %}
+
+
+The maximum spacing is 8.0 diatonic steps:
+
+```html
+{% include_relative lyricTopMinMargin-max.txt -%}
+```
+
+{% include_relative lyricTopMinMargin-max.txt %}
+
+
+

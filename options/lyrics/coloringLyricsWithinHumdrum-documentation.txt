@@ -1,0 +1,19 @@
+
+
+Here is an example of how to color lyrics of a musical example using
+markup embedded directly into the Humdrum data.
+
+
+
+```html
+{% include_relative lyricColorHumdrum.txt %}
+```
+
+
+{% include_relative lyricColorHumdrum.txt %}
+
+
+Currently the color control must come before the start of the music.  In the
+future, coloring individual words will probably be implemented.
+
+

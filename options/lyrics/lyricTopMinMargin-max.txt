@@ -1,0 +1,10 @@
+<script>
+   displayHumdrum({
+      source: "lyricExample",
+      target: "lyricTopMinMargin-max",
+      incipit: true,
+      lyricTopMinMargin: 8.0,
+      scale: 30,
+   });
+</script>
+<script type="text/x-humdrum" id="lyricTopMinMargin-max"></script>

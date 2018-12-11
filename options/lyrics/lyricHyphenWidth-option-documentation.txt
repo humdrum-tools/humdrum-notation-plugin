@@ -1,0 +1,32 @@
+
+
+
+The `lyricHyphenWidth` option controls the thickness of hyphen
+word separators in lyrics.  The default is 0.2 diatonic steps:
+
+
+```html
+{% include_relative lyricHyphenWidth-default.txt -%}
+```
+
+{% include_relative lyricHyphenWidth-default.txt %}
+
+The minimum thickness is 0.1:
+
+```html
+{% include_relative lyricHyphenWidth-min.txt -%}
+```
+
+{% include_relative lyricHyphenWidth-min.txt %}
+
+
+The maximum thickness is 0.5 diatonic steps:
+
+```html
+{% include_relative lyricHyphenWidth-max.txt -%}
+```
+
+{% include_relative lyricHyphenWidth-max.txt %}
+
+
+

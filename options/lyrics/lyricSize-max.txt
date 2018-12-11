@@ -1,0 +1,10 @@
+<script>
+   displayHumdrum({
+      source: "lyricExample",
+      target: "lyricSize-max",
+      incipit: true,
+      lyricSize: 8,
+      scale: 30,
+   });
+</script>
+<script type="text/x-humdrum" id="lyricSize-max"></script>

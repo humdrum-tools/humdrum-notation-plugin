@@ -1,0 +1,41 @@
+<script>
+   displayHumdrum({
+      source: "lyricColorHumdrum",
+      scale: 30,
+   });
+</script>
+<script type="text/x-humdrum" id="lyricColorHumdrum">
+!!!OMD: Slow
+**kern	**text
+*k[b-e-a-d-]	*
+*M4/4	*
+*met(c)	*
+*	*color:hotpink
+4cc	If
+=1	=1
+(8dd-L	Mu-
+8ccJ)	.
+(8b-L	-sic
+8a-J)	.
+(8gL	be
+8a-J)	.
+(8b-L	the
+8ccJ)	.
+=2	=2
+(8b-L	food
+8a-J)	.
+(8gL	of
+8fJ)	.
+4.en	Love,
+8c	sing
+=3	=3
+4f	on,
+4f	sing
+4.a-	on,
+8f	sing
+=4	=4
+4cc	on,
+4cc	sing
+4.ee-	on,
+*-	*-
+</script>

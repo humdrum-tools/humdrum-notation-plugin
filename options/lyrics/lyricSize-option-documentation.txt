@@ -1,0 +1,36 @@
+
+
+
+The `lyricSize` option can be used to control the size of lyrics relative to
+the size of the music.  The default size is 4.5 diatonic steps:
+
+```html
+{% include_relative lyricSize-default.txt -%}
+```
+
+{% include_relative lyricSize-default.txt %}
+
+The minimum size is 2 diatonic steps:
+
+```html
+{% include_relative lyricSize-min.txt -%}
+```
+
+{% include_relative lyricSize-min.txt %}
+
+and maximum size is 8 diatonic steps:
+
+```html
+{% include_relative lyricSize-max.txt -%}
+```
+
+{% include_relative lyricSize-max.txt %}
+
+In this case the larger text forces the music to be spaced wider, so
+the `inicipit` option is given to prevent displaying the overflow music.
+Also notice that the tempo designation, **Slow** (and probably other types
+of text on the page), is affected by the `lyricSize` option.
+
+
+
+

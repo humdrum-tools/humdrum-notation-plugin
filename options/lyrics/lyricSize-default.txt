@@ -1,0 +1,8 @@
+<script>
+   displayHumdrum({
+      source: "lyricExample",
+      target: "lyricSize-default",
+      scale: 30
+   });
+</script>
+<script type="text/x-humdrum" id="lyricSize-default"></script>
