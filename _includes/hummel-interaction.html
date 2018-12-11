@@ -53,6 +53,7 @@ function highlightPitchClasses(id) {
 			var color = "red";
 			if (matches2) {
 				var pitchname = matches2[1];
+console.log("PITCH: ", pitchname);
 				if (pitchname === "c") {
 					color = "chartreuse";
 				} else if (pitchname === "d") {
@@ -70,9 +71,10 @@ function highlightPitchClasses(id) {
 				}
 			}
 			if (matches) {
-				var targetclass = matches[1];
+				var targetclass = "\\b" + matches[1] + "\\b";
+				var re = new RegExp(targetclass);
 				for (i=0; i<notes.length; i++) {
-					if (notes[i].getAttribute("class").match(targetclass)) {
+					if (notes[i].getAttribute("class").match(re)) {
 						notes[i].style.fill = color;
 					}
 				}

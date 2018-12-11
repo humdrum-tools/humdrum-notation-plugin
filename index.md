@@ -19,23 +19,32 @@ op.&nbsp;67/15:
 {% include hummel-interaction.html %}
 {% include_relative hummel-example.txt %}
 
-The above music notation was generated dynamically inside your
+The above music notation was created dynamically inside your
 web browser as the page was loaded, using this <a target="_blank"
 href="hummel-prelude-op67n15.txt">Humdrum score</a> stored as text inside
-the webpage.  The generated notation is displayed in an SVG image, which
-can allow interaction with the elements of the notation.  For example,
-the prelude has been made interactive using CSS and javascript code:
+the webpage.  The notation is displayed in an SVG image, which
+can allow interaction with elements of the notation.  For example
+the prelude has been made interactive by adding CSS and javascript code:
 try moving over a note in the music, which will highlight other notes
 in the score possessing the same pitch class.
 
-Using the same data, different views of the score can be generated.  Here
+Using the same data, different views of the score can be produced.  Here
 is an example of extracting the first three measures of the prelude
 and transposing to C major:
 
 {% include_relative hummel-example2.txt %}
 
-This example applies the <a href="#filters">Filter</a> `myank -m 1-3 | transpose -k c`
-to the full score to generate the transposed excerpt.
+This example applies the filter `myank -m 1-3 | transpose -k
+c` to the full score, generating a transposed excerpt.
+See the <a href="#filters">Filter section</a> of this
+documentation for more information, or the <a target="_blank"
+href="https://doc.verovio.humdrum.org/filters/index.html">filter documentation</a> for
+<a target="_blank" href="http://verovio.humdrum.org">Verovio Humdrum
+Viewer</a>, which is an online interactive music editor where you can
+prepare scores for use with the plugin.
+
+Feature requests and bug-reports can be submitted to the 
+<a target="_blank" href="https://github.com/humdrum-tools/humdrum-plugin/issues">issues page</a> of the humdrum-plugin repository on Github.
 
 # Setup #
 
