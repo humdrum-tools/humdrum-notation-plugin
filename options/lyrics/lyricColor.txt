@@ -1,9 +1,5 @@
 <style>
-#lyricColor-svg .verse tspan.text,
-#lyricColor-svg .verse rect
-{
-   fill: red;
-}
+#lyricColor-svg .verse tspan.text, #lyricColor-svg .verse rect { fill: red; }
 </style>
 <script>
    displayHumdrum({

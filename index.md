@@ -286,12 +286,12 @@ is a descending accented passing tone.
 
 {% comment %}
 	The following data is used to print some music in the header of this page.
-	The include file _includes/music-banner.html reads this data and create
+	The include file _includes/music-banner.html reads this data and creates
 	the notation in the header.  If there is a !!!title: record in the
 	Humdrum data below, then it will be placed above the musical example.
 {% endcomment %}
 
 <div style="display:none" id="title-notation-source">
 !!!title: <a target="_blank" title="Pablo Casals playing the sarabande" href='https://www.youtube.com/watch?v=XEN-Xhx8aDA'>J.S. Bach: Cello suite no. 5 in C minor, BWV 1011, Sarabande</a>
-{% include_relative bach-sarabande.krn %}
+{% include banner-scores/bach-sarabande.krn %}
 </div>
