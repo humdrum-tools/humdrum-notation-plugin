@@ -29,10 +29,65 @@ function highlightPitchClasses(id) {
 		return;
 	}
 
-	console.log("+++++++++++++++++++++++++++ SVG:", svg);
+	var i;
+	svg.addEventListener("mouseover", function(event) {
+		var elements = svg.querySelectorAll(":hover");
+		var sourcenote = null;
+		for (i=0; i<elements.length; i++) {
+			if (elements[i].nodeName != "g") {
+				continue;
+			}
+			var classname = elements[i].getAttribute("class");
+			if (classname.match(/\bnote\b/)) {
+				sourcenote = elements[i];
+			}
+		}
+		var notes = svg.querySelectorAll("g.note");
+		if (!sourcenote) {
+			for (i=0; i<notes.length; i++) {
+				notes[i].style.fill = "";
+			}
+		} else {
+			var matches = sourcenote.getAttribute("class").match(/(b40c-\d+)/);
+			var matches2 = sourcenote.getAttribute("class").match(/pname-([a-g])/);
+			var color = "red";
+			if (matches2) {
+				var pitchname = matches2[1];
+				if (pitchname === "c") {
+					color = "chartreuse";
+				} else if (pitchname === "d") {
+					color = "deepskyblue";
+				} else if (pitchname === "e") {
+					color = "red";
+				} else if (pitchname === "f") {
+					color = "gold";
+				} else if (pitchname === "g") {
+					color = "lightblue";
+				} else if (pitchname === "a") {
+					color = "mediumpurple";
+				} else if (pitchname === "b") {
+					color = "chocolate";
+				}
+			}
+			if (matches) {
+				var targetclass = matches[1];
+				for (i=0; i<notes.length; i++) {
+					if (notes[i].getAttribute("class").match(targetclass)) {
+						notes[i].style.fill = color;
+					}
+				}
+			}
+		}
+		
+	});
+
 
 
 }
 
 
 </script>
+
+
+
+

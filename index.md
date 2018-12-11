@@ -3,30 +3,39 @@ vim:	ts=3
 ---
 
 {% include default-header.html %}
-{% include hummel-interaction.html %}
 
 
 
 # Introduction #
 
 
-This website documents a javascript plugin that allows you to display
-graphical musical notation on any webpage. The notation is generated from
-embedded <a target="_blank" href="https://www.humdrum.org">Humdrum</a>
-data stored within the webpage.  Here is an example usage of the plugin
-to display all ten measures J.N.&nbsp;Hummel's prelude in D-flat major,
+This website documents a javascript plugin that allows you to display,
+on any webpage, graphical musical notation generated from
+<a target="_blank" href="https://www.humdrum.org">Humdrum</a>
+data embedded within the page.  Here is an example usage of the plugin
+to display all ten measures of J.N.&nbsp;Hummel's prelude in D-flat major,
 op.&nbsp;67/15:
 
-{% include_relative hummel-example.txt %}
 {% include hummel-interaction.html %}
+{% include_relative hummel-example.txt %}
 
-The above music notation was generated dynamically inside of your
-web browser as the page was loaded, using a <a target="_blank"
-href="hummel-prelude-op67n15.txt">digital score</a> stored inside the
-webpage.  Multiple notation examples can be shown on the same page,
-and music data can also be loaded from outside of the webpage.
+The above music notation was generated dynamically inside your
+web browser as the page was loaded, using this <a target="_blank"
+href="hummel-prelude-op67n15.txt">Humdrum score</a> stored as text inside
+the webpage.  The generated notation is displayed in an SVG image, which
+can allow interaction with the elements of the notation.  For example,
+the prelude has been made interactive using CSS and javascript code:
+try moving over a note in the music, which will highlight other notes
+in the score possessing the same pitch class.
 
+Using the same data, different views of the score can be generated.  Here
+is an example of extracting the first three measures of the prelude
+and transposing to C major:
 
+{% include_relative hummel-example2.txt %}
+
+This example applies the <a href="#filters">Filter</a> `myank -m 1-3 | transpose -k c`
+to the full score to generate the transposed excerpt.
 
 # Setup #
 

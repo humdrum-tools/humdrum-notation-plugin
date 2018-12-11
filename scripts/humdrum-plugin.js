@@ -930,7 +930,7 @@ function displayHumdrumNow(opts) {
 	var containerid = "";
 	var container;
 	if (opts.hasOwnProperty("url")) {
-		console.log("DOWNLOADING URL", opts.url);
+		// console.log("DOWNLOADING URL", opts.url);
 		// download data from URL, and then display downloaded contents.
 		opts.processedUrl = opts.url;
 		delete opts.url;
@@ -1163,17 +1163,20 @@ function getFilters(options) {
 
 //////////////////////////////
 //
-// executeFunctionByName --
+// executeFunctionByName -- Also allow variable names that store functions.
 //
 
 function executeFunctionByName(functionName, context /*, args */) {
-  var args = Array.prototype.slice.call(arguments, 2);
-  var namespaces = functionName.split(".");
-  var func = namespaces.pop();
-  for(var i = 0; i < namespaces.length; i++) {
-    context = context[namespaces[i]];
-  }
-  return context[func].apply(context, args);
+	var args = Array.prototype.slice.call(arguments, 2);
+	var namespaces = functionName.split(".");
+	var func = namespaces.pop();
+	for (var i = 0; i < namespaces.length; i++) {
+		context = context[namespaces[i]];
+		if (context && context[func]) {
+			break;
+		}
+	}
+	return context[func].apply(context, args);
 }
 
 
