@@ -40,7 +40,7 @@ default style for the lyrics:
 
 # Coloring lyrics with CSS #
 
-{% include_relative coloringLyricsWithCSS-documentation.txt %}
+{% include_relative coloringLyricsWithCss-documentation.txt %}
 
 
 
