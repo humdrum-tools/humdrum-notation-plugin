@@ -1,6 +1,4 @@
-<script>
-   displayHumdrum({source: "transpose"});
-</script>
+<script>displayHumdrum({source: "transpose"})</script>
 <script type="text/x-humdrum" id="transpose">
 **kern
 *M4/4

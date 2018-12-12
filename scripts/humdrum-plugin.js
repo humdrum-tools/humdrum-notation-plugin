@@ -1123,9 +1123,9 @@ function displaySvg(toolkit, container) {
 	var svg = toolkit.renderData(sourcetext, vrvOptions);
 
 	svgtarget.innerHTML = svg;
-	if (pluginOptions.post) {
+	if (pluginOptions.postFunction) {
 		// Need to run a function after the image has been created
-		executeFunctionByName(pluginOptions.post, window, [baseid]);
+		executeFunctionByName(pluginOptions.postFunction, window, [baseid]);
 	}
 }
 
@@ -1271,9 +1271,9 @@ function initializeContainer(container, opts) {
 	var targetid = container.id.replace(/-container$/, "");
 
 	// convert function names into strings
-	if (opts.post) {
-		if ({}.toString.call(opts.post) === '[object Function]') {
-			opts.post = functionName(opts.post);
+	if (opts.postFunction) {
+		if ({}.toString.call(opts.postFunction) === '[object Function]') {
+			opts.postFunction = functionName(opts.postFunction);
 		}
 	}
 

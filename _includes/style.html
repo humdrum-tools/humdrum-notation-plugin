@@ -1,6 +1,14 @@
 
 <style>
 
+header {
+	opacity: 0.97;
+}
+
+header h1 a {
+	color: white;
+}
+
 body {
 	text-shadow: none !important;
 	background: #f0f0f0;
@@ -44,6 +52,7 @@ h1:not(:first-of-type) {
 pre {
 	text-align: left;
 	tab-size: 24;
+	line-height: 1rem;
 }
 
 div#banner {
@@ -86,16 +95,15 @@ div#title a {
 	color: #ffcc00;
 }
 
+footer p:nth-child(2) { 
+	display: none;
+}
+
 @media print, screen and (max-width: 480px) { 
 	div#title {
 		display: none;
 	}
 }
-
-footer p:nth-child(2) { 
-	display: none;
-}
-
 
 </style>
 

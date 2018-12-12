@@ -1,8 +1,10 @@
 <script>
    displayHumdrum({
       source: "obrecht",
-      spacingStaff: 4,
-      scale: 33,
+      spacingStaff: 3,
+      spacingLinear: 0.27,
+      spacingNonLinear: 0.5,
+      scale: 31,
       url: "https://raw.githubusercontent.com/josquin-research-project/Obr/master/Obr2028-Salve_crux.krn",
       filter: "dissonant --colorize | myank -m 1-18 | extract -k 1"
    });

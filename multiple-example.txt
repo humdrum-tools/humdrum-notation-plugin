@@ -1,10 +1,6 @@
-<script>
-   displayHumdrum({source: "example1"});
-   displayHumdrum({source: "example2"});
-</script>
-
 Falling melody:
-<script type="text/x-humdrum" id="example2">
+<script>displayHumdrum({source: "example1"})</script>
+<script type="text/x-humdrum" id="example1">
 **kern
 *M4/4
 =1-
@@ -18,7 +14,8 @@ Falling melody:
 </script>
 
 Rising melody:
-<script type="text/x-humdrum" id="example1">
+<script>displayHumdrum({source: "example2"})</script>
+<script type="text/x-humdrum" id="example2">
 **kern
 *M4/4
 =1-

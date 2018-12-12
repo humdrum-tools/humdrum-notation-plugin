@@ -1,4 +1,4 @@
 <script>displayHumdrum({source: "example"})</script>
 <script type="text/x-humdrum" id="example">
-{% include_relative example.krn %}
+{% include_relative example.krn -%}
 </script>

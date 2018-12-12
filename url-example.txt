@@ -2,7 +2,8 @@
    displayHumdrum({
       source: "url-example1",
       scale: 32,
-      url: "sonata06-3a.krn"
+      header: true,
+      url: "sonata06-3a.txt"
    });
 </script>
 

@@ -1,17 +1,12 @@
-
-
 <script>
-// vim: ts=3
-	displayHumdrum({
-		source: "hummel-prelude-op67n15",
-		target: "hummel-extract",
-		spacingStaff: 14,
-		spacingSystem: 0,
-		scale: 29,
-		post: highlightPitchClasses,
-		filter: "myank -m 1-3 | transpose -k c"
-	});
+   displayHumdrum({
+      source: "hummel-prelude-op67n15",
+      target: "hummel-extract",
+      spacingStaff: 14,
+      spacingSystem: 0,
+      scale: 29,
+      postFunction: highlightPitchClasses,
+      filter: "myank -m 1-3 | transpose -k c"
+   });
 </script>
-
 <script type="text/x-humdrum" id="hummel-extract"></script>
-

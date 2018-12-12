@@ -1,9 +1,8 @@
 <script>
 // vim: ts=3
 // 
-// Highlight pitch classes in Hummel example on main page
+// Function to highlight pitch classes in Hummel example on main page.
 //
-
 
 
 //////////////////////////////
@@ -13,17 +12,7 @@
 //
 
 function highlightPitchClasses(id) {
-	var humcontainer = document.querySelector("#" + id + "-container");
-	if (!humcontainer) {
-		console.log("Cannot find humdrum plugin container for", id);
-		return;
-	}
-	var svgcontainer = humcontainer.querySelector("#" + id + "-svg");
-	if (!svgcontainer) {
-		console.log("Cannot find SVG image container for", id);
-		return;
-	}
-	var svg = svgcontainer.querySelector("svg");
+	var svg = document.querySelector("#" + id + "-svg svg");
 	if (!svg) {
 		console.log("Cannot find SVG image for", id);
 		return;
@@ -53,7 +42,6 @@ function highlightPitchClasses(id) {
 			var color = "red";
 			if (matches2) {
 				var pitchname = matches2[1];
-console.log("PITCH: ", pitchname);
 				if (pitchname === "c") {
 					color = "chartreuse";
 				} else if (pitchname === "d") {
@@ -82,14 +70,5 @@ console.log("PITCH: ", pitchname);
 		}
 		
 	});
-
-
-
 }
-
-
 </script>
-
-
-
-

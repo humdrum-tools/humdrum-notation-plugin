@@ -3,18 +3,13 @@
 <title>An example</title>
 <script src="https://verovio-script.humdrum.org/scripts/verovio-toolkit.js"></script>
 <script src="https://plugin.humdrum.org/scripts/humdrum-plugin.js"></script>
-<script>
-var vrvToolkit = new verovio.toolkit();
-displayHumdrum({source: "example"});
-</script>
+<script>var vrvToolkit = new verovio.toolkit()</script>
 </head>
 <body>
-
 <p>A musical example:</p>
-
+<script>displayHumdrum({source: "example"})</script>
 <script type="text/x-humdrum" id="example">
 {% include_relative example.krn -%}
 </script>
-
 </body>
 </html>

@@ -1,0 +1,15 @@
+---
+---
+<script>
+   displayHumdrum({
+      source: "hummel-prelude-op67n15",
+      spacingStaff: 14,
+      spacingSystem: 0,
+      scale: 25,
+      postFunction: highlightPitchClasses
+   });
+</script>
+
+<script type="text/x-humdrum" id="hummel-prelude-op67n15">
+{% include_relative hummel-prelude-op67n15.txt -%}
+</script>
