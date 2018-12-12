@@ -1,0 +1,4 @@
+<script>displayHumdrum({source: "chopin-color", scale:22})</script>
+<script type="text/x-humdrum" id="chopin-color">
+{% include_relative chopin-prelude28-3.krn -%}
+</script>

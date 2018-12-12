@@ -1,0 +1,21 @@
+<script>displayHumdrum({source: "rdf2", scale:50})</script>
+<script type="text/x-humdrum" id="rdf2">
+**kern
+*M4/4
+=1
+4c
+4d
+4e@
+4g
+=2
+8fL@
+8aJ@
+4g
+4a@
+4b@
+=3
+1c
+==
+*-
+!!!RDF**kern: @ = marked note, color=chartreuse
+</script>

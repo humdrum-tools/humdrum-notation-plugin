@@ -294,6 +294,11 @@ is a descending accented passing tone.
 
 
 
+# Topics #
+
+* <a href="coloring">How to highlight notes with color</a>
+
+
 # TODO #
 
 * Make examples interactive

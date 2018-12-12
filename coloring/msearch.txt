@@ -1,0 +1,22 @@
+<script>displayHumdrum({source: "msearch", scale:50})</script>
+<script type="text/x-humdrum" id="msearch">
+**kern
+*M4/4
+=1
+4c
+4d
+4e
+4g
+=2
+8fL
+8aJ
+4g
+4a
+4b
+=3
+1c
+==
+*-
+!!!filter: msearch -q cdeg
+!!!filter: msearch -q agab -c chartreuse -m N
+</script>

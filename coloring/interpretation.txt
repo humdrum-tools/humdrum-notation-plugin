@@ -1,0 +1,25 @@
+<script>displayHumdrum({source: "interpretation", scale:50})</script>
+<script type="text/x-humdrum" id="interpretation">
+**kern
+*M4/4
+=1
+4c
+*color:hotpink
+4d
+4e
+*color:crimson
+4g
+=2
+*color:darkorchid
+8fL
+8aJ
+*color:#3e8d1b
+4g
+4a
+*color:rgba(0,0,0,0.2)
+4b
+=3
+1ci
+==
+*-
+</script>

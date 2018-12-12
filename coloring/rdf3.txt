@@ -1,0 +1,25 @@
+<script>displayHumdrum({source: "rdf3", scale:50})</script>
+<script type="text/x-humdrum" id="rdf3">
+**kern
+*M4/4
+=1
+4cN
+4dZ
+4eN
+4g@
+=2
+8fL@
+8aJj
+4gj
+4a@
+4bZ
+=3
+1ci
+==
+*-
+!!!RDF**kern: @ = marked note
+!!!RDF**kern: i = marked note, color=goldenrod
+!!!RDF**kern: j = marked note, color=#ffaadd
+!!!RDF**kern: N = marked note, color=rgba(100,255,50,0.2)
+!!!RDF**kern: Z = marked note, color=chartreuse
+</script>
