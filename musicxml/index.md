@@ -70,7 +70,7 @@ The full address of the url is <a target="_blank" href="https://plugin.humdrum.o
 
 
 Note that filter commands can be added even when the input data is
-MusicXML.  The data is converted automaticaly into Humdrum data,
+MusicXML.  The data is converted automatically into Humdrum data,
 and then the filter line is added to the Humdrum data before being
 rendered into graphical music notation.  The filter pipe-line for
 this example means:
@@ -80,7 +80,7 @@ this example means:
 | myank     | -m&nbsp;0-5    | yank the first five measures of the music (0 means include the pickup-measure)
 | extract   | -i&nbsp;kern   | keep only the kern data spines (getting rid of lyrics and dynamics)
 | autobeam  |                | automatically beam the music by quarter notes (due to the 3/4 meter)
-| transpose | -b&nbsp;5      | tanspose music up a minor second (base-40 interval-class 5)
+| transpose | -b&nbsp;5      | transpose music up a minor second (base-40 interval-class 5)
 | satb2gs   |                | convert SATB system into a grand-staff system
 
 
