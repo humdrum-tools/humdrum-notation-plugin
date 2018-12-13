@@ -25,7 +25,7 @@
 //		border           default 50
 //		evenNoteSpacing  default 0
 //		font             default "Leipzig"
-//		inputFormat      default "auto"
+//		format           default "auto"
 //		# page           default 1
 //		# header         default 0
 //		# footer         default 0
@@ -885,8 +885,13 @@ function displayHumdrum(opts) {
 }
 
 
-function displayHumdrumNow(opts) {
 
+//////////////////////////////
+//
+// displayHumdrumNow -- Don't wait, presumably since the page has finished loading.
+//
+
+function displayHumdrumNow(opts) {
 	// Options should use "source", but code will convert internally to "sourceId":
 	if (opts.source && !opts.sourceId) {
 		opts.sourceId = opts.source;
@@ -971,7 +976,7 @@ function downloadHumdrumUrlData(source, opts) {
 	var request = new XMLHttpRequest();
 	request.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			source.textContent = this.responseText;
+			source.innerHTML = this.responseText;
 		}
 		displayHumdrumNow(opts);
 	};
@@ -1019,12 +1024,85 @@ function displaySvg(toolkit, container) {
 	var pluginOptions = {};
 	var vrvOptions = {};
 	if (options) {
-		pluginOptions = JSON.parse(options.textContent);
+		pluginOptions = JSON.parse(options.innerHTML);
 		vrvOptions = extractVerovioOptions(pluginOptions);
 	}
 
+	vrvOptions = insertDefaultOptions(vrvOptions, pluginOptions, container);
+
 	sourcetext += getFilters(pluginOptions);
 
+	var svgtarget = container.querySelector("#" + baseid + "-svg");
+	if (!svgtarget) {
+		console.log("Error: no container for SVG output image", "#" + baseid + "-svg");
+	}
+	var svg = toolkit.renderData(sourcetext, vrvOptions);
+
+	svgtarget.innerHTML = svg;
+	if (pluginOptions.postFunction) {
+		// Need to run a function after the image has been created
+		executeFunctionByName(pluginOptions.postFunction, window, [baseid]);
+	}
+}
+
+
+
+//////////////////////////////
+//
+// convertMusicXmlToHumdrum --
+//
+
+function convertMusicXmlToHumdrum(sourcetext, vrvOptions, pluginOptions) {
+	var toolkit = pluginOptions.renderer;
+	if (typeof vrvToolkit !== "undefined") {
+		toolkit = vrvToolkit;
+	}
+	if (!toolkit) {
+		console.log("Error: Cannot find verovio toolkit!");
+		return;
+	}
+	// format = input data type
+	vrvOptions.inputFormat = "musicxml-hum";
+	var svg = toolkit.renderData(sourcetext, vrvOptions);
+	// don't want SVG, but rather Humdrum:
+	var humdrum = toolkit.getHumdrum();
+	return humdrum;
+}
+
+
+
+//////////////////////////////
+//
+// convertMeiToHumdrum --
+//
+
+function convertMeiToHumdrum(sourcetext, vrvOptions, pluginOptions) {
+	var toolkit = pluginOptions.renderer;
+	if (typeof vrvToolkit !== "undefined") {
+		toolkit = vrvToolkit;
+	}
+	if (!toolkit) {
+		console.log("Error: Cannot find verovio toolkit!");
+		return;
+	}
+	// format = input data type
+	vrvOptions.inputFormat = "mei-hum";
+	var svg = toolkit.renderData(sourcetext, vrvOptions);
+	// don't want SVG, but rather Humdrum:
+	var humdrum = toolkit.getHumdrum();
+	console.log("HUMDRUM IS", humdrum);
+	return humdrum;
+}
+
+
+
+
+//////////////////////////////
+//
+// insertDefaultOptions --
+//
+
+function insertDefaultOptions(vrvOptions, pluginOptions, container) {
 
 	if (pluginOptions.header === "true" || pluginOptions.header === true) {
 		vrvOptions.noHeader = 0;
@@ -1060,6 +1138,9 @@ function displaySvg(toolkit, container) {
 		vrvOptions.barLineWidth = 0.12;
 	}
 	if (!vrvOptions.hasOwnProperty("inputFormat")) {
+		vrvOptions.inputFormat = "auto";
+	}
+	if (!vrvOptions.hasOwnProperty("format")) {
 		vrvOptions.inputFormat = "auto";
 	}
 
@@ -1116,19 +1197,8 @@ function displaySvg(toolkit, container) {
 		vrvOptions.noHeader = 1;
 	}
 
-	var svgtarget = container.querySelector("#" + baseid + "-svg");
-	if (!svgtarget) {
-		console.log("Error: no container for SVG output image", "#" + baseid + "-svg");
-	}
-	var svg = toolkit.renderData(sourcetext, vrvOptions);
-
-	svgtarget.innerHTML = svg;
-	if (pluginOptions.postFunction) {
-		// Need to run a function after the image has been created
-		executeFunctionByName(pluginOptions.postFunction, window, [baseid]);
-	}
+	return vrvOptions;
 }
-
 
 
 //////////////////////////////
@@ -1203,8 +1273,58 @@ function copyContentToContainer(container, sourceid) {
 		console.log("CANNOT FIND Humdrum container", "#" + targetid + "-humdrum");
 		return;
 	}
-	var content = source.textContent.replace(/^\s+/sm, "");
-	htarget.textContent = content;
+	var content = source.innerHTML.replace(/^\s+/sm, "");
+
+	var initial = content.substr(0, 600);
+	// Probably use the real plugin options here later:
+	var poptions = {};
+	var options;
+	if (initial.match(/^\s*</)) {
+		// some sort of XML junk, so convert to Humdrum
+		var ctype = "unknown";
+		if (initial.match(/<mei /)) {
+			ctype = "mei";
+		} else if (initial.match(/<mei>/)) {
+			ctype = "mei";
+		} else if (initial.match(/<music>/)) {
+			ctype = "mei";
+		} else if (initial.match(/<music /)) {
+			ctype = "mei";
+		} else if (initial.match(/<pages>/)) {
+			ctype = "mei";
+		} else if (initial.match(/<pages /)) {
+			ctype = "mei";
+		} else if (initial.match(/<score-partwise>/)) {
+			ctype = "musicxml";
+		} else if (initial.match(/<score-timewise>/)) {
+			ctype = "musicxml";
+		} else if (initial.match(/<opus>/)) {
+			ctype = "musicxml";
+		} else if (initial.match(/<score-partwise /)) {
+			ctype = "musicxml";
+		} else if (initial.match(/<score-timewise /)) {
+			ctype = "musicxml";
+		} else if (initial.match(/<opus /)) {
+			ctype = "musicxml";
+		}
+		if (ctype === "musicxml") {
+			// convert MusicXML data into Humdrum data
+			options = {
+				inputFormat: "musicxml-hum"
+			};
+			content = convertMusicXmlToHumdrum(content, options, poptions);
+		} else if (ctype === "mei") {
+			// convert MEI data into Humdrum data
+			options = {
+				inputFormat: "mei-hum"
+			};
+			content = convertMeiToHumdrum(content, options, poptions);
+		} else {
+			console.log("Warning: given some strange XML data:", sourcetext);
+		}
+	}
+
+	htarget.innerHTML = content;
 	htarget.style.display = "block";
 }
 

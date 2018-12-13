@@ -1,0 +1,182 @@
+!!!COM:	Felix Mendelssohn
+!!!OMV:	Trinklied
+!!!OTL:	Vier Lieder
+!!!OMD:	Allegro vivace
+**kern	**text	**text	**dynam	**kern	**text	**text	**kern	**text	**text	**kern	**text	**text
+*part4	*part4	*part4	*part4	*part3	*part3	*part3	*part2	*part2	*part2	*part1	*part1	*part1
+*staff4	*staff4	*staff4	*	*staff3	*staff3	*staff3	*staff2	*staff2	*staff2	*staff1	*staff1	*staff1
+*I"Bass 2	*	*	*	*I"Bass 1	*	*	*I"Tenor 2	*	*	*I"Tenor 1	*	*
+*clefF4	*	*	*	*clefF4	*	*	*clefGv2	*	*	*clefGv2	*	*
+*k[f#c#g#d#]	*	*	*	*k[f#c#g#d#]	*	*	*k[f#c#g#d#]	*	*	*k[f#c#g#d#]	*	*
+*M3/4	*	*	*	*M3/4	*	*	*M3/4	*	*	*M3/4	*	*
+8E	.	.	f	8E	1. So	2. Denn	8G#	.	.	8G#	1. So	2. Denn
+8E	.	.	.	8F#	lang	mei-	8A	.	.	8A	lang	mei-
+8E	.	.	.	8G#	man	-ne	8B	.	.	8B	man	-ne
+=1	=1	=1	=1	=1	=1	=1	=1	=1	=1	=1	=1	=1
+8.E	.	.	.	8.A	nüch-	Mei-	8.c#	.	.	8.c#	nüch-	Mei-
+16E	.	.	.	16G#	-tern	-nung	16B	.	.	16B	-tern	-nung
+8E	.	.	.	8F#	ist	ist	8A	.	.	8A	ist	ist
+8E	.	.	.	8G#	ge-	nicht	8B	.	.	8B	ge-	nicht
+8E	.	.	.	8A	-fällt	ü-	8c#	.	.	8c#	-fällt	ü-
+8E	.	.	.	8F#	das	-ber-	8B	.	.	8d#	das	-ber-
+=2	=2	=2	=2	=2	=2	=2	=2	=2	=2	=2	=2	=2
+4E^	.	.	.	4G#^	Schlech-	-trie-	4B^	.	.	4e^	Schlech-	-trie-
+8E	.	.	.	8G#	-te,	-ben:	8B	.	.	8B	-te,	-ben:
+8E	.	.	.	8E	wie	wenn	8B	.	.	8B	wie	wenn
+8E	.	.	.	8E	man	man	8B	.	.	8c#	man	man
+8E	.	.	.	8F#	ge-	nicht	8B	.	.	8d#	ge-	nicht
+=3	=3	=3	=3	=3	=3	=3	=3	=3	=3	=3	=3	=3
+8.E	.	.	.	8.G#	-trun-	trin-	8.B	.	.	8.e	-trun-	trin-
+16E	.	.	.	16F#	-ken	-ken	16B	.	.	16d#	-ken	-ken
+8E	.	.	.	8E	hat	kann	8B	.	.	8c#	hat	kann
+8E	.	.	.	8F#	weiss	soll	8B	.	.	8d#	weiss	soll
+8E	.	.	.	8G#	man	man	8B	.	.	8e	man	man
+8C#	.	.	.	8A#X	das	nicht	8e	.	.	8f#	das	nicht
+=4	=4	=4	=4	=4	=4	=4	=4	=4	=4	=4	=4	=4
+4BB	.	.	.	4B	Rech-	lie-	4e	.	.	4g#	Rech-	lie-
+4BB'	.	.	.	8BB	-te,	-ben,	4d#	.	.	4f#	-te,	-ben,
+.	.	.	.	8B	wie	wenn	.	.	.	.	.	.
+4r	.	.	.	8B	man	man	4r	.	.	4r	.	.
+.	.	.	.	8B	ge	nicht	.	.	.	.	.	.
+=5	=5	=5	=5	=5	=5	=5	=5	=5	=5	=5	=5	=5
+8.G#L	weiss	soll	<	8.B	trun-	trin-	8.eL	.	.	8.eL	weiss	soll
+16F#Jk	.	.	[	16A#X	-ken	-ken	16d#Jk	.	.	16d#Jk	.	.
+4E	man	man	.	8B	hat,	kann,	4c#	.	.	4c#	man	man
+.	.	.	.	8B	wie	wenn	.	.	.	.	.	.
+8r	.	.	.	8B	man	man	8r	.	.	8r	.	.
+8E	das	nicht	.	8B	ge-	nicht	8c#	.	.	8c#	das	nicht
+=6	=6	=6	=6	=6	=6	=6	=6	=6	=6	=6	=6	=6
+8.G#L	Rech-	lie-	<	8.B	-trun-	trin-	8.eL	.	.	8.eL	Rech-	lie-
+16F#Jk	.	.	[	16A#X	-ken	-ken	16d#Jk	.	.	16d#Jk	.	.
+4E	-te,	-ben,	.	8B	hat	kann	4c#	.	.	4c#	-te,	-ben,
+.	.	.	.	8B	weiss	soll	.	.	.	.	.	.
+4r	.	.	.	8B	man	man	4r	.	.	4r	.	.
+.	.	.	.	8B	das	nicht	.	.	.	.	.	.
+=7	=7	=7	=7	=7	=7	=7	=7	=7	=7	=7	=7	=7
+4G#	wie	wenn	<	[2.B	Rech-	lie-	4e	.	.	4e	wie	wenn
+4F#	man	man	.	.	.	.	4d#	.	.	4d#	man	man
+4E	ge-	nicht	.	.	.	.	4c#	.	.	4c#	ge-	nicht
+=8	=8	=8	=8	=8	=8	=8	=8	=8	=8	=8	=8	=8
+4.D#	-trun-	trin-	[	2B]	.	.	4.d#	.	.	4.d#	-trun-	trin-
+8D#	-ken	-ken	.	.	.	.	8d#	.	.	8d#	-ken	-ken
+4D#	hat	kann,	.	4A#X	-te,	-ben,	4c#	.	.	4d#	hat	kann,
+=9	=9	=9	=9	=9	=9	=9	=9	=9	=9	=9	=9	=9
+4G#	weiss	soll	.	2.r	.	.	8.BL	.	.	8.d#L	weiss	soll
+.	.	.	.	.	.	.	16A#XJk	.	.	16c#Jk	.	.
+4G#	man	man	.	.	.	.	8G#L	.	.	8BL	man	man
+.	.	.	.	.	.	.	8A#J	.	.	8c#J	.	.
+4G#	das	nicht	.	.	.	.	8BL	.	.	8d#L	das	nicht
+.	.	.	.	.	.	.	8c#J	.	.	8eJ	.	.
+=10	=10	=10	=10	=10	=10	=10	=10	=10	=10	=10	=10	=10
+2.F#	Rech-	lie-	<	4B	weiss	soll	4d#	Rech-	lie-	[2.f#	Rech-	lie-
+.	.	.	.	8A#X	man,	man,	8c#	-te,	-ben,	.	.	.
+.	.	.	.	8A#	weiss	soll	8c#	weiss	soll	.	.	.
+.	.	.	.	8B	man	man	8d#	man	man	.	.	.
+.	.	.	.	8c#	das	nicht	8e	das	nicht	.	.	.
+=11	=11	=11	=11	=11	=11	=11	=11	=11	=11	=11	=11	=11
+4BB	-te.	-ben.	[	4B	Re-	lie-	8.d#L	Rech-	lie-	8.f#L]	.	.
+.	.	.	.	.	.	.	16c#Jk	.	.	16eJk	.	.
+8r	.	.	.	4BB	-chte.	-ben.	4B	-te.	-ben.	4d#	-te.	-ben.
+8c#	Nur	Doch	.	.	.	.	.	.	.	.	.	.
+8F#	ist	sollt	.	4r	.	.	4r	.	.	4r	.	.
+8G#	das	ihr	.	.	.	.	.	.	.	.	.	.
+=12	=12	=12	=12	=12	=12	=12	=12	=12	=12	=12	=12	=12
+8.A	Ü-	Trin-	.	2.r	.	.	2.r	.	.	4r	.	.
+16G#	-ber-	-ker	.	.	.	.	.	.	.	.	.	.
+8F#	-maß	euch	.	.	.	.	.	.	.	8r	.	.
+8C#	auch	nicht	.	.	.	.	.	.	.	8c#	Nur	Doch
+8F#	gleich	bes-	.	.	.	.	.	.	.	8F#	ist	sollt
+8E#X	zu	-ser	.	.	.	.	.	.	.	8G#	das	ihr
+=13	=13	=13	=13	=13	=13	=13	=13	=13	=13	=13	=13	=13
+4F#	Han-	dün-	.	4r	.	.	4r	.	.	8.A	Ü-	Trin-
+.	.	.	.	.	.	.	.	.	.	16G#	-ber-	-ker
+4C#	-den;	-ken,	.	8r	.	.	8r	.	.	8F#	-maß	euch
+.	.	.	.	8c#	.	.	8c#	Nur	Doch	8c#	auch	nicht
+8r	.	.	.	8F#	.	.	8F#	ist	sollt	8f#	gleich	bes-
+8C#	das	nicht	.	8G#	.	.	8G#	das	ihr	8e#X	zu	-ser
+=14	=14	=14	=14	=14	=14	=14	=14	=14	=14	=14	=14	=14
+8.F#	Ü-	bes-	.	8.A	.	.	8.A	Ü-	Trin-	4f#	Han-	dün-
+16G#	-ber-	.	.	16G#	.	.	16G#	-ber-	-ker	.	.	.
+4A	-maß	-ser	.	8F#	.	.	8F#	-maß	euch	4c#	-den,	-ken,
+.	.	.	.	8c#	.	.	8c#	auch	nicht	.	.	.
+8r	.	.	.	8F#	.	.	8f#	gleich	bes-	8r	.	.
+8C#	das	nicht	.	8G#	.	.	8e#X	zu	-ser	8c#	das	nicht
+=15	=15	=15	=15	=15	=15	=15	=15	=15	=15	=15	=15	=15
+(8.A	Ü-	bes-	.	(8.A	.	.	4f#	Han-	dün-	(8.F#	Ü-	bes-
+16B)	-ber-	.	.	16G#)	.	.	.	.	.	16G#)	-ber-	.
+4c#	-maß	-ser	.	4F#	.	.	4c#	-den;	-ken,	4A	-maß;	-ser
+4r	.	.	.	4r	.	.	4r	.	.	4r	.	.
+=16	=16	=16	=16	=16	=16	=16	=16	=16	=16	=16	=16	=16
+4D#	.	.	f	4A	Ha-	wenn	4B	.	.	4f#	Ha-	wenn
+4D#	.	.	.	4A	-fis!	man	4B	.	.	4B	-fis!	man
+4E	.	.	.	4A	o	nicht	4B	.	.	4e	o	nicht
+=17	=17	=17	=17	=17	=17	=17	=17	=17	=17	=17	=17	=17
+8.F#	.	.	.	8.A	leh-	lie-	8.B	.	.	8.e	leh-	lie-
+16F#	.	.	.	16A	-re	-ben	16B	.	.	16d#	-re	-ben
+4F#	.	.	.	4A	mich	kann	4B	.	.	4d#	mich	kann
+4r	.	.	.	4r	.	.	4r	.	.	4r	.	.
+=18	=18	=18	=18	=18	=18	=18	=18	=18	=18	=18	=18	=18
+4D#	.	.	.	4A	wie	soll	4B	.	.	4f#	wie	soll
+4D#	.	.	.	4A	du's	man	4B	.	.	4B	du's	man
+4C#	.	.	.	4A	ver-	nicht	4B	.	.	4e	ver-	nicht
+=19	=19	=19	=19	=19	=19	=19	=19	=19	=19	=19	=19	=19
+4BB	.	.	.	4A	-stan-	trin-	4B	.	.	8.eL	-stan-	trin-
+.	.	.	.	.	.	.	.	.	.	16d#Jk	.	.
+4BB	.	.	.	4A	-den,	-ken,	4B	.	.	4d#	-den,	-ken,
+4r	.	.	.	4r	.	.	4r	.	.	4r	.	.
+=20	=20	=20	=20	=20	=20	=20	=20	=20	=20	=20	=20	=20
+!!LO:TX:a:B:t=Solo
+4E	.	.	p	4G#	Ha-	wenn	4e	.	.	4e	Ha-	wenn
+4E	.	.	.	4B	-fis!	man	4d#	.	.	4e	-fis!	man
+4E	.	.	.	4A	o	nicht	4c#	.	.	4e	o	nicht
+=21	=21	=21	=21	=21	=21	=21	=21	=21	=21	=21	=21	=21
+4.E	.	.	.	4.G#	leh-	lie-	4.B	.	.	4.e	leh-	lie-
+8E	.	.	.	8A	-re	-ben	8A	.	.	16d#LL	-re	-ben
+.	.	.	.	.	.	.	.	.	.	16c#JJ	.	.
+4E	.	.	.	4B	mich	kann	4G#	.	.	4B	mich	kann
+=22	=22	=22	=22	=22	=22	=22	=22	=22	=22	=22	=22	=22
+4C#	.	.	.	4E	wie	soll	4A#X	.	.	4A#X	wie	soll
+4C#	.	.	.	4E	du's	man	4A#	.	.	4c#	du's	man
+4C#	.	.	.	4E	ver-	nicht	4A#	.	.	4e	ver-	nicht
+=23	=23	=23	=23	=23	=23	=23	=23	=23	=23	=23	=23	=23
+2BB	.	.	.	2B	-stan-	trin-	2e	.	.	2g#	-stan-	trin-
+4BB	.	.	.	4A	-den,	-ken,	4d#	.	.	4f#	-den,	-ken,
+=24	=24	=24	=24	=24	=24	=24	=24	=24	=24	=24	=24	=24
+!!LO:TX:a:B:t=Tutti
+4E	.	.	f	4G#	Ha-	wenn	4e	.	.	4e	Ha-	wenn
+4E	.	.	.	4B	-fis!	man	4d#	.	.	4e	-fis!	man
+4E	.	.	.	4A	o	nicht	4c#	.	.	4e	o	nicht
+=25	=25	=25	=25	=25	=25	=25	=25	=25	=25	=25	=25	=25
+4.E	.	.	.	4.G#	leh-	lie-	4.B	.	.	4.e	leh-	lie-
+8E	.	.	.	8A	-re	-ben	8A	.	.	16d#LL	-re	-ben
+.	.	.	.	.	.	.	.	.	.	16c#JJ	.	.
+4E	.	.	.	4B	mich	kann	4G#	.	.	4B	mich	kann
+=26	=26	=26	=26	=26	=26	=26	=26	=26	=26	=26	=26	=26
+4C#	.	.	.	4E	wie	soll	4A#X	.	.	4A#X	wie	soll
+4C#	.	.	.	4E	du's	man	4A#	.	.	4c#	du's	man
+4C#	.	.	.	4A#X	ver-	nicht	4e	.	.	4e	ver-	nicht
+=27	=27	=27	=27	=27	=27	=27	=27	=27	=27	=27	=27	=27
+2BB	-stan-	trin-	.	2.B	-stan-	trin-	2e	-stan-	trin-	(2g#	-stan-	trin-
+4BB	-den,	-ken,	.	.	.	.	4d#	-den,	-ken,	4f#)	.	.
+=28	=28	=28	=28	=28	=28	=28	=28	=28	=28	=28	=28	=28
+!!LO:TX:a:B:t=ritard.
+4C#	wie	soll	.	2E	-den,	-ken,	4e	wie	soll	[2.e	-den.	-ken,
+4C#	du's	man	.	.	.	.	4e	du's	man	.	.	.
+4BB	ver-	nicht	.	4r	.	.	4d#	ver-	nicht	.	.	.
+=29	=29	=29	=29	=29	=29	=29	=29	=29	=29	=29	=29	=29
+2.AA	-stan-	trin-	.	4A	wie	soll	(2c#	-stan-	trin-	2.e_	.	.
+.	.	.	.	4E	du's	man	.	.	.	.	.	.
+.	.	.	.	4F#	ver-	nicht	4A)	.	.	.	.	.
+=30	=30	=30	=30	=30	=30	=30	=30	=30	=30	=30	=30	=30
+2.EE;	-den.	-ken.	.	4G#	-stan-	trin-	2.G#;	-den.	-ken.	2.e;]	.	.
+.	.	.	.	2B;	-den.	-ken.	.	.	.	.	.	.
+==	==	==	==	==	==	==	==	==	==	==	==	==
+*-	*-	*-	*-	*-	*-	*-	*-	*-	*-	*-	*-	*-
+!!!system-decoration: [(s1)(s2)(s3)(s4)]
+!!!URL:	http://www3.cpdl.org/wiki/index.php/Trinklied,_Op._75,_No._3_(Felix_Mendelssohn)
+!!!URL-pdf:	http://www3.cpdl.org/wiki/images/6/69/Nh_Mendelssohn_Op75_3.pdf
+!!!URL-musicxml:	http://www3.cpdl.org/wiki/images/6/6b/Nh_Mendelssohn_Op75_3.mxl
+!!!YEM:	CPDL - Creative Commons Attribution Non Commercial 3.0
+!!!SCA:	CPDL #52575
+!!!EED:	Nikolaus Hold
+!!!EEV:	2018/12/10

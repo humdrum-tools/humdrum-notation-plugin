@@ -1,0 +1,11 @@
+<script>
+   displayHumdrum({
+      source: "trinklied",
+      scale: 25,
+      spacingLinear: 0.32,
+      header: true
+   });
+</script>
+<script type="text/x-humdrum" id="trinklied">
+{% include_relative Mendelssohn_Op75_3.xml -%}
+</script>

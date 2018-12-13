@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	var header = document.querySelector("header");
 	
 	if (!header) {
-		console.log("Error: no header div found");
+		console.log("Warning: no header div found");
 		return;
 	}
 
@@ -110,12 +110,12 @@ window.addEventListener("resize", function() {
 function adjustBannerHeight() {
 	var banner = document.querySelector("#newbanner");
 	if (!banner) {
-		console.log("Error: Cannot find banner to resize it");
+		console.log("Warning: Cannot find banner to resize it");
 		return;
 	}
 	var header = document.querySelector("header");
 	if (!banner) {
-		console.log("Error: Cannot find header to resize banner");
+		console.log("Warning: Cannot find header to resize banner");
 		return;
 	}
 	var headerHeight = header.offsetHeight;
@@ -124,6 +124,7 @@ function adjustBannerHeight() {
 	} else {
 		banner.style.paddingTop = 0 + "px";
 	}
+	// This is necessary for updating the width of the music when the page is resized:
 	displayHumdrum(TITLE_OPTIONS);
 	updateTitle();
 }

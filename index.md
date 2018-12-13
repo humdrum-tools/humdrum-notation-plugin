@@ -290,22 +290,27 @@ against another note, and red means the note forms forth with the
 lowest sounding note). The dissonant notes are labeled according to
 their function: `p` is a falling passing tone, `g` is a suspension agent (initiates
 a suspension, but is considered the consonant note of the suspension), and `v`
-is a descending accented passing tone.
+is a descending accented passing tone.  For more information, see 
+<a target="_blank" href="http://doc.verovio.humdrum.org/filters/dissonant">documentation for the dissonant tool</a>.
 
 
 
-# Topics #
+# Additional topics #
 
+Here are a list of topics that give more examples or elaborate on the main documention
+on this page.
+
+* <a href="musicxml">How to import MusicXML</a>
 * <a href="coloring">How to highlight notes with color</a>
 
 
 # TODO #
 
-* Make examples interactive
-* Allow for shift-click in SVG image to toggle display of Humdrum text
+* Allow for shift-click in SVG image to toggle display of Humdrum text.
 * Allow Humdrum text to be shown above/below/left/right of the musical example.
-* Allow for auto and manual tab widths in Humdrum text
-* Add newline fix from VHV documentation jekyll plugin.
+* Make examples interactive (typing Humdrum text will update notation).
+* Implement optional paged view for longer examples.
+* Implement optional MIDI playback of examples.
 
 
 

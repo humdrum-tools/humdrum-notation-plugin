@@ -61,15 +61,6 @@ current line until another color is given (using "black" is equivalent to turnin
 the color).  You can scroll in this example to see the changes in color at measures
 7, 12, 16, and 24.  Green means G major, red is D major, and yellow is C major.
 
-<style>
-
-.scrolling pre {
-	overflow: auto;
-	height: 400px;
-}
-
-</style>
-
 <div class="scrolling">
 {% highlight html %}
 {% include_relative chopin-color.txt %}
