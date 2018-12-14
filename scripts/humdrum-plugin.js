@@ -1320,7 +1320,7 @@ function copyContentToContainer(container, sourceid) {
 			};
 			content = convertMeiToHumdrum(content, options, poptions);
 		} else {
-			console.log("Warning: given some strange XML data:", sourcetext);
+			console.log("Warning: given some strange XML data:", content);
 		}
 	}
 
