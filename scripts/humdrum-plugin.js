@@ -1523,3 +1523,136 @@ function createContainer(target, containerid) {
 
 
 
+//////////////////////////////
+//
+// saveHumdrumSvg -- Save the specified Hudrum SVG images to the hard disk.  The input
+// can be any of:
+//    * A Humdrum script ID
+//    * An array of Humdrum script IDs
+//    * Empty (in which case all images will be saved)
+//    * An SVG element
+//
+
+function saveHumdrumSvg(tags, savename) {
+	if ((tags instanceof Element) && (tags.nodeName === "svg")) {
+		var sid = "";
+		sid = tags.id;
+		if (!sid) {
+			sid = tags.parentNode.id;
+		}
+		var filename = savename;
+		if (!filename) {
+			filename = sid.replace(/-svg$/, "") + ".svg";
+		}
+		var text = tags.outerHTML;
+		blob = new Blob([text], { type: 'image/svg+xml' }),
+		anchor = document.createElement('a');
+		anchor.download = filename;
+		anchor.href = window.URL.createObjectURL(blob);
+		anchor.dataset.downloadurl = ['image/svg+xml', anchor.download, anchor.href].join(':');
+		anchor.click();
+		window.URL.revokeObjectURL(anchor.href);
+      blob = null;
+		return;
+	}
+	var i;
+	if (!tags) {
+		var selector = 'script[type="text/x-humdrum"]';
+		var items = document.querySelectorAll(selector);
+		tags = [];
+		for (i=0; i<items.length; i++) {
+			var id = items[i].id;
+			if (!id) {
+				continue;
+			}
+			var ss = "#" + id + "-svg svg";
+			var item = document.querySelector(ss);
+			if (item) {
+				tags.push(item);
+			}
+		}
+	}
+	if (tags.constructor !== Array) {
+		tags = [tags];
+	}
+	for (i=0; i<tags.length; i++) {
+		if (typeof tags[i]  === "string" || tags[i] instanceof String) {
+			var s = tags[i];
+			if (!tags[i].match(/-svg$/)) {
+				s += "-svg";
+			}
+			var thing = document.querySelector("#" + s + " svg");
+			if (thing) {
+				saveHumdrumSvg(thing);				
+			}
+		} else if (tags[i] instanceof Element) {
+			saveHumdrumSvg(tags[i]);
+		}
+	} 
+}
+
+
+//////////////////////////////
+//
+// saveHumdrumText -- Save the specified Hudrum text to the hard disk.  The input
+// can be any of:
+//    * A Humdrum script ID
+//    * An array of Humdrum script IDs
+//    * Empty (in which case all Humdrum texts will be saved)
+// Assuming data is stored in pre (after being copied from script element).  This may change,
+// so this function may need to be adjusted.  In any case the container also should have a
+// class name "humdrum-text" and an ID ending in "-humdrum".
+//
+
+function saveHumdrumText(tags, savename) {
+console.log("GOT HERE QQQ");
+	if ((tags instanceof Element) && (tags.className.match(/humdrum-text/))) {
+console.log("SAVING HUMDRUM ELEMENT", tags);
+		var sid = "";
+		sid = tags.id;
+		if (!sid) {
+			sid = tags.parentNode.id;
+		}
+		var filename = savename;
+		if (!filename) {
+			filename = sid.replace(/-humdrum$/, "") + ".txt";
+		}
+		var text = tags.innerHTML.replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+		blob = new Blob([text], { type: 'text/plain' }),
+		anchor = document.createElement('a');
+		anchor.download = filename;
+		anchor.href = window.URL.createObjectURL(blob);
+		anchor.dataset.downloadurl = ['text/plain', anchor.download, anchor.href].join(':');
+		anchor.click();
+		window.URL.revokeObjectURL(anchor.href);
+      blob = null;
+		return;
+	}
+	var i;
+	if (!tags) {
+		var selector = '.humdrum-text[id$="-humdrum"]';
+		tags = document.querySelectorAll(selector);
+	}
+	if (tags.constructor !== NodeList) {
+		if (tags.constructor !== Array) {
+			tags = [tags];
+		}
+	}
+	for (i=0; i<tags.length; i++) {
+		if (typeof tags[i]  === "string" || tags[i] instanceof String) {
+			var s = tags[i];
+			if (!tags[i].match(/-humdrum$/)) {
+				s += "-humdrum";
+			}
+			var thing = document.querySelector("#" + s);
+			if (thing) {
+				saveHumdrumText(thing);				
+			}
+		} else if (tags[i] instanceof Element) {
+			saveHumdrumText(tags[i]);
+		}
+	} 
+}
+
+
+

@@ -1,0 +1,45 @@
+
+Sonata in F minor (Andante), K. 238, L. 27
+<span class="button right" onclick="saveHumdrumSvg('L027K238')">Save SVG</span>
+<span class="button right" onclick="saveHumdrumText('L027K238')">Save Humdrum</span>
+<script>
+   displayHumdrum({
+      source: "L027K238-fminor",
+      url: "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/master/kern/L027K238.krn",
+      scale: 30,
+      spacingStaff: 12,
+      incipit: true
+   })
+</script>
+<script type="text/x-humdrum" id="L027K238-fminor"></script>
+
+Transposed to G minor:
+<span class="button right" onclick="saveHumdrumSvg('L027K238-gminor')">Save SVG</span>
+<span class="button right" onclick="saveHumdrumText('L027K238-gminor')">Save Humdrum</span>
+<script>
+   displayHumdrum({
+      source: "L027K238-gminor",
+      url: "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/master/kern/L027K238.krn",
+      scale: 30,
+      spacingStaff: 12,
+      filter: "transpose -k g",
+      incipit: true
+   })
+</script>
+<script type="text/x-humdrum" id="L027K238-gminor"></script>
+
+Transposed to E minor:
+<span class="button right" onclick="saveHumdrumSvg('L027K238-eminor')">Save SVG</span>
+<span class="button right" onclick="saveHumdrumText('L027K238-eminor')">Save Humdrum</span>
+<script>
+   displayHumdrum({
+      source: "L027K238-eminor",
+      url: "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/master/kern/L027K238.krn",
+      scale: 30,
+      spacingStaff: 12,
+      filter: "transpose -k e",
+      incipit: true
+   })
+</script>
+<script type="text/x-humdrum" id="L027K238-eminor"></script>
+

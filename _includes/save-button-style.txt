@@ -1,0 +1,37 @@
+
+<style>
+
+span.button {
+   background: #aa0000;
+   border-radius: 1rem;
+   font-family: Arial;
+   color: #fafafa;
+   font-size: 1rem;
+   padding: 0px 5px 0px 5px;
+   text-decoration: none;
+   margin-left: 1px;
+   margin-right: 1px;
+}
+span.button.demo {
+   font-size: 0.80rem;
+   padding: 0px 4px 0px 4px;
+}
+
+span.right {
+   display: block;
+   float: right;
+}
+
+span.button:hover:not(.demo) {
+   background: #009900;
+   text-shadow: 0px 0px 3px #00ff00;
+   box-shadow: 0px 0px 14px #008800;
+   cursor: pointer;
+}
+
+span.button.demo:hover {
+   cursor: default;
+}
+
+</style>
+

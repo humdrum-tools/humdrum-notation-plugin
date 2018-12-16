@@ -34,7 +34,7 @@ enclosed in the Humdrum script element:
 <div class="scrolling">
 {% highlight html %}
 {% include_relative trinklied.txt %}
-{% endhighlight html %}
+{% endhighlight %}
 {% include_relative trinklied.txt %}
 </div>
 

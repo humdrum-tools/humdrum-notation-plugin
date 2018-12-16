@@ -300,8 +300,8 @@ is a descending accented passing tone.  For more information, see
 Here are a list of topics that give more examples or elaborate on the main documention
 on this page.
 
-* <a href="musicxml">How to import MusicXML</a>
-* <a href="coloring">How to highlight notes with color</a>
+* <a href="topic/musicxml">How to import MusicXML</a>
+* <a href="topic/coloring">How to highlight notes with color</a>
 
 
 # TODO #

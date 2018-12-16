@@ -1,0 +1,41 @@
+
+Sonata in C major (Allegro), K. 514, L. 1
+<span class="button right" onclick="saveHumdrumSvg('L001K514')">Save</span>
+<script>
+   displayHumdrum({
+      source: "L001K514",
+      url: "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/master/kern/L001K514.krn",
+      scale: 30,
+      spacingStaff: 12,
+      incipit: true
+   })
+</script>
+<script type="text/x-humdrum" id="L001K514"></script>
+      
+
+Sonata in F minor (Andante), K. 238, L. 27
+<span class="button right" onclick="saveHumdrumSvg('L027K238')">Save</span>
+<script>
+   displayHumdrum({
+      source: "L027K238",
+      url: "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/master/kern/L027K238.krn",
+      scale: 30,
+      spacingStaff: 12,
+      incipit: true
+   })
+</script>
+<script type="text/x-humdrum" id="L027K238"></script>
+      
+
+Sonata in C major (Allegro), K. 502, L. 3
+<span class="button right" onclick="saveHumdrumSvg('L003K502')">Save</span>
+<script>
+   displayHumdrum({
+      source: "L003K502",
+      url: "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/master/kern/L003K502.krn",
+      scale: 30,
+      spacingStaff: 12,
+      incipit: true
+   })
+</script>
+<script type="text/x-humdrum" id="L003K502"></script>
