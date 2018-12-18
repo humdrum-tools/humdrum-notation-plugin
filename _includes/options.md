@@ -11,6 +11,7 @@
 | `suppressSvg`   | false         | Setup the container for an SVG image, but do not actually create one.  This option is useful for pre-loading Humdrum data onto the page for later rendering.
 | `target`        |               | An optional ID for the target container (useful for sharing a source with multiple notation displays).
 | `url`           |               | The URL from which to download data can be given with this parameter.  By default musical data is stored extracted from the page, but this parameter allowed it to be downloaded from a separate file on the web server, or in certain cases, downloaded from other web servers such as Github.
+| `urlFallback`   |               | An alternate URL if data downloading with the `url` parameter fails.  This allows downloading data from a mirror site if the primary one is down or inaccessible for some reason.
 
 Numeric options:
 

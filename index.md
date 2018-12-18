@@ -214,7 +214,9 @@ piano sonata repository</a>:
 # Options #
 
 
-Here is a list of the options that can be given to `displayHumdrum()`:
+Below is a list of the options that can be given to `displayHumdrum()`.  You can also
+view this list on the <a href="/options">Options page</a>, which provides links to
+additional documentation and examples for the options.
 
 {% include options.md %}
 
