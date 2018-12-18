@@ -7,7 +7,6 @@ svg, .song-title {
 
 
 <script>
-// vim: ts=3
 
 //////////////////////////////
 //
@@ -54,10 +53,10 @@ window.addEventListener("click", function(event) {
       // no clicking on anything interesting so ignore the click.
       return;
    }
-	if (baseid.match(/autobeam/)) {
-		// ignore demo images
-		return;
-	}
+   if (baseid.match(/autobeam/)) {
+      // ignore demo images
+      return;
+   }
 
    if (event.shiftKey || event.altKey || event.ctrlKey || event.metaKey) {
       // Open a link to the page in the original publication that has the music.

@@ -41,7 +41,7 @@ And here is the same music with the auto beam applied:
 When clicking on a title for the first time, the `displayHumdrumNow()` function 
 is called to produce an SVG image of the Humdrum data. The "now" version of
 `displayHumdrum()` will immediately run the plugin rather than placing the 
-call to the plugin within an event listener that check to see if the page
+call to the plugin within an event listener that checks if the page
 has finished loading.  In this case the page must have loaded if you are able to 
 click on a title, so it is not necessary to check if the page is ready.  A second 
 click on a title will hide the SVG image, and a third click will show the 
@@ -63,7 +63,7 @@ function causes a new window to be opened with a scan of the original publicatio
 book is opened to the page that the song is on.  This is implemented by reading the `!!!PPG:` 
 reference record within the Humdrum data for the song, which contains the page number in the
 original publication that the song is found on.  This is then added to the URL for the source, 
-which allows for the source to be opened to a particular page, such as page 66 for the first
+which allows opening it to a particular page, such as page 66 for the first
 song in the list: <a target="_blank" href="https://archive.org/details/tetonsioux00densmore/page/66">https://archive.org/details/tetonsioux00densmore/page/66</a>
 
 

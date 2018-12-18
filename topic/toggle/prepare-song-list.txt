@@ -2,7 +2,6 @@
 
 
 <script>
-// vim: ts=3:filetype=javascript
 
 
 //////////////////////////////
