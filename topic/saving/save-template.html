@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>My musical scales</title>
+<script src="https://verovio-script.humdrum.org/scripts/verovio-toolkit.js"></script>
+<script src="/scripts/humdrum-plugin.js"></script>
+<script>var vrvToolkit = new verovio.toolkit()</script>
+</head>
+<body>
+<div style="margins:auto; width:600px;">
+<h1>My scales</h1>
+
+
+My first scale:
+<span class="button right" onclick="saveHumdrumSvg('c-major-scale')">Save SVG</span>
+<script>
+   displayHumdrum({
+      source: "c-major-scale"
+   })
+</script>
+<script type="text/x-humdrum" id="c-major-scale">
+**kern	**fing
+*M4/4	*
+*k[]	*
+*C:	*
+4c	1
+4d	2
+4e	3
+4f	1
+4g	2
+4a	3
+4b	4
+4cc	5
+4b	4
+4a	3
+4g	2
+4f	1
+4e	3
+4d	2
+4c	1
+==	==
+*-	*-
+</script>
+
+
+My second scale:
+<span class="button right" onclick="saveHumdrumSvg('d-major-scale')">Save SVG</span>
+<script>
+   displayHumdrum({
+      source: "c-major-scale",
+      target: "d-major-scale",
+      filter: "transpose -k d"
+   })
+</script>
+<script type="text/x-humdrum" id="d-major-scale"></script>
+
+
+<style>
+span.button {
+   background: #aa0000;
+   border-radius: 1rem;
+   font-family: Arial;
+   color: #fafafa;
+   font-size: 1rem;
+   padding: 0px 5px 0px 5px;
+   text-decoration: none;
+   margin-left: 1px;
+   margin-right: 1px;
+}
+span.right {
+   display: block;
+   float: right;
+}
+span.button:hover {
+   background: #009900;
+   text-shadow: 0px 0px 3px #00ff00;
+   box-shadow: 0px 0px 14px #008800;
+   cursor: pointer;
+}
+</style>
+
+<div>
+</body>
+</html>

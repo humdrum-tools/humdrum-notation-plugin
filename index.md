@@ -300,7 +300,7 @@ is a descending accented passing tone.  For more information, see
 Here are a list of topics that give more examples or elaborate on the main documention
 on this page.
 
-{% include list-of-topics.txt %}
+{% include topic-list.txt %}
 
 
 # TODO #

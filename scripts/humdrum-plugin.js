@@ -892,31 +892,32 @@ function displayHumdrum(opts) {
 //
 
 function displayHumdrumNow(opts) {
-	// Options should use "source", but code will convert internally to "sourceId":
-	if (opts.source && !opts.sourceId) {
-		opts.sourceId = opts.source;
-	}
-	if (opts.sourceID && !opts.sourceId) {
-		opts.sourceId = opts.sourceID;
-	}
-	if (opts["source-id"] && !opts.sourceId) {
-		opts.sourceId = opts["source-id"];
-	}
-
-	// Options should use "target", but code will convert internally to "targetId":
-	if (opts.target && !opts.targetId) {
-		opts.targetId = opts.target;
-	}
-	if (opts.targetID && !opts.targetId) {
-		opts.targetId = opts.targetID;
-	}
-	if (opts["target-id"] && !opts.targetId) {
-		opts.targetId = opts["target-id"];
+	if (typeof opts  === "string" || opts instanceof String) {
+		// This is the base ID for a Humdrum example to display.
+		// Extract the options from any existing container for the
+		// example and call this function with them.
+		var mycontainer = document.querySelector("#" + opts + "-container");
+		if (!mycontainer) {
+			return;
+		}
+		var myoptions = document.querySelector("#" + opts + "-options");
+		if (!myoptions) {
+			return;
+		}
+		var optionobj = JSON.parse(myoptions.innerHTML);
+		displayHumdrumNow(optionobj);
+		return;
 	}
 
-	var sourceid = opts["sourceId"];
+	if (opts instanceof Element) {
+		// Currently not allowed, but maybe allow the container element, and then
+		// extract the options from the container (from the *-options element).
+		return;
+	}
+
+	var sourceid = opts["source"];
 	if (!sourceid) {
-		console.log("Error: Missing Humdrum data source ID");
+		console.log("Error: Missing Humdrum data source ID:", sourceid, "in options", opts);
 		return;
 	}
 	var source = document.querySelector("#" + sourceid);
@@ -926,7 +927,7 @@ function displayHumdrumNow(opts) {
 		return;
 	}
 
-	var targetid = opts["targetId"];
+	var targetid = opts["target"];
 	if (!targetid) {
 		targetid = sourceid;
 	}
@@ -939,11 +940,15 @@ function displayHumdrumNow(opts) {
 		// download data from URL, and then display downloaded contents.
 		opts.processedUrl = opts.url;
 		delete opts.url;
-		downloadHumdrumUrlData(source, opts);
+		downloadHumdrumUrlData(source, JSON.parse(JSON.stringify(opts)));
 	} else {
 		containerid = targetid + "-container";
 		var container = document.querySelector("#" + containerid);
+		var preventRendering = false;
 		if (!container) {
+			if (opts.suppressSvg) {
+				preventRendering = true;
+			}
 			var target = document.querySelector("#" + targetid);
 			if (!target) {
 				console.log("Error: Cannot find target", "#" + target);
@@ -953,8 +958,12 @@ function displayHumdrumNow(opts) {
 		}
 		initializeContainer(container, opts);
 		copyContentToContainer(container, sourceid);
-		var toolkit = opts.renderer;
-		displaySvg(toolkit, container);
+		if (!preventRendering) {
+			var toolkit = opts.renderer;
+			displaySvg(toolkit, container);
+		} else {
+			container.style.display = "none";
+		}
 	}
 }
 
@@ -974,10 +983,8 @@ function downloadHumdrumUrlData(source, opts) {
 	}
 	var url = opts.processedUrl;
 	var request = new XMLHttpRequest();
-	request.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			source.innerHTML = this.responseText;
-		}
+	request.onload = function() {
+		source.innerHTML = this.responseText;
 		displayHumdrumNow(opts);
 	};
 	request.open("GET", url);
@@ -1534,7 +1541,9 @@ function createContainer(target, containerid) {
 //
 
 function saveHumdrumSvg(tags, savename) {
+
 	if ((tags instanceof Element) && (tags.nodeName === "svg")) {
+		// Save a single SVG element's contents to the hard disk.
 		var sid = "";
 		sid = tags.id;
 		if (!sid) {
@@ -1550,18 +1559,25 @@ function saveHumdrumSvg(tags, savename) {
 		anchor.download = filename;
 		anchor.href = window.URL.createObjectURL(blob);
 		anchor.dataset.downloadurl = ['image/svg+xml', anchor.download, anchor.href].join(':');
-		anchor.click();
-		window.URL.revokeObjectURL(anchor.href);
-      blob = null;
+		(function (anch, blobby, fn) {
+			setTimeout(function() {
+console.log("SAVING file", fn);
+				anch.click();
+				window.URL.revokeObjectURL(anch.href);
+      		blobby = null;
+			}, 0)
+		})(anchor, blob, filename);
 		return;
 	}
+
 	var i;
 	if (!tags) {
-		var selector = 'script[type="text/x-humdrum"]';
+		// var selector = 'script[type="text/x-humdrum"]';
+		var selector = '.humdrum-text[id$="-humdrum"]';
 		var items = document.querySelectorAll(selector);
 		tags = [];
 		for (i=0; i<items.length; i++) {
-			var id = items[i].id;
+			var id = items[i].id.replace(/-humdrum$/, "");
 			if (!id) {
 				continue;
 			}
@@ -1575,21 +1591,40 @@ function saveHumdrumSvg(tags, savename) {
 	if (tags.constructor !== Array) {
 		tags = [tags];
 	}
-	for (i=0; i<tags.length; i++) {
-		if (typeof tags[i]  === "string" || tags[i] instanceof String) {
-			var s = tags[i];
-			if (!tags[i].match(/-svg$/)) {
-				s += "-svg";
+
+	(function (i) {
+		(function j () {
+			var tag = tags[i++];
+			if (typeof tag  === "string" || tag instanceof String) {
+				var s = tag
+				if (!tag.match(/-svg$/)) {
+					s += "-svg";
+				}
+				var thing = document.querySelector("#" + s + " svg");
+				if (thing) {
+					saveHumdrumSvg(thing);				
+				}
+			} else if (tag instanceof Element) {
+				(function(elem) {
+					saveHumdrumSvg(elem);
+				})(tag);
 			}
-			var thing = document.querySelector("#" + s + " svg");
-			if (thing) {
-				saveHumdrumSvg(thing);				
+			if (i < tags.length) {
+				// 100 ms delay time is necessary for saving all SVG images to
+				// files on the hard disk.  If the time is too small, then some
+				// of the files will not be saved.  This could be relate to
+				// deleting the temporary <a> element that is used to download
+				// the file.  100 ms is allowing 250 small SVG images to all
+				// be saved correctly (may need to increase for larger files, or
+				// perhaps it is possible to lower the wait time between image
+				// saves).  Also this timeout (even if 0) will allow better
+				// conrol of the UI vesus the file saving.
+				setTimeout(j, 100);
 			}
-		} else if (tags[i] instanceof Element) {
-			saveHumdrumSvg(tags[i]);
-		}
-	} 
+		})();
+	})(0);
 }
+
 
 
 //////////////////////////////
@@ -1599,15 +1634,37 @@ function saveHumdrumSvg(tags, savename) {
 //    * A Humdrum script ID
 //    * An array of Humdrum script IDs
 //    * Empty (in which case all Humdrum texts will be saved)
-// Assuming data is stored in pre (after being copied from script element).  This may change,
-// so this function may need to be adjusted.  In any case the container also should have a
-// class name "humdrum-text" and an ID ending in "-humdrum".
+//    * If the third parameter is present, then the first parameter will be ignored
+//      and the text content of the third parameter will be stored in the filename
+//      of the second parameter (with a default of "humdrum.txt").
 //
 
-function saveHumdrumText(tags, savename) {
-console.log("GOT HERE QQQ");
+function saveHumdrumText(tags, savename, savetext) {
+
+	if (savetext) {
+		// Saving literal text content to a file.
+		if (!savename) {
+			savename = "humdrum.txt";
+		}
+		// Unescaping < and >, which may cause problems in certain conditions, but not many:
+		var stext = savetext.replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+		blob = new Blob([stext], { type: 'text/plain' }),
+		anchor = document.createElement('a');
+		anchor.download = savename;
+		anchor.href = window.URL.createObjectURL(blob);
+		anchor.dataset.downloadurl = ['text/plain', anchor.download, anchor.href].join(':');
+		(function (anch, blobby) {
+			setTimeout(function() {
+				anch.click();
+				window.URL.revokeObjectURL(anch.href);
+      		blobby = null;
+			}, 0)
+		})(anchor, blob);
+		return;
+	}
+
 	if ((tags instanceof Element) && (tags.className.match(/humdrum-text/))) {
-console.log("SAVING HUMDRUM ELEMENT", tags);
+		// Save the text from a single element.
 		var sid = "";
 		sid = tags.id;
 		if (!sid) {
@@ -1628,30 +1685,87 @@ console.log("SAVING HUMDRUM ELEMENT", tags);
       blob = null;
 		return;
 	}
-	var i;
+
+	if (typeof tags  === "string" || tags instanceof String) {
+		// Convert a Humdrum ID into an element and save contents in that element.
+		var myid = tags.replace(/-humdrum$/, "");
+		var myelement = document.querySelector("#" + myid + "-humdrum");
+		if (!myelement) {
+			myelement = document.querySelector("#" + myid);
+		}
+		saveHumdrumText(myelement);
+		return;
+	}
+
 	if (!tags) {
+		// If tags is empty, then create a list of all elements that
+		// should contain Humdrum content.
 		var selector = '.humdrum-text[id$="-humdrum"]';
 		tags = document.querySelectorAll(selector);
 	}
 	if (tags.constructor !== NodeList) {
 		if (tags.constructor !== Array) {
+			// Force tags to be in an array-like structure (not that necessary).
 			tags = [tags];
 		}
 	}
+	if (tags.length == 0) {
+		// Nothing to do, so give up.
+		return;
+	}
+	if (tags.length == 1) {
+		// Just one element on the page with interesting content, so save that
+		// to a filename based on the element ID.
+		saveHumdrumText(tags[0]);
+		return;
+	}
+
+	// At this point, there are multiple elements with Humdrum content that should
+	// be saved to the hard-disk.  Combine all of the content into a single data
+	// stream, and then save (with a default filename of "humdrum.txt").
+
+	var i;
+	var outputtext = "";
+	var humtext = "";
 	for (i=0; i<tags.length; i++) {
+		if (!tags[i]) {
+			continue;
+		}
 		if (typeof tags[i]  === "string" || tags[i] instanceof String) {
+			saveHumdrumText(tags[i]);
+			// convert a tag to an element:
 			var s = tags[i];
 			if (!tags[i].match(/-humdrum$/)) {
 				s += "-humdrum";
 			}
 			var thing = document.querySelector("#" + s);
 			if (thing) {
-				saveHumdrumText(thing);				
+				tags[i] = thing;
+			} else {
+				continue;
 			}
-		} else if (tags[i] instanceof Element) {
-			saveHumdrumText(tags[i]);
 		}
-	} 
+		// Collect the Humdrum file text of the element.
+		if (tags[i] instanceof Element) {
+			var segmentname = tags[i].id.replace(/-humdrum$/, "");
+			if (!segmentname.match(/\.[.]*$/)) {
+				segmentname += ".krn";
+			}
+			humtext = tags[i].innerHTML
+					.replace(/^\n+/sm, "")
+					.replace(/\n+$/sm, "")
+					// remove any pre-existing SEGMENT marker:
+					.replace(/^!!!!SEGMENT\s*:[^\n]*\n/sm, "");
+			if (humtext.match(/^\s*$/)) {
+				// Ignore empty elements.
+				continue;
+			}
+			outputtext += "!!!!SEGMENT: " + segmentname + "\n";
+			outputtext += humtext + "\n";
+		}
+	}
+	// save all extracted Humdrum content in a single file:
+	saveHumdrumText(null, null, outputtext);
 }
 
 

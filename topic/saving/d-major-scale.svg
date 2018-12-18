@@ -1,0 +1,292 @@
+<svg width="600.00px" height="106.40px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="visible">
+	<desc>Engraved by Verovio 2.0.0-dev-920906e</desc>
+	<defs>
+		<symbol id="E050" viewBox="0 0 1000 1000" overflow="inherit">
+			<path transform="scale(1,-1)" d="M441 -245c-23 -4 -48 -6 -76 -6c-59 0 -102 7 -130 20c-88 42 -150 93 -187 154c-26 44 -43 103 -48 176c-4 60 11 123 44 189c29 57 65 106 110 148s96 85 153 127c-3 16 -8 46 -13 92c-4 43 -5 73 -5 89c0 117 16 172 69 257c34 54 64 82 89 82c21 0 43 -30 69 -92 s39 -115 41 -159c2 -120 -19 -173 -67 -256c-13 -20 -63 -90 -98 -118c-13 -9 -25 -19 -37 -29l31 -181c8 1 18 2 28 2c58 0 102 -12 133 -35c59 -43 92 -104 98 -184c11 -135 -80 -229 -180 -270c8 -57 17 -110 25 -162c5 -31 6 -58 6 -80c0 -30 -5 -53 -14 -70 c-35 -64 -88 -99 -158 -103c-42 -3 -83 6 -124 26c-50 24 -77 59 -80 105c-2 34 5 63 20 87c18 28 45 42 79 44c51 4 99 -40 103 -87c4 -56 -30 -94 -105 -115c17 -24 51 -36 102 -36c62 0 116 43 140 85c9 16 13 41 13 74c0 20 -1 42 -5 67c-8 53 -18 106 -26 159zM461 939 c-95 0 -135 -175 -135 -286c0 -24 2 -48 5 -71c50 39 92 82 127 128c43 57 63 106 60 148c-4 54 -23 82 -57 81zM406 119l54 -326c80 27 116 88 109 184c-7 99 -62 146 -163 142zM382 117c-74 -2 -132 -50 -128 -127c2 -46 43 -99 75 -115c-3 -2 -7 -5 -10 -10 c-70 33 -116 88 -123 172c-5 73 42 135 88 170c23 17 49 29 78 36l-29 170c-21 -13 -52 -37 -92 -73c-50 -44 -86 -84 -109 -119c-49 -75 -71 -140 -67 -195c5 -68 35 -127 93 -176s125 -73 203 -73c25 0 50 3 75 9c-19 111 -36 221 -54 331z"></path>
+		</symbol>
+		<symbol id="E262" viewBox="0 0 1000 1000" overflow="inherit">
+			<path transform="scale(1,-1)" d="M136 186v169h17v-164l44 14v-91l-44 -14v-165l44 12v-91l-44 -13v-155h-17v150l-76 -22v-155h-17v149l-43 -13v90l43 14v167l-43 -14v92l43 13v169h17v-163zM60 73v-167l76 22v168z"></path>
+		</symbol>
+		<symbol id="E084" viewBox="0 0 1000 1000" overflow="inherit">
+			<path transform="scale(1,-1)" d="M0 -78c84 97 114 180 134 329h170c-13 -32 -82 -132 -99 -151l-84 -97c-33 -36 -59 -63 -80 -81h162v102l127 123v-225h57v-39h-57v-34c0 -43 19 -65 57 -65v-34h-244v36c48 0 60 26 60 70v27h-203v39z"></path>
+		</symbol>
+		<symbol id="E0A4" viewBox="0 0 1000 1000" overflow="inherit">
+			<path transform="scale(1,-1)" d="M0 -39c0 68 73 172 200 172c66 0 114 -37 114 -95c0 -84 -106 -171 -218 -171c-64 0 -96 30 -96 94z"></path>
+		</symbol>
+	</defs>
+	<style type="text/css">g.page-margin{font-family:Times;} g.tempo{font-weight:bold;} g.dir, g.dynam, g.mNum{font-style:italic;} g.label{font-weight:normal;}</style>
+	<svg class="definition-scale" viewBox="0 0 15000 2660">
+		<g class="page-margin" transform="translate(500, 500)">
+			<g class="system" id="system-0000001836155207">
+				<g class="section boundaryStart" id="section-L1F1"></g>
+				<g class="measure m-0" id="measure-L1">
+					<g class="staff" id="staff-0000000381768545">
+						<path d="M0 720 L14000 720" stroke="#000000" stroke-width="10"></path>
+						<path d="M0 900 L14000 900" stroke="#000000" stroke-width="10"></path>
+						<path d="M0 1080 L14000 1080" stroke="#000000" stroke-width="10"></path>
+						<path d="M0 1260 L14000 1260" stroke="#000000" stroke-width="10"></path>
+						<path d="M0 1440 L14000 1440" stroke="#000000" stroke-width="10"></path>
+						<g class="clef" id="clef-0000001787075181">
+							<use xlink:href="#E050" x="90" y="1260" height="720px" width="720px"></use>
+						</g>
+						<g class="keySig" id="keysig-0000001060460966">
+							<use xlink:href="#E262" x="735" y="720" height="720px" width="720px"></use>
+							<use xlink:href="#E262" x="918" y="990" height="720px" width="720px"></use>
+						</g>
+						<g class="meterSig" id="msig-0000000152514792">
+							<use xlink:href="#E084" x="1239" y="900" height="720px" width="720px"></use>
+							<use xlink:href="#E084" x="1239" y="1260" height="720px" width="720px"></use>
+						</g>
+						<g class="layer" id="layer-L1F1N1">
+							<g class="note qon-0 qoff-1 pname-d acc-n oct-4 b40c-8 b12c-2 " id="note-L5F1">
+								<use xlink:href="#E0A4" x="1819" y="1530" height="720px" width="720px"></use>
+								<g class="stem">
+									<rect x="2027" y="900" height="608" width="18"></rect>
+								</g>
+								<g class="accid" id="accid-0000001091961912"></g>
+							</g>
+							<g class="note qon-1 qoff-2 pname-e acc-n oct-4 b40c-14 b12c-4 " id="note-L6F1">
+								<use xlink:href="#E0A4" x="2628" y="1440" height="720px" width="720px"></use>
+								<g class="stem">
+									<rect x="2836" y="810" height="608" width="18"></rect>
+								</g>
+								<g class="accid" id="accid-0000000562522362"></g>
+							</g>
+							<g class="note qon-2 qoff-3 pname-f acc-s oct-4 b40c-20 b12c-6 " id="note-L7F1">
+								<use xlink:href="#E0A4" x="3437" y="1350" height="720px" width="720px"></use>
+								<g class="stem">
+									<rect x="3645" y="720" height="608" width="18"></rect>
+								</g>
+								<g class="accid" id="accid-0000001818642600"></g>
+							</g>
+							<g class="note qon-3 qoff-4 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L8F1">
+								<use xlink:href="#E0A4" x="4246" y="1260" height="720px" width="720px"></use>
+								<g class="stem">
+									<rect x="4454" y="630" height="608" width="18"></rect>
+								</g>
+								<g class="accid" id="accid-0000001269885551"></g>
+							</g>
+							<g class="note qon-4 qoff-5 pname-a acc-n oct-4 b40c-31 b12c-9 " id="note-L9F1">
+								<use xlink:href="#E0A4" x="5055" y="1170" height="720px" width="720px"></use>
+								<g class="stem">
+									<rect x="5263" y="540" height="608" width="18"></rect>
+								</g>
+								<g class="accid" id="accid-0000001273836135"></g>
+							</g>
+							<g class="note qon-5 qoff-6 pname-b acc-n oct-4 b40c-37 b12c-11 " id="note-L10F1">
+								<use xlink:href="#E0A4" x="5864" y="1080" height="720px" width="720px"></use>
+								<g class="stem">
+									<rect x="5864" y="1102" height="608" width="18"></rect>
+								</g>
+								<g class="accid" id="accid-0000000396592892"></g>
+							</g>
+							<g class="note qon-6 qoff-7 pname-c acc-s oct-5 b40c-3 b12c-1 " id="note-L11F1">
+								<use xlink:href="#E0A4" x="6673" y="990" height="720px" width="720px"></use>
+								<g class="stem">
+									<rect x="6673" y="1012" height="608" width="18"></rect>
+								</g>
+								<g class="accid" id="accid-0000001266544965"></g>
+							</g>
+							<g class="note qon-7 qoff-8 pname-d acc-n oct-5 b40c-8 b12c-2 " id="note-L12F1">
+								<use xlink:href="#E0A4" x="7482" y="900" height="720px" width="720px"></use>
+								<g class="stem">
+									<rect x="7482" y="922" height="608" width="18"></rect>
+								</g>
+								<g class="accid" id="accid-0000000692969365"></g>
+							</g>
+							<g class="note qon-8 qoff-9 pname-c acc-s oct-5 b40c-3 b12c-1 " id="note-L13F1">
+								<use xlink:href="#E0A4" x="8292" y="990" height="720px" width="720px"></use>
+								<g class="stem">
+									<rect x="8292" y="1012" height="608" width="18"></rect>
+								</g>
+								<g class="accid" id="accid-0000001257647048"></g>
+							</g>
+							<g class="note qon-9 qoff-10 pname-b acc-n oct-4 b40c-37 b12c-11 " id="note-L14F1">
+								<use xlink:href="#E0A4" x="9101" y="1080" height="720px" width="720px"></use>
+								<g class="stem">
+									<rect x="9101" y="1102" height="608" width="18"></rect>
+								</g>
+								<g class="accid" id="accid-0000001480774209"></g>
+							</g>
+							<g class="note qon-10 qoff-11 pname-a acc-n oct-4 b40c-31 b12c-9 " id="note-L15F1">
+								<use xlink:href="#E0A4" x="9910" y="1170" height="720px" width="720px"></use>
+								<g class="stem">
+									<rect x="10118" y="540" height="608" width="18"></rect>
+								</g>
+								<g class="accid" id="accid-0000001314398029"></g>
+							</g>
+							<g class="note qon-11 qoff-12 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L16F1">
+								<use xlink:href="#E0A4" x="10719" y="1260" height="720px" width="720px"></use>
+								<g class="stem">
+									<rect x="10927" y="630" height="608" width="18"></rect>
+								</g>
+								<g class="accid" id="accid-0000001757637070"></g>
+							</g>
+							<g class="note qon-12 qoff-13 pname-f acc-s oct-4 b40c-20 b12c-6 " id="note-L17F1">
+								<use xlink:href="#E0A4" x="11528" y="1350" height="720px" width="720px"></use>
+								<g class="stem">
+									<rect x="11736" y="720" height="608" width="18"></rect>
+								</g>
+								<g class="accid" id="accid-0000001761410697"></g>
+							</g>
+							<g class="note qon-13 qoff-14 pname-e acc-n oct-4 b40c-14 b12c-4 " id="note-L18F1">
+								<use xlink:href="#E0A4" x="12337" y="1440" height="720px" width="720px"></use>
+								<g class="stem">
+									<rect x="12545" y="810" height="608" width="18"></rect>
+								</g>
+								<g class="accid" id="accid-0000000431292853"></g>
+							</g>
+							<g class="note qon-14 qoff-15 pname-d acc-n oct-4 b40c-8 b12c-2 " id="note-L19F1">
+								<use xlink:href="#E0A4" x="13146" y="1530" height="720px" width="720px"></use>
+								<g class="stem">
+									<rect x="13354" y="900" height="608" width="18"></rect>
+								</g>
+								<g class="accid" id="accid-0000000554675140"></g>
+							</g>
+						</g>
+					</g>
+					<g class="dir fingering" id="dir-L5F2">
+						<text x="1932" y="623" font-size="0px">
+							<tspan class="rend" id="rend-0000001019540106" font-style="normal">
+								<tspan class="text" id="text-0000001276902434">
+									<tspan font-size="243px" class="text">1</tspan>
+								</tspan>
+							</tspan>
+						</text>
+					</g>
+					<g class="dir fingering" id="dir-L6F2">
+						<text x="2741" y="623" font-size="0px">
+							<tspan class="rend" id="rend-0000000110160563" font-style="normal">
+								<tspan class="text" id="text-0000001568348232">
+									<tspan font-size="243px" class="text">2</tspan>
+								</tspan>
+							</tspan>
+						</text>
+					</g>
+					<g class="dir fingering" id="dir-L7F2">
+						<text x="3550" y="623" font-size="0px">
+							<tspan class="rend" id="rend-0000000648050973" font-style="normal">
+								<tspan class="text" id="text-0000002120408902">
+									<tspan font-size="243px" class="text">3</tspan>
+								</tspan>
+							</tspan>
+						</text>
+					</g>
+					<g class="dir fingering" id="dir-L8F2">
+						<text x="4359" y="533" font-size="0px">
+							<tspan class="rend" id="rend-0000001762043997" font-style="normal">
+								<tspan class="text" id="text-0000001028293726">
+									<tspan font-size="243px" class="text">1</tspan>
+								</tspan>
+							</tspan>
+						</text>
+					</g>
+					<g class="dir fingering" id="dir-L9F2">
+						<text x="5168" y="443" font-size="0px">
+							<tspan class="rend" id="rend-0000000000985281" font-style="normal">
+								<tspan class="text" id="text-0000000878949191">
+									<tspan font-size="243px" class="text">2</tspan>
+								</tspan>
+							</tspan>
+						</text>
+					</g>
+					<g class="dir fingering" id="dir-L10F2">
+						<text x="5977" y="623" font-size="0px">
+							<tspan class="rend" id="rend-0000000408992585" font-style="normal">
+								<tspan class="text" id="text-0000001534460095">
+									<tspan font-size="243px" class="text">3</tspan>
+								</tspan>
+							</tspan>
+						</text>
+					</g>
+					<g class="dir fingering" id="dir-L11F2">
+						<text x="6786" y="623" font-size="0px">
+							<tspan class="rend" id="rend-0000002059380534" font-style="normal">
+								<tspan class="text" id="text-0000001500791999">
+									<tspan font-size="243px" class="text">4</tspan>
+								</tspan>
+							</tspan>
+						</text>
+					</g>
+					<g class="dir fingering" id="dir-L12F2">
+						<text x="7595" y="623" font-size="0px">
+							<tspan class="rend" id="rend-0000000281293932" font-style="normal">
+								<tspan class="text" id="text-0000000989438837">
+									<tspan font-size="243px" class="text">5</tspan>
+								</tspan>
+							</tspan>
+						</text>
+					</g>
+					<g class="dir fingering" id="dir-L13F2">
+						<text x="8405" y="623" font-size="0px">
+							<tspan class="rend" id="rend-0000001274886441" font-style="normal">
+								<tspan class="text" id="text-0000000653362927">
+									<tspan font-size="243px" class="text">4</tspan>
+								</tspan>
+							</tspan>
+						</text>
+					</g>
+					<g class="dir fingering" id="dir-L14F2">
+						<text x="9214" y="623" font-size="0px">
+							<tspan class="rend" id="rend-0000000468512174" font-style="normal">
+								<tspan class="text" id="text-0000000378961891">
+									<tspan font-size="243px" class="text">3</tspan>
+								</tspan>
+							</tspan>
+						</text>
+					</g>
+					<g class="dir fingering" id="dir-L15F2">
+						<text x="10023" y="443" font-size="0px">
+							<tspan class="rend" id="rend-0000001705250547" font-style="normal">
+								<tspan class="text" id="text-0000001055550317">
+									<tspan font-size="243px" class="text">2</tspan>
+								</tspan>
+							</tspan>
+						</text>
+					</g>
+					<g class="dir fingering" id="dir-L16F2">
+						<text x="10832" y="533" font-size="0px">
+							<tspan class="rend" id="rend-0000001436630071" font-style="normal">
+								<tspan class="text" id="text-0000001522616046">
+									<tspan font-size="243px" class="text">1</tspan>
+								</tspan>
+							</tspan>
+						</text>
+					</g>
+					<g class="dir fingering" id="dir-L17F2">
+						<text x="11641" y="623" font-size="0px">
+							<tspan class="rend" id="rend-0000001522966834" font-style="normal">
+								<tspan class="text" id="text-0000001705999695">
+									<tspan font-size="243px" class="text">3</tspan>
+								</tspan>
+							</tspan>
+						</text>
+					</g>
+					<g class="dir fingering" id="dir-L18F2">
+						<text x="12450" y="623" font-size="0px">
+							<tspan class="rend" id="rend-0000000702583082" font-style="normal">
+								<tspan class="text" id="text-0000000042980301">
+									<tspan font-size="243px" class="text">2</tspan>
+								</tspan>
+							</tspan>
+						</text>
+					</g>
+					<g class="dir fingering" id="dir-L19F2">
+						<text x="13259" y="623" font-size="0px">
+							<tspan class="rend" id="rend-0000000579854038" font-style="normal">
+								<tspan class="text" id="text-0000000176839948">
+									<tspan font-size="243px" class="text">1</tspan>
+								</tspan>
+							</tspan>
+						</text>
+					</g>
+					<g class="barLineAttr" id="bline-0000001006215644">
+						<path d="M13855 1440 L13855 720" stroke="#000000" stroke-width="10"></path>
+						<path d="M13955 1440 L13955 720" stroke="#000000" stroke-width="90"></path>
+					</g>
+				</g>
+				<g class="boundaryEnd section-L1F1" id="bdend-0000000636796115"></g>
+			</g>
+		</g>
+	</svg>
+</svg>

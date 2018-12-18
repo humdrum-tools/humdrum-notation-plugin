@@ -18,7 +18,7 @@ nav {
 # Additional topics #
 
 
-{% include list-of-topics.txt %}
+{% include topic-list.txt %}
 
 
 
