@@ -1,0 +1,27 @@
+
+
+This page demonstrates how the Humdrum notation plugin can be used to
+display multiple small pieces on the same page.  Click on the title
+of any song in the list below, and the music notation for the song will
+be displayed.  Click on the notation, or title again, and the notation
+will be hidden.  Multiple songs can be displayed at the same time.
+
+<a target="_blank" href="https://github.com/craigsapp/densmore-teton-sioux">
+<img style="width:200px; float:right; margin-left:20px; margin-top:-36px;"
+	alt="Title page of Teton Sioux Music"
+	src="https://user-images.githubusercontent.com/3487289/50071626-6c025c80-01a0-11e9-97a3-458972aac1b7.jpg">
+</a>
+
+Also of interest, if you shift-click on a title or music notation, an
+online scan of the source edition will be displayed in another browser
+window, opened to the source page containing the song.
+
+These songs come from the book <i>Teton Sioux
+Music</i> by Frances Densmore, for which a digital
+edition of the music is available on <a target="_blank"
+href="https://github.com/craigsapp/densmore-teton-sioux">Github</a>
+and <a target="_blank"
+href="http://kern.humdrum.org/browse?l=folk/sioux">kernScores</a>,
+and which is used to generate the notation on this page.
+
+

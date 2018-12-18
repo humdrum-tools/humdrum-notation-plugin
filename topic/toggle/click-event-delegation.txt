@@ -1,0 +1,127 @@
+
+<style>
+svg, .song-title {
+   cursor: pointer;
+}
+</style>
+
+
+<script>
+// vim: ts=3
+
+//////////////////////////////
+//
+// delegation click event listener -- For displaying/hiding SVG images 
+//     of music notation on the page.
+//
+
+
+window.addEventListener("click", function(event) {
+   var titleelement = null;
+   var i;
+   for (i=0; i<event.path.length; i++) {
+      if (!event.path[i].className || typeof event.path[i].className === "object") {
+         // needed for SVG elements.
+         continue;
+      }
+      
+      if (event.path[i].className.match(/\bsong-title\b/)) {
+         titleelement = event.path[i];
+         break;
+      } 
+   }
+   var svgcontainerelement = null;
+   for (i=event.path.length-1; i>=0; i--) {
+      // SVG elements can be nested, so only looking for outer-most:
+      if (event.path[i].nodeName === "svg") {
+         // the parent node should have an ID ending in "-svg"
+         // attached to the base ID for the Humdrum container.
+         var pid = event.path[i].parentNode.id;
+         if (pid.match(/-svg$/)) {
+            svgcontainerelement = event.path[i].parentNode;
+         }
+         break;
+      } 
+   }
+
+   var baseid = "";
+   if (svgcontainerelement) {
+      baseid = svgcontainerelement.id.replace(/-svg$/, "");
+   } else if (titleelement) {
+      baseid = titleelement.id.replace(/-title$/, "");
+   }
+   if (!baseid) {
+      // no clicking on anything interesting so ignore the click.
+      return;
+   }
+	if (baseid.match(/autobeam/)) {
+		// ignore demo images
+		return;
+	}
+
+   if (event.shiftKey || event.altKey || event.ctrlKey || event.metaKey) {
+      // Open a link to the page in the original publication that has the music.
+      displaySourcePage(baseid);
+      return;
+   }
+
+   var container = document.querySelector("#" + baseid + "-container");
+   if (!container) {
+      return;
+   }
+   if (!svgcontainerelement) {
+      svgcontainerelement = document.querySelector("#" + baseid + "-svg");
+   }
+   if (!svgcontainerelement) {
+      return;
+   }
+
+   var svgelement = svgcontainerelement.querySelector("svg");
+   if (!svgelement) {
+      // need to generate the SVG now, and display it.
+      container.style.display = "block";
+      displayHumdrumNow(baseid);
+      return;
+   }
+
+   // The SVG image already exists, so toggle the display of the Humdrum container
+   // to show or hide it:
+   if (container.style.display === "none") {
+      container.style.display = "block";
+   } else {
+      container.style.display = "none";
+   }
+});
+
+
+
+//////////////////////////////
+//
+// displaySourcePage -- Open a new tab in the browser and show a link to the
+//    original source on the page where the song is found.
+//
+
+function displaySourcePage(baseid) {
+   var container = document.querySelector("#" + baseid + "-container");
+   if (!container) {
+      return;
+   }
+   var humdrum = container.querySelector("#" + baseid + "-humdrum");
+   if (!humdrum) {
+      return;
+   }
+   var text = humdrum.innerHTML;
+   var matches = text.match(/^!!!PPG\s*:\s*(\d+)/sm);
+   if (matches) {
+      console.log("OPEN SOURCE PAGE", matches[1]);
+      var url = "https://archive.org/details/tetonsioux00densmore/page/";
+      url += matches[1];
+      window.open(url, "source");
+   }
+}
+
+
+</script>
+
+
+

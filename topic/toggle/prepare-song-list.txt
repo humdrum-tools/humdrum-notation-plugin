@@ -1,0 +1,161 @@
+
+
+
+<script>
+// vim: ts=3:filetype=javascript
+
+
+//////////////////////////////
+//
+// DOMContentLoaded event listener -- when the page has finished loading, download
+//    the Humdrum data from kernScores.
+//
+
+document.addEventListener("DOMContentLoaded", function(event) {
+   var url = "http://kern.humdrum.org/data?l=folk/sioux";
+   downloadData(url);
+});
+
+
+
+//////////////////////////////
+//
+// downloadData -- Download data stream containing 245 files.  Then
+//    split into individual songs and display on the webapge.
+//
+
+function downloadData(url) {
+   var request = new XMLHttpRequest();
+   request.onload = function(event) {
+      processDataStream(this.responseText);
+   };
+   request.open("GET", url);
+   request.send();
+}
+
+
+
+//////////////////////////////
+//
+// processDataStream -- Split the multi-file stream into separate songs.
+//
+
+function processDataStream(contents) {
+   var targetSelector = "#song-list";
+   var target = document.querySelector(targetSelector);
+   if (!target) {
+      return;
+   }
+   target.innerHTML = "";
+   var lines = contents.match(/[^\r\n]+/g);
+   var i = 0;
+   while (i < lines.length) {
+      i = processSegment(target, lines, i);
+   }
+
+   var options = {};
+   options.scale = 35;
+   options.spacingStaff = 4;
+   options.filter = "autobeam";
+   options.suppressSvg = "true";
+
+   var datasources = document.querySelectorAll("script[type='text/x-humdrum']");
+
+   (function (i, opts) {
+      (function j () {
+         var source = datasources[i++];
+         opts.source = source.id;
+         if (!source.id.match(/autobeam/)) {
+            displayHumdrumNow(opts);
+         }
+         if (i < datasources.length) {
+            setTimeout(j, 0);
+         }
+      })()
+   })(0, options);
+}
+
+
+
+//////////////////////////////
+//
+// processSegment -- Add one song to the end of the target element.
+//
+
+function processSegment(target, lines, starti) {
+   var endi = lines.length;
+   if (starti >= lines.length) {
+      return endi;
+   }
+   if (!lines[starti].match(/^!!!!SEGMENT:/)) {
+      return endi;
+   }
+   var matches;
+   var filename = "";
+   matches = lines[starti].match(/^!!!!SEGMENT\s*:\s*(.*)\s*$/);
+   if (matches) {
+      var filename = matches[1];
+   }
+   var filebase;
+   if (filename) {
+      filebase = filename.replace(/\.[^.]*$/, "");
+   } else {
+      filebase = "file-" + rand();
+   }
+   var humtext = lines[starti] + "\n";
+   var title = "";
+   var number = "";
+   var refs = {};
+   for (var i=starti+1; i<lines.length; i++) {
+      if (lines[i].match(/^!!!!SEGMENT:/)) {
+         // next song so break here
+         endi = i;
+         break;
+      } else {
+         humtext += lines[i] + "\n";
+      }
+      matches = lines[i].match(/^!!!([^:]+)\s*:\s*(.*)\s*$/);
+      if (matches) {
+         var key = matches[1];
+         var value = matches[2];
+         refs[key] = value;
+         if (!refs.OTL && key.match(/^OTL@/)) {
+            refs.OTL = value;
+         }
+      }
+      matches = lines[i].match(/^!!!OTL[^:]*:\s*(.*)\s*$/);
+      if (matches) {
+         title = matches[1];
+      }
+   }
+   displaySong(target, filebase, humtext, refs);
+   return endi;
+}
+
+
+
+//////////////////////////////
+//
+// displaySong --
+//
+
+function displaySong(target, id, humtext, refs) {
+   var title = refs.ONM + ". <i>" + refs.OTL + "</i>";
+   var div = document.createElement("div");
+   div.innerHTML = title;
+   div.className = "song-title";
+   div.id = id + "-title";
+   target.appendChild(div);
+   
+   var humscript = document.createElement("script");
+   humscript.type = "text/x-humdrum";
+   humscript.id = id;
+   humscript.innerHTML = humtext;
+   target.appendChild(humscript);
+}
+
+
+</script>
+
+
+

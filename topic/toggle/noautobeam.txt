@@ -1,0 +1,9 @@
+<script>
+   displayHumdrum({
+      source: "noautobeam",
+      url: "https://raw.githubusercontent.com/craigsapp/densmore-teton-sioux/master/kern/sioux001.krn",
+      scale: 35,
+      spacingStaff: 4
+   });
+</script>
+<script type="text/x-humdrum" id="noautobeam"></script>

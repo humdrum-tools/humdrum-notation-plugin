@@ -1,0 +1,104 @@
+
+
+In this example usage of the Humdrum notation plugin, musical data
+is preloaded onto the page, but the SVG images of the notation are
+initially suppressed.  This is because the time to generate all images
+is taking about one minute, and also because the computer memory needed
+to show all music notation as SVG images on the page is quite large.
+
+The options used for each song: 
+
+```javascript
+displayHumdrum({
+   spacingStaff: 4,
+   scale: 35,
+   suppressSvg: true,
+   filter: "autobeam"
+})
+```
+
+includes a property named `suppressSvg`, which is set to "true".  This will
+cause the `displayHumdrum()` function to create the container for the
+notation and load the Humdrum data, but it will not actually generate
+an SVG image for the container.  This property does not need to be removed
+for a second call to `displayHumdrum()`, because the plugin will see that
+a container has already been created, and the `suppressSvg` setting should
+therefore be ignored.
+
+The `spacingStaff` property is used to give a tighter spacing between
+staves in the notation (the default is 8 diatonic steps).  The `filter`
+property is "autobeam" which will automatically add beams to notes according
+to the prevailing meter.  Here is an example of the first song without
+the autobeam filter:
+
+
+{% include_relative noautobeam.txt %}
+
+And here is the same music with the auto beam applied:
+
+{% include_relative autobeam.txt %}
+
+When clicking on a title for the first time, the `displayHumdrumNow()` function 
+is called to produce an SVG image of the Humdrum data. The "now" version of
+`displayHumdrum()` will immediately run the plugin rather than placing the 
+call to the plugin within an event listener that check to see if the page
+has finished loading.  In this case the page must have loaded if you are able to 
+click on a title, so it is not necessary to check if the page is ready.  A second 
+click on a title will hide the SVG image, and a third click will show the 
+SVG image again (the image is only generated once, so it is not regenerated
+on the third click).
+
+Here is the click event handler that manages generation and display of the 
+music notation (scroll in the example to see all of the javascript code):
+
+<div class="scrolling">
+{% highlight javascript %}
+{% include_relative click-event-delegation.txt %}
+{% endhighlight %}
+</div>
+
+
+Included with the click event listener is a function called `displaySourcePage`.  This
+function causes a new window to be opened with a scan of the original publication, and the
+book is opened to the page that the song is on.  This is implemented by reading the `!!!PPG:` 
+reference record within the Humdrum data for the song, which contains the page number in the
+original publication that the song is found on.  This is then added to the URL for the source, 
+which allows for the source to be opened to a particular page, such as page 66 for the first
+song in the list: <a target="_blank" href="https://archive.org/details/tetonsioux00densmore/page/66">https://archive.org/details/tetonsioux00densmore/page/66</a>
+
+
+Here is the javascript code for downloading the Humdrum data from kernScores as a single
+stream of data, then splitting up the stream into separate songs and preloading the 
+Humdrum data onto the webpage and displaying the title for each song:
+
+<div class="scrolling">
+{% highlight javascript %}
+{% include_relative prepare-song-list.txt %}
+{% endhighlight %}
+</div>
+
+The data is loaded as a single file containing all 245 songs, using this
+link: <a target="_blank" href="http://kern.humdrum.org/data?l=folk/sioux">
+http://kern.humdrum.org/data?l=folk/sioux</a>.  Using a single URL
+to download all files is most likely faster than opening up 245
+separate connections to the individual song files.  In this case the
+data is coming from kernScores, but it could just as well be stored
+in a file on the same web server as this page, or even statically
+placed into this the webpage directly.  But in this case, since
+the data is downloaded from the kernScores (or <a target="_blank"
+href="https://github.com/craigsapp/densmore-teton-sioux">Github</a>),
+the music notation on this page will always contain the latest corrections
+to the digital edition.
+
+Each song is separated by a line like this:
+
+```
+!!!!SEGMENT: sioux001.krn
+```
+
+Where `sioux001.krn` is the filename for the Humdrum data in the following segment.  The
+filename is used to generate a source ID for each example, which is `sioux001` for this
+particular case.
+
+
+
