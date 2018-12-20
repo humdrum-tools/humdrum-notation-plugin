@@ -1017,7 +1017,7 @@ function displaySvg(toolkit, container) {
 		console.log("SOURCE ELEMENT:", source);
 		return;
 	}
-	var sourcetext = source.textContent.replace(/^\s+/sm, "");
+	var sourcetext = source.textContent.replace(/^\s+/m, "");
 
 	if (sourcetext.match(/^\s*$/)) {
 		// No data so don't try to render.
@@ -1280,7 +1280,7 @@ function copyContentToContainer(container, sourceid) {
 		console.log("CANNOT FIND Humdrum container", "#" + targetid + "-humdrum");
 		return;
 	}
-	var content = source.innerHTML.replace(/^\s+/sm, "");
+	var content = source.innerHTML.replace(/^\s+/m, "");
 
 	var initial = content.substr(0, 600);
 	// Probably use the real plugin options here later:
@@ -1752,10 +1752,10 @@ function saveHumdrumText(tags, savename, savetext) {
 				segmentname += ".krn";
 			}
 			humtext = tags[i].innerHTML
-					.replace(/^\n+/sm, "")
-					.replace(/\n+$/sm, "")
+					.replace(/^\n+/m, "")
+					.replace(/\n+$/m, "")
 					// remove any pre-existing SEGMENT marker:
-					.replace(/^!!!!SEGMENT\s*:[^\n]*\n/sm, "");
+					.replace(/^!!!!SEGMENT\s*:[^\n]*\n/m, "");
 			if (humtext.match(/^\s*$/)) {
 				// Ignore empty elements.
 				continue;
