@@ -1,6 +1,6 @@
 <style>
 div.resize {
-   min-width: 100px;
+   min-width: 200px;
    resize: both;
    overflow-y: scroll;
    border: 1px solid #ff00aa77;

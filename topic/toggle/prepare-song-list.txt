@@ -11,7 +11,8 @@
 //
 
 document.addEventListener("DOMContentLoaded", function(event) {
-   var url = "http://kern.humdrum.org/data?l=folk/sioux";
+   // var url = "http://kern.humdrum.org/data?l=folk/sioux";
+   var url = "densmore-teton-sioux.krns";
    downloadData(url);
 });
 
