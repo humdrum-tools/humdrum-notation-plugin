@@ -1062,14 +1062,24 @@ function displaySvg(toolkit, container) {
 		var aridelement = container.parentNode;
 
 		if (aridelement) {
-			var ro = new ResizeObserver(function(event) {
-				(function(bid, tk) {
-					var contelement = document.querySelector("#" + baseid + "-container");
-					var svgelement = contelement.querySelector("#" + baseid + "-svg");
-					displaySvg(toolkit, container);
-				})(baseid, toolkit);
-			});
-			ro.observe(aridelement);
+			try {
+				var ro = new ResizeObserver(function(event) {
+					(function(bid, tk) {
+						var contelement = document.querySelector("#" + baseid + "-container");
+						var svgelement = contelement.querySelector("#" + baseid + "-svg");
+						displaySvg(toolkit, container);
+					})(baseid, toolkit);
+				});
+				ro.observe(aridelement);
+			} catch (error) {
+				// ResizeObserver is not present for this browser, use setInterval instead.
+				var refreshRate = 250; // milliseconds
+				setInterval(function() {
+					(function(bid, tk) {
+						checkParentResize(bid, tk);
+					})(baseid, toolkit)
+				}, refreshRate);
+			}
 		} else {
 			window.addEventListener("resize", function(event) {
 				(function(bid, tk) {
@@ -1087,6 +1097,34 @@ function displaySvg(toolkit, container) {
 	console.log("OPTIONS:", pluginOptions);
 }
 
+
+//////////////////////////////
+//
+// checkParentResize --
+//
+
+function checkParentResize(baseid, toolkit) {
+	var container = document.querySelector("#" + baseid + "-container");
+	if (!container) {
+		return;
+	}
+	var options = container.querySelector("#" + baseid + "-options");
+	if (!options) {
+		return;
+	}
+	var pluginOptions = JSON.parse(options.innerHTML);
+	var scale = pluginOptions.scale;
+	var previousWidth = parseInt(pluginOptions._currentPageWidth * scale / 100.0);
+	var style = window.getComputedStyle(container, null);
+	var currentWidth = parseInt(style.getPropertyValue("width"));
+	// console.log("OLDWIDTH", previousWidth, "NEWWIDTH", currentWidth);
+	if (currentWidth == previousWidth) {
+		// nothing to do
+		return;
+	}
+	// console.log("UPDATING NOTATION DUE TO PARENT RESIZE");
+	displaySvg(toolkit, container);
+}
 
 
 //////////////////////////////
