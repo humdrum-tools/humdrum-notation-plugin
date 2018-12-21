@@ -33,6 +33,7 @@ section {
 
 
 * <a href="lyrics">Lyrics-related options</a>
+* <a href="resize">autoResize option examples</a>
 
 
 
