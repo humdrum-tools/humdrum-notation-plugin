@@ -13,25 +13,25 @@ section {
 
 # Resizing music notation #
 
-Automatic resizing of a musical example is done in the Humdrum notation
-plugin by setting the `autoResize` option to true.
+Automatic resizing of a musical example can be done with the Humdrum
+notation plugin by setting the `autoResize` option to true.
 
-This page demonstrates how to automatically resize music notation when the
-web browse changes size, and how to automatically resize music notation
-inside of a `<div>` element (or similar) within a webpage. Resizing
-in this context means to change the width of the music while keeping
-the same zoom scale. In other words, the music is re-typeset whenever
-the width of its HTML container is changed.  
+This page demonstrates how to automatically resize music notation
+when the web browse changes size, as well as how to automatically
+resize music notation inside of a `<div>` element (or similar) within
+a webpage. Resizing in this context means to change the width of the
+music while keeping the same zoom scale. In other words, the music is
+re-typeset whenever the width of its HTML container changes.
 
 
 
 # Resizing music in a div #
 
-The following example music can be resized according to the width of the
-following red box.  Try resizing the red box by dragging the bottom right
+The following example music can be resized according to the width red box
+that contains it.  Try resizing the red box by dragging the bottom right
 corner of the box.  You can even drag the box out into the right margin
-of the page beyond the text.  When the music cannot fully be displayed
-inside of the box, then the contents of the box will become scrollable.
+of the page beyond the text.  When the music cannot be fully displayed
+inside of the box, the contents of the box will become scrollable.
 
 {% include_relative resize-example.txt %}
 
@@ -69,18 +69,27 @@ Here is the HTML code that created the above example:
 
 This webpage limits the text and music notation to a region smaller than
 the full width of the web-browser window. Click on <a target="_blank"
-href="full-page-example.html">this link</a> to view a full page example,
-where the music will be resized to the full width of the window.
+href="full-page-example.html">this link</a> to view a full-page resizing
+example, using the first movement of Beethoven's <i>Moonlight</i> sonata.
+The music will be resized to the full width of the window and overflow
+of the music off the bottom of the page will be scrollable.
 
 Here is an example of the music when the browser is wide:
 
-
-<img class="figure" src="variation-wide.png">
+<a target="_blank" href="moonlight-wide.png"><img class="figure" src="moonlight-wide.png"></a>
 
 And here is an example of the music when the browser is narrow:
 
-<img style="width:50%" class="figure" src="variation-narrow.png">
+<a target="_blank" href="moonlight-narrow.png"><img style="width:50%" class="figure" src="moonlight-narrow.png"></a>
 
+You can also rescale the page (typically with the command or control key in
+combination with the plus/minus keys).  Here is an example of zooming
+out to view the full <i>Moonlight</i> sonata first movement in the
+web browser:
+
+<a target="_blank" href="moonlight-all.png"><img style="width:100%" class="figure" src="moonlight-all.png"></a>
+
+You can click on any of the above images to view them in more detail.
 
 
 The HTML code of the example webpage is:

@@ -1,19 +1,19 @@
 <html>
 <head>
-<title>Variation 1</title>
+<title>Moonlight sonata</title>
 {% include plugin-setup.html -%}
 </head>
 <body>
 
 <h1 style="text-align: center; font-weight: normal">
-   Mozart: Piano sonata no. 11 in A major, K331/K6300i, mvmt. 1, variation 1
+   Beethoven: Piano sonata no. 14 in C&sharp; minor, op. 27/2, mvmt. 1
 </h1>
 
 <script>
 displayHumdrum({
    source: "example",
    autoResize: true,
-   url: "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/master/kern/sonata11-1b.krn"
+   url: "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/master/kern/sonata14-1.krn"
 })</script>
 <script type="text/x-humdrum" id="example"> </script>
 

@@ -235,8 +235,9 @@
 @@BEGIN: OPTION
 @NAME:	pageMarginLeft
 @CAT:	input and page layout options
-@INFO:	The page left margin (default: 50;
+@INFO:	The page left margin
 @ARG:	integer
+@DEF:   50
 @MIN:	0
 @MAX:	500
 @@END: OPTION

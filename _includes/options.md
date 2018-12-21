@@ -19,6 +19,10 @@ Numeric options:
 | option name        | default       | min       | max       | description 
 |--------------------|---------------|-----------|-----------|-------------
 | `pageHeight`       | *none*        | 100       | 60000     | Width of the music notation.  By default, the humdrum plugin will set the width of the notation to match the width of the parent element that contains the notation.
+| `pageMarginBottom` | 50            | 0         | 500       | Height of the bottom margin.
+| `pageMarginLeft`   | 50            | 0         | 500       | Width of the left margin.
+| `pageMarginRight`  | 50            | 0         | 500       | Width of the right margin.
+| `pageMarginTop`    | 50            | 0         | 500       | Height of the top margin.
 | `scale`            | 40            | 1         |           | The scaling size of the music notation as a percentage.
 | `spacingStaff`     | 8             | 0         | 24        | The minimum distance between staves in diatonic steps.
 | `spacingLinear`    | 0.25          | 0.0       | 1.0       | This parameter controls the density of the notation, with 0.0 being very crowded and 1.0 being very spacious.
