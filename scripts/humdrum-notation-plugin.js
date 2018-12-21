@@ -38,6 +38,8 @@
 //		spacingSystem    default 6
 //
 
+var MUTEX = 0;
+
 VEROVIO_OPTIONS =
 {
    "OPTION": [
@@ -1043,6 +1045,7 @@ function displaySvg(toolkit, container) {
 	if (!svgtarget) {
 		console.log("Error: no container for SVG output image", "#" + baseid + "-svg");
 	}
+
 	var svg = toolkit.renderData(sourcetext, vrvOptions);
 
 	svgtarget.innerHTML = svg;
@@ -1117,13 +1120,21 @@ function checkParentResize(baseid, toolkit) {
 	var previousWidth = parseInt(pluginOptions._currentPageWidth * scale / 100.0);
 	var style = window.getComputedStyle(container, null);
 	var currentWidth = parseInt(style.getPropertyValue("width"));
-	// console.log("OLDWIDTH", previousWidth, "NEWWIDTH", currentWidth);
 	if (currentWidth == previousWidth) {
 		// nothing to do
 		return;
 	}
-	// console.log("UPDATING NOTATION DUE TO PARENT RESIZE");
-	displaySvg(toolkit, container);
+	if (Math.abs(currentWidth - previousWidth) < 3)  {
+		// Safari required hysteresis
+		return;
+	}
+	// console.log("UPDATING NOTATION DUE TO PARENT RESIZE FOR", baseid);
+	// console.log("OLDWIDTH", previousWidth, "NEWWIDTH", currentWidth);
+	if (!MUTEX) {
+		MUTEX = 1;
+		displaySvg(toolkit, container);
+		MUTEX = 0;
+	}
 }
 
 
