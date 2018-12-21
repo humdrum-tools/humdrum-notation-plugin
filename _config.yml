@@ -10,4 +10,12 @@ host: 127.0.0.1
 port: 4444
 
 
+# Where the main url for the Verovio toolkit exists:
+veroviourl: https://verovio-script.humdrum.org/scripts/verovio-toolkit.js
+
+# Where the main url for the Humdurm notation plugin exists:
+#notationurl: https://plugin.humdrum.org/scripts/humdrum-notation-plugin.js
+notationurl: https://plugin.humdrum.org/scripts/humdrum-notation-plugin.js
+
+
 

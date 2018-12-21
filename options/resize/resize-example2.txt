@@ -1,0 +1,11 @@
+<style>
+div.resize-incipit {
+   min-width: 100px;
+   resize: horizontal;
+   overflow: hidden;
+   border: 1px solid #ff00aa77;
+}
+</style>
+<div class="resize-incipit">
+{% include_relative resize2.txt -%}
+</div>

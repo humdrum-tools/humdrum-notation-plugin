@@ -1,6 +1,6 @@
 @@ Verovio version 2.0.0-dev-bd2039c option list
 @@ This file is converted into a JSON file (verovio-options.json) and
-@@ Then copied directly into ../scripts/humdrum-plugin.js for easier
+@@ Then copied directly into ../scripts/humdrum-notation-plugin.js for easier
 @@ portability.
 @@ 
 @@ Description of each possible paramter:

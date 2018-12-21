@@ -1,0 +1,9 @@
+<script>
+displayHumdrum({
+   source: "example",
+   pageMarginRight: 100,
+   autoResize: true,
+   scale: 28,
+   url: "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/master/kern/sonata11-1a.krn"
+})</script>
+<script type="text/x-humdrum" id="example"></script>

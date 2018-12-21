@@ -2,6 +2,7 @@
 
 | option name     | default value | description 
 |-----------------|---------------|------------
+| `autoResize `   | false         | Re-typeset the music whenever the browser window is resized. See [this page](/options/resize) for examples.
 | `filter `       |               | A filter command which will be run on the Humdrum data before it is sent to the renderer to generate graphical music notation.
 | `header`        | false         | When set to "true", display embedded title, composer, lyricist information in musical notation.
 | `incipit`       | false         | When set to "true", only the first system of the music notation will be displayed. 

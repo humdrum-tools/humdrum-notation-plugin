@@ -1,6 +1,6 @@
 
-<script src="https://verovio-script.humdrum.org/scripts/verovio-toolkit.js"></script>
-<script src="/scripts/humdrum-plugin.js"></script>
+<script src="{{site.veroviourl}}"></script>
+<script src="{{site.notationurl}}"></script>
 <script>
 var vrvToolkit = new verovio.toolkit();
 </script>

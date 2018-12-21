@@ -54,8 +54,8 @@ To use the Humdrum notation plugin on a webpage, copy the following
 lines of text into your webpage:
 
 ```html
-<script src="https://verovio-script.humdrum.org/scripts/verovio-toolkit.js"></script>
-<script src="https://plugin.humdrum.org/scripts/humdrum-plugin.js"></script>
+<script src="{{site.veroviourl}}"></script>
+<script src="{{site.notationurl}}"></script>
 <script>var vrvToolkit = new verovio.toolkit()</script>
 ```
 
