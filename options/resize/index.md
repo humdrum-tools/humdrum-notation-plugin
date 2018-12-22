@@ -111,7 +111,7 @@ in the yellow banner at the top of the page is resized in this
 manner.
 
 ggg 
-{% include manual-example.txt %}
+{% include_relative manual-example.txt %}
 hhh
 
 
