@@ -38,9 +38,11 @@
 //		spacingSystem    default 6
 //
 
-var MUTEX = 0;
+var HNP_DATABASE = {};
+HNP_DATABASE.IDS = {};
+HNP_DATABASE.MUTEX = 0;
 
-VEROVIO_OPTIONS =
+HNP_DATABASE.VEROVIO_OPTIONS =
 {
    "OPTION": [
       {
@@ -212,8 +214,9 @@ VEROVIO_OPTIONS =
       {
          "NAME": "pageMarginLeft",
          "CAT": "input and page layout options",
-         "INFO": "The page left margin (default: 50;",
+         "INFO": "The page left margin",
          "ARG": "integer",
+         "DEF": "50",
          "MIN": "0",
          "MAX": "500"
       },
@@ -856,12 +859,12 @@ VEROVIO_OPTIONS =
 };
 
 function prepareHumdrumOptions() {
-	var list = VEROVIO_OPTIONS.OPTION;
+	var list = HNP_DATABASE.VEROVIO_OPTIONS.OPTION;
 	for (var i=0; i<list.length; i++) {
 		if (list[i].CLI_ONLY) {
 			continue;
 		}
-		VEROVIO_OPTIONS[list[i].NAME] = list[i];
+		HNP_DATABASE.VEROVIO_OPTIONS[list[i].NAME] = list[i];
 	}
 }
 prepareHumdrumOptions();
@@ -1097,13 +1100,15 @@ function displaySvg(toolkit, container) {
 	// save the options with any automatic state variable updates:
 	var ostring = JSON.stringify(pluginOptions);
 	options.innerHTML = ostring;
-	console.log("OPTIONS:", pluginOptions);
+	// console.log("OPTIONS:", pluginOptions);
 }
 
 
 //////////////////////////////
 //
 // checkParentResize --
+//    Note that Safari does not allow shrinking of original element sizes, only 
+//    expanding: https://css-tricks.com/almanac/properties/r/resize
 //
 
 function checkParentResize(baseid, toolkit) {
@@ -1130,10 +1135,10 @@ function checkParentResize(baseid, toolkit) {
 	}
 	// console.log("UPDATING NOTATION DUE TO PARENT RESIZE FOR", baseid);
 	// console.log("OLDWIDTH", previousWidth, "NEWWIDTH", currentWidth);
-	if (!MUTEX) {
-		MUTEX = 1;
+	if (!HNP_DATABASE.MUTEX) {
+		HNP_DATABASE.MUTEX = 1;
 		displaySvg(toolkit, container);
-		MUTEX = 0;
+		HNP_DATABASE.MUTEX = 0;
 	}
 }
 
@@ -1237,9 +1242,9 @@ function insertDefaultOptions(vrvOptions, pluginOptions, container) {
 
 	// Need to superimpose default options since verovio will keep old
 	// options persistent from previously generated examples.
-	if (VEROVIO_OPTIONS) {
-		for (var i=0; i<VEROVIO_OPTIONS.OPTION.length; i++) {
-			var option = VEROVIO_OPTIONS.OPTION[i];
+	if (HNP_DATABASE.VEROVIO_OPTIONS) {
+		for (var i=0; i<HNP_DATABASE.VEROVIO_OPTIONS.OPTION.length; i++) {
+			var option = HNP_DATABASE.VEROVIO_OPTIONS.OPTION[i];
 			var name = option.NAME;
 			if (option.CLI_ONLY === "true" || option.CLI_ONLY === true || option.CLI_ONLY === 1) {
 				continue;
@@ -1574,7 +1579,7 @@ function extractVerovioOptions(opts) {
 			// scale option handled above
 			continue;
 		}
-		if (typeof VEROVIO_OPTIONS[property] === 'undefined') {
+		if (typeof HNP_DATABASE.VEROVIO_OPTIONS[property] === 'undefined') {
 			// not a verovio option
 			continue;
 		}
@@ -1850,6 +1855,196 @@ function saveHumdrumText(tags, savename, savetext) {
 	}
 	// save all extracted Humdrum content in a single file:
 	saveHumdrumText(null, null, outputtext);
+}
+
+
+///////////////////////////////////////////////////////////////////////////
+//
+// Humdrum ReferenceRecord object
+//
+
+function ReferenceRecord(lineindex, linetext) {
+	clear();
+	setLineIndex(lineindex);
+	setLineText(linetext);
+	return this;
+}
+
+ReferenceRecord.prototype.clear = function () {
+	this.line         = -1;  // line index: offset from 0 for first line in file.
+	this.text         = "";
+	clearParsedData();
+	return this;
+}
+
+ReferenceRecord.prototype.clearParsedData = function () {
+	this.key          = "";
+	this.keyBase      = "";
+	this.keyAt        = "";
+	this.keyVariant   = "";
+	this.keyCount     = "";
+	this.value        = "";
+	return this;
+};
+
+ReferenceRecord.prototype.setLineIndex = function (lineindex) {
+	try {
+		this.line = parseInt(lineindex);
+	} catch (error) {
+		this.line = -1;
+	}
+	return this;
+};
+
+ReferenceRecord.prototype.setLineText = function (linetext) {
+	if (typeof linetext === "string" || linetext instanceof String) {
+		this.text = linetext;
+		parseTextLine();
+	} else {
+		clear();
+	}
+	return this;
+}
+
+ReferenceRecord.prototype.parseTextLine = function () {
+	// this.key          = The complete reference key.
+	// this.keyBase      = The reference key without langauge, count or variant qualifiers.
+	// this.keyAt        = The language qualification, including the @ signs.
+	// this.keyVariant = The variant qualification (a dash followed by text).
+	// this.keyCount     = A Number following a keyBase, before keyAt or keyQual.
+	clearParsedData();
+	var matches = text.match(/^!!![^!:]+\s*:\s*(.*)\s*$/);
+	if (matches) {
+		this.keyBase = matches[1];
+		this.key     = matches[1];
+		this.value   = matches[2];
+	}
+	matches = this.keyBase.match(/^([^@]+)(@+.*)$/);
+	if (matches) {
+		this.keyBase = matches[1];
+		this.keyAt = matches[2];
+	}
+	matches = this.keyBase.match(/^([^-]+)-(.+)$/);
+	if (matches) {
+		this.keyBase    = matches[1];
+		this.keyVariant = matches[2];
+	}
+	// order of language and variant is not defined (so allow either to be first).
+	matches = this.keyAt.match(/^([^-]+)-(.+)$/);
+	if (matches) {
+		this.keyAt      = matches[1];
+		this.keyVariant = matches[2];
+	}
+	return this;
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////
+//
+// Humdrum ReferenceRecords object
+//
+
+function ReferenceRecords(humdrumfile) {
+	this.sequence = [];  // The order that the Humdrum records are found in the file
+	this.database = {};  // Hash of the records by ReferenceRecord::keyBase
+	parseReferenceRecords(humdrumfile);
+	return this;
+}
+
+ReferenceRecords.prototype.parseReferenceRecords = function (humdrumfile) {
+	var lines = [];
+	if (typeof linetext === "string" || linetext instanceof String) {
+		lines = humdrumfile.match(/[^\r\n]+/g);
+	} else if (Object.prototype.toString.call(humdrumfile) === '[object Array]') {
+		if (humdrumfile[0] === "string" || humdrumfile[0] instanceof String) {
+			line = humdrumfile;
+		}
+	} else {
+		// check if an HTML element and load text from there.
+		var ishtml = false;
+  		try {
+			ishtml = obj instanceof HTMLElement ? true : false;
+  		}
+  		catch(e){
+    		//Browsers not supporting W3 DOM2 don't have HTMLElement and
+    		//an exception is thrown and we end up here. Testing some
+    		//properties that all elements have (works on IE7)
+    		if ((typeof obj === "object") &&
+      			(obj.nodeType === 1) && (typeof obj.style === "object") &&
+      			(typeof obj.ownerDocument ==="object")) {
+				ishtml = true;
+			}
+		}
+		if (ishtml) {
+			lines = humdrumfile.innerHTML.match(/[^\r\n]+/g);
+		}
+	}
+	for (i=0; i<lines.length; i++) {
+		if (!lines[i].match(/^!!![^!:]/)) {
+			var record = new HumdrumRecord(i, lines[i]);
+			this.sequence.push(record);
+			var key = record.keyBase;
+			if (!this.database[key]) {
+				this.database[key] = [ record ];
+			} else {
+				this.database[key].push(record);
+			}
+		}
+	}
+	return this;
+}
+
+ReferenceRecords.prototype.getReferenceFirst = function (keyBase) {
+	// return the first keyBase record
+	var items  = this.database[keyBase];
+	if (!items) {
+		return "";
+	} else if (items.length > 0) {
+		return items[0];
+	} else {
+		return "";
+	}
+}
+
+ReferenceRecords.prototype.getReferenceAll = function (keyBase) {
+	// if keyBase is empty, then return all records:
+	if (!keyBase) {
+		return this.sequence;
+	}
+	// return all keyBase records
+	var items  = this.database[keyBase];
+	if (!items) {
+		return [];
+	} else if (items.length > 0) {
+		return items[0];
+	} else {
+		return [];
+	}
+}
+
+
+ReferenceRecords.prototype.getReferenceFirstExact = function (key) {
+	// return first matching key record
+	var list = getReferenceAll(key)
+	for (var i=0; i<list.length; i++) {
+		if (list[i].key === key) {
+			return list[i];
+		}
+	}
+	return "";
+}
+
+ReferenceRecords.prototype.getReferenceAllExact = function (key) {
+	// return all matching key record
+	var list = getReferenceAll(key)
+	var output = [];
+	for (var i=0; i<list.length; i++) {
+		if (list[i].key === key) {
+			output.push(list[i]);
+		}
+	}
+	return output;
 }
 
 

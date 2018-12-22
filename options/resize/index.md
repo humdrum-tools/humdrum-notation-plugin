@@ -17,7 +17,7 @@ Automatic resizing of a musical example can be done with the Humdrum
 notation plugin by setting the `autoResize` option to true.
 
 This page demonstrates how to automatically resize music notation
-when the web browse changes size, as well as how to automatically
+when the web browser changes size, as well as how to automatically
 resize music notation inside of a `<div>` element (or similar) within
 a webpage. Resizing in this context means to change the width of the
 music while keeping the same zoom scale. In other words, the music is

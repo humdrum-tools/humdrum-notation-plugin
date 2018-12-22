@@ -1,0 +1,5 @@
+
+# Where the main url for the Humdurm notation plugin exists:
+notationurl: /scripts/humdrum-notation-plugin.js
+#notationurl: https://plugin.humdrum.org/scripts/humdrum-notation-plugin.js
+
