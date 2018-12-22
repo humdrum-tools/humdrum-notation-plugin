@@ -102,6 +102,19 @@ Try copy-and-pasting this source code into an HTML page and view it on your
 local browser (usually by double-clicking on the file in the Desktop).
 
 
+# Resizing on your own #
+
+Instead of using `autoResize: true`, you can alternatively control
+the re-drawing of the music notation yourself rather than letting
+the plugin manage the redrawing.  For example, the music notation
+in the yellow banner at the top of the page is resized in this
+manner.
+
+ggg 
+{% include_relative manual-example.txt %}
+hhh
+
+
 
 {% comment %}
 	The following data is used to print some music in the header of this page.

@@ -6,13 +6,11 @@ vim:	ts=3
 
 <style>
 nav {
-	overflow: scroll;
-	position: relative;
-	text-align: left;
-	top: 40px;
+	position: fixed;
+	top: 380px;
 }
 section {
-	margin-top: -80px !important;
+	margin-top: 0px !important;
 }
 @media print, screen and (max-width: 1060px) { 
 	section {
