@@ -1,0 +1,11 @@
+<script>
+   displayHumdrum({
+      source: "trink",
+      scale: 25,
+      spacingLinear: 0.32,
+      header: true
+   });
+</script>
+<script type="text/x-humdrum" id="trink">
+{% include_relative Mendelssohn_Op75_3.mei -%}
+</script>

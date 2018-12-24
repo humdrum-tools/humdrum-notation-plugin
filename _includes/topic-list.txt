@@ -1,6 +1,7 @@
 
 
-* <a href="/topic/musicxml">How to import MusicXML</a>
+* <a href="/topic/musicxml">How to import MusicXML data</a>
+* <a href="/topic/musicxml">How to import MEI data</a>
 * <a href="/topic/coloring">How to highlight notes with color</a>
 * <a href="/topic/saving">How to add buttons to save SVG images or Humdrum data from a webpage</a>
 * <a href="/topic/toggle">How to load many small pieces onto a webpage and toggle their display</a>

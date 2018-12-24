@@ -4,31 +4,31 @@ vim:	ts=3
 
 {% include default-header.html %}
 
-In addition to Humdrum data, MusicXML files can be embedded in the 
+In addition to Humdrum data, MEI files can be embedded in the 
 webpage (or loaded from an external URL).  In general doing this is slower since 
-an extra conversion into Humdrum is needed, and MusicXML files
+an extra conversion into Humdrum is needed, and MEI files
 are about 20 times larger than Humdrum data for the same score.  The <nobr>30-measure</nobr>
 example on this page is 216 KB, while the Humdrum data is 12 KB.
 
 You can also <a target="_blank"
-href="http://doc.verovio.humdrum.org/interface/musicxml/">drag-and-drop a
-MusicXML file</a> into <a target="_blank"
+href="http://doc.verovio.humdrum.org/interface/mei/">drag-and-drop a
+MEI file</a> into <a target="_blank"
 href="http://verovio.humdrum.org">Verovio Humdrum Viewer</a> to
 convert to Humdrum, and then paste the Humdrum conversion into your
 webpage, rather than converting the XML data files on the fly to
 Humdrum data.
 
 
-# Embedding MusicXML #
+# Embedding MEI #
 
-MusicXML content can be embedded into the webpage in place of Humdrum
+MEI content can be embedded into the webpage in place of Humdrum
 data.  When the plugin reads the Humdrum script element and sees
-MusicXML instead of Humdrum data, it will convert it automatically
+MEI instead of Humdrum data, it will convert it automatically
 into Humdrum before proceeding to generate notation.
 
-The following example starts with MusicXML data, and then converts
+The following example starts with MEI data, and then converts
 internally to Humdrum data before generating graphical notation.
-Scroll through the following box to view all of the MusicXML content
+Scroll through the following box to view all of the MEI content
 enclosed in the Humdrum script element:
 
 <div class="scrolling">
@@ -48,13 +48,13 @@ Here is the converted Humdrum data:
 </div>
 
 
-# MusicXML from URL #
+# MEI from URL #
 
-The MusicXML data for the example song was taken from <a target="_blank"
+The MEI data for the example song was taken from <a target="_blank"
 href="http://www3.cpdl.org/wiki/index.php/Trinklied,_Op._75,_No._3_(Felix_Mendelssohn)">CPDL
-#52575</a>.  In this case the MusicXML data file linked to on that
+#52575</a>.  In this case the MEI data file linked to on that
 page is in a compressed format, so it cannot be loaded directly with the Humdrum notation plugin.
-First it must be downloaded and unzipped to extract the uncompressed MusicXML datafile.
+First it must be downloaded and unzipped to extract the uncompressed MEI datafile.
 
 Here is the same music loaded from a URL coming from the same
 location as this webpage rather than stored directly inside of the
@@ -66,11 +66,11 @@ webpage:
 
 {% include_relative trinklied-url.txt %}
 
-The full address of the url is <a target="_blank" href="https://plugin.humdrum.org/topic/musicxml/Mendelssohn_Op75_3.xml">https://plugin.humdrum.org/topic/musicxml/Mendelssohn_Op75_3.xml</a>.
+The full address of the url is <a target="_blank" href="https://plugin.humdrum.org/topic/mei/Mendelssohn_Op75_3.mei">https://plugin.humdrum.org/topic/mei/Mendelssohn_Op75_3.mei</a>.
 
 
 Note that filter commands can be added even when the input data is
-MusicXML.  The data is converted automatically into Humdrum data,
+MEI.  The data is converted automatically into Humdrum data,
 and then the filter line is added to the Humdrum data before being
 rendered into graphical music notation.  The filter pipe-line for
 this example means:
@@ -95,5 +95,5 @@ this example means:
 <script type="text/x-humdrum" id="title-notation-source">
 !!!title: <a target="_blank" href="http://www3.cpdl.org/wiki/index.php/Trinklied,_Op._75,_No._3_(Felix_Mendelssohn)">Mendelssohn: Trinklied, op. 75, no. 3, Tenor 1 part</a>
 {% include_relative Mendelssohn_Op75_3.krn -%}
-!!!filter: extract -k 4
+!!!filter: extract -k 1
 </script>
