@@ -13,7 +13,17 @@
 8a
 8b
 8cc
-=
+=2||
+*M6/8
+8b
+8a
+8g
+8f
+8e
+8d
+=3
+2.c;
+==
 *-
 !!!filter: transpose -k e-
 !!!filter: autobeam

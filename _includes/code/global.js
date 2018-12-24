@@ -216,7 +216,7 @@ function getFilters(options) {
 	}
 	if (Object.prototype.toString.call(filters) === "[object String]") {
 		filters = [filters];
-	} else if (Object.prototype.toString.call(filters) !== "[object Array]") {
+	} else if (!Array.isArray(filters)) {
 		// expected to be a string or array, so giving up
 		return "";
 	}
@@ -510,19 +510,17 @@ function saveHumdrumText(tags, savename, savetext) {
 
 //////////////////////////////
 //
-// cloneObject --
+// cloneObject -- Make a deep copy of an object, preserving arrays.
 //
 
 function cloneObject(obj) {
-	var clone = {};
-	for (var i in obj) {
-		if(obj[i] != null &&  typeof(obj[i]) === "object") {
-			clone[i] = cloneObject(obj[i]);
-		} else {
-			clone[i] = obj[i];
-		}
+	var output, v, key;
+	output = Array.isArray(obj) ? [] : {};
+	for (key in obj) {
+		v = obj[key];
+		output[key] = (typeof v === "object") ? cloneObject(v) : v;
 	}
-	return clone;
+	return output;
 }
 
 

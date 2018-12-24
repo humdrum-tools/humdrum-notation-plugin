@@ -244,7 +244,7 @@ before the music notation is generated:
 Another useful filtering tool used
 in this example is the <a target="_blank"
 href="http://doc.verovio.humdrum.org/filters/autobeam">autobeam</a> tool,
-which connected eighth notes together by quarter-note durations based on
+which connected the eighth notes together by quarter-note durations based on
 the key signature.  In this case the tools are used in separate filter
 lines, but they can be given on the same line like this:
 
@@ -294,6 +294,21 @@ their function: `p` is a falling passing tone, `g` is a suspension agent (initia
 a suspension, but is considered the consonant note of the suspension), and `v`
 is a descending accented passing tone.  For more information, see 
 <a target="_blank" href="http://doc.verovio.humdrum.org/filters/dissonant">documentation for the dissonant tool</a>.
+
+The `filter` option can also be set to an array of filters, which will be applied in the same sequence.  The 
+above pipe-lined filter can be equivalently expressed as:
+
+```javascript
+filter: [
+      "dissonant --colorize",
+      "myank -m 1-18",
+      "extract -k 1"
+   ]
+```
+
+First the music will be analyzed by the dissonant tool, then the first 18
+measures will be excerpted from the score, then the first kern spine (for
+the bass part) will be extracted along with its secondary analysis spines.
 
 
 
