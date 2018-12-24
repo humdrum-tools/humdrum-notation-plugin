@@ -3,7 +3,7 @@
 | option name     | default value | description 
 |-----------------|---------------|------------
 | `autoResize `   | false         | Re-typeset the music whenever the browser window is resized. See [this page](/options/resize) for examples.
-| `filter `       |               | A filter command which will be run on the Humdrum data before it is sent to the renderer to generate graphical music notation.
+| `filter `       |               | A <a target="_blank" href="https://doc.verovio.humdrum.org/filters">filter command</a> which will be run on the Humdrum data before it is sent to the renderer to generate graphical music notation.
 | `header`        | false         | When set to "true", display embedded title, composer, lyricist information in musical notation.
 | `incipit`       | false         | When set to "true", only the first system of the music notation will be displayed. 
 | `postFunction`  |               | The name of a function to run after notation has been rendered to an SVG image.
