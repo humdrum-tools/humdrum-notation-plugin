@@ -51,7 +51,8 @@ which will produce the SVG image:
 {% include_relative twinkle-example.txt %}
 
 
-The tag extension uses the Humdrum notation plugin.  Attributes of the `<humdrum>` tag are 
+The tag extension uses the Humdrum notation plugin.  Attributes of the `<humdrum>` tag are mapped
+to `displayHumdrum()` input parameters:
 
 ```html
 <humdrum filter="transpose -k d" scale="55" spacingNonLinear="0.7">
