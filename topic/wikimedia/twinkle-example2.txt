@@ -1,0 +1,12 @@
+<script>
+   displayHumdrum({
+      source: "twinkle2",
+      filter: "transpose -k d",
+      scale: 55,
+      spacingNonLinear: 0.64
+   })
+</script>
+
+<script type="text/x-humdrum" id="twinkle2">
+{% include_relative twinkle.txt %}
+</script>

@@ -1,0 +1,4 @@
+<script>displayHumdrum({source: "twinkle1"})</script>
+<script type="text/x-humdrum" id="twinkle1">
+{% include_relative twinkle.txt %}
+</script>

@@ -1,0 +1,25 @@
+!!!OTL: Twinkle, twinkle, little star
+**kern	**text	**dynam
+*M4/4	*	*
+*k[]	*	*
+*C:	*	*
+4c	Twin-	p <
+4c	-kle,	.
+4g	twin-	.
+4g	-kle	.
+=	=	=
+4a	lit-	.
+4a	-tle	.
+2g^	star,	[ f
+=	=	=
+4f'	how	pp <
+4f'	I 	.
+4e'	won-	.
+4e'	-der	[
+=	=	=
+4d'	what	>
+4d'	you	.
+2c;<	are	]]
+==	==	==
+*-	*-	*-
+!!!RDF**kern: < = below

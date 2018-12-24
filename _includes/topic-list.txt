@@ -6,4 +6,5 @@
 * <a href="/topic/saving">How to add buttons to save SVG images or Humdrum data from a webpage</a>
 * <a href="/topic/toggle">How to load many small pieces onto a webpage and toggle their display</a>
 * <a href="/options/resize">How to resize music notation automatically and manually</a>
+* <a href="/topic/wikimedia">How to display music notation on a wiki page</a>
 
