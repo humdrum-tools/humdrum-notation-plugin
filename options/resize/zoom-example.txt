@@ -1,0 +1,37 @@
+
+<script>
+displayHumdrum({
+   source: "zoom",
+   scale: 20,
+   url: "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/master/kern/sonata11-1a.krn"
+})
+</script>
+
+<div id="mydiv-zoom">
+<script type="text/x-humdrum" id="zoom"></script>
+</div>
+
+
+<style>
+.zoom-window {
+   position: relative;
+   width: 100vw;
+   height: auto;
+   margin-left: -50vw;
+   left: 50%;
+   background-color: #ffcc00;
+   z-index: 1000;
+}
+.zoom-window svg {
+   width: 100% !important;
+   height: 100% !important;
+}
+</style>
+
+<script>
+   var mydiv = document.querySelector("#mydiv-zoom");
+   mydiv.addEventListener("click", function (event) {
+      this.className = this.className ? "" : "zoom-window";
+   });
+</script>
+

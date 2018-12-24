@@ -1,3 +1,3 @@
 ---
 ---
-{% include_relative humdrum-notation-plugin.js %}
+{% include code/humdrum-notation-plugin.js %}

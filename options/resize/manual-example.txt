@@ -1,26 +1,29 @@
 
 <script>
 displayHumdrum({
-   source: "manual"
-})
-</script>
+   source: "manual",
+   scale: 35,
+   url: "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/master/kern/sonata11-1a.krn",
+   postFunction: function (baseid) {
+      window.addEventListener("resize", function() {
+         displayHumdrum(baseid);
+      })
+   }
+})</script>
 
-hhh
 <div class="full-width">
 <script type="text/x-humdrum" id="manual"></script>
 </div>
-ooo
+
 
 <style>
 .full-width {
-   background-color: red;
-   width: 100%;
-   position: absolute;
-   top: 0;
-   left: 0;
-   margin: 0 auto;
+   position: relative;
+   width: 100vw;
+   margin-left: -50vw;
+   left: 50%;
+   background-color: #ffcc00;
+   z-index: 1000;
 }
 </style>
-
-
 

@@ -11,17 +11,18 @@ section {
 </style>
 
 
+
 # Resizing music notation #
 
 Automatic resizing of a musical example can be done with the Humdrum
 notation plugin by setting the `autoResize` option to true.
 
-This page demonstrates how to automatically resize music notation
-when the web browser changes size, as well as how to automatically
-resize music notation inside of a `<div>` element (or similar) within
-a webpage. Resizing in this context means to change the width of the
-music while keeping the same zoom scale. In other words, the music is
-re-typeset whenever the width of its HTML container changes.
+This page demonstrates how to automatically resize music notation when
+the web browser changes size, as well as resizing music notation inside
+of a `<div>` element (or similar) within a webpage. Resizing in this
+context means to change the width of the music while keeping the same
+zoom scale. In other words, the music is re-typeset whenever the width
+of its HTML container changes.
 
 
 
@@ -35,13 +36,17 @@ inside of the box, the contents of the box will become scrollable.
 
 {% include_relative resize-example.txt %}
 
-<p style="margin-top:20px;"> 
+<p style="margin-top:20px;">
 The above example was generated with this HTML code:
 </p>
 
 ```html
 {% include_relative resize-example.txt -%}
 ```
+
+Note that the Safari web-browser  will not let you resize an element to
+make it smaller, only larger.
+
 
 
 # Resizing incipits #
@@ -54,16 +59,18 @@ Try dragging the right bottom corner of the red box to the left and
 right to resize the incipit:
 
 
-{% include_relative resize-example2.txt %}
+{% include_relative resize-incipit.txt %}
 
 
-<p style="margin-top:20px;"> 
+<p style="margin-top:20px;">
 Here is the HTML code that created the above example:
 </p>
 
 ```html
-{% include_relative resize-example2.txt -%}
+{% include_relative resize-incipit.txt -%}
 ```
+
+
 
 # Full-page resizing #
 
@@ -102,17 +109,102 @@ Try copy-and-pasting this source code into an HTML page and view it on your
 local browser (usually by double-clicking on the file in the Desktop).
 
 
+
 # Resizing on your own #
 
 Instead of using `autoResize: true`, you can alternatively control
-the re-drawing of the music notation yourself rather than letting
-the plugin manage the redrawing.  For example, the music notation
-in the yellow banner at the top of the page is resized in this
-manner.
+music re-drawing yourself by setting up an event listener that triggers
+when the size of the window changes.  Here is an exmple of this:
 
-ggg 
 {% include_relative manual-example.txt %}
-hhh
+
+
+Here is the source code for the above example:
+
+```html
+{% include_relative manual-example.txt %}
+```
+
+The `postFunction` parameter in the options to `displayHumdrum()` contains
+this function:
+
+```javascript
+function (baseid) {
+   window.addEventListener("resize", function() {
+      displayHumdrum(baseid);
+   })
+}
+```
+
+which adds and event listener that is run every time the window is resized (resizing
+based on other elements inside of a webpage is more difficult to implement).  The function
+given to `postFuction` will be given the ID of the Humdrum script (which is "manual" in
+this case).  The function call `displayHumdrum(id)` can be used after inital
+setup to redraw the notation with the data store in the Humdrum script that has the
+given ID.
+
+
+
+# Resizing with clicks #
+
+Here is another example where you can click on the music notation to toggle
+between paragraph width and full-screen width:
+
+
+{% include_relative toggle-example.txt %}
+
+Each time the music is clicked on, it is retypeset for the space it has available.
+Also notice in the HTML content below for this example, the music is displayed in
+two sizes: at `scale:20` when it is in the paragraph, and at `scale:35` when it
+is displayed with a full-window width.
+
+```html
+{% include_relative toggle-example.txt %}
+```
+
+
+
+# Zoom with clicks #
+
+
+If you want to keep the same layout for the small and large versions of 
+some music notation, then it is not necessary to re-typeset the music for
+different sizes.  In this example, clicking on the music will expand the
+notation to the full-width of the music, where the resizing is done
+by scaling the SVG image to the full width of the window rather than
+regenerating a new SVG image:
+
+{% include_relative zoom-example.txt %}
+
+
+Here is the HTML code for the example:
+
+```html
+{% include_relative zoom-example.txt %}
+```
+
+Notice that this example is much more responsive when clicking on the notation.
+This is because the music notation is not recalculated after each click&mdash;only
+the size of the SVG image is changed.  Also notice that the SVG image's size
+will be adjusted to the full width of the window when in expanded view.
+
+
+# Incipit to full page #
+
+Below is an example of showing an incipit in the text region.  After
+clicking on the incipit, the full score will be displayed in the div,
+covering the entire page.  Clicking on the full-page example will revert
+the example to the incipit again.
+
+
+{% include_relative toggle-incipit.txt %}
+
+
+HTML code for this example:
+
+```html
+{% include_relative toggle-incipit.txt %}
+```
 
 
 

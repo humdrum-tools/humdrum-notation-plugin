@@ -1,0 +1,42 @@
+<script>
+var smallprint = 20;
+var largeprint = 55;
+console.log("LARG PRINT IS", largeprint);
+displayHumdrum({
+   source: "toggle",
+   scale: smallprint,
+   url: "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/master/kern/sonata11-1a.krn",
+   postFunction: function (baseid) {
+      window.addEventListener("resize", function() {
+         displayHumdrum(baseid);
+      });
+      var mydiv = document.querySelector("#mydiv");
+      mydiv.addEventListener("click", function (event) {
+         if (this.className) {
+            this.className = "";
+            setHumdrumOption(baseid, "scale", smallprint);
+         } else {
+            this.className = "full-window";
+            setHumdrumOption(baseid, "scale", largeprint);
+         }
+         displayHumdrum(baseid);
+      });
+      
+   }
+})
+</script>
+
+<div id="mydiv">
+<script type="text/x-humdrum" id="toggle"></script>
+</div>
+
+<style>
+.full-window {
+   position: relative;
+   width: 100vw;
+   margin-left: -50vw;
+   left: 50%;
+   background-color: #ffcc00;
+   z-index: 1000;
+}
+</style>

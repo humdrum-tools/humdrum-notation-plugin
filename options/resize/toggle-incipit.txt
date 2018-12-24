@@ -1,0 +1,51 @@
+
+<script>
+var smallprint = 25;
+var largeprint = 35;
+displayHumdrum({
+   source: "toggle-incipit",
+   scale: smallprint,
+   incipit: true,
+   url: "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/master/kern/sonata11-3.krn",
+   postFunction: function (baseid) {
+      window.addEventListener("resize", function() {
+         displayHumdrum(baseid);
+      });
+      var mydiv = document.querySelector("#mydiv2");
+      mydiv.addEventListener("click", function (event) {
+         if (this.className) {
+            this.className = "";
+            setHumdrumOption(baseid, "scale", smallprint);
+            setHumdrumOption(baseid, "incipit", true);
+            setHumdrumOption(baseid, "header", false);
+         } else {
+            this.className = "entire-window";
+            setHumdrumOption(baseid, "scale", largeprint);
+            setHumdrumOption(baseid, "incipit", false);
+            setHumdrumOption(baseid, "header", true);
+         }
+         displayHumdrum(baseid);
+      });
+      
+   }
+})
+</script>
+
+<div id="mydiv2">
+<script type="text/x-humdrum" id="toggle-incipit"></script>
+</div>
+
+<style>
+.entire-window {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 50%;
+   width: 90vw;
+   overflow-y: scroll;
+   margin-left: -45vw;
+   padding-right: 10px; /* space needed for scroll-bar */
+   background-color: #ffcc00;
+   z-index: 1000;
+}
+</style>

@@ -1,11 +1,13 @@
 <style>
 div.resize {
    min-width: 200px;
+   width: 260px;
+   position: relative;
    resize: both;
-   overflow-y: scroll;
+   overflow: scroll;
    border: 1px solid #ff00aa77;
 }
 </style>
-<div class="resize">
+<div style="height:150px;" class="resize">
 {% include_relative resize.txt -%}
 </div>

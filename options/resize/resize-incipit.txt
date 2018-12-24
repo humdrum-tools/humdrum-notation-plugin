@@ -1,6 +1,7 @@
 <style>
 div.resize-incipit {
    min-width: 200px;
+   width: 340px;
    resize: horizontal;
    overflow: hidden;
    border: 1px solid #ff00aa77;

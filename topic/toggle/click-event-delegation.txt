@@ -16,6 +16,7 @@ svg, .song-title {
 
 
 window.addEventListener("click", function(event) {
+console.log("CLICK", event);
    var titleelement = null;
    var i;
    for (i=0; i<event.path.length; i++) {
@@ -58,13 +59,14 @@ window.addEventListener("click", function(event) {
       return;
    }
 
+console.log("BASEID", baseid);
    if (event.shiftKey || event.altKey || event.ctrlKey || event.metaKey) {
       // Open a link to the page in the original publication that has the music.
       displaySourcePage(baseid);
       return;
    }
 
-   var container = document.querySelector("#" + baseid + "-container");
+   var container = getContainer(baseid);
    if (!container) {
       return;
    }
@@ -79,7 +81,9 @@ window.addEventListener("click", function(event) {
    if (!svgelement) {
       // need to generate the SVG now, and display it.
       container.style.display = "block";
-      displayHumdrumNow(baseid);
+console.log("DISPLAYHUMDRUM", baseid);
+console.log("CONTAINER", container);
+      displayHumdrum(baseid);
       return;
    }
 

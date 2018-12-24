@@ -24,12 +24,12 @@ web browser as the page was loaded, using <a target="_blank"
 href="hummel-prelude-op67n15.txt">this Humdrum score</a> stored as 
 <a target="_blank" href="hummel-example-b.txt">text</a>
 inside the webpage.  The notation is displayed in an SVG image, which
-can allow interaction with elements of the notation.  For example the
+allows interaction with notational elements.  For example the
 prelude has been made interactive by adding CSS and javascript code: try
-moving the mouse pointer over a note in the music, which will highlight
+moving your mouse pointer over a note in the music, which will highlight
 other notes in the score possessing the same pitch class.
 
-Using the same data in the page, different views of the score can be
+Using the same data within the page, different views of the score can be
 produced.  Here is an example of extracting the first three measures of
 the prelude and transposing to C major:
 
@@ -42,7 +42,7 @@ documentation for more information, or the <a target="_blank"
 href="https://doc.verovio.humdrum.org/filters/index.html">filter documentation</a> for
 <a target="_blank" href="http://verovio.humdrum.org">Verovio Humdrum
 Viewer</a>, which is an online interactive music editor where you can
-prepare scores for use with the plugin.
+prepare scores for use with the Humdrum notation plugin.
 
 Feature requests and bug-reports can be submitted to the 
 <a target="_blank" href="https://github.com/humdrum-tools/humdrum-plugin/issues">issues page</a> of the humdrum-plugin repository on Github.
@@ -101,6 +101,7 @@ the resulting display for the above plugin code:
 {% include_relative short-example.txt %}
 
 
+
 ## Required source parameter ##
 
 As input to the `displayHumdrum()` function, the `source` parameter is
@@ -109,16 +110,13 @@ In this case the value is "example" since the ID of the Humdrum data script
 is "example".  Placement of the music notation for the example will be
 dependent on the location of the source element that contains the Humdrum
 data (the notation will be placed immediately before the source element).
-The Humdrum data does not necessarily need to be stored in a `<script>`
-element, as done in this documentation, and could instead be stored in a
-`<div>` or some other element.
 
 
 
-## Default render parameter ##
+## Default renderer parameter ##
 
 The optional `renderer` parameter specifies the variable name of the verovio
-toolkit.  This parameter can be omitted if its variable name is
+toolkit.  This parameter can be omitted if its Javascript variable name is
 `vrvToolkit`.  So a minimal example using the standard header setup
 described above would be:
 
@@ -184,16 +182,18 @@ to the online data file as input to the `displayHumdrum()` function:
 {% include_relative url-example.txt %}
 ```
 
-Notice that the Humdrum script element is empty, since it will be
-filled in later with the downloaded Humdrum data.  The Humdrum
+Notice that the Humdrum script element is empty, since it will
+be filled in later with the downloaded Humdrum data.  Do not add
+any content to the Humdrum script when using the `url` parameter;
+otheriwse, the URL content download will be suppressed.  The Humdrum
 script's location on the page will control the display location of
 the final notation, and any initial contents of the script will be
 ignored if a `url` parameter is given to the `displayHumdrum()`
 function.  In this case the URL is relative to the current page,
 so the full URL address of the downloaded data is <a target="_blank"
 href="sonata06-3a.txt">https://plugin.humdrum.org/sonata06-3a.txt</a>.
-Also notice that the parameter `header` is set to true.  This causes
-title and composer information to be added above the first system of music.
+Also notice that the parameter `header` is set to true.  This causes title
+and composer information to be added above the first system of music.
 
 {% include_relative url-example.txt %}
 
@@ -214,7 +214,7 @@ piano sonata repository</a>:
 # Options #
 
 
-Below is a list of the options that can be given to `displayHumdrum()`.  You can also
+Below is a list of options that can be given to `displayHumdrum()`.  You can also
 view this list on the <a href="/options">Options page</a>, which provides links to
 additional documentation and examples for the options.
 
