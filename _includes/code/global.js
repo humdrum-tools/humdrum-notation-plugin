@@ -40,6 +40,34 @@ function setHumdrumOption(baseid, key, value) {
 
 //////////////////////////////
 //
+// getHumdrumOption --
+//
+
+function getHumdrumOption(baseid, key) {
+	if (typeof baseid  !== "string" && !(baseid instanceof String)) {
+		console.log("Error: ID must be a string, but is", baseid, "which is a", typeof baseid);
+		return;
+	}
+	if (typeof key  !== "string" && !(key instanceof String)) {
+		console.log("Error: property must be a string, but is", key, "which is a", typeof baseid);
+		return;
+	}
+	var entry = HNP.entries[baseid];
+	if (!entry) {
+		console.log("Error: ID does not reference a Humdrum notation script:", baseid);
+		return;
+	}
+	if (!entry.options) {
+		console.log("Error: entry", baseid, "does not have any options to change.");
+		return;
+	}
+	return entry.options[key];
+}
+
+
+
+//////////////////////////////
+//
 // displayHumdrum -- Main externally usable function which sets up
 //   a Humdrum notation display on a webpage (if it does not exist), and then
 //   creates an SVG image for the notation.

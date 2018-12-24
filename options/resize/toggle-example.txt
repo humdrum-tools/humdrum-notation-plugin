@@ -1,7 +1,6 @@
 <script>
 var smallprint = 20;
 var largeprint = 55;
-console.log("LARG PRINT IS", largeprint);
 displayHumdrum({
    source: "toggle",
    scale: smallprint,

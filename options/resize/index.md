@@ -114,7 +114,7 @@ local browser (usually by double-clicking on the file in the Desktop).
 
 Instead of using `autoResize: true`, you can alternatively control
 music re-drawing yourself by setting up an event listener that triggers
-when the size of the window changes.  Here is an exmple of this:
+when the size of the window changes.  Here is an example of this:
 
 {% include_relative manual-example.txt %}
 
@@ -139,7 +139,7 @@ function (baseid) {
 which adds and event listener that is run every time the window is resized (resizing
 based on other elements inside of a webpage is more difficult to implement).  The function
 given to `postFuction` will be given the ID of the Humdrum script (which is "manual" in
-this case).  The function call `displayHumdrum(id)` can be used after inital
+this case).  The function call `displayHumdrum(id)` can be used after initial
 setup to redraw the notation with the data store in the Humdrum script that has the
 given ID.
 
@@ -153,7 +153,7 @@ between paragraph width and full-screen width:
 
 {% include_relative toggle-example.txt %}
 
-Each time the music is clicked on, it is retypeset for the space it has available.
+Each time the music is clicked on, it is re-typeset for the space it has available.
 Also notice in the HTML content below for this example, the music is displayed in
 two sizes: at `scale:20` when it is in the paragraph, and at `scale:35` when it
 is displayed with a full-window width.
@@ -177,16 +177,16 @@ regenerating a new SVG image:
 {% include_relative zoom-example.txt %}
 
 
+Notice that this example is much more responsive when clicking on the notation.
+This is because the music notation is not recalculated after each click&mdash;only
+the size of the SVG image is changed.  Also notice that the SVG image's size
+will be adjusted to the full width of the window when in expanded view.
+
 Here is the HTML code for the example:
 
 ```html
 {% include_relative zoom-example.txt %}
 ```
-
-Notice that this example is much more responsive when clicking on the notation.
-This is because the music notation is not recalculated after each click&mdash;only
-the size of the SVG image is changed.  Also notice that the SVG image's size
-will be adjusted to the full width of the window when in expanded view.
 
 
 # Incipit to full page #
@@ -205,6 +205,12 @@ HTML code for this example:
 ```html
 {% include_relative toggle-incipit.txt %}
 ```
+
+The Javascript code is fairly complicated to (1) buffering the incipit
+SVG so that it does not have to be regenerated every time (the incipit
+does not resize, so no need to generate it again).  An in-progress icon
+is also displayed for the mouse while the full-page notation is generated,
+since this takes a second or two.
 
 
 
