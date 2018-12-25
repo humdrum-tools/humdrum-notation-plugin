@@ -1,0 +1,59 @@
+Large print:
+<script class="auto" type="text/x-humdrum" id="large">
+**kern
+*M4/4
+=1
+4c
+4d
+4e
+4f
+4g
+4a
+4b
+4cc
+4b
+4a
+4g
+4f
+4e
+4d
+4c
+==
+*-
+!!!hnp-option: scale: 70
+</script>
+
+Small print:
+<script class="auto" type="text/x-humdrum" id="small">
+**kern
+*M4/4
+=1
+4c
+4d
+4e
+4f
+4g
+4a
+4b
+4cc
+4b
+4a
+4g
+4f
+4e
+4d
+4c
+==
+*-
+!!!hnp-option: scale: 20
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+   var hscripts = document.querySelectorAll("script.auto");
+   for (var i=0; i<hscripts.length; i++) {
+      displayHumdrum({source: hscripts[i].id})
+   }
+})
+</script>

@@ -7,5 +7,6 @@
 * <a href="/topic/toggle">How to load many small pieces onto a webpage and toggle their display</a>
 * <a href="/options/resize">How to resize music notation automatically and manually</a>
 * <a href="/options/url">How to download from external URLs and deal with download errors</a>
+* <a href="/topic/embedded">How to embed Humdrum notation plugin options into Humdrum digital scores</a>
 * <a href="/topic/wikimedia">How to display music notation on a wiki page</a>
 

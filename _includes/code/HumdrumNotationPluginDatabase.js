@@ -76,7 +76,6 @@ HumdrumNotationPluginDatabase.prototype.setErrorScore = function (baseid) {
 	}
 	var text = element.innerHTML.replace(/^\s+/m, "");
 	this.errorScore = text;
-console.log("SETTING ERROR SCORE TO", text);
 	return this;
 }
 
@@ -305,7 +304,7 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 		}
 		pluginOptions[property] = entry.options[property];
 	}
-	
+
 	var vrvOptions = this.extractVerovioOptions(baseid, pluginOptions);
 	vrvOptions = this.insertDefaultOptions(baseid, vrvOptions);
 
@@ -510,10 +509,6 @@ HumdrumNotationPluginDatabase.prototype.extractVerovioOptions = function (baseid
 	}
 
 	for (var property in opts) {
-		if (!entry.options.hasOwnProperty(property)) {
-			// not a real property of object
-			continue;
-		}
 		if (property === "scale") {
 			// scale option handled above
 			continue;
