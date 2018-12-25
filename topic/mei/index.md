@@ -93,7 +93,7 @@ this example means:
 {% endcomment %}
 
 <script type="text/x-humdrum" id="title-notation-source">
-!!!title: <a target="_blank" href="http://www3.cpdl.org/wiki/index.php/Trinklied,_Op._75,_No._3_(Felix_Mendelssohn)">Mendelssohn: Trinklied, op. 75, no. 3, Tenor 1 part</a>
+!!!title: <a target="_blank" href="http://www3.cpdl.org/wiki/index.php/Trinklied,_Op._75,_No._3_(Felix_Mendelssohn)">Mendelssohn: Trinklied, op. 75, no. 3, Bass 2 part</a>
 {% include_relative Mendelssohn_Op75_3.krn -%}
 !!!filter: extract -k 1
 </script>

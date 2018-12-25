@@ -1,0 +1,10 @@
+<script>
+displayHumdrum({
+   source: "backup",
+   incipit: true,
+   url: "https://some-random.comp.uter/data/sonata05-1.krn",
+   urlFallback: "sonata05-1.krn"
+})
+</script>
+
+<script type="text/x-humdrum" id="backup"></script>

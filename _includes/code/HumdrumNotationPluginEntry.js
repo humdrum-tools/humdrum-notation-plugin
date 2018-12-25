@@ -205,7 +205,7 @@ HumdrumNotationPluginEntry.prototype.copyContentToContainer = function () {
 //       <tr>
 //          <td>
 //          <div>
-//             <pre class="humdrum-tet" id="bach-humdrum">[Humdrum contents]</pre>
+//             <script type="text/x-humdrum" class="humdrum-notation-plugin" id="bach-humdrum">[Humdrum contents]</text>
 //          </div>
 //          </td>
 //          <td>
@@ -255,9 +255,9 @@ HumdrumNotationPluginEntry.prototype.initializeContainer = function () {
 	}
 
 	output += "<div>\n";
-	output += "<pre style='display:none;' class='humdrum-text'";
+	output += "<script type='text/x-humdrum' style='display:none;' class='humdrum-text'";
 	output += " contenteditable='true' id='";
-	output += this.baseId + "-humdrum'></pre>\n";
+	output += this.baseId + "-humdrum'></script>\n";
 	output += "</div>\n";
 	output += "</td>\n";
 
@@ -277,49 +277,3 @@ HumdrumNotationPluginEntry.prototype.initializeContainer = function () {
 }
 
 
-
-//////////////////////////////
-//
-// HumdrumNotationPluginEntry::extractVerovioOptions -- Extract all of the verovio options
-//   from the Humdrum plugin options object.
-//
-
-HumdrumNotationPluginDatabase.prototype.extractVerovioOptions = function (baseid) {
-	var entry = this.entries[baseid];
-	if (!entry) {
-		console.log("Error: Need entry for creating verovio options:", baseid);
-		return;
-	}
-
-	var output = {};
-
-	if (entry.options.scale) {
-		var scale = parseFloat(entry.options.scale);
-		if (scale < 0.0) {
-			scale = -scale;
-		}
-		if (scale <= 1.0) {
-			scale = 100.0 * scale;
-		}
-		output.scale = scale;
-	}
-
-	for (var property in entry.options) {
-		if (!entry.options.hasOwnProperty(property)) {
-			// not a real property of object
-			continue;
-		}
-		if (property === "scale") {
-			// scale option handled above
-			continue;
-		}
-		if (typeof this.verovioOptions[property] === 'undefined') {
-			// not a verovio option
-			continue;
-		}
-		// Do error-checking of prameters here.
-		output[property] = entry.options[property];
-	}
-
-	return output;
-}

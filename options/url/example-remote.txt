@@ -1,0 +1,8 @@
+<script>
+displayHumdrum({
+   source: "example-remote",
+   incipit: true,
+   url: "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/master/kern/sonata05-1.krn"
+})
+</script>
+<script type="text/x-humdrum" id="example-remote"></script>

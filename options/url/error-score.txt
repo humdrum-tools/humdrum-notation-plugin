@@ -1,0 +1,41 @@
+<script>
+displayHumdrum({
+   source: "error-example",
+   incipit: true,
+   url: "inaccessible.krn",
+   urlFallback: "https://unknown.comp.uter/inaccessible.krn",
+   errorScore: "empty-score"
+})
+</script>
+<script type="text/x-humdrum" id="error-example"></script>
+
+<script>
+displayHumdrum({
+   source: "error-example2",
+   incipit: true,
+   url: "another-inaccessible-file.krn",
+   urlFallback: "https://unknown.comp.uter/inaccessible-file2.krn",
+   errorScore: "empty-score"
+})
+</script>
+<script type="text/x-humdrum" id="error-example2"></script>
+
+<script>
+displayHumdrum({
+   source: "error-example3",
+   incipit: true,
+   errorScore: "empty-score"
+})
+</script>
+<script type="text/x-humdrum" id="error-example3"></script>
+
+
+<script type="text/x-humdrum" id="empty-score">
+**kern
+*clefG2
+*M4/4
+!LO:TX:b:B:t=Score not found!:color=red
+1r;
+=-
+*-
+</script>

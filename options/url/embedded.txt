@@ -1,0 +1,17 @@
+<script>
+displayHumdrum({
+   source: "embed",
+   url: "https://some-random.comp.uter/data/some-random-file.krn",
+   urlFallback: "some-random-file.krn"
+})
+</script>
+
+<script type="text/x-humdrum" id="embed">
+**kern
+*clefG2
+*M4/4
+!LO:TX:b:B:t=Score not found!:color=red
+1r;
+=-
+*-
+</script>

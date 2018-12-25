@@ -30,8 +30,9 @@ section {
 # Discussion and Examples #
 
 
+* <a href="url">URL-related options</a>
 * <a href="lyrics">Lyrics-related options</a>
-* <a href="resize">autoResize option examples</a>
+* <a href="resize">Automatic resizing option and examples</a>
 
 
 

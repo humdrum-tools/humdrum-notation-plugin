@@ -65,7 +65,26 @@ function getContainer(baseid) {
 
 //////////////////////////////
 //
-// HumdrumNontationPluginDatabase::createEntry --
+// HumdrumNotationPluginDatabase::setErrorScore --
+//
+
+HumdrumNotationPluginDatabase.prototype.setErrorScore = function (baseid) {
+	var element = document.querySelector("#" + baseid);
+	if (!element) {
+		console.log("Warning: Cannot find error score for ID", baseid);
+		return;
+	}
+	var text = element.innerHTML.replace(/^\s+/m, "");
+	this.errorScore = text;
+console.log("SETTING ERROR SCORE TO", text);
+	return this;
+}
+
+
+
+//////////////////////////////
+//
+// HumdrumNotationPluginDatabase::createEntry --
 //
 
 HumdrumNotationPluginDatabase.prototype.createEntry = function (baseid, options) {
@@ -172,7 +191,7 @@ HumdrumNotationPluginDatabase.prototype.downloadUrlAndDisplay = function (baseid
 	}
 
 	if (entry.options.url) {
-		entry.options.downloadedUrl = entry.options.url;
+		entry.options.processedUrl = entry.options.url;
 		delete entry.options.url;
 	} else {
 		console.log("Warning: No URL to download data from, presuming already downloaded", entry);
@@ -186,31 +205,40 @@ HumdrumNotationPluginDatabase.prototype.downloadUrlAndDisplay = function (baseid
 		return;
 	}
 
-	content = source.innerHTML;
-	if (!content.match(/^\s*$/m)) {
-		// contents of source already downloaded, so just display.
-		// This code is not too likely to prevent multiple downloads
-		// of the same data.
-		displayHumdrumNow(entry.baseId);
-	}
+	// download from url, otherwise try urlFallback:
+	downloadHumdrumUrlData(source, entry.options);
 
-	var url = entry.options.downloadedUrl;
-	var request = new XMLHttpRequest();
-	(function (that) {
-		request.onload = function() {
-			source.innerHTML = this.responseText;
-			that.displayHumdrumNow(entry.baseId);
-		}
-	})(this);
-	request.open("GET", url);
-	request.send();
 };
 
 
 
 //////////////////////////////
 //
-// HumdrumNontationPluginDatabase::displayHumdrumSvg -- Add default settings to
+// HumdrumNotationPluginDatabase::getEmbeddedOptions --
+//
+
+HumdrumNotationPluginDatabase.prototype.getEmbeddedOptions = function (humdrumfile) {
+	var lines = humdrumfile.match(/[^\r\n]+/g);
+	var output = {};
+	for (var i=0; i<lines.length; i++) {
+		if (!lines[i].match(/^!!!/)) {
+			continue;
+		}
+		var matches = lines[i].match(/^!!!hnp-option\s*:\s*([^\s:]+)\s*:\s*(.*)\s*$/);
+		if (matches) {
+			var option = matches[1];
+			var value = matches[2];
+			output[option] = value;
+		}
+	}
+	return output;
+};
+
+
+
+//////////////////////////////
+//
+// HumdrumNotationPluginDatabase::displayHumdrumSvg -- Add default settings to
 //     options and then render and show the Humdrum data as an SVG image on the page.
 //
 
@@ -228,13 +256,30 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 		}
 	}
 	var toolkit = entry.toolkit;
-	var sourcetext = entry.humdrum.textContent.replace(/^\s+/m, "");
+	var sourcetext = entry.humdrum.innerHTML.replace(/^\s+/m, "");
+	if (sourcetext.match(/^\s*$/)) {
+		if (entry.options.errorScore) {
+			var errorscore = document.querySelector("#" + entry.options.errorScore);
+			if (errorscore) {
+				sourcetext = errorscore.innerHTML.replace(/^\s+/m, "");;
+			} else {
+				console.log("Error: No humdrum content in", entry.humdrum);
+				console.log("For ID", baseid, "ENTRY:", entry);
+				return;
+			}
+		} else if (this.errorScore) {
+			sourcetext = this.errorScore;
+			console.log("Error: No humdrum content in", entry.humdrum);
+			console.log("For ID", baseid, "ENTRY:", entry);
+		}
+
+	}
+ 
+	// Cannot display an empty score, since this will cause verovio to display the 
+	// previously prepared score.
 	if (sourcetext.match(/^\s*$/)) {
 		console.log("Error: No humdrum content in", entry.humdrum);
 		console.log("For ID", baseid, "ENTRY:", entry);
-		// No data so don't try to render.
-		// One problem may be that URL downloading is not suppressing display
-		// of music until after URL data has been downloaded, so check on that.
 		return;
 	}
 
@@ -252,8 +297,16 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 		entry.container.style.display = "block";
 	}
 
-	var pluginOptions = entry.options;
-	var vrvOptions = this.extractVerovioOptions(baseid);
+	var pluginOptions = this.getEmbeddedOptions(sourcetext);
+	for (var property in entry.options) {
+		if (!entry.options.hasOwnProperty(property)) {
+			// not a real property of object
+			continue;
+		}
+		pluginOptions[property] = entry.options[property];
+	}
+	
+	var vrvOptions = this.extractVerovioOptions(baseid, pluginOptions);
 	vrvOptions = this.insertDefaultOptions(baseid, vrvOptions);
 
 	sourcetext += getFilters(pluginOptions);
@@ -423,6 +476,58 @@ HumdrumNotationPluginDatabase.prototype.insertDefaultOptions = function (baseid,
 
 	return vrvOptions;
 };
+
+
+
+//////////////////////////////
+//
+// HumdrumNotationPluginDatabase::extractVerovioOptions -- Extract all of the verovio options
+//   from the Humdrum plugin options object.
+//
+
+HumdrumNotationPluginDatabase.prototype.extractVerovioOptions = function (baseid, opts) {
+	var entry = this.entries[baseid];
+	if (!entry) {
+		console.log("Error: Need entry for creating verovio options:", baseid);
+		return;
+	}
+
+	var output = {};
+
+	if (!opts) {
+		opts = entry.options;
+	}
+
+	if (opts.scale) {
+		var scale = parseFloat(opts.scale);
+		if (scale < 0.0) {
+			scale = -scale;
+		}
+		if (scale <= 1.0) {
+			scale = 100.0 * scale;
+		}
+		output.scale = scale;
+	}
+
+	for (var property in opts) {
+		if (!entry.options.hasOwnProperty(property)) {
+			// not a real property of object
+			continue;
+		}
+		if (property === "scale") {
+			// scale option handled above
+			continue;
+		}
+		if (typeof this.verovioOptions[property] === 'undefined') {
+			// not a verovio option
+			continue;
+		}
+		// Do error-checking of prameters here.
+		output[property] = opts[property];
+	}
+
+	return output;
+}
 
 
 

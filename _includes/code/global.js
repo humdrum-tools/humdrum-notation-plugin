@@ -10,6 +10,20 @@
 //
 
 
+
+//////////////////////////////
+//
+// setErrorScore --
+//
+
+function setErrorScore(baseid) {
+	document.addEventListener("DOMContentLoaded", function() {
+		HNP.setErrorScore(baseid);
+	});
+}
+
+
+
 //////////////////////////////
 //
 // setHumdrumOption --
@@ -98,31 +112,55 @@ function downloadHumdrumUrlData(source, opts) {
 	if (!source) {
 		return;
 	}
+	if (!opts.processedUrl) {
+		return;
+	}
 	if (opts.processedUrl.match(/^\s*$/)) {
 		return;
 	}
 	var url = opts.processedUrl;
+	var fallback = opts.urlFallback;
 	var request = new XMLHttpRequest();
+
 	request.onload = function() {
-		source.innerHTML = this.responseText;
-		HNP.displayHumdrumNow(opts);
+		if (this.status == 200) {
+			source.innerHTML = this.responseText;
+			HNP.displayHumdrumNow(opts);
+		} else {
+			downloadFallback(source, opts, fallback);
+		}
 	};
 	request.onerror = function() {
-		var fallback = opts.urlFallback;
-		if (fallback) {
-			var request2 = new XMLHttpRequest();
-			request2.onload = function() {
-				source.innerHTML = this.responseText;
-				HNP.displayHumdrumNow(opts);
-			};
-			request2.onerror = function() {
-				console.log("Could not download", url, "or fallback", fallback);
-			};
-			request2.open("GET", fallback);
-			request2.send();
+		downloadFallback(source, opts, fallback);
+	};
+	request.open("GET", url);
+	request.send();
+
+}
+
+
+
+//////////////////////////////
+//
+// downloadFallback -- Load alternate URL for data. Use embedded data if there is a problem.
+//
+
+function downloadFallback(source, opts, url) {
+	if (!url) {
+		HNP.displayHumdrumNow(opts);
+	}
+
+	var request = new XMLHttpRequest();
+	request.onload = function() {
+		if (this.status == 200) {
+			source.innerHTML = this.responseText;
+			HNP.displayHumdrumNow(opts);
 		} else {
-			console.log("Could not download", url);
+			HNP.displayHumdrumNow(opts);
 		}
+	};
+	request.onerror = function() {
+		HNP.displayHumdrumNow(opts);
 	};
 	request.open("GET", url);
 	request.send();
