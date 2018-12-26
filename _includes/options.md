@@ -9,10 +9,10 @@
 | `postFunction`  |               | The name of a function to run after notation has been rendered to an SVG image.
 | `renderer`      | vrvToolkit    | The name of the variable that contains the verovio toolkit, which is used to generate SVG of the music notation.  If the toolkit is stored in a variable called `vrvToolkit`, then this parameter is optional.
 | `source`        |               | A required ID for an element that stored the Humdrum data to generate notation from.  The location of this element on the page will determine the position of the generated notation.  If the data is downloaded via a URL, then this is the ID of the element where the downloaded data will be stored.
-| `suppressSvg`   | false         | Setup the container for an SVG image, but do not actually create one.  This option is useful for pre-loading Humdrum data onto the page for later rendering.
+| `suppressSvg`   | false         | Setup the container for an SVG image, but do not actually create one.  This option is useful for pre-loading Humdrum data onto the page for later rendering. ([see example usage](/topic/toggle))
 | `target`        |               | An optional ID for the target container (useful for sharing a source with multiple notation displays).
-| `url`           |               | The URL from which to download data can be given with this parameter.  By default musical data is stored extracted from the page, but this parameter allowed it to be downloaded from a separate file on the web server, or in certain cases, downloaded from other web servers such as Github.
-| `urlFallback`   |               | An alternate URL if data downloading with the `url` parameter fails.  This allows downloading data from a mirror site if the primary one is down or inaccessible for some reason.
+| `url`           |               | The URL from which to download data can be given with this parameter.  By default musical data is stored extracted from the page, but this parameter allowed it to be downloaded from a separate file on the web server, or in certain cases, downloaded from other web servers such as Github. ([see url documentation](/options/url))
+| `urlFallback`   |               | An alternate URL if data downloading with the `url` parameter fails.  This allows downloading data from a mirror site if the primary one is down or inaccessible for some reason. ([see url documentation](/options/url))
 
 Numeric options:
 
