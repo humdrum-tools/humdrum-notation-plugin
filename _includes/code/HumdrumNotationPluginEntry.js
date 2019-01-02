@@ -107,7 +107,7 @@ HumdrumNotationPluginEntry.prototype.copyContentToContainer = function () {
 		console.log("Error: No container for storing data from ID", this.baseId);
 		return;
 	}
-	var content = source.innerHTML.replace(/^\s+/m, "");
+	var content = source.textContent.trim();
 
 	var initial = content.substr(0, 600);
 	// Probably use the real plugin options here later:
@@ -162,7 +162,7 @@ HumdrumNotationPluginEntry.prototype.copyContentToContainer = function () {
 		console.log("Error: Humdrum element not initialized:", this);
 	}
 
-	this.humdrum.innerHTML = content;
+	this.humdrum.textContent = content;
 	this.humdrum.style.display = "block";
 }
 

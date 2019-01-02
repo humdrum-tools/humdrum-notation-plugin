@@ -124,7 +124,7 @@ function downloadHumdrumUrlData(source, opts) {
 
 	request.onload = function() {
 		if (this.status == 200) {
-			source.innerHTML = this.responseText;
+			source.textContent = this.responseText;
 			HNP.displayHumdrumNow(opts);
 		} else {
 			downloadFallback(source, opts, fallback);
@@ -153,7 +153,7 @@ function downloadFallback(source, opts, url) {
 	var request = new XMLHttpRequest();
 	request.onload = function() {
 		if (this.status == 200) {
-			source.innerHTML = this.responseText;
+			source.textContent = this.responseText;
 			HNP.displayHumdrumNow(opts);
 		} else {
 			HNP.displayHumdrumNow(opts);
@@ -478,7 +478,7 @@ function saveHumdrumText(tags, savename, savetext) {
 		if (!filename) {
 			filename = sid.replace(/-humdrum$/, "") + ".txt";
 		}
-		var text = tags.innerHTML.replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+		var text = tags.textContent.replace(/&lt;/g, "<").replace(/&gt;/g, ">");
 		blob = new Blob([text], { type: 'text/plain' }),
 		anchor = document.createElement('a');
 		anchor.download = filename;
@@ -555,9 +555,7 @@ function saveHumdrumText(tags, savename, savetext) {
 			if (!segmentname.match(/\.[.]*$/)) {
 				segmentname += ".krn";
 			}
-			humtext = tags[i].innerHTML
-					.replace(/^\n+/m, "")
-					.replace(/\n+$/m, "")
+			humtext = tags[i].textContent.trim()
 					// remove any pre-existing SEGMENT marker:
 					.replace(/^!!!!SEGMENT\s*:[^\n]*\n/m, "");
 			if (humtext.match(/^\s*$/)) {

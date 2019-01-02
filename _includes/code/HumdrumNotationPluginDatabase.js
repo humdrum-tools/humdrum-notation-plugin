@@ -74,7 +74,7 @@ HumdrumNotationPluginDatabase.prototype.setErrorScore = function (baseid) {
 		console.log("Warning: Cannot find error score for ID", baseid);
 		return;
 	}
-	var text = element.innerHTML.replace(/^\s+/m, "");
+	var text = element.textContent.trim();
 	this.errorScore = text;
 	return this;
 }
@@ -261,12 +261,12 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 		}
 	}
 	var toolkit = entry.toolkit;
-	var sourcetext = entry.humdrum.innerHTML.replace(/^\s+/m, "");
+	var sourcetext = entry.humdrum.textContent.trim();
 	if (sourcetext.match(/^\s*$/)) {
 		if (entry.options.errorScore) {
 			var errorscore = document.querySelector("#" + entry.options.errorScore);
 			if (errorscore) {
-				sourcetext = errorscore.innerHTML.replace(/^\s+/m, "");;
+				sourcetext = errorscore.textContent.trim();
 			} else {
 				console.log("Error: No humdrum content in", entry.humdrum);
 				console.log("For ID", baseid, "ENTRY:", entry);
