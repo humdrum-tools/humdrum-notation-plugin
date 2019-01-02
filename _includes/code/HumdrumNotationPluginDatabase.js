@@ -314,7 +314,7 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 	var vrvOptions = this.extractVerovioOptions(baseid, pluginOptions);
 	vrvOptions = this.insertDefaultOptions(baseid, vrvOptions);
 
-	sourcetext += getFilters(pluginOptions);
+	sourcetext += "\n" + getFilters(pluginOptions);
 
 	var svg = toolkit.renderData(sourcetext, vrvOptions);
 
