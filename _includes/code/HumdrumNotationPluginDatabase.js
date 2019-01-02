@@ -149,6 +149,12 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumNow = function (opts) {
 		if (!entry) {
 			entry = this.createEntry(id, opts);
 		}
+		// copy input options into existing entry's option (in case of updates in
+		// options).  This is only adding options, but there should probably be a way
+		// of removing unwanted options as well...
+		for (property in opts) {
+			entry.options[property] = opts[property];
+		}
 	}
 
 	if (!entry) {
