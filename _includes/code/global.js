@@ -399,7 +399,7 @@ console.log("FINAL SAVING FILENAME IS ", filename);
 		tags = [tags];
 	}
 
-	(function (i) {
+	(function (i, filename) {
 		(function j () {
 			var tag = tags[i++];
 			if (typeof tag  === "string" || tag instanceof String) {
@@ -409,11 +409,11 @@ console.log("FINAL SAVING FILENAME IS ", filename);
 				}
 				var thing = document.querySelector("#" + s + " svg");
 				if (thing) {
-					saveHumdrumSvg(thing);
+					saveHumdrumSvg(thing, filename);
 				}
 			} else if (tag instanceof Element) {
 				(function(elem) {
-					saveHumdrumSvg(elem);
+					saveHumdrumSvg(elem, filename);
 				})(tag);
 			}
 			if (i < tags.length) {
@@ -429,7 +429,7 @@ console.log("FINAL SAVING FILENAME IS ", filename);
 				setTimeout(j, 100);
 			}
 		})();
-	})(0);
+	})(0, filename);
 }
 
 
