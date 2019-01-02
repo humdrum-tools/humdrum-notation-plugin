@@ -399,7 +399,7 @@ console.log("FINAL SAVING FILENAME IS ", filename);
 		tags = [tags];
 	}
 
-	(function (i, savename) {
+	(function (i, sname) {
 		(function j () {
 			var tag = tags[i++];
 			if (typeof tag  === "string" || tag instanceof String) {
@@ -431,7 +431,7 @@ console.log("YYY");
 				setTimeout(j, 100);
 			}
 		})();
-	})(0, filename);
+	})(0, savename);
 }
 
 
