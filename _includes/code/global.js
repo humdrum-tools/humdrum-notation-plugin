@@ -409,10 +409,12 @@ console.log("FINAL SAVING FILENAME IS ", filename);
 				}
 				var thing = document.querySelector("#" + s + " svg");
 				if (thing) {
+console.log("XXX");
 					saveHumdrumSvg(thing, filename);
 				}
 			} else if (tag instanceof Element) {
 				(function(elem) {
+console.log("YYY");
 					saveHumdrumSvg(elem, filename);
 				})(tag);
 			}
