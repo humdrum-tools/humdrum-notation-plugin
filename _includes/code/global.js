@@ -399,7 +399,7 @@ console.log("FINAL SAVING FILENAME IS ", filename);
 		tags = [tags];
 	}
 
-	(function (i, filename) {
+	(function (i, savename) {
 		(function j () {
 			var tag = tags[i++];
 			if (typeof tag  === "string" || tag instanceof String) {
@@ -410,12 +410,12 @@ console.log("FINAL SAVING FILENAME IS ", filename);
 				var thing = document.querySelector("#" + s + " svg");
 				if (thing) {
 console.log("XXX");
-					saveHumdrumSvg(thing, filename);
+					saveHumdrumSvg(thing, sname);
 				}
 			} else if (tag instanceof Element) {
 				(function(elem) {
 console.log("YYY");
-					saveHumdrumSvg(elem, filename);
+					saveHumdrumSvg(elem, sname);
 				})(tag);
 			}
 			if (i < tags.length) {
