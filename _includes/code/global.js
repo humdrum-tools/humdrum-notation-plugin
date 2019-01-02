@@ -346,8 +346,6 @@ function functionName(fun) {
 //
 
 function saveHumdrumSvg(tags, savename) {
-console.log("SAVENAME = ", savename);
-
 	if ((tags instanceof Element) && (tags.nodeName === "svg")) {
 		// Save a single SVG element's contents to the hard disk.
 		var sid = "";
@@ -356,7 +354,6 @@ console.log("SAVENAME = ", savename);
 			sid = tags.parentNode.id;
 		}
 		var filename = savename;
-console.log("GOT HERE FILENAME = ", filename);
 		if (!filename) {
 			filename = sid.replace(/-svg$/, "") + ".svg";
 		}
@@ -364,7 +361,6 @@ console.log("GOT HERE FILENAME = ", filename);
 		blob = new Blob([text], { type: 'image/svg+xml' }),
 		anchor = document.createElement('a');
 		anchor.download = filename;
-console.log("FINAL SAVING FILENAME IS ", filename);
 		anchor.href = window.URL.createObjectURL(blob);
 		anchor.dataset.downloadurl = ['image/svg+xml', anchor.download, anchor.href].join(':');
 		(function (anch, blobby, fn) {
@@ -409,12 +405,10 @@ console.log("FINAL SAVING FILENAME IS ", filename);
 				}
 				var thing = document.querySelector("#" + s + " svg");
 				if (thing) {
-console.log("XXX");
 					saveHumdrumSvg(thing, sname);
 				}
 			} else if (tag instanceof Element) {
 				(function(elem) {
-console.log("YYY");
 					saveHumdrumSvg(elem, sname);
 				})(tag);
 			}
