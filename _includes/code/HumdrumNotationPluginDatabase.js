@@ -316,6 +316,18 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 
 	sourcetext += "\n" + getFilters(pluginOptions);
 
+	if (pluginOptions.appendText) {
+		var text = pluginOptions.appendText;
+		if (Array.isArray(text)) {
+			for (var i=0; i<text.length; i++) {
+				if (typeof text[i] === "string" || text[i] instanceof String) {
+					sourcetext += "\n" + text.trim()
+			}
+		} else if (typeof text === "string" || text instanceof String) {
+			sourcetext += "\n" + text.trim()
+		}
+	}
+
 	var svg = toolkit.renderData(sourcetext, vrvOptions);
 
 	entry.svg.innerHTML = svg;

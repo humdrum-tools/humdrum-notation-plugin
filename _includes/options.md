@@ -2,6 +2,7 @@
 
 | option name     | default value | description 
 |-----------------|---------------|------------
+| `appendText `   |               | Append the given text line(s) at the end of the Humdrum data before it is rendered.  This is typically used to add reference records for printing the title information.
 | `autoResize `   | false         | Re-typeset the music whenever the browser window is resized. See [this page](/options/resize) for examples.
 | `filter `       |               | A <a target="_blank" href="https://doc.verovio.humdrum.org/filters">filter command</a> which will be run on the Humdrum data before it is sent to the renderer to generate graphical music notation.
 | `header`        | false         | When set to "true", display embedded title, composer, lyricist information in musical notation.
