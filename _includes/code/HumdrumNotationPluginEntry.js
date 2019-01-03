@@ -20,6 +20,7 @@
 function HumdrumNotationPluginEntry(baseid, opts) {
 	this.baseId = baseid;
 	if (opts instanceof Object) {
+console.log("CLONING", opts);
 		this.options = cloneObject(opts);
 	} else {
 		this.options   = {};   // storage for options (both HNP and Verovio);
