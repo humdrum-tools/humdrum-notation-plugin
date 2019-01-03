@@ -581,6 +581,9 @@ function cloneObject(obj) {
 	output = Array.isArray(obj) ? [] : {};
 	for (key in obj) {
 		v = obj[key];
+		if (v instanceof HTMLElement) {
+			continue;
+		}
 		output[key] = (typeof v === "object") ? cloneObject(v) : v;
 	}
 	return output;
