@@ -322,6 +322,7 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 			for (var i=0; i<text.length; i++) {
 				if (typeof text[i] === "string" || text[i] instanceof String) {
 					sourcetext += "\n" + text.trim()
+				}
 			}
 		} else if (typeof text === "string" || text instanceof String) {
 			sourcetext += "\n" + text.trim()
