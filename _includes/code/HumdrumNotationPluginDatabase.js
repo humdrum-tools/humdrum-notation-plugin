@@ -173,10 +173,12 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumNow = function (opts) {
 		return;
 	}
 
-	if (entry.options.hasOwnProperty("url")) {
-		this.downloadUrlAndDisplay(entry.baseId);
-	} else if (entry.options.hasOwnProperty("uri")) {
+	if (entry.options.hasOwnProperty("uri")) {
+console.log("GOT HERE AAA");
 		this.downloadUriAndDisplay(entry.baseId);
+	} else if (entry.options.hasOwnProperty("url")) {
+console.log("GOT HERE BBB");
+		this.downloadUrlAndDisplay(entry.baseId);
 	} else {
 		entry.copyContentToContainer();
 		HNP.displayHumdrumSvg(entry.baseId);
@@ -207,16 +209,18 @@ HumdrumNotationPluginDatabase.prototype.downloadUriAndDisplay = function (baseid
 	}
 
 	var uri = entry.options.processedUri;
+console.log("URI IS CURRENTLY", uri);
 	var url = "";
 	if (uri.match(/^(g|gh|github):\/\//i)) {
 		url = this.makeUrlGithub(uri);
+console.log("URI IS NOW", uri);
 	} else if (uri.match(/^(h|hum|humdrum):\/\//i)) {
 		url = this.makeUrlHumdrum(uri);
 	} else if (uri.match(/^(j|jrp):\/\//i)) {
 		url = this.makeUrlJrp(uri);
 	}
 	if (url) {
-		entry.url = url;
+		entry.options.url = url;
 		this.downloadUrlAndDisplay(baseid);
 	}
 }

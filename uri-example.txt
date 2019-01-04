@@ -1,0 +1,9 @@
+<script>
+   displayHumdrum({
+      source: "uri-example",
+      scale: 25,
+      uri: "github://craigsapp/mozart-piano-sonatas/kern/sonata06-3b.krn"
+   });
+</script>
+
+<script type="text/x-humdrum" id="uri-example"></script>

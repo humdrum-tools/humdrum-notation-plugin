@@ -210,6 +210,28 @@ piano sonata repository</a>:
 {% include_relative url-example2.txt %}
 
 
+There are also [URI](/options/uri) shortcuts for various Humdrum repositories
+on the web.  Here is the same score as above, but downloaded with the `github://`
+URI:
+
+```html
+{% include_relative uri-example.txt %}
+```
+
+{% include_relative uri-example.txt %}
+
+The URI
+
+```
+github://craigsapp/mozart-piano-sonatas/kern/sonata06-3b.krn
+```
+
+will be mapped internally by the Humdrum notation plugin into the URL:
+
+```
+https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/master/kern/sonata06-3b.krn
+```
+
 
 # Options #
 
