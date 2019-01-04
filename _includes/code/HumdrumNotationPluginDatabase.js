@@ -590,7 +590,7 @@ HumdrumNotationPluginDatabase.prototype.extractVerovioOptions = function (baseid
 // HumdrumNotationPluginDatabase::makeUrlGithub --
 //
 
-HumdrumNotationPluginDatabase.prototype.makeGithubUrl = function (uri, options) {
+HumdrumNotationPluginDatabase.prototype.makeUrlGithub = function (uri, options) {
 	var url = "";
 	var matches = uri.match(/^(g|gh|github):\/\/([^\/]+)\/([^\/]+)\/(.*)\s*$/);
 	if (matches) {
