@@ -590,7 +590,7 @@ HumdrumNotationPluginDatabase.prototype.extractVerovioOptions = function (baseid
 // HumdrumNotationPluginDatabase::makeUrlGithub --
 //
 
-HumdrumNotationPluginDatabase.prototype.makeUrlGithub = function (uri, options) {
+HumdrumNotationPluginDatabase.prototype.makeUrlGithub = function (uri, opts) {
 	var url = "";
 	var matches = uri.match(/^(g|gh|github):\/\/([^\/]+)\/([^\/]+)\/(.*)\s*$/);
 	if (matches) {
@@ -615,7 +615,7 @@ HumdrumNotationPluginDatabase.prototype.makeUrlGithub = function (uri, options) 
 // HumdrumNotationPluginDatabase::MakeUrlHumdrum -- Convert a (kernScores) Humdrum URI into a URL.
 //
 
-HumdrumNotationPluginDatabase.prototype.MakeUrlHumdrum = function (uri, options) {
+HumdrumNotationPluginDatabase.prototype.MakeUrlHumdrum = function (uri, opts) {
 	var url = "";
 	var matches = uri.match(/^(h|hum|humdrum):\/\/(.*)\s*$/);
 	if (matches) {
@@ -631,7 +631,7 @@ HumdrumNotationPluginDatabase.prototype.MakeUrlHumdrum = function (uri, options)
 // HumdrumNotationPluginDatabase::MakeUrlJrp -- Convert a (kernScores) JRP URI into a URL.
 //
 
-HumdrumNotationPluginDatabase.prototype.MakeUrlJrp = function (uri, options) {
+HumdrumNotationPluginDatabase.prototype.MakeUrlJrp = function (uri, opts) {
 	var url = "";
 	var composerid;
 	var jrpid;
