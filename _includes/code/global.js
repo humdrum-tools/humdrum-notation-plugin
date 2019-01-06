@@ -357,7 +357,7 @@ function saveHumdrumSvg(tags, savename) {
 		if (!filename) {
 			filename = sid.replace(/-svg$/, "") + ".svg";
 		}
-		var text = tags.outerHTML;
+		var text = tags.outerHTML.replace(/&nbsp;/g, " ").replace(/&#160;/g, " ");;
 		blob = new Blob([text], { type: 'image/svg+xml' }),
 		anchor = document.createElement('a');
 		anchor.download = filename;
