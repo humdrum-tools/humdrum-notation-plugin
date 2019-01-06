@@ -173,13 +173,57 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumNow = function (opts) {
 		return;
 	}
 
-	if (entry.options.hasOwnProperty("url")) {
+	if (entry.options.hasOwnProperty("uri")) {
+console.log("GOT HERE AAA");
+		this.downloadUriAndDisplay(entry.baseId);
+	} else if (entry.options.hasOwnProperty("url")) {
+console.log("GOT HERE BBB");
 		this.downloadUrlAndDisplay(entry.baseId);
 	} else {
 		entry.copyContentToContainer();
 		HNP.displayHumdrumSvg(entry.baseId);
 	}
 };
+
+
+
+//////////////////////////////
+//
+// HumdrumNotationPluginDatabase::downloadUriAndDisplay --
+//
+
+HumdrumNotationPluginDatabase.prototype.downloadUriAndDisplay = function (baseid) {
+	var entry = this.entries[baseid];
+	if (!entry) {
+		console.log("Error: Cannot find entry for URI download:", baseid);
+		return;
+	}
+
+	if (entry.options.uri) {
+		entry.options.processedUri = entry.options.uri;
+		delete entry.options.uri;
+	} else {
+		console.log("Warning: No URL to download data from, presuming already downloaded", entry);
+		displayHumdrumNow(entry.baseId);
+		return;
+	}
+
+	var uri = entry.options.processedUri;
+console.log("URI IS CURRENTLY", uri);
+	var url = "";
+	if (uri.match(/^(g|gh|github):\/\//i)) {
+		url = this.makeUrlGithub(uri);
+console.log("URI IS NOW", uri);
+	} else if (uri.match(/^(h|hum|humdrum):\/\//i)) {
+		url = this.makeUrlHumdrum(uri);
+	} else if (uri.match(/^(j|jrp):\/\//i)) {
+		url = this.makeUrlJrp(uri);
+	}
+	if (url) {
+		entry.options.url = url;
+		this.downloadUrlAndDisplay(baseid);
+	}
+}
 
 
 
@@ -315,6 +359,19 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 	vrvOptions = this.insertDefaultOptions(baseid, vrvOptions);
 
 	sourcetext += "\n" + getFilters(pluginOptions);
+
+	if (pluginOptions.appendText) {
+		var text = pluginOptions.appendText;
+		if (Array.isArray(text)) {
+			for (var i=0; i<text.length; i++) {
+				if (typeof text[i] === "string" || text[i] instanceof String) {
+					sourcetext += "\n" + text.trim()
+				}
+			}
+		} else if (typeof text === "string" || text instanceof String) {
+			sourcetext += "\n" + text.trim()
+		}
+	}
 
 	var svg = toolkit.renderData(sourcetext, vrvOptions);
 
@@ -528,6 +585,74 @@ HumdrumNotationPluginDatabase.prototype.extractVerovioOptions = function (baseid
 	}
 
 	return output;
+}
+
+
+
+//////////////////////////////
+//
+// HumdrumNotationPluginDatabase::makeUrlGithub --
+//
+
+HumdrumNotationPluginDatabase.prototype.makeUrlGithub = function (uri, opts) {
+	var url = "";
+	var matches = uri.match(/^(g|gh|github):\/\/([^\/]+)\/([^\/]+)\/(.*)\s*$/);
+	if (matches) {
+		var account = matches[2];
+		var repo    = matches[3];
+		var file    = matches[4];
+		var variant;
+		if (opts && opts.commitHash && (typeof opts.commitHash === "string" || text instanceof String)) {
+			variant = opts.commitHash;
+		} else {
+			variant = "master";
+		}
+		url = "https://raw.githubusercontent.com/" + account + "/" + repo + "/" + variant + "/" + file;
+	}
+	return url;
+};
+
+
+
+///////////////////////////////
+//
+// HumdrumNotationPluginDatabase::MakeUrlHumdrum -- Convert a (kernScores) Humdrum URI into a URL.
+//
+
+HumdrumNotationPluginDatabase.prototype.MakeUrlHumdrum = function (uri, opts) {
+	var url = "";
+	var matches = uri.match(/^(h|hum|humdrum):\/\/(.*)\s*$/);
+	if (matches) {
+		url = "http://kern.humdrum.org/data?s=" + matches[2];
+	}
+	return url;
+}
+
+
+
+///////////////////////////////
+//
+// HumdrumNotationPluginDatabase::MakeUrlJrp -- Convert a (kernScores) JRP URI into a URL.
+//
+
+HumdrumNotationPluginDatabase.prototype.MakeUrlJrp = function (uri, opts) {
+	var url = "";
+	var composerid;
+	var jrpid;
+	var filename;
+	var composerid;
+	var matches = uri.match(/^(j|jrp):\/\/([a-z]{3})(\d{4}[a-z]*)-?(.*)$\s*$/i);
+	if (matches) {
+		composerid = matches[2].toLowerCase();
+		composerid = composerid.charAt(0).toUpperCase() + composerid.substr(1);
+		jrpid = composerid + matches[3].toLowerCase();
+		filename = matches[4];
+		if (filename) {
+			jrpid += "-" + filename;
+		}
+		url = "http://jrp.ccarh.org/cgi-bin/jrp?a=humdrum&f=" + jrpid;
+	}
+	return url;
 }
 
 

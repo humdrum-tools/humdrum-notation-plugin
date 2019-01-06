@@ -31,6 +31,7 @@ section {
 
 
 * <a href="url">URL-related options</a>
+* <a href="uri">URI option demo</a>
 * <a href="lyrics">Lyrics-related options</a>
 * <a href="resize">Automatic resizing option and examples</a>
 
