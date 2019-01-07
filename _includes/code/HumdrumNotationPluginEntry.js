@@ -75,7 +75,7 @@ HumdrumNotationPluginEntry.prototype.createContainer = function () {
 		console.log("Error: container already initialize:", this.container);
 	}
 	this.container = document.createElement('div');
-	this.container.id = "#" + this.baseId + "-container";
+	this.container.id = this.baseId + "-container";
 	this.container.className = "humdrum-notation-plugin";
 	target.parentNode.insertBefore(this.container, target);
 	return this.container;
