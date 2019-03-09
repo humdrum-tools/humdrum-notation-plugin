@@ -72,9 +72,13 @@ function getContainer(baseid) {
 HumdrumNotationPluginDatabase.prototype.displayWaiting = function () {
 	// maybe check to see if document is ready (otherwise maybe infinite loop).
 	for (var i=0; i<this.waiting.length; i++) {
-		console.log("PREPARING", this.waiting[i]);
-		this.displayHumdrumNow(this.waiting[i]);
-		console.log("\tDONE");
+		(function(j, obj) {
+			setTimeout(function() {
+				console.log("PREPARING", this.waiting[i]);
+				this.displayHumdrumNow(obj);
+				console.log("\tDONE");
+			}, j*250);
+		}(i, this.waiting[i]);
 	}
 	this.waiting = [];
 }
