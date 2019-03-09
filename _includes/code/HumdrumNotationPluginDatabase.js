@@ -74,7 +74,7 @@ HumdrumNotationPluginDatabase.prototype.displayWaiting = function () {
 	for (var i=0; i<this.waiting.length; i++) {
 		(function(j, obj) {
 			setTimeout(function() {
-				console.log("PREPARING", this.waiting[i]);
+				console.log("PREPARING", this.waiting[j]);
 				this.displayHumdrumNow(obj);
 				console.log("\tDONE");
 			}, j*250);
