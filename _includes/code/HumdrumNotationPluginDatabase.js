@@ -39,8 +39,9 @@ HumdrumNotationPluginDatabase.prototype.verovioOptions = {% include verovio-opti
 //
 
 function HumdrumNotationPluginDatabase() {
-	this.entries = {};  // hash of notation ids and their related information
+	this.entries = {};  // Hash of notation ids and their related information.
 	this.mutex = 0;
+	this.waiting = [];  // Notation entries to process after verovio has loaded.
 	HumdrumNotationPluginDatabase.prototype.prepareOptions();
 	return this;
 }
@@ -62,6 +63,21 @@ function getContainer(baseid) {
 }
 
 ///////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////
+//
+// HumdrumNotationPluginDatabase::displayWaiting --
+//
+
+HumdrumNotationPluginDatabase.prototype.displayWaiting = function () {
+	// maybe check to see if document is ready (otherwise maybe infinite loop).
+	for (var i=0; i<this.waiting.length; i++) {
+		this.displayHumdrumNow(this.waiting[i]);
+	}
+	this.waiting = [];
+}
+
+
 
 //////////////////////////////
 //

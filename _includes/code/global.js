@@ -94,12 +94,17 @@ function displayHumdrum(opts) {
      	HNP.displayHumdrumNow(opts);
 	} else {
 		// Wait until the page has finished loading resources.
-		document.addEventListener("DOMContentLoaded", function() {
-			HNP.displayHumdrumNow(opts);
-		});
+		HNP.waiting.push(opts);
+		// document.addEventListener("DOMContentLoaded", function() {
+		// 	HNP.displayHumdrumNow(opts);
+		// });
 	}
 }
 
+
+document.addEventListener("DOMContentLoaded", function() {
+	HNP.displayWaiting();
+});
 
 
 ///////////////////////////////
