@@ -73,6 +73,9 @@ function updateTitle() {
       return;
    }
    var title = banner.querySelector("#title");
+   if (!title) {
+      return;
+   }
    var bannerheight = banner.offsetHeight - header.offsetHeight;
 
    var titley = header.offsetHeight - 0 + window.scrollY;

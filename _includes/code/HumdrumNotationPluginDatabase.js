@@ -74,9 +74,7 @@ HumdrumNotationPluginDatabase.prototype.displayWaiting = function () {
 	for (var i=0; i<this.waiting.length; i++) {
 		(function(that, j, obj) {
 			setTimeout(function() {
-				console.log("PREPARING", obj);
 				that.displayHumdrumNow(obj);
-				console.log("\tDONE");
 			}, j*250);
 		}(this, i, this.waiting[i]));
 	}
@@ -143,6 +141,7 @@ HumdrumNotationPluginDatabase.prototype.createEntry = function (baseid, options)
 //
 
 HumdrumNotationPluginDatabase.prototype.displayHumdrumNow = function (opts) {
+
 	if (opts instanceof Element) {
 		// Currently not allowed, but maybe allow the container element, and then
 		// extract the options from the container (from the *-options element).
@@ -196,14 +195,17 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumNow = function (opts) {
 	}
 
 	if (entry.options.hasOwnProperty("uri")) {
-console.log("GOT HERE AAA");
 		this.downloadUriAndDisplay(entry.baseId);
 	} else if (entry.options.hasOwnProperty("url")) {
-console.log("GOT HERE BBB");
 		this.downloadUrlAndDisplay(entry.baseId);
 	} else {
-		entry.copyContentToContainer();
-		HNP.displayHumdrumSvg(entry.baseId);
+		if (entry._timer) {
+			clearTimeout(entry._timer);
+		}
+		entry._timer = setTimeout(function() {
+			entry.copyContentToContainer();
+			HNP.displayHumdrumSvg(entry.baseId)
+		}, 250);
 	}
 };
 
@@ -231,11 +233,9 @@ HumdrumNotationPluginDatabase.prototype.downloadUriAndDisplay = function (baseid
 	}
 
 	var uri = entry.options.processedUri;
-console.log("URI IS CURRENTLY", uri);
 	var url = "";
 	if (uri.match(/^(g|gh|github):\/\//i)) {
 		url = this.makeUrlGithub(uri);
-console.log("URI IS NOW", uri);
 	} else if (uri.match(/^(h|hum|humdrum):\/\//i)) {
 		url = this.makeUrlHumdrum(uri);
 	} else if (uri.match(/^(j|jrp):\/\//i)) {
@@ -345,8 +345,9 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 		}
 
 	}
- 
-	// Cannot display an empty score, since this will cause verovio to display the 
+
+
+	// Cannot display an empty score, since this will cause verovio to display the
 	// previously prepared score.
 	if (sourcetext.match(/^\s*$/)) {
 		console.log("Error: No humdrum content in", entry.humdrum);
@@ -420,24 +421,39 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 		pluginOptions._autoResizeInitialize = true;
 		var aridelement = entry.container.parentNode;
 
-		if (aridelement) {
+		if (aridelement && (!entry._resizeObserver || entry._resizeCallback)) {
 			try {
-				var ro = new ResizeObserver(function(event) {
+
+				var _debounce = function(ms, fn) {
+  					return function() {
+						if (entry._timer) {
+    						clearTimeout(entry._timer);
+						}
+    					var args = Array.prototype.slice.call(arguments);
+    					args.unshift(this);
+    					entry._timer = setTimeout(fn.bind.apply(fn, args), ms);
+  					};
+				};
+
+				entry._resizeObserver = new ResizeObserver(_debounce(500, function(event) {
 					(function(bid) {
 						displayHumdrum(bid);
 					})(baseid);
-				});
-				ro.observe(aridelement);
+				}));
+				entry._resizeObserver.observe(aridelement);
+
 			} catch (error) {
+
 				// ResizeObserver is not present for this browser, use setInterval instead.
 				var refreshRate = 250; // milliseconds
-				setInterval(function() {
+				entry._resizeCallback = setInterval(function() {
 					(function(bid) {
 						checkParentResize(bid);
 					})(baseid)
 				}, refreshRate);
+
 			}
-		} else {
+		} else if (!aridelement) {
 			window.addEventListener("resize", function(event) {
 				(function(bid) {
 					displayHumdrum(bid);
