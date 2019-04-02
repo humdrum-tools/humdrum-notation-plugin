@@ -9,11 +9,11 @@ vim:	ts=3
 # Introduction #
 
 
-This website documents a javascript plugin that can display graphical
-music notation on any webpage, generated from <a target="_blank"
+This website documents a javascript plugin that can display music
+notation on any webpage, generated from <a target="_blank"
 href="https://www.humdrum.org">Humdrum</a> data embedded within the
-page.  Here is an example usage of the plugin to display 
-J.N.&nbsp;Hummel's prelude in D-flat major, op.&nbsp;67/15:
+page.  Here is an example use of the plugin to display J.N.&nbsp;Hummel's
+prelude in D-flat major, op.&nbsp;67/15:
 
 {% include hummel-interaction.html %}
 {% include_relative hummel-example.txt %}
@@ -24,14 +24,14 @@ href="hummel-prelude-op67n15.txt">this Humdrum score</a> stored as
 <a target="_blank" href="hummel-example-b.txt">text</a> inside the
 webpage.  The notation is displayed as an SVG image, allowing
 interaction with notational elements.  For example the prelude
-notation was made interactive by adding CSS and javascript
-code: try moving your mouse pointer over a note in the music.  This
-will highlight other notes in the score that have the same pitch
-class.
+notation was made interactive by adding <a target="_blank"
+href="highlight-pitch-class.txt">CSS and javascript code</a>: try
+moving the mouse over a note in the music.  This will highlight
+other notes in the score that have the same pitch class.
 
 Try out the plugin by copy-and-pasting the following text into an
 HTML file to display the same musical score.  In this case, rather
-than embedding the Humdrum data within the webpage, data is the being
+than embedding the data within the webpage, it is the being
 downloaded from a <a target="_blank" href="https://github.com/craigsapp/hummel-preludes/tree/master/kern">Github repository</a>.
 
 
@@ -51,9 +51,9 @@ downloaded from a <a target="_blank" href="https://github.com/craigsapp/hummel-p
 </html>
 ```
 
-Using the same data within the page, different views of the score can be
-produced.  Here is an example of extracting the first three measures of
-the prelude and transposing to C major:
+Different views of the score can be created on a webpage with the
+same data.  Here is an example that extracts the first three measures
+of the prelude and transposing to C major:
 
 {% include_relative hummel-example2.txt %}
 
@@ -127,12 +127,13 @@ the resulting display for the above plugin code:
 
 ## Required source parameter ##
 
-As input to the `displayHumdrum()` function, the `source` parameter is
-required, and it must be set to the ID of the Humdrum content script.
-In this case the value is "example" since the ID of the Humdrum data script
-is "example".  Placement of the music notation for the example will be
-dependent on the location of the source element that contains the Humdrum
-data (the notation will be placed immediately before the source element).
+The `source` parameter is required as input to the `displayHumdrum()`
+function, and it must be set to the ID of a Humdrum content script.
+In this case the value is "example" since the ID of the Humdrum
+data script is "example".  Placement of the music notation for the
+example will be dependent on the location of the source element
+that contains the Humdrum data (the notation will be placed immediately
+before the source element).
 
 
 
@@ -205,12 +206,12 @@ to the online data file as input to the `displayHumdrum()` function:
 {% include_relative url-example.txt %}
 ```
 
-Notice that the Humdrum script element is empty, since it will
+Notice that the Humdrum script element is empty since it will
 be filled in later with the downloaded Humdrum data.  Do not add
 any content to the Humdrum script when using the `url` parameter;
 otheriwse, the URL content download will be suppressed.  The Humdrum
 script's location on the page will control the display location of
-the final notation, and any initial contents of the script will be
+the final notation, and any initial contents of the data script will be
 ignored if a `url` parameter is given to the `displayHumdrum()`
 function.  In this case the URL is relative to the current page,
 so the full URL address of the downloaded data is <a target="_blank"
@@ -235,7 +236,7 @@ piano sonata repository</a>:
 
 There are also [URI](/options/uri) shortcuts for various Humdrum repositories
 on the web.  Here is the same score as above, but downloaded with the `github://`
-URI:
+URI to simplify the address to the data:
 
 ```html
 {% include_relative uri-example.txt %}
@@ -281,17 +282,17 @@ transpose music in C major to E-flat major:
 ```
 
 Notice that the Humdrum encoding is in C major, but the filter
-command at the end of the data transposes the music to E-flat major
+command transposes the music to E-flat major
 before the music notation is generated:
 
 {% include_relative transpose-example.txt %}
 
-Another useful filtering tool used
+Another useful filtering tool given
 in this example is the <a target="_blank"
 href="http://doc.verovio.humdrum.org/filters/autobeam">autobeam</a> tool,
-which connected the eighth notes together by quarter-note durations based on
-the key signature.  In this case the tools are used in separate filter
-lines, but they can be given on the same line like this:
+which beamed the eighth notes together by quarter-note durations based on
+the key signature.  In this case the tools are used on separate filter
+lines, but they can be merged onto the same line like this:
 
 ```
 !!!filter: transpose -k e- | autobeam
@@ -299,7 +300,7 @@ lines, but they can be given on the same line like this:
 
 Other interesting filtering tools include 
 <a target="_blank" href="http://doc.verovio.humdrum.org/filters/maynk">myank</a> for
-extracting a range of measures from a longer example, and
+extracting a measure range from a longer score, and
 <a target="_blank" href="http://doc.verovio.humdrum.org/filters/extract">extract</a>
 for extracting parts or removing lyrics from the rendered musical notation.
 
@@ -310,8 +311,8 @@ One or more filter commands can be specified in the
 plugin input options.  Here is an example that downloads
 Obrecht's motet *Salve crux* from the <a target="_blank"
 href="https://github.com/josquin-research-project/jrp-scores">Josquin
-Research Project score repository</a>, and then a dissonance analysis
-of the musical data is done, followed by extracting measures 1&ndash;18
+Research Project score repository</a>, and then does a dissonance analysis
+of the musical data, followed by extracting measures 1&ndash;18
 from the full score, and then extracting only the bass part to display:
 
 
@@ -326,14 +327,13 @@ filtering instructions, but by adding the option:
 filter: "dissonant --colorize | myank -m 1-18 | extract -k 1"
 ```
 
-the music will be processed by this filter before notation is generated from 
-the Humdrum data:
+the music will be processed by this filter before notation is generated:
 
 {% include_relative obrecht.txt %}
 
 Colored notes form a dissonance with other voices in the polyphonic
 texture (blue means a seventh against another note, green is a second
-against another note, and red means the note forms forth with the
+against another note, and red means the note forms a forth with the
 lowest sounding note). The dissonant notes are labeled according to
 their function: `p` is a falling passing tone, `g` is a suspension agent (initiates
 a suspension, but is considered the consonant note of the suspension), and `v`
