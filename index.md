@@ -53,7 +53,7 @@ downloaded from a <a target="_blank" href="https://github.com/craigsapp/hummel-p
 
 Different views of the score can be created on a webpage with the
 same data.  Here is an example that extracts the first three measures
-of the prelude and transposing to C major:
+of the prelude and transposes it to C major:
 
 {% include_relative hummel-example2.txt %}
 
