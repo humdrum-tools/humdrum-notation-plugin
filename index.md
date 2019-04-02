@@ -67,8 +67,16 @@ Viewer</a>, which is an online interactive music editor where you can
 prepare scores for use with the Humdrum notation plugin.
 
 
-Feature requests and bug-reports can be submitted to the 
-<a target="_blank" href="https://github.com/humdrum-tools/humdrum-plugin/issues">issues page</a> of the humdrum-plugin repository on Github.
+Feature requests and bug-reports can be submitted to the <a
+target="_blank"
+href="https://github.com/humdrum-tools/humdrum-plugin/issues">issues
+page</a> of the humdrum-plugin repository on Github. See also this
+<a target="_blank" href="https://chorales.sapp.org">J.S. Bach
+Chorales website</a> which uses the Humdrum Nontation Plugin to
+display chorales, along with an <a target="_blank"
+href="https://chorales.sapp.org/typesetter">interactive chorale
+typesetter</a> that generates Humdurm Notation Plugin code for
+displaying chorales on any website.
 
 # Setup #
 
