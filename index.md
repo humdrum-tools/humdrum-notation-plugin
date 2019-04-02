@@ -31,7 +31,7 @@ other notes in the score that have the same pitch class.
 
 Try out the plugin by copy-and-pasting the following text into an
 HTML file to display the same musical score.  In this case, rather
-than embedding the data within the webpage, it is the being
+than embedding the data within the webpage, it is being
 downloaded from a <a target="_blank" href="https://github.com/craigsapp/hummel-preludes/tree/master/kern">Github repository</a>.
 
 
@@ -93,7 +93,7 @@ the verovio toolkit on the webpage so that it can be used by the
 Humdrum notation plugin.
 
 
-# Display some music #
+# Displaying music #
 
 
 Adding a musical example on a webpage consists of two components:
@@ -150,7 +150,7 @@ described above would be:
 
 
 
-# Complete example page #
+# Complete example #
 
 
 Try copy-and-pasting the following HTML content into a file and view it in a
