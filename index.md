@@ -9,25 +9,47 @@ vim:	ts=3
 # Introduction #
 
 
-This website documents a javascript plugin that allows you to display,
-on any webpage, graphical musical notation generated from
-<a target="_blank" href="https://www.humdrum.org">Humdrum</a>
-data embedded within the page.  Here is an example usage of the plugin
-to display all ten measures of J.N.&nbsp;Hummel's prelude in D-flat major,
-op.&nbsp;67/15:
+This website documents a javascript plugin that can display graphical
+music notation on any webpage, generated from <a target="_blank"
+href="https://www.humdrum.org">Humdrum</a> data embedded within the
+page.  Here is an example usage of the plugin to display 
+J.N.&nbsp;Hummel's prelude in D-flat major, op.&nbsp;67/15:
 
 {% include hummel-interaction.html %}
 {% include_relative hummel-example.txt %}
 
-The above music notation was created dynamically inside your
-web browser as the page was loaded, using <a target="_blank"
-href="hummel-prelude-op67n15.txt">this Humdrum score</a> stored as 
-<a target="_blank" href="hummel-example-b.txt">text</a>
-inside the webpage.  The notation is displayed in an SVG image, which
-allows interaction with notational elements.  For example the
-prelude has been made interactive by adding CSS and javascript code: try
-moving your mouse pointer over a note in the music, which will highlight
-other notes in the score possessing the same pitch class.
+The above music notation was created dynamically inside your web
+browser as the page was loaded, using <a target="_blank"
+href="hummel-prelude-op67n15.txt">this Humdrum score</a> stored as
+<a target="_blank" href="hummel-example-b.txt">text</a> inside the
+webpage.  The notation is displayed as an SVG image, allowing
+interaction with notational elements.  For example the prelude
+notation was made interactive by adding CSS and javascript
+code: try moving your mouse pointer over a note in the music.  This
+will highlight other notes in the score that have the same pitch
+class.
+
+Try out the plugin by copy-and-pasting the following text into an
+HTML file to display the same musical score.  In this case, rather
+than embedding the Humdrum data within the webpage, data is the being
+downloaded from a <a target="_blank" href="https://github.com/craigsapp/hummel-preludes/tree/master/kern">Github repository</a>.
+
+
+```html
+<html>
+<head>
+<title>Test example</title>
+<script src="{{site.veroviourl}}"></script>
+<script src="{{site.notationurl}}"></script>
+<script>var vrvToolkit = new verovio.toolkit()</script>
+</head>
+<body>
+
+{% include_relative hummel-example2b.txt %}
+
+</body>
+</html>
+```
 
 Using the same data within the page, different views of the score can be
 produced.  Here is an example of extracting the first three measures of
@@ -43,6 +65,7 @@ href="https://doc.verovio.humdrum.org/filters/index.html">filter documentation</
 <a target="_blank" href="http://verovio.humdrum.org">Verovio Humdrum
 Viewer</a>, which is an online interactive music editor where you can
 prepare scores for use with the Humdrum notation plugin.
+
 
 Feature requests and bug-reports can be submitted to the 
 <a target="_blank" href="https://github.com/humdrum-tools/humdrum-plugin/issues">issues page</a> of the humdrum-plugin repository on Github.
