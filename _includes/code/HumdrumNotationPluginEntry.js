@@ -144,13 +144,13 @@ HumdrumNotationPluginEntry.prototype.copyContentToContainer = function () {
 		if (ctype === "musicxml") {
 			// convert MusicXML data into Humdrum data
 			options = {
-				inputFormat: "musicxml-hum"
+				format: "musicxml-hum"
 			};
 			content = convertMusicXmlToHumdrum(content, options, poptions);
 		} else if (ctype === "mei") {
 			// convert MEI data into Humdrum data
 			options = {
-				inputFormat: "mei-hum"
+				format: "mei-hum"
 			};
 			content = convertMeiToHumdrum(content, options, poptions);
 		} else {

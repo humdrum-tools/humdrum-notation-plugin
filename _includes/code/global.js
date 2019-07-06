@@ -237,7 +237,7 @@ function convertMusicXmlToHumdrum(sourcetext, vrvOptions, pluginOptions) {
 		return;
 	}
 	// format = input data type
-	vrvOptions.inputFormat = "musicxml-hum";
+	vrvOptions.format = "musicxml-hum";
 	var svg = toolkit.renderData(sourcetext, vrvOptions);
 	// don't want SVG, but rather Humdrum:
 	var humdrum = toolkit.getHumdrum();
@@ -261,7 +261,7 @@ function convertMeiToHumdrum(sourcetext, vrvOptions, pluginOptions) {
 		return;
 	}
 	// format = input data type
-	vrvOptions.inputFormat = "mei-hum";
+	vrvOptions.format = "mei-hum";
 	var svg = toolkit.renderData(sourcetext, vrvOptions);
 	// don't want SVG, but rather Humdrum:
 	var humdrum = toolkit.getHumdrum();

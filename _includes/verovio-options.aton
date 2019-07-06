@@ -41,7 +41,7 @@
 
 
 @@BEGIN: OPTION
-@NAME:	inputFormat
+@NAME:	format
 @NAME_CLI:	format
 @ABBR:	f
 @INFO:	Select input format
