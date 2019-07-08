@@ -79,6 +79,7 @@ vrvInterface.prototype.createWorkerInterface = function (onReady) {
 		this.worker = new Worker(window.URL.createObjectURL(blob));
 		this.worker.addEventListener("message", handleEvent);
 	}
+	request.send();
 
 	// this.worker = new Worker("{{site.sitename}}/scripts/verovio-worker.js");
 	// this.worker.addEventListener("message", handleEvent);
