@@ -1,0 +1,720 @@
+<svg width="939.75px" height="200.2px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="visible">
+	<desc>Engraved by Verovio 2.2.0-dev-adc68a5</desc>
+	<defs>
+		<symbol id="E050" viewBox="0 0 1000 1000" overflow="inherit">
+			<path transform="scale(1,-1)" d="M441 -245c-23 -4 -48 -6 -76 -6c-59 0 -102 7 -130 20c-88 42 -150 93 -187 154c-26 44 -43 103 -48 176c-4 60 11 123 44 189c29 57 65 106 110 148s96 85 153 127c-3 16 -8 46 -13 92c-4 43 -5 73 -5 89c0 117 16 172 69 257c34 54 64 82 89 82c21 0 43 -30 69 -92 s39 -115 41 -159c2 -120 -19 -173 -67 -256c-13 -20 -63 -90 -98 -118c-13 -9 -25 -19 -37 -29l31 -181c8 1 18 2 28 2c58 0 102 -12 133 -35c59 -43 92 -104 98 -184c11 -135 -80 -229 -180 -270c8 -57 17 -110 25 -162c5 -31 6 -58 6 -80c0 -30 -5 -53 -14 -70 c-35 -64 -88 -99 -158 -103c-42 -3 -83 6 -124 26c-50 24 -77 59 -80 105c-2 34 5 63 20 87c18 28 45 42 79 44c51 4 99 -40 103 -87c4 -56 -30 -94 -105 -115c17 -24 51 -36 102 -36c62 0 116 43 140 85c9 16 13 41 13 74c0 20 -1 42 -5 67c-8 53 -18 106 -26 159zM461 939 c-95 0 -135 -175 -135 -286c0 -24 2 -48 5 -71c50 39 92 82 127 128c43 57 63 106 60 148c-4 54 -23 82 -57 81zM406 119l54 -326c80 27 116 88 109 184c-7 99 -62 146 -163 142zM382 117c-74 -2 -132 -50 -128 -127c2 -46 43 -99 75 -115c-3 -2 -7 -5 -10 -10 c-70 33 -116 88 -123 172c-5 73 42 135 88 170c23 17 49 29 78 36l-29 170c-21 -13 -52 -37 -92 -73c-50 -44 -86 -84 -109 -119c-49 -75 -71 -140 -67 -195c5 -68 35 -127 93 -176s125 -73 203 -73c25 0 50 3 75 9c-19 111 -36 221 -54 331z"></path>
+		</symbol>
+		<symbol id="E08A" viewBox="0 0 1000 1000" overflow="inherit">
+			<path transform="scale(1,-1)" d="M340 179c-9 24 -56 41 -89 41c-46 0 -81 -28 -100 -58c-17 -28 -25 -78 -25 -150c0 -65 2 -111 8 -135c8 -31 18 -49 40 -67c20 -17 43 -25 70 -25c54 0 92 36 115 75c14 25 23 54 28 88h27c0 -63 -24 -105 -58 -141c-35 -38 -82 -56 -140 -56c-45 0 -83 13 -115 39 c-57 45 -101 130 -101 226c0 59 33 127 68 163c36 37 97 72 160 72c36 0 93 -21 121 -40c11 -8 23 -17 33 -30c19 -23 27 -48 27 -76c0 -51 -35 -88 -86 -88c-43 0 -76 27 -76 68c0 26 7 35 21 51c15 17 32 27 58 32c7 2 14 7 14 11z"></path>
+		</symbol>
+		<symbol id="E4E7" viewBox="0 0 1000 1000" overflow="inherit">
+			<path transform="scale(1,-1)" d="M133 -111c-16 38 -21 43 -64 51c-37 -4 -60 -25 -68 -60c0 -32 18 -52 55 -58c8 -6 22 -10 43 -10c31 0 62 7 82 20l-108 -324h37c72 220 143 439 215 659h-4l-10 -2l-7 -1c-15 -35 -27 -52 -59 -71c-26 -15 -56 -27 -88 -29c-11 0 -20 2 -26 6c29 3 56 25 51 56 c-15 35 -19 42 -64 48c-38 -4 -60 -23 -68 -58c0 -32 18 -52 55 -59c7 -5 22 -8 45 -8c48 0 76 7 112 25l-66 -197c-21 -23 -50 -47 -90 -47c-7 0 -15 1 -25 4c31 5 52 22 52 55z"></path>
+		</symbol>
+		<symbol id="E0A4" viewBox="0 0 1000 1000" overflow="inherit">
+			<path transform="scale(1,-1)" d="M0 -39c0 68 73 172 200 172c66 0 114 -37 114 -95c0 -84 -106 -171 -218 -171c-64 0 -96 30 -96 94z"></path>
+		</symbol>
+		<symbol id="E241" viewBox="0 0 1000 1000" overflow="inherit">
+			<path transform="scale(1,-1)" d="M179 646c15 -29 28.5449 -55.0752 46 -102c18.3213 -49.2549 30 -108.298 30 -138c0 -105 -80 -173 -168 -200c-18 -5 -47 -9 -87 -16v-190h22c8 0 33 61 71 95c4 3 -2 -3 61 56c62 58 122 137 122 241c0 37.5244 -12.6807 106.071 -35 163 c-19.9111 50.7861 -43 99 -66 132c-6 5 -10 7 -13 7s-5 -2 -5 -5l4 -10c1.17285 -2.93066 13.7646 -24.8115 18 -33z"></path>
+		</symbol>
+		<symbol id="E0A3" viewBox="0 0 1000 1000" overflow="inherit">
+			<path transform="scale(1,-1)" d="M98 -102zM200 138l41 -5c-2 0 -41 5 -41 5zM278 64c0 22 -17 39 -43 39c-12 0 -26 -3 -41 -10c-85 -43 -165 -94 -165 -156c5 -25 15 -32 49 -32c67 11 200 95 200 159zM0 -36c0 68 73 174 200 174c66 0 114 -39 114 -97c0 -84 -106 -173 -218 -173c-64 0 -96 32 -96 96z "></path>
+		</symbol>
+		<symbol id="E062" viewBox="0 0 1000 1000" overflow="inherit">
+			<path transform="scale(1,-1)" d="M158 96c51 0 73 -14 88 -49l16 -39c0 -17 -2 -30 -7 -40c-3 -11 -10 -21 -19 -31c-17 -18 -49 -43 -84 -43c-55 0 -77 13 -112 44c-24 21 -35 55 -35 100c0 46 14 81 32 112c30 52 71 79 137 93l36 6l26 2c154 0 235 -68 274 -182c11 -32 18 -68 18 -107 c0 -103 -26 -182 -68 -250c-89 -145 -234 -230 -412 -288l-30 -5c-9 0 -14 3 -14 8c3 10 5 11 10 16c35 15 70 30 96 44l78 43c96 57 162 136 197 258c9 33 17 60 22 100c3 22 5 35 6 39c-7 69 -16 115 -23 140s-4 22 -16 40c-8 12 -19 23 -31 34c-24 21 -62 44 -118 44 c-48 0 -84 -8 -113 -28c-28 -19 -42 -44 -42 -73v-16c2 -5 3 -9 4 -11c24 22 52 39 84 39zM585 -118c0 32 23 58 57 58c18 0 33 -6 40 -18c9 -15 16 -18 16 -40c0 -9 -2 -16 -5 -21c-6 -19 -27 -37 -51 -37c-34 0 -57 26 -57 58zM642 177c31 0 56 -27 56 -58 c0 -30 -25 -58 -56 -58l-23 3c-19 7 -34 32 -34 55l3 23c9 20 28 35 54 35z"></path>
+		</symbol>
+		<symbol id="E0A2" viewBox="0 0 1000 1000" overflow="inherit">
+			<path transform="scale(1,-1)" d="M198 133c102 0 207 -45 207 -133c0 -92 -98 -133 -207 -133c-101 0 -198 46 -198 133c0 88 93 133 198 133zM293 -21c0 14 -3 29 -8 44c-7 20 -18 38 -33 54c-20 21 -43 31 -68 31l-20 -2c-15 -5 -27 -14 -36 -28c-4 -9 -6 -17 -8 -24s-3 -16 -3 -27c0 -15 3 -34 9 -57 s18 -41 34 -55c15 -15 36 -23 62 -23c4 0 10 1 18 2c19 5 32 15 40 30s13 34 13 55z"></path>
+		</symbol>
+		<symbol id="E522" viewBox="0 0 1000 1000" overflow="inherit">
+			<path transform="scale(1,-1)" d="M-91 -179c-2 -2.667 -2.667 -5 -2 -7s4.333 -3.333 11 -4c18.667 0 34.333 13.667 47 41c6.667 14 13.333 30 20 48c6.66699 18 11.667 35.333 15 52l14 61l44 208h-58v38h70c7.333 20.667 13.333 36.333 18 47c7.333 18 14.667 32.667 22 44c20.666 30 42.333 53 65 69 s47.667 24 75 24c9.333 0 17 -1 23 -3s12.333 -7.333 19 -16c4.667 -6.667 7.667 -13 9 -19l4 -16c0 -14.667 -0.667 -25.334 -2 -32c-1.333 -6.667 -5 -16 -11 -28c-2.667 -6 -8.667 -13 -18 -21c-4 -3.333 -8.333 -5.333 -13 -6s-10.333 -0.667 -17 0 c-6 1.333 -10.333 5 -13 11s-4.667 12.667 -6 20c0 12 2.333 22.667 7 32s12 17.333 22 24l14 10c0 8.667 -6 14 -18 16c-13.333 1.33 -24.667 -1.337 -34 -8c-9.333 -6.667 -19 -21 -29 -43c-4.667 -12 -10.333 -29.667 -17 -53s-11.333 -40 -14 -50h77v-40h-85 c-12 -68.667 -29 -137.333 -51 -206c-18 -55.333 -35.333 -99 -52 -131c-13.333 -26 -27 -47 -41 -63c-24.667 -28.667 -50 -43 -76 -43c-24.666 0 -43.333 9.667 -56 29c-10 15.333 -15 33.333 -15 54c0 16.667 4 32.667 12 48c4.667 7.333 10.333 13 17 17s13.333 6 20 6 c8.667 0 15.667 -4 21 -12s9 -15.333 11 -22s3 -12.333 3 -17c0 -9.333 -2.333 -17.333 -7 -24c-4.6641 -6.667 -9.3301 -13.667 -14 -21c-4.6641 -7.333 -8.3301 -12 -11 -14z"></path>
+		</symbol>
+		<symbol id="E650" viewBox="0 0 1000 1000" overflow="inherit">
+			<path transform="scale(1,-1)" d="M657 134c0 -34.667 -12.333 -65.667 -37 -93s-53.667 -41 -87 -41h-14c-6 8 -10.667 13.667 -14 17c-11.333 12 -21 18 -29 18c-14.667 0 -27.333 -3.333 -38 -10c-13.333 -10.667 -24 -19 -32 -25h-66l-40 47l-33 -47h-77c-5.333 19.333 -9.667 33.333 -13 42 c-6 16 -15 23.333 -27 22c-16.667 -2 -33 -12 -49 -30c-9.333 -11.333 -19 -22.667 -29 -34h-34c0 29.333 34.333 67 103 113c32.667 22 49 46 49 72c0.002 17.333 -10.665 41 -32 71c-21.333 30 -32.333 65.333 -33 106c0 14.667 1 30.333 3 47s5.667 37 11 61 c-1.316 4 -3.649 7 -7 9c-3.333 2 -9.333 3 -18 3c-18.667 -5.333 -32.667 -11.333 -42 -18c-28 -21.333 -42 -53.667 -42 -97c0 -11.333 1.667 -20.333 5 -27s7.667 -11.667 13 -15c16 -4.667 30 9 42 41c3.333 2.667 6.333 5.333 9 8c0.667 -2 1 -5.667 1 -11 c0 -14.667 -4 -28 -12 -40c-11.333 -16 -28 -26.333 -50 -31c-8.667 0 -16.667 5 -24 15c-9.33301 13.334 -14 31.667 -14 55c0 45.333 15 82 45 110s67.667 42 113 42c52 0 91.667 -10 119 -30c27.333 -20 41.333 -47.667 42 -83c0 -14 -2.333 -28 -7 -42 c-12 -20.667 -26.667 -31 -44 -31c-18 0 -35.667 9.333 -53 28s-26 34.333 -26 47c0 6 2.333 9.333 7 10c4 -11.333 8 -19.667 12 -25c12 -17.333 27.333 -26 46 -26c14.667 0 24.667 4 30 12s8 18.667 8 32c0 20.667 -7.667 36.333 -23 47 c-15.333 10.667 -35.333 18.667 -60 24c-10 2 -16.667 3 -20 3c-4 0 -12.667 -1 -26 -3c-5.333 -15.333 -9 -30.667 -11 -46s-3 -34.333 -3 -57c0 -20.667 7 -43.334 21 -68l54 -90c2.667 -12.667 4 -25 4 -37c0 -22 -8.333 -42.333 -25 -61 c-8.667 -9.333 -13 -16.667 -13 -22c9.333 -8.667 15.333 -19.667 18 -33s14.667 -22.667 36 -28c17.333 4.667 29.333 9.667 36 15s10 12.333 10 21c0 6.667 -4 19.333 -12 38c-5.333 12.667 -9 22.667 -11 30c-0.667 6 -1 10.667 -1 14c0 28 8 53.333 24 76 s38.333 34 67 34c21.333 0 36 -4 44 -12s13.667 -23.333 17 -46c2.667 -22 -4.333 -41.333 -21 -58c-22.666 -20.667 -45.333 -41 -68 -61c6 -10.667 13 -21 21 -31c16.667 -20.667 33.333 -31 50 -31c12 0 25 5 39 15c4 3.333 9.667 8.333 17 15c-1.333 12 -2 22.333 -2 31 c0 36.667 6.667 68.333 20 95c18.667 38 51 67 97 87c-20.667 46.667 -52.667 88 -96 124c-40.667 28.667 -81.667 57.333 -123 86c29.333 -2.668 66.333 -17.334 111 -44c54.667 -32 98.333 -70.333 131 -115c42 -56.667 63 -118 63 -184zM379 227 c-10 0 -20.333 -0.667 -31 -2s-18 -6.333 -22 -15s-6.667 -17 -8 -25s-2 -16.667 -2 -26v-20c28 0 46.333 9.333 55 28c5.333 11.333 8 31.333 8 60zM513 54c6 -12.667 16 -19 30 -19c16 0 30.333 8 43 24s19.333 39.333 20 70c0 25.333 -3.333 52 -10 80s-15 42.333 -25 43 c-21.333 -8.667 -38 -26 -50 -52s-18 -55 -18 -87c0 -23.333 3.333 -43 10 -59zM671 50c6.667 0 12.333 -2.667 17 -8s7 -11.333 7 -18s-2.667 -12.333 -8 -17c-5.333 -4.66699 -11.667 -7 -19 -7c-6.667 -0 -12.333 2.66699 -17 8c-4.667 5.333 -7 11.667 -7 19 c0 15.333 9 23 27 23z"></path>
+		</symbol>
+		<symbol id="EAA9" viewBox="0 0 1000 1000" overflow="inherit">
+			<path transform="scale(1,-1)" d="M0 68l16 18c-7 -6 13 10 19 15c11 7 21 10 29 11c8 0 17 -3 27 -10c3 -1 10 -8 22 -21l22 -21c7 -7 15 -11 25 -12l9 2l9 5l8 5l12 8v-24c-6 -7 -12 -14 -18 -19s-13 -10 -20 -14c-11 -7 -21 -10 -29 -11c-10 0 -18 2 -26 8l-12 10l-11 12l-22 22l-12 8l-13 2l-9 -1 c-5 -2 -8 -4 -9 -5c0 0 -3 -2 -9 -7c-3 -2 -8 -5 -8 -5v24z"></path>
+		</symbol>
+	</defs>
+	<style type="text/css">g.page-margin{font-family:Times;} g.tempo{font-weight:bold;} g.dir, g.dynam, g.mNum{font-style:italic;} g.label{font-weight:normal;}</style>
+	<svg class="definition-scale" viewBox="0 0 26850 5720">
+		<g class="page-margin" transform="translate(500, 500)">
+			<g class="system" id="system-0000000072106192">
+				<path d="M5 1260 L5 3960" stroke="#000000" stroke-width="10"></path>
+				<path d="M-40,3942 C-400,3402 50,2790 -220,2610 C113,2790 -337,3402 -40,3942" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="18"></path>
+				<path d="M-40,1278 C-337,1818 113,2430 -220,2610 C50,2430 -400,1818 -40,1278" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="18"></path>
+				<g class="section boundaryStart" id="section-L9F1"></g>
+				<g class="measure m--1" id="measure-L1">
+					<g class="staff" id="staff-0000000591722173">
+						<path d="M0 1260 L6754 1260" stroke="#000000" stroke-width="10"></path>
+						<path d="M0 1440 L6754 1440" stroke="#000000" stroke-width="10"></path>
+						<path d="M0 1620 L6754 1620" stroke="#000000" stroke-width="10"></path>
+						<path d="M0 1800 L6754 1800" stroke="#000000" stroke-width="10"></path>
+						<path d="M0 1980 L6754 1980" stroke="#000000" stroke-width="10"></path>
+						<g class="clef" id="clef-0000001723814572">
+							<use xlink:href="#E050" x="90" y="1800" height="720px" width="720px"></use>
+						</g>
+						<g class="meterSig" id="msig-0000000757804123">
+							<use xlink:href="#E08A" x="861" y="1620" height="720px" width="720px"></use>
+						</g>
+						<g class="ledgerLines below">
+							<path d="M1721 2160 L2000 2160" stroke="#000000" stroke-width="17"></path>
+							<path d="M2781 2160 L3097 2160" stroke="#000000" stroke-width="17"></path>
+						</g>
+						<g class="layer" id="layer-L9F2N1">
+							<g class="rest rqon-0 rqoff-1_4" id="rest-L19F2">
+								<use xlink:href="#E4E7" x="1429" y="1620" height="720px" width="720px"></use>
+							</g>
+							<g class="beam" id="beam-L20F2-L22F2">
+								<polygon points="1960,1202 2736,1126 2736,1216 1960,1292 "></polygon>
+								<polygon points="1960,1337 2736,1261 2736,1351 1960,1427 "></polygon>
+								<g class="note qon-1_4 qoff-1_2 pname-c acc-n oct-4 b40c-2 b12c-0 " id="note-L20F2">
+									<use xlink:href="#E0A4" x="1752" y="2160" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001132532314">
+										<rect x="1960" y="1220" height="918" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000618677185"></g>
+								</g>
+								<g class="note qon-1_2 qoff-3_4 pname-e acc-n oct-4 b40c-14 b12c-4 " id="note-L21F2" style="">
+									<use xlink:href="#E0A4" x="2194" y="1980" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000002021188494">
+										<rect x="2402" y="1176" height="782" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000001472573142"></g>
+								</g>
+								<g class="note qon-3_4 qoff-1 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L22F2">
+									<use xlink:href="#E0A4" x="2510" y="1800" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001641565811">
+										<rect x="2718" y="1144" height="634" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000245073216"></g>
+								</g>
+							</g>
+							<g class="beam" id="beam-L23F2-L26F2">
+								<polygon points="3034,1036 4126,1144 4126,1234 3034,1126 "></polygon>
+								<polygon points="3034,1171 4126,1279 4126,1369 3034,1261 "></polygon>
+								<g class="note qon-1 qoff-5_4 pname-a acc-n oct-4 b40c-31 b12c-9 " id="note-L23F2">
+									<use xlink:href="#E0A4" x="2826" y="1710" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000000853015325">
+										<rect x="3034" y="1054" height="634" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000001447620283"></g>
+								</g>
+								<g class="note qon-5_4 qoff-3_2 pname-e acc-n oct-4 b40c-14 b12c-4 " id="note-L24F2" style="">
+									<use xlink:href="#E0A4" x="3268" y="1980" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001953922121">
+										<rect x="3476" y="1098" height="860" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000332639347"></g>
+								</g>
+								<g class="note qon-3_2 qoff-7_4 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L25F2">
+									<use xlink:href="#E0A4" x="3584" y="1800" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000000180542631">
+										<rect x="3792" y="1130" height="648" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000001908999275"></g>
+								</g>
+								<g class="note qon-7_4 qoff-2 pname-e acc-n oct-4 b40c-14 b12c-4 " id="note-L26F2" style="">
+									<use xlink:href="#E0A4" x="3900" y="1980" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001085290556">
+										<rect x="4108" y="1162" height="796" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000905129757"></g>
+								</g>
+							</g>
+							<g class="beam" id="beam-L27F2-L30F2">
+								<polygon points="4424,1036 5390,1131 5390,1221 4424,1126 "></polygon>
+								<polygon points="4424,1171 5390,1266 5390,1356 4424,1261 "></polygon>
+								<g class="note qon-2 qoff-9_4 pname-a acc-n oct-4 b40c-31 b12c-9 " id="note-L27F2">
+									<use xlink:href="#E0A4" x="4216" y="1710" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000000853908535">
+										<rect x="4424" y="1054" height="634" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000370695800"></g>
+								</g>
+								<g class="note qon-9_4 qoff-5_2 pname-e acc-n oct-4 b40c-14 b12c-4 " id="note-L28F2" style="">
+									<use xlink:href="#E0A4" x="4532" y="1980" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001562096917">
+										<rect x="4740" y="1086" height="872" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000001474740805"></g>
+								</g>
+								<g class="note qon-5_2 qoff-11_4 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L29F2">
+									<use xlink:href="#E0A4" x="4848" y="1800" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001144690985">
+										<rect x="5056" y="1117" height="661" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000001242486747"></g>
+								</g>
+								<g class="note qon-11_4 qoff-3 pname-e acc-n oct-4 b40c-14 b12c-4 " id="note-L30F2" style="">
+									<use xlink:href="#E0A4" x="5164" y="1980" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001682745609">
+										<rect x="5372" y="1149" height="809" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000202323470"></g>
+								</g>
+							</g>
+							<g class="beam" id="beam-L31F2-L34F2">
+								<polygon points="5688,1036 6654,1131 6654,1221 5688,1126 "></polygon>
+								<polygon points="5688,1171 6654,1266 6654,1356 5688,1261 "></polygon>
+								<g class="note qon-3 qoff-13_4 pname-a acc-n oct-4 b40c-31 b12c-9 " id="note-L31F2">
+									<use xlink:href="#E0A4" x="5480" y="1710" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001924042126">
+										<rect x="5688" y="1054" height="634" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000109247138"></g>
+								</g>
+								<g class="note qon-13_4 qoff-7_2 pname-e acc-n oct-4 b40c-14 b12c-4 " id="note-L32F2" style="">
+									<use xlink:href="#E0A4" x="5796" y="1980" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000002040770550">
+										<rect x="6004" y="1086" height="872" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000082322250"></g>
+								</g>
+								<g class="note qon-7_2 qoff-15_4 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L33F2">
+									<use xlink:href="#E0A4" x="6112" y="1800" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000000861473989">
+										<rect x="6320" y="1117" height="661" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000172388632"></g>
+								</g>
+								<g class="note qon-15_4 qoff-4 pname-e acc-n oct-4 b40c-14 b12c-4 " id="note-L34F2" style="">
+									<use xlink:href="#E0A4" x="6428" y="1980" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000000014054252">
+										<rect x="6636" y="1149" height="809" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000002085952056"></g>
+								</g>
+							</g>
+						</g>
+						<g class="layer" id="layer-L18F3N2">
+							<g class="rest rqon-0 rqoff-1_4" id="rest-L19F3">
+								<use xlink:href="#E4E7" x="1429" y="1620" height="720px" width="720px"></use>
+							</g>
+							<g class="note qon-1_4 qoff-1 pname-c acc-n oct-4 b40c-2 b12c-0  tie-start" id="note-L20F3">
+								<use xlink:href="#E0A4" x="1752" y="2160" height="720px" width="720px"></use>
+								<g class="dots" id="dots-0000001007306194">
+									<ellipse cx="2068" cy="2070" rx="36" ry="36"></ellipse>
+								</g>
+								<g class="stem" id="stem-0000000399137022">
+									<rect x="1752" y="2182" height="608" width="18"></rect>
+									<g class="flag" id="flag-0000000430351719">
+										<use xlink:href="#E241" x="1752" y="2790" height="720px" width="720px"></use>
+									</g>
+								</g>
+								<g class="accid" id="accid-0000002024435244"></g>
+							</g>
+							<g class="note qon-1 qoff-4 pname-c acc-n oct-4 b40c-2 b12c-0  tie-stop" id="note-L23F3">
+								<use xlink:href="#E0A3" x="2826" y="2160" height="720px" width="720px"></use>
+								<g class="dots" id="dots-0000001634059243">
+									<ellipse cx="3142" cy="2070" rx="36" ry="36"></ellipse>
+								</g>
+								<g class="stem" id="stem-0000001240691855">
+									<rect x="2826" y="2182" height="473" width="18"></rect>
+								</g>
+								<g class="accid" id="accid-0000000936805078"></g>
+							</g>
+						</g>
+					</g>
+					<g class="staff" id="staff-0000001881855225">
+						<path d="M0 3240 L6754 3240" stroke="#000000" stroke-width="10"></path>
+						<path d="M0 3420 L6754 3420" stroke="#000000" stroke-width="10"></path>
+						<path d="M0 3600 L6754 3600" stroke="#000000" stroke-width="10"></path>
+						<path d="M0 3780 L6754 3780" stroke="#000000" stroke-width="10"></path>
+						<path d="M0 3960 L6754 3960" stroke="#000000" stroke-width="10"></path>
+						<g class="clef" id="clef-0000001878936993">
+							<use xlink:href="#E062" x="90" y="3420" height="720px" width="720px"></use>
+						</g>
+						<g class="meterSig" id="msig-0000000307414209">
+							<use xlink:href="#E08A" x="861" y="3600" height="720px" width="720px"></use>
+						</g>
+						<g class="ledgerLines below">
+							<path d="M1384 4140 L1764 4140" stroke="#000000" stroke-width="17"></path>
+							<path d="M1384 4320 L1764 4320" stroke="#000000" stroke-width="17"></path>
+						</g>
+						<g class="layer" id="layer-L9F1N1">
+							<g class="chord" id="chord-L19F1">
+								<g class="note qon-0 qoff-4 pname-c acc-n oct-2 b40c-2 b12c-0 " id="note-L19F1S1">
+									<use xlink:href="#E0A2" x="1429" y="4320" height="720px" width="720px"></use>
+									<g class="accid" id="accid-0000000412483195"></g>
+								</g>
+								<g class="note qon-0 qoff-4 pname-e acc-n oct-2 b40c-14 b12c-4 " id="note-L19F1S2" style="">
+									<use xlink:href="#E0A2" x="1429" y="4140" height="720px" width="720px"></use>
+									<g class="accid" id="accid-0000001849827421"></g>
+								</g>
+								<g class="note qon-0 qoff-4 pname-g acc-n oct-2 b40c-25 b12c-7 " id="note-L19F1S3">
+									<use xlink:href="#E0A2" x="1429" y="3960" height="720px" width="720px"></use>
+									<g class="accid" id="accid-0000000459124554"></g>
+								</g>
+								<g class="note qon-0 qoff-4 pname-c acc-n oct-3 b40c-2 b12c-0 " id="note-L19F1S4">
+									<use xlink:href="#E0A2" x="1429" y="3690" height="720px" width="720px"></use>
+									<g class="accid" id="accid-0000000322332317"></g>
+								</g>
+							</g>
+						</g>
+					</g>
+					<g class="tempo" id="tempo-L6F1">
+						<text x="861" y="643" font-size="0px">
+							<tspan class="text" id="text-0000001212304576">
+								<tspan font-size="405px" class="text">Allegro moderato</tspan>
+							</tspan>
+						</text>
+					</g>
+					<g class="slur" id="slur-L20F2-L34F2">
+						<path d="M1960,1129 C2673,730 5905,681 6632,1057 C5906,734 2674,783 1960,1129" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"></path>
+					</g>
+					<g class="dynam" id="dynam-L19F4">
+						<use xlink:href="#E522" x="1429" y="2343" height="720px" width="720px"></use>
+					</g>
+					<g class="tie" id="tie-L20F3-L23F3">
+						<path d="M2180,2205 C2336,2303 2648,2303 2804,2205 C2648,2347 2336,2347 2180,2205" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"></path>
+					</g>
+					<g class="pedal" id="pedal-0000000327377706">
+						<use xlink:href="#E650" x="1429" y="4830" height="720px" width="720px"></use>
+					</g>
+					<g class="arpeg" id="arpeg-L19F1" transform="rotate(-90.000000 1339,4410)">
+						<use xlink:href="#EAA9" x="1339" y="4410" height="720px" width="720px"></use>
+						<use xlink:href="#EAA9" x="1481" y="4410" height="720px" width="720px"></use>
+						<use xlink:href="#EAA9" x="1623" y="4410" height="720px" width="720px"></use>
+						<use xlink:href="#EAA9" x="1765" y="4410" height="720px" width="720px"></use>
+						<use xlink:href="#EAA9" x="1907" y="4410" height="720px" width="720px"></use>
+						<use xlink:href="#EAA9" x="2049" y="4410" height="720px" width="720px"></use>
+					</g>
+					<g class="barLineAttr" id="bline-0000001258548258">
+						<path d="M6749 3960 L6749 1260" stroke="#000000" stroke-width="10"></path>
+					</g>
+				</g>
+				<g class="measure m-2" id="measure-L35">
+					<g class="staff" id="staff-L35F2N1">
+						<path d="M6754 1260 L12259 1260" stroke="#000000" stroke-width="10"></path>
+						<path d="M6754 1440 L12259 1440" stroke="#000000" stroke-width="10"></path>
+						<path d="M6754 1620 L12259 1620" stroke="#000000" stroke-width="10"></path>
+						<path d="M6754 1800 L12259 1800" stroke="#000000" stroke-width="10"></path>
+						<path d="M6754 1980 L12259 1980" stroke="#000000" stroke-width="10"></path>
+						<g class="ledgerLines below">
+							<path d="M7226 2160 L7505 2160" stroke="#000000" stroke-width="17"></path>
+							<path d="M8286 2160 L8602 2160" stroke="#000000" stroke-width="17"></path>
+						</g>
+						<g class="layer" id="layer-L35F2N1">
+							<g class="rest rqon-4 rqoff-17_4" id="rest-L37F2">
+								<use xlink:href="#E4E7" x="6934" y="1620" height="720px" width="720px"></use>
+							</g>
+							<g class="beam" id="beam-L38F2-L40F2">
+								<polygon points="7465,932 8241,856 8241,946 7465,1022 "></polygon>
+								<polygon points="7465,1067 8241,991 8241,1081 7465,1157 "></polygon>
+								<g class="note qon-17_4 qoff-9_2 pname-c acc-n oct-4 b40c-2 b12c-0 " id="note-L38F2">
+									<use xlink:href="#E0A4" x="7257" y="2160" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000000517987344">
+										<rect x="7465" y="950" height="1188" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000894590265"></g>
+								</g>
+								<g class="note qon-9_2 qoff-19_4 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L39F2">
+									<use xlink:href="#E0A4" x="7699" y="1800" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000000825564357">
+										<rect x="7907" y="906" height="872" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000345875022"></g>
+								</g>
+								<g class="note qon-19_4 qoff-5 pname-c acc-n oct-5 b40c-2 b12c-0 " id="note-L40F2">
+									<use xlink:href="#E0A4" x="8015" y="1530" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000002087690339">
+										<rect x="8223" y="874" height="634" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000940001815"></g>
+								</g>
+							</g>
+							<g class="beam" id="beam-L41F2-L44F2">
+								<polygon points="8539,766 9631,874 9631,964 8539,856 "></polygon>
+								<polygon points="8539,901 9631,1009 9631,1099 8539,991 "></polygon>
+								<g class="note qon-5 qoff-21_4 pname-d acc-n oct-5 b40c-8 b12c-2 " id="note-L41F2">
+									<use xlink:href="#E0A4" x="8331" y="1440" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001544909230">
+										<rect x="8539" y="784" height="634" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000812749997"></g>
+								</g>
+								<g class="note qon-21_4 qoff-11_2 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L42F2">
+									<use xlink:href="#E0A4" x="8773" y="1800" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000002059393131">
+										<rect x="8981" y="828" height="950" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000001094733953"></g>
+								</g>
+								<g class="note qon-11_2 qoff-23_4 pname-c acc-n oct-5 b40c-2 b12c-0 " id="note-L43F2">
+									<use xlink:href="#E0A4" x="9089" y="1530" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000000738747073">
+										<rect x="9297" y="860" height="648" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000001551375550"></g>
+								</g>
+								<g class="note qon-23_4 qoff-6 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L44F2">
+									<use xlink:href="#E0A4" x="9405" y="1800" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001177503071">
+										<rect x="9613" y="892" height="886" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000598136147"></g>
+								</g>
+							</g>
+							<g class="beam" id="beam-L45F2-L48F2">
+								<polygon points="9929,766 10895,861 10895,951 9929,856 "></polygon>
+								<polygon points="9929,901 10895,996 10895,1086 9929,991 "></polygon>
+								<g class="note qon-6 qoff-25_4 pname-d acc-n oct-5 b40c-8 b12c-2 " id="note-L45F2">
+									<use xlink:href="#E0A4" x="9721" y="1440" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000000167313462">
+										<rect x="9929" y="784" height="634" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000094711586"></g>
+								</g>
+								<g class="note qon-25_4 qoff-13_2 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L46F2">
+									<use xlink:href="#E0A4" x="10037" y="1800" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001983652495">
+										<rect x="10245" y="816" height="962" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000483759023"></g>
+								</g>
+								<g class="note qon-13_2 qoff-27_4 pname-c acc-n oct-5 b40c-2 b12c-0 " id="note-L47F2">
+									<use xlink:href="#E0A4" x="10353" y="1530" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000000854955596">
+										<rect x="10561" y="847" height="661" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000001680731614"></g>
+								</g>
+								<g class="note qon-27_4 qoff-7 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L48F2">
+									<use xlink:href="#E0A4" x="10669" y="1800" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001052755025">
+										<rect x="10877" y="879" height="899" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000001638014846"></g>
+								</g>
+							</g>
+							<g class="beam" id="beam-L49F2-L52F2">
+								<polygon points="11193,766 12159,861 12159,951 11193,856 "></polygon>
+								<polygon points="11193,901 12159,996 12159,1086 11193,991 "></polygon>
+								<g class="note qon-7 qoff-29_4 pname-d acc-n oct-5 b40c-8 b12c-2 " id="note-L49F2">
+									<use xlink:href="#E0A4" x="10985" y="1440" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000000682571375">
+										<rect x="11193" y="784" height="634" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000001664555098"></g>
+								</g>
+								<g class="note qon-29_4 qoff-15_2 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L50F2">
+									<use xlink:href="#E0A4" x="11301" y="1800" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001825981365">
+										<rect x="11509" y="816" height="962" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000779037532"></g>
+								</g>
+								<g class="note qon-15_2 qoff-31_4 pname-c acc-n oct-5 b40c-2 b12c-0 " id="note-L51F2">
+									<use xlink:href="#E0A4" x="11617" y="1530" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000002048267342">
+										<rect x="11825" y="847" height="661" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000002144263083"></g>
+								</g>
+								<g class="note qon-31_4 qoff-8 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L52F2">
+									<use xlink:href="#E0A4" x="11933" y="1800" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000000517830759">
+										<rect x="12141" y="879" height="899" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000437966428"></g>
+								</g>
+							</g>
+						</g>
+						<g class="layer" id="layer-L35F3N2">
+							<g class="rest rqon-4 rqoff-17_4" id="rest-L37F3">
+								<use xlink:href="#E4E7" x="6934" y="1620" height="720px" width="720px"></use>
+							</g>
+							<g class="note qon-17_4 qoff-5 pname-c acc-n oct-4 b40c-2 b12c-0  tie-start" id="note-L38F3">
+								<use xlink:href="#E0A4" x="7257" y="2160" height="720px" width="720px"></use>
+								<g class="dots" id="dots-0000000215807720">
+									<ellipse cx="7573" cy="2070" rx="36" ry="36"></ellipse>
+								</g>
+								<g class="stem" id="stem-0000000625038657">
+									<rect x="7257" y="2182" height="608" width="18"></rect>
+									<g class="flag" id="flag-0000000722946057">
+										<use xlink:href="#E241" x="7257" y="2790" height="720px" width="720px"></use>
+									</g>
+								</g>
+								<g class="accid" id="accid-0000000831697345"></g>
+							</g>
+							<g class="note qon-5 qoff-8 pname-c acc-n oct-4 b40c-2 b12c-0  tie-stop" id="note-L41F3">
+								<use xlink:href="#E0A3" x="8331" y="2160" height="720px" width="720px"></use>
+								<g class="dots" id="dots-0000001826156774">
+									<ellipse cx="8647" cy="2070" rx="36" ry="36"></ellipse>
+								</g>
+								<g class="stem" id="stem-0000000042135981">
+									<rect x="8331" y="2182" height="473" width="18"></rect>
+								</g>
+								<g class="accid" id="accid-0000001884756850"></g>
+							</g>
+						</g>
+					</g>
+					<g class="staff" id="staff-L35F1N1">
+						<path d="M6754 3240 L12259 3240" stroke="#000000" stroke-width="10"></path>
+						<path d="M6754 3420 L12259 3420" stroke="#000000" stroke-width="10"></path>
+						<path d="M6754 3600 L12259 3600" stroke="#000000" stroke-width="10"></path>
+						<path d="M6754 3780 L12259 3780" stroke="#000000" stroke-width="10"></path>
+						<path d="M6754 3960 L12259 3960" stroke="#000000" stroke-width="10"></path>
+						<g class="ledgerLines below">
+							<path d="M6889 4140 L7269 4140" stroke="#000000" stroke-width="17"></path>
+						</g>
+						<g class="layer" id="layer-L35F1N1">
+							<g class="chord" id="chord-L37F1">
+								<g class="note qon-4 qoff-8 pname-e acc-n oct-2 b40c-14 b12c-4 " id="note-L37F1S1" style="">
+									<use xlink:href="#E0A2" x="6934" y="4140" height="720px" width="720px"></use>
+									<g class="accid" id="accid-0000000167891130"></g>
+								</g>
+								<g class="note qon-4 qoff-8 pname-g acc-n oct-2 b40c-25 b12c-7 " id="note-L37F1S2">
+									<use xlink:href="#E0A2" x="6934" y="3960" height="720px" width="720px"></use>
+									<g class="accid" id="accid-0000001827703618"></g>
+								</g>
+								<g class="note qon-4 qoff-8 pname-c acc-n oct-3 b40c-2 b12c-0 " id="note-L37F1S3">
+									<use xlink:href="#E0A2" x="6934" y="3690" height="720px" width="720px"></use>
+									<g class="accid" id="accid-0000001307616542"></g>
+								</g>
+								<g class="note qon-4 qoff-8 pname-e acc-n oct-3 b40c-14 b12c-4 " id="note-L37F1S4" style="">
+									<use xlink:href="#E0A2" x="6934" y="3510" height="720px" width="720px"></use>
+									<g class="accid" id="accid-0000000577407419"></g>
+								</g>
+							</g>
+						</g>
+					</g>
+					<g class="slur" id="slur-L38F2-L52F2">
+						<path d="M7465,859 C8178,460 11410,411 12137,787 C11411,464 8179,513 7465,859" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"></path>
+					</g>
+					<g class="tie" id="tie-L38F3-L41F3">
+						<path d="M7685,2205 C7841,2303 8153,2303 8309,2205 C8153,2347 7841,2347 7685,2205" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"></path>
+					</g>
+					<g class="pedal" id="pedal-0000001134782415">
+						<use xlink:href="#E650" x="6934" y="4830" height="720px" width="720px"></use>
+					</g>
+					<g class="arpeg" id="arpeg-L37F1" transform="rotate(-90.000000 6844,4230)">
+						<use xlink:href="#EAA9" x="6844" y="4230" height="720px" width="720px"></use>
+						<use xlink:href="#EAA9" x="6986" y="4230" height="720px" width="720px"></use>
+						<use xlink:href="#EAA9" x="7128" y="4230" height="720px" width="720px"></use>
+						<use xlink:href="#EAA9" x="7270" y="4230" height="720px" width="720px"></use>
+						<use xlink:href="#EAA9" x="7412" y="4230" height="720px" width="720px"></use>
+						<use xlink:href="#EAA9" x="7554" y="4230" height="720px" width="720px"></use>
+					</g>
+					<g class="barLineAttr" id="bline-0000000870357700">
+						<path d="M12254 3960 L12254 1260" stroke="#000000" stroke-width="10"></path>
+					</g>
+				</g>
+				<g class="measure m-3" id="measure-L53">
+					<g class="staff" id="staff-L53F2N1">
+						<path d="M12259 1260 L17764 1260" stroke="#000000" stroke-width="10"></path>
+						<path d="M12259 1440 L17764 1440" stroke="#000000" stroke-width="10"></path>
+						<path d="M12259 1620 L17764 1620" stroke="#000000" stroke-width="10"></path>
+						<path d="M12259 1800 L17764 1800" stroke="#000000" stroke-width="10"></path>
+						<path d="M12259 1980 L17764 1980" stroke="#000000" stroke-width="10"></path>
+						<g class="layer" id="layer-L53F2N1">
+							<g class="rest rqon-8 rqoff-33_4" id="rest-L55F2">
+								<use xlink:href="#E4E7" x="12439" y="1620" height="720px" width="720px"></use>
+							</g>
+							<g class="beam" id="beam-L56F2-L58F2">
+								<polygon points="12970,1022 13746,946 13746,1036 12970,1112 "></polygon>
+								<polygon points="12970,1157 13746,1081 13746,1171 12970,1247 "></polygon>
+								<g class="note qon-33_4 qoff-17_2 pname-f acc-n oct-4 b40c-19 b12c-5 " id="note-L56F2">
+									<use xlink:href="#E0A4" x="12762" y="1890" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000000415653776">
+										<rect x="12970" y="1040" height="828" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000001450718857"></g>
+								</g>
+								<g class="note qon-17_2 qoff-35_4 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L57F2">
+									<use xlink:href="#E0A4" x="13204" y="1800" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000000814338247">
+										<rect x="13412" y="996" height="782" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000795660394"></g>
+								</g>
+								<g class="note qon-35_4 qoff-9 pname-b acc-n oct-4 b40c-37 b12c-11 " id="note-L58F2">
+									<use xlink:href="#E0A4" x="13520" y="1620" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001769808197">
+										<rect x="13728" y="964" height="634" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000862836616"></g>
+								</g>
+							</g>
+							<g class="beam" id="beam-L59F2-L62F2">
+								<polygon points="14044,856 15136,964 15136,1054 14044,946 "></polygon>
+								<polygon points="14044,991 15136,1099 15136,1189 14044,1081 "></polygon>
+								<g class="note qon-9 qoff-37_4 pname-c acc-n oct-5 b40c-2 b12c-0 " id="note-L59F2">
+									<use xlink:href="#E0A4" x="13836" y="1530" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001099685817">
+										<rect x="14044" y="874" height="634" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000927111025"></g>
+								</g>
+								<g class="note qon-37_4 qoff-19_2 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L60F2">
+									<use xlink:href="#E0A4" x="14278" y="1800" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001065284593">
+										<rect x="14486" y="918" height="860" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000001240098054"></g>
+								</g>
+								<g class="note qon-19_2 qoff-39_4 pname-b acc-n oct-4 b40c-37 b12c-11 " id="note-L61F2">
+									<use xlink:href="#E0A4" x="14594" y="1620" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001683049257">
+										<rect x="14802" y="950" height="648" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000581185248"></g>
+								</g>
+								<g class="note qon-39_4 qoff-10 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L62F2">
+									<use xlink:href="#E0A4" x="14910" y="1800" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000000473868854">
+										<rect x="15118" y="982" height="796" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000028673479"></g>
+								</g>
+							</g>
+							<g class="beam" id="beam-L63F2-L66F2">
+								<polygon points="15434,856 16400,951 16400,1041 15434,946 "></polygon>
+								<polygon points="15434,991 16400,1086 16400,1176 15434,1081 "></polygon>
+								<g class="note qon-10 qoff-41_4 pname-c acc-n oct-5 b40c-2 b12c-0 " id="note-L63F2">
+									<use xlink:href="#E0A4" x="15226" y="1530" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001215940619">
+										<rect x="15434" y="874" height="634" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000001633309928"></g>
+								</g>
+								<g class="note qon-41_4 qoff-21_2 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L64F2">
+									<use xlink:href="#E0A4" x="15542" y="1800" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001873916773">
+										<rect x="15750" y="906" height="872" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000001092066945"></g>
+								</g>
+								<g class="note qon-21_2 qoff-43_4 pname-b acc-n oct-4 b40c-37 b12c-11 " id="note-L65F2">
+									<use xlink:href="#E0A4" x="15858" y="1620" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001444125792">
+										<rect x="16066" y="937" height="661" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000001787052232"></g>
+								</g>
+								<g class="note qon-43_4 qoff-11 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L66F2">
+									<use xlink:href="#E0A4" x="16174" y="1800" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000000213892767">
+										<rect x="16382" y="969" height="809" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000001543225282"></g>
+								</g>
+							</g>
+							<g class="beam" id="beam-L67F2-L70F2">
+								<polygon points="16698,856 17664,951 17664,1041 16698,946 "></polygon>
+								<polygon points="16698,991 17664,1086 17664,1176 16698,1081 "></polygon>
+								<g class="note qon-11 qoff-45_4 pname-c acc-n oct-5 b40c-2 b12c-0 " id="note-L67F2">
+									<use xlink:href="#E0A4" x="16490" y="1530" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000000387880760">
+										<rect x="16698" y="874" height="634" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000601249540"></g>
+								</g>
+								<g class="note qon-45_4 qoff-23_2 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L68F2">
+									<use xlink:href="#E0A4" x="16806" y="1800" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001897952000">
+										<rect x="17014" y="906" height="872" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000514272769"></g>
+								</g>
+								<g class="note qon-23_2 qoff-47_4 pname-b acc-n oct-4 b40c-37 b12c-11 " id="note-L69F2">
+									<use xlink:href="#E0A4" x="17122" y="1620" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000000943541966">
+										<rect x="17330" y="937" height="661" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000000891320054"></g>
+								</g>
+								<g class="note qon-47_4 qoff-12 pname-g acc-n oct-4 b40c-25 b12c-7 " id="note-L70F2">
+									<use xlink:href="#E0A4" x="17438" y="1800" height="720px" width="720px"></use>
+									<g class="stem" id="stem-0000001990255711">
+										<rect x="17646" y="969" height="809" width="18"></rect>
+									</g>
+									<g class="accid" id="accid-0000001228960105"></g>
+								</g>
+							</g>
+						</g>
+						<g class="layer" id="layer-L53F3N2">
+							<g class="rest rqon-8 rqoff-33_4" id="rest-L55F3">
+								<use xlink:href="#E4E7" x="12439" y="1620" height="720px" width="720px"></use>
+							</g>
+							<g class="note qon-33_4 qoff-9 pname-f acc-n oct-4 b40c-19 b12c-5  tie-start" id="note-L56F3">
+								<use xlink:href="#E0A4" x="12762" y="1890" height="720px" width="720px"></use>
+								<g class="dots" id="dots-0000001649470093">
+									<ellipse cx="13078" cy="1890" rx="36" ry="36"></ellipse>
+								</g>
+								<g class="stem" id="stem-0000001550822498">
+									<rect x="12762" y="1912" height="608" width="18"></rect>
+									<g class="flag" id="flag-0000001245505688">
+										<use xlink:href="#E241" x="12762" y="2520" height="720px" width="720px"></use>
+									</g>
+								</g>
+								<g class="accid" id="accid-0000001136750010"></g>
+							</g>
+							<g class="note qon-9 qoff-12 pname-f acc-n oct-4 b40c-19 b12c-5  tie-stop" id="note-L59F3">
+								<use xlink:href="#E0A3" x="13836" y="1890" height="720px" width="720px"></use>
+								<g class="dots" id="dots-0000000071771546">
+									<ellipse cx="14152" cy="1890" rx="36" ry="36"></ellipse>
+								</g>
+								<g class="stem" id="stem-0000001658431049">
+									<rect x="13836" y="1912" height="473" width="18"></rect>
+								</g>
+								<g class="accid" id="accid-0000001967636014"></g>
+							</g>
+						</g>
+					</g>
+					<g class="staff" id="staff-L53F1N1">
+						<path d="M12259 3240 L17764 3240" stroke="#000000" stroke-width="10"></path>
+						<path d="M12259 3420 L17764 3420" stroke="#000000" stroke-width="10"></path>
+						<path d="M12259 3600 L17764 3600" stroke="#000000" stroke-width="10"></path>
+						<path d="M12259 3780 L17764 3780" stroke="#000000" stroke-width="10"></path>
+						<path d="M12259 3960 L17764 3960" stroke="#000000" stroke-width="10"></path>
+						<g class="ledgerLines below">
+							<path d="M12394 4140 L12774 4140" stroke="#000000" stroke-width="17"></path>
+						</g>
+						<g class="layer" id="layer-L53F1N1">
+							<g class="chord" id="chord-L55F1">
+								<g class="note qon-8 qoff-12 pname-d acc-n oct-2 b40c-8 b12c-2 " id="note-L55F1S1">
+									<use xlink:href="#E0A2" x="12439" y="4230" height="720px" width="720px"></use>
+									<g class="accid" id="accid-0000001697021427"></g>
+								</g>
+								<g class="note qon-8 qoff-12 pname-g acc-n oct-2 b40c-25 b12c-7 " id="note-L55F1S2">
+									<use xlink:href="#E0A2" x="12439" y="3960" height="720px" width="720px"></use>
+									<g class="accid" id="accid-0000001461942962"></g>
+								</g>
+								<g class="note qon-8 qoff-12 pname-b acc-n oct-2 b40c-37 b12c-11 " id="note-L55F1S3">
+									<use xlink:href="#E0A2" x="12439" y="3780" height="720px" width="720px"></use>
+									<g class="accid" id="accid-0000000120110855"></g>
+								</g>
+								<g class="note qon-8 qoff-12 pname-d acc-n oct-3 b40c-8 b12c-2 " id="note-L55F1S4">
+									<use xlink:href="#E0A2" x="12439" y="3600" height="720px" width="720px"></use>
+									<g class="accid" id="accid-0000001210534432"></g>
+								</g>
+							</g>
+						</g>
+					</g>
+					<g class="slur" id="slur-L56F2-L70F2">
+						<path d="M12970,949 C13683,550 16915,501 17642,877 C16916,554 13684,603 12970,949" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"></path>
+					</g>
+					<g class="tie" id="tie-L56F3-L59F3">
+						<path d="M13190,1935 C13346,2033 13658,2033 13814,1935 C13658,2077 13346,2077 13190,1935" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"></path>
+					</g>
+					<g class="pedal" id="pedal-0000000933184925">
+						<use xlink:href="#E650" x="12439" y="4830" height="720px" width="720px"></use>
+					</g>
+					<g class="arpeg" id="arpeg-L55F1" transform="rotate(-90.000000 12349,4320)">
+						<use xlink:href="#EAA9" x="12349" y="4320" height="720px" width="720px"></use>
+						<use xlink:href="#EAA9" x="12491" y="4320" height="720px" width="720px"></use>
+						<use xlink:href="#EAA9" x="12633" y="4320" height="720px" width="720px"></use>
+						<use xlink:href="#EAA9" x="12775" y="4320" height="720px" width="720px"></use>
+						<use xlink:href="#EAA9" x="12917" y="4320" height="720px" width="720px"></use>
+						<use xlink:href="#EAA9" x="13059" y="4320" height="720px" width="720px"></use>
+					</g>
+					<g class="barLineAttr" id="bline-0000001025900926">
+						<path d="M17759 3960 L17759 1260" stroke="#000000" stroke-width="10"></path>
+					</g>
+				</g>
+				<g class="boundaryEnd section-L9F1" id="bdend-0000001206536689"></g>
+			</g>
+		</g>
+	</svg>
+</svg>
