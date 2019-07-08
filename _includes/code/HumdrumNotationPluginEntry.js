@@ -302,12 +302,15 @@ HumdrumNotationPluginEntry.prototype.initializeContainer = function () {
 	output += "</tbody>\n";
 	output += "</table>\n";
 
+	var oldcontent = this.container.innerHTML;
 	this.container.innerHTML = output;
-	// clear the height styling which may have been given as a placeholder:
-	this.container.style.height = "";
 
 	this.humdrum = this.container.querySelector("#" + this.baseId + "-humdrum");
 	this.svg = this.container.querySelector("#" + this.baseId + "-svg");
+	// Move any previous content to the svg container.  This may contain
+	// a pre-image that needs to be preserved a little longer so that the
+	// final SVG image can be calculated.
+	this.svg.innerHTML = oldcontent;
 }
 
 

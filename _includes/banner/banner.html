@@ -60,11 +60,23 @@ document.addEventListener("DOMContentLoaded", function() {
 	var e = "<div id='title'>";
 	e += humtitle;
 	e += "</div>";
-	e += '<div style="display:none;" type="text/x-humdrum" id="title-notation">\n';
+	{% if page.cachedBannerSvg %}
+	e += '<div id="title-notation-container"';
+	e += ' style="height:{{page.cachedBannerSvg}};"';
+	e += '>';
+	e += '</div>';
+	{% endif %}
+
+	e += '<div style="display:none;"';
+	e += ' type="text/x-humdrum" id="title-notation">\n';
 	e += humtext;
 	e += '</div>\n';
 
 	banner.innerHTML = e;
+	{% if page.cachedBannerSvg %}
+		var container = banner.querySelector("#title-notation-container");
+		container.innerHTML = "<img src='banner.svg'>";
+	{% endif %}
 	displayHumdrum(TITLE_OPTIONS);
 
 	// adjustBannerHeight();

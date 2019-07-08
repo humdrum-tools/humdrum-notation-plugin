@@ -423,6 +423,8 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 	vrvWorker.renderData(vrvOptions, sourcetext)
 	.then(function(svg) {
 		entry.svg.innerHTML = svg;
+		// clear the height styling which may have been given as a placeholder:
+		entry.container.style.height = "";
 
 		if (pluginOptions.postFunction) {
 			// Need to run a function after the image has been created or redrawn
@@ -491,6 +493,9 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 	var svg = toolkit.renderData(sourcetext, vrvOptions);
 
 	entry.svg.innerHTML = svg;
+	// clear the height styling which may have been given as a placeholder:
+	entry.container.style.height = "";
+
 	if (pluginOptions.postFunction) {
 		// Need to run a function after the image has been created or redrawn
 		try {
