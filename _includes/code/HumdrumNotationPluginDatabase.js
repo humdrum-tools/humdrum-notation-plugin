@@ -205,7 +205,7 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumNow = function (opts) {
 		entry._timer = setTimeout(function() {
 			entry.copyContentToContainer();
 			HNP.displayHumdrumSvg(entry.baseId)
-		}, 100);
+		}, {% if page.worker %}100{% else %}250{% endif %});
 	}
 };
 
@@ -322,9 +322,15 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 
 	if (!entry.toolkit) {
 		// search for the verovio toolkit if not explicitly specified
+		{% if page.worker %}
 		if (typeof vrvWorker !== "undefined") {
 			entry.toolkit = vrvWorker;
 		}
+		{% else %}
+		if (typeof vrvToolkit !== "undefined") {
+			entry.toolkit = vrvToolkit;
+		}
+		{% endif %}
 	}
 	var toolkit = entry.toolkit;
 	var sourcetext = entry.humdrum.textContent.trim();
@@ -349,6 +355,7 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 	// Cannot display an empty score, since this will cause verovio to display the
 	// previously prepared score.
 	if (sourcetext.match(/^\s*$/)) {
+		{% if page.worker %}
 		//console.log("Error: No humdrum content in", entry.humdrum);
 		//console.log("For ID", baseid, "ENTRY:", entry);
 		// Sleep for a while and try again.
@@ -364,6 +371,10 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 		setTimeout(function() {
 			that.displayHumdrumSvg(baseid);
 		}, 100)
+		{% else %}
+		console.log("Error: No humdrum content in", entry.humdrum);
+		console.log("For ID", baseid, "ENTRY", entry);
+		{% endif %}
 		return;
 	}
 
@@ -408,6 +419,7 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 		}
 	}
 
+	{% if page.worker %}
 	vrvWorker.renderData(vrvOptions, sourcetext)
 	.then(function(svg) {
 		entry.svg.innerHTML = svg;
@@ -474,8 +486,74 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 				});
 			}
 		}
-
 	});
+	{% else %}
+	var svg = toolkit.renderData(sourcetext, vrvOptions);
+
+	entry.svg.innerHTML = svg;
+	if (pluginOptions.postFunction) {
+		// Need to run a function after the image has been created or redrawn
+		try {
+			pluginOptions.postFunction(baseid);
+		} catch (error) {
+			executeFunctionByName(pluginOptions.postFunction, window, [baseid]);
+		}
+		pluginOptions._processedPostFunction = pluginOptions.postFunction;
+		delete pluginOptions.postFunction;
+	}
+	pluginOptions._currentPageWidth = vrvOptions.pageWidth;
+
+	// Update stored options
+	var autoresize = pluginOptions.autoResize === "true" ||
+	                 pluginOptions.autoResize === true ||
+	                 pluginOptions.autoResize === 1;
+
+	if (autoresize && !pluginOptions._autoResizeInitialize) {
+		// need to inialize a resize callback for this image.
+		pluginOptions._autoResizeInitialize = true;
+		var aridelement = entry.container.parentNode;
+
+		if (aridelement && (!entry._resizeObserver || entry._resizeCallback)) {
+			try {
+
+				var _debounce = function(ms, fn) {
+  					return function() {
+						if (entry._timer) {
+    						clearTimeout(entry._timer);
+						}
+    					var args = Array.prototype.slice.call(arguments);
+    					args.unshift(this);
+    					entry._timer = setTimeout(fn.bind.apply(fn, args), ms);
+  					};
+				};
+
+				entry._resizeObserver = new ResizeObserver(_debounce(500, function(event) {
+					(function(bid) {
+						displayHumdrum(bid);
+					})(baseid);
+				}));
+				entry._resizeObserver.observe(aridelement);
+
+			} catch (error) {
+
+				// ResizeObserver is not present for this browser, use setInterval instead.
+				var refreshRate = 250; // milliseconds
+				entry._resizeCallback = setInterval(function() {
+					(function(bid) {
+						checkParentResize(bid);
+					})(baseid)
+				}, refreshRate);
+
+			}
+		} else if (!aridelement) {
+			window.addEventListener("resize", function(event) {
+				(function(bid) {
+					displayHumdrum(bid);
+				})(baseid);
+			});
+		}
+	}
+	{% endif %}
 };
 
 

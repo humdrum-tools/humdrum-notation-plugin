@@ -1,4 +1,6 @@
 ---
+layout: empty
+permalink: scripts/verovio-worker.js
 ---
 
 

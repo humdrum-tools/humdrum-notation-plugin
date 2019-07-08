@@ -10,6 +10,7 @@
 //
 
 
+{% if page.worker %}
 //////////////////////////////
 //
 // DOMContentLoaded event listener --
@@ -34,6 +35,8 @@ function callbackAfterInitialized() {
 	console.log("Initialized verovio worker");
 	HNP.displayWaiting();
 }
+
+{% endif %}
 
 
 //////////////////////////////
@@ -126,6 +129,12 @@ function displayHumdrum(opts) {
 	}
 }
 
+{% if page.worker %}
+{% else %}
+document.addEventListener("DOMContentLoaded", function() {
+	HNP.displayWaiting();
+});
+{% endif %}
 
 
 ///////////////////////////////
@@ -248,11 +257,19 @@ function checkParentResize(baseid) {
 // convertMusicXmlToHumdrum --
 //
 
+{% if page.worker %}
 function convertMusicXmlToHumdrum(targetElement, sourcetext, vrvOptions, pluginOptions) {
 	// var toolkit = pluginOptions.renderer;
 	if (typeof vrvWorker !== "undefined") {
 		toolkit = vrvWorker;
 	}
+{% else %}
+function convertMusicXmlToHumdrum(sourcetext, vrvOptions, pluginOptions) {
+	var toolkit = pluginOptions.renderer;
+	if (typeof vrvToolkit !== "undefined") {
+		toolkit = vrvToolkit;
+	}
+{% endif %}
 	if (!toolkit) {
 		console.log("Error: Cannot find verovio toolkit!");
 		return;
@@ -260,11 +277,18 @@ function convertMusicXmlToHumdrum(targetElement, sourcetext, vrvOptions, pluginO
 	// format = input data type
 	vrvOptions.format = "musicxml-hum";
 
+{% if page.worker %}
 	vrvWorker.filterData(vrvOptions, sourcetext, "humdrum")
 	.then(function(content) {
 		targetElement.textContent = content;
 		targetElement.style.display = "block";
 	});
+{% else %}
+	var svg = toolkit.renderData(sourcetext, vrvOptions);
+	// don't want SVG, but rather Humdrum:
+	var humdrum = toolkit.getHumdrum();
+	return humdrum;
+{% endif %}
 }
 
 
@@ -274,22 +298,40 @@ function convertMusicXmlToHumdrum(targetElement, sourcetext, vrvOptions, pluginO
 // convertMeiToHumdrum --
 //
 
+{% if page.worker %}
 function convertMeiToHumdrum(targetElement, sourcetext, vrvOptions, pluginOptions) {
 	var toolkit = pluginOptions.renderer;
 	if (typeof vrvWorker !== "undefined") {
 		toolkit = vrvWorker;
 	}
+{% else %}
+function convertMeiToHumdrum(sourcetext, vrvOptions, pluginOptions) {
+	var toolkit = pluginOptions.renderer;
+	if (typeof vrvToolkit !== "undefined") {
+		toolkit = vrvToolkit;
+	}
+{% endif %}
+
 	if (!toolkit) {
 		console.log("Error: Cannot find verovio toolkit!");
 		return;
 	}
 	// format = input data type
 	vrvOptions.format = "mei-hum";
+
+{% if page.worker %}
 	vrvWorker.filterData(vrvOptions, sourcetext, "humdrum")
 	.then(function(content) {
 		targetElement.textContent = content;
 		targetElement.style.display = "block";
 	});
+{% else %}
+	var svg = toolkit.renderData(sourcetext, vrvOptions);
+	// don't want SVG, but rather Humdrum:
+	var humdrum = toolkit.getHumdrum();
+	console.log("HUMDRUM IS", humdrum);
+	return humdrum;
+{% endif %}
 }
 
 

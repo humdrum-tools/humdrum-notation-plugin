@@ -1,5 +1,6 @@
 ---
 vim:	ts=3
+permalink: /index.html
 ---
 
 {% include_relative styles-local.html %}

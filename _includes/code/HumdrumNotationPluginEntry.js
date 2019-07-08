@@ -97,16 +97,20 @@ HumdrumNotationPluginEntry.prototype.copyContentToContainer = function () {
 		console.log("Error: Source property required for options:", this.options);
 		return;
 	}
+	{% if page.worker %}
 	if (!this.humdrum) {
 		console.log("Error: Humdrum container target not initialized:", this);
 		return;
 	}
+	{% endif %}
 
 	var source = document.querySelector("#" + this.options.source);
 
 	if (!source) {
 		console.log("Error: No Humdrum source for", this.baseId);
+		{% if page.worker %}
 		console.log("ID that is empty:", this.options.source);
+		{% endif %}
 		return;
 	}
 	if (!this.container) {
@@ -152,20 +156,36 @@ HumdrumNotationPluginEntry.prototype.copyContentToContainer = function () {
 			options = {
 				format: "musicxml-hum"
 			};
+			{% if page.worker %}
 			convertMusicXmlToHumdrum(this.humdrum, content, options, poptions);
+			{% else %}
+			content = convertMusicXmlToHumdrum(content, options, poptions);
+			{% endif %}
 		} else if (ctype === "mei") {
 			// convert MEI data into Humdrum data
 			options = {
 				format: "mei-hum"
 			};
+			{% if page.worker %}
 			convertMeiToHumdrum(this.humdrum, content, options, poptions);
+			{% else %}
+			content = convertMeiToHumdru(content, options, poptions);
+			{% endif %}
 		} else {
 			console.log("Warning: given some strange XML data:", content);
 		}
+	{% if page.worker %}
 	} else {
 		this.humdrum.textContent = content;
 	}
-
+	{% else %}
+	}
+	if (!this.humdrum) {
+		console.log("Error: Humdrum element not initialized:", this);
+	}
+	this.humdrum.textcontent = content;
+	this.humdrum.style.display = "block";
+	{% endif %}
 }
 
 

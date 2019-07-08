@@ -16,7 +16,7 @@ veroviourl:  scripts/verovio-toolkit.js
 # Where the main url for the Humdurm notation plugin exists:
 #notationurl: /scripts/humdrum-notation-plugin.js
 sitename:    https://plugin.humdrum.org
-humdrumnotationpluginurl: scripts/humdrum-notation-plugin.js
+humdrumnotationpluginurlworker: scripts/humdrum-notation-plugin-worker.js
 
 primary_background_color: "#4276b6"
 secondary_color:          "#ffcc00"

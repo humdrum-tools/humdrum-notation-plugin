@@ -46,9 +46,11 @@
 {% include code/ReferenceRecord.js %}
 {% include code/ReferenceRecords.js %}
 
+{% if page.worker %}
+	{% include code/verovio-interface.js %}
+	{% include code/basket.full.min.js %}
+{% endif %}
 
-{% include code/verovio-interface.js %}
-{% include code/basket.full.min.js %}
 
 
 
