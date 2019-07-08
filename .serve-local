@@ -26,5 +26,5 @@
 #     http://127.0.0.1:3000
 #
 
-bundle exec jekyll serve --watch --incremental --config _config.yml,_config-local.yml
+bundle exec jekyll serve --trace --watch --incremental --config _config.yml,_config-local.yml
 

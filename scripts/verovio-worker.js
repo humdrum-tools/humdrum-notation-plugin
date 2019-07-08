@@ -1,8 +1,9 @@
 ---
-vim: ts=3
 ---
 
+
 {% comment %}
+<!--  vim: ts=3 : -->
 
 Web worker interface for verovio, which separates notation rendering into a separate
 thread from the user interface.
@@ -10,11 +11,10 @@ thread from the user interface.
 For more information about web workers:
      https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
 
-{% endcomment %}
 
 
 {% if site.local == "true" %}
-	importScripts('/local/verovio-toolkit.js');
+	importScripts('/scripts/verovio-toolkit.js');
 	importScripts("/scripts/humdrumValidator.js");
 	importScripts("/scripts/verovio-calls.js");
 {% else %}
@@ -23,9 +23,12 @@ For more information about web workers:
 	importScripts("https://plugin.humdrum.org/scripts/verovio-calls.js");
 {% endif %}
 
+{% endcomment %}
+
 // force local:
-//importScripts("/scripts/humdrumValidator.js");
-//importScripts("/scripts/verovio-calls.js");
+importScripts("/scripts/verovio-toolkit.js");
+importScripts("/scripts/humdrumValidator.js");
+importScripts("/scripts/verovio-calls.js");
 
 
 //////////////////////////////

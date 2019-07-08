@@ -18,14 +18,14 @@
 -->
 
 <!-- JS and jQuery --> 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
 
 <script src="/scripts/modernizr.custom.17475.js"></script> 
 <script src="/scripts/bootstrap.min.js"></script> 
 
 <!-- CSS -->
 <link rel="stylesheet" href="/styles/bootstrap.min.css" type="text/css" />
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" type="text/css" />
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" type="text/css" />
 <link rel="stylesheet" href="/styles/base.min.css?v=0.1" type="text/css" />
 <link rel="stylesheet" href="/styles/custom.css?v=0.1" type="text/css"/>
 
@@ -33,9 +33,35 @@
 <script src="/scripts/base.js?v=1.0"></script>
 <script src="/scripts/custom.js"></script>
 
+
+
+
+<script>
+
+//////////////////////////////
+//
+// DOMContentLoaded event listener -- add a link to the homepage from the title
+//    of the page, if the page is not the homepage.
+//
+
+document.addEventListener("DOMContentLoaded", function(event) {
+/*
+	var location = window.location.pathname;
+	if (!location || location === "/") {
+		return;
+	}
+	var header = document.querySelector("header h1");
+	var text = "<a href='/'>" + header.innerHTML + "</a>";
+	header.innerHTML = text;
+*/
+});
+
+</script>
+
+{% include head/plugin-setup.html %}
+{% include head/analytics.html %}
 {% include styles/styles.html %}
 {% include scripts/scripts.html %}
-{% include head/default-head.html %}
 
 </head>
 

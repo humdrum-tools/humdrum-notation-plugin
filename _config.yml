@@ -9,23 +9,16 @@ host: 127.0.0.1
 # cause conflicts. in that case, use another port such as 2001.
 port: 4444
 
-
-sitename: https://plugin.humdrum.org
-
 # Where the main url for the Verovio toolkit exists:
-veroviourl: https://verovio-script.humdrum.org/scripts/verovio-toolkit.js
+veroviosite: https://verovio-script.humdrum.org
+veroviourl:  scripts/verovio-toolkit.js
 
 # Where the main url for the Humdurm notation plugin exists:
 #notationurl: /scripts/humdrum-notation-plugin.js
-notationurl: https://plugin.humdrum.org/scripts/humdrum-notation-plugin.js
+sitename:    https://plugin.humdrum.org
+humdrumnotationpluginurl: scripts/humdrum-notation-plugin.js
 
 primary_background_color: "#4276b6"
-secondary_color: "#ffcc00"
-
-
-#markdown: kramdown
-#highlighter: rouge
-
-theme: jekyll-theme-midnight
+secondary_color:          "#ffcc00"
 
 

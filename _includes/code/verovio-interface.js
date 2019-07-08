@@ -71,6 +71,7 @@ vrvInterface.prototype.createWorkerInterface = function (onReady) {
 	this.renderDataPending = 0;
 	this.renderDataWaiting = null;
 
+/*
 	var request = new XMLHttpRequest();
 	request.open("GET", "{{site.sitename}}/scripts/verovio-worker.js");
 	request.responseType = "blob";
@@ -80,10 +81,62 @@ vrvInterface.prototype.createWorkerInterface = function (onReady) {
 		this.worker.addEventListener("message", handleEvent);
 	}
 	request.send();
+*/
 
-	// this.worker = new Worker("{{site.sitename}}/scripts/verovio-worker.js");
-	// this.worker.addEventListener("message", handleEvent);
+//	this.worker = new Worker("{{site.sitename}}/scripts/verovio-worker.js");
+//	this.worker.addEventListener("message", handleEvent);
+
+
+
+console.log("GOT HERE AAA");
+	var workerUrl = "{{site.sitename}}/scripts/verovio-worker.js";
+	this.worker = null;
+	var that = this;
+	try {
+console.log("GOT HERE BBB");
+		that.worker = new Worker(workerUrl);
+		that.worker.addEventListener("message", handleEvent);
+
+		that.worker.onerror = function (event) {
+console.log("GOT HERE CCC");
+			event.preventDefault();
+			that.worker = createWorkerFallback(workerUrl);
+			that.worker.addEventListener("message", handleEvent);
+		};
+	} catch (e) {
+console.log("GOT HERE DDD");
+		that.worker = createWorkerFallback(workerUrl);
+		that.worker.addEventListener("message", handleEvent);
+	}
 };
+
+
+
+//////////////////////////////
+//
+// createWorkerFallback -- Cross-origin worker
+//
+
+function createWorkerFallback(workerUrl) {
+console.log("GOT HERE EEE");
+	var worker = null;
+	try {
+		var blob;
+		try {
+			blob = new Blob(["importScripts('" + workerUrl + "');"], { "type": 'application/javascript' });
+		} catch (e) {
+			var blobBuilder = new (window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder)();
+			blobBuilder.append("importScripts('" + workerUrl + "');");
+			blob = blobBuilder.getBlob('application/javascript');
+		}
+		var url = window.URL || window.webkitURL;
+		var blobUrl = url.createObjectURL(blob);
+		worker = new Worker(blobUrl);
+	} catch (e1) {
+		//if it still fails, there is nothing much we can do
+	}
+	return worker;
+}
 
 
 
