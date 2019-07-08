@@ -8,15 +8,15 @@ permalink: /index.html
 
 # Introduction #
 
-
 This website documents a javascript plugin that creates music
-notation within any webpage, generated from <a target="_blank"
-href="https://www.humdrum.org">Humdrum</a> data either embedded
-within the same page or from an external source.  Here is an example result
-from plugin displaying J.N.&nbsp;Hummel's prelude in D-flat major,
-op.&nbsp;67/15:
+notation from <a target="_blank" href="https://www.humdrum.org">Humdrum</a>
+data either embedded within the same webpage or from an external
+source.  Here is an example result from the plugin displaying
+J.N.&nbsp;Hummel's prelude in D-flat major, op.&nbsp;67/15:
+
 
 {% include hummel-interaction.html %}
+<div id="hummel-prelude-op67n15-container" style="color:green; height:323.73px;">xxxxx</div>
 {% include_relative hummel-example.txt %}
 
 The above music notation was created dynamically inside your web
@@ -36,17 +36,7 @@ downloaded from a <a target="_blank" href="https://github.com/craigsapp/hummel-p
 
 
 ```html
-<html>
-<head>
-<title>Test example</title>
-<script src="{{site.notationurl}}"></script>
-</head>
-<body>
-
 {% include_relative hummel-example2b.txt %}
-
-</body>
-</html>
 ```
 
 Different views of the score can be created on a webpage with the
@@ -54,6 +44,10 @@ same data.  Here is an example that extracts the first three measures
 of the prelude and transposes it to C major:
 
 {% include_relative hummel-example2.txt %}
+
+```html
+{% include_relative hummel-example2.txt %}
+```
 
 This example applies the filter `myank -m 1-3 | transpose -k
 c` to the full score, generating a transposed excerpt.

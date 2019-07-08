@@ -7,7 +7,6 @@
       postFunction: highlightPitchClasses
    });
 </script>
-
 <script type="text/x-humdrum" id="hummel-prelude-op67n15">
 {% include_relative hummel-prelude-op67n15.txt -%}
 </script>

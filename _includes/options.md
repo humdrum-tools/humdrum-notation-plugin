@@ -19,7 +19,7 @@ Numeric options:
 
 | option name        | default       | min       | max       | description 
 |--------------------|---------------|-----------|-----------|-------------
-| `pageHeight`       | *none*        | 100       | 60000     | Width of the music notation.  By default, the humdrum plugin will set the width of the notation to match the width of the parent element that contains the notation.
+| `pageWidth`        | *none*        | 100       | 60000     | Width of the music notation.  By default, the humdrum plugin will set the width of the notation to match the width of the parent element that contains the notation.
 | `pageMarginBottom` | 50            | 0         | 500       | Height of the bottom margin.
 | `pageMarginLeft`   | 50            | 0         | 500       | Width of the left margin.
 | `pageMarginRight`  | 50            | 0         | 500       | Width of the right margin.

@@ -66,18 +66,31 @@ HumdrumNotationPluginEntry.prototype.convertFunctionNamesToRealFunctions = funct
 //     ID for the div.
 
 HumdrumNotationPluginEntry.prototype.createContainer = function () {
-	var target = document.querySelector("#" + this.baseId);
-	if (!target) {
-		console.log("Error: need a target to place container before:", this.baseId);
-		return;
-	}
 	if (this.container) {
 		console.log("Error: container already initialize:", this.container);
 	}
-	this.container = document.createElement('div');
-	this.container.id = this.baseId + "-container";
+	var container = document.querySelector("#" + this.baseId + "-container");
+	if (container) {
+		// Recycle this container for use with the plugin.  Typically the
+		// container is predefined to reserve vertical space for the notation
+		// that will be placed inside of it.
+		container.innerHTML = "";
+		container.style.height = "";
+		this.container = container;
+	} else {
+		// the container needs to be created, and it will be placed
+		// just above the source script.
+
+		var target = document.querySelector("#" + this.baseId);
+		if (!target) {
+			console.log("Error: need a target to place container before:", this.baseId);
+			return null;
+		}
+		this.container = document.createElement('div');
+		this.container.id = this.baseId + "-container";
+		target.parentNode.insertBefore(this.container, target);
+	}
 	this.container.className = "humdrum-notation-plugin";
-	target.parentNode.insertBefore(this.container, target);
 	return this.container;
 };
 
@@ -285,7 +298,6 @@ HumdrumNotationPluginEntry.prototype.initializeContainer = function () {
 
 	output += "<td style='border:0;'>\n";
 	output += "<div class='verovio-svg'";
-	// output += " style='margin-top:-20px;'";
 	output += " id='" + this.baseId + "-svg'></div>\n";
 	output += "</td>\n";
 	output += "</tr>\n";
