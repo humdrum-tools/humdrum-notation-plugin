@@ -14,18 +14,18 @@ For more information about web workers:
 
 
 {% if site.local == "true" %}
-	importScripts('local/verovio-toolkit.js');
-	// importScripts("/scripts/humdrumValidator.js");
-	// importScripts("/scripts/verovio-calls.js");
+	importScripts('/local/verovio-toolkit.js');
+	importScripts("/scripts/humdrumValidator.js");
+	importScripts("/scripts/verovio-calls.js");
 {% else %}
 	importScripts("https://verovio-script.humdrum.org/scripts/verovio-toolkit.js");
-	// importScripts("https://plugin.humdrum.org/scripts/humdrumValidator.js");
-	// importScripts("https://plugin.humdrum.org/scripts/verovio-calls.js");
+	importScripts("https://plugin.humdrum.org/scripts/humdrumValidator.js");
+	importScripts("https://plugin.humdrum.org/scripts/verovio-calls.js");
 {% endif %}
 
-// forcing local for now:
-importScripts("/scripts/humdrumValidator.js");
-importScripts("/scripts/verovio-calls.js");
+// force local:
+//importScripts("/scripts/humdrumValidator.js");
+//importScripts("/scripts/verovio-calls.js");
 
 
 //////////////////////////////
