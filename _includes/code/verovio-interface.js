@@ -88,23 +88,20 @@ vrvInterface.prototype.createWorkerInterface = function (onReady) {
 
 
 
-console.log("GOT HERE AAA");
 	var workerUrl = "{{site.sitename}}/scripts/verovio-worker.js";
+	console.log("LOADING {{site.sitename}}/scripts/verovio-worker.js");
 	this.worker = null;
 	var that = this;
 	try {
-console.log("GOT HERE BBB");
 		that.worker = new Worker(workerUrl);
 		that.worker.addEventListener("message", handleEvent);
 
 		that.worker.onerror = function (event) {
-console.log("GOT HERE CCC");
 			event.preventDefault();
 			that.worker = createWorkerFallback(workerUrl);
 			that.worker.addEventListener("message", handleEvent);
 		};
 	} catch (e) {
-console.log("GOT HERE DDD");
 		that.worker = createWorkerFallback(workerUrl);
 		that.worker.addEventListener("message", handleEvent);
 	}
@@ -118,7 +115,7 @@ console.log("GOT HERE DDD");
 //
 
 function createWorkerFallback(workerUrl) {
-console.log("GOT HERE EEE");
+	console.log("Getting cross-origin worker");
 	var worker = null;
 	try {
 		var blob;
