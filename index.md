@@ -16,7 +16,7 @@ J.N.&nbsp;Hummel's prelude in D-flat major, op.&nbsp;67/15:
 
 
 {% include hummel-interaction.html %}
-<div id="hummel-prelude-op67n15-container" style="color:green; height:323.73px;">xxxxx</div>
+<div id="hummel-prelude-op67n15-container" style="background:green; height:323.73px;"></div>
 {% include_relative hummel-example.txt %}
 
 The above music notation was created dynamically inside your web

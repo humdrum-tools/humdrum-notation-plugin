@@ -74,8 +74,6 @@ HumdrumNotationPluginEntry.prototype.createContainer = function () {
 		// Recycle this container for use with the plugin.  Typically the
 		// container is predefined to reserve vertical space for the notation
 		// that will be placed inside of it.
-		container.innerHTML = "";
-		container.style.height = "";
 		this.container = container;
 	} else {
 		// the container needs to be created, and it will be placed
@@ -305,6 +303,8 @@ HumdrumNotationPluginEntry.prototype.initializeContainer = function () {
 	output += "</table>\n";
 
 	this.container.innerHTML = output;
+	// clear the height styling which may have been given as a placeholder:
+	this.container.style.height = "";
 
 	this.humdrum = this.container.querySelector("#" + this.baseId + "-humdrum");
 	this.svg = this.container.querySelector("#" + this.baseId + "-svg");
