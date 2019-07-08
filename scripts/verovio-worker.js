@@ -11,6 +11,7 @@ thread from the user interface.
 For more information about web workers:
      https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
 
+{% endcomment %}
 
 
 {% if site.local == "true" %}
@@ -23,12 +24,11 @@ For more information about web workers:
 	importScripts("https://plugin.humdrum.org/scripts/verovio-calls.js");
 {% endif %}
 
-{% endcomment %}
 
 // force local:
-importScripts("/scripts/verovio-toolkit.js");
-importScripts("/scripts/humdrumValidator.js");
-importScripts("/scripts/verovio-calls.js");
+//importScripts("/scripts/verovio-toolkit.js");
+//importScripts("/scripts/humdrumValidator.js");
+//importScripts("/scripts/verovio-calls.js");
 
 
 //////////////////////////////
