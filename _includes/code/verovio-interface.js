@@ -71,8 +71,17 @@ vrvInterface.prototype.createWorkerInterface = function (onReady) {
 	this.renderDataPending = 0;
 	this.renderDataWaiting = null;
 
-	this.worker = new Worker("{{site.sitename}}/scripts/verovio-worker.js");
-	this.worker.addEventListener("message", handleEvent);
+	var request = new XMLHttpRequest(0;
+	request.open("GET", "{{site.sitename}}/scripts/verovio-worker.js");
+	request.responseType = "blob";
+	request.onload = function(event) {
+		var blob = this.response;
+		this.worker = new Worker(window.URL.createObjectURL(blob));
+		this.worker.addEventListener("message", handleEvent);
+	}
+
+	// this.worker = new Worker("{{site.sitename}}/scripts/verovio-worker.js");
+	// this.worker.addEventListener("message", handleEvent);
 };
 
 
