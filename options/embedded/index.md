@@ -2,8 +2,6 @@
 vim:	ts=3
 ---
 
-{% include default-header.html %}
-
 # Embedded options #
 
 Humdrum notation plugin options can be embedded within Humdrum digital

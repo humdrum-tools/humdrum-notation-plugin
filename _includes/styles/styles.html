@@ -1,19 +1,50 @@
+<style>
+	{% include styles/syntax.css %}
+</style>
 
 <style>
 
+/* needed for topic/musicxml and topic/mei */
+pre code {
+	overflow: scroll;
+	white-space: pre;
+}
+
+pre, code, pre code {
+	border-radius: 0;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i&display=swap&subset=latin-ext');
+
+html, body {
+	font-family: 'Lato', sans-serif;
+	font-size: 12pt;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	background: #f0f0f0;
+}
+
+#hnp {
+	color: white;
+	font-size: 320%;
+}
+
+
+
+#hnp2 {
+	color: white;
+	font-size: 100%;
+	padding-left: 50px;
+}
+
 header {
 	opacity: 0.97;
-	/* padding: 25px 20px 40px 20px; */
-	padding: 0px 20px 40px 20px !important; /* shorten header */
+	padding: 0;
+	padding-top: 20px;
 }
 
 header h1 a {
 	color: white;
-}
-
-body {
-	text-shadow: none !important;
-	background: #f0f0f0;
 }
 
 p {
@@ -70,7 +101,7 @@ div#banner {
 div#newbanner {
 	background: #ffcc00;
 	box-shadow: 0px 1px 3px rgba(0,0,0,0.25);
-	border-radius: 0px 2px 2px 0px;
+	/* border-radius: 0px 2px 2px 0px; */
 	padding-right: 5px;
 	padding-bottom: 0px;
 }
@@ -91,18 +122,6 @@ nav ul a {
 	padding: 0;
 }
 
-div#title {
-	margin-top: -20px;
-	padding-left: 3px;
-	position: absolute;
-	z-index: 2000;
-	color: #ffcc00;
-}
-
-div#title a {
-	color: #ffcc00;
-}
-
 footer p:nth-child(2) { 
 	display: none;
 }
@@ -119,9 +138,34 @@ img.figure {
 	margin-left: auto;
 	margin-right: auto;
 	border: 1px solid #999999;
-	border-radius: 3px;
+	/* border-radius: 3px; */
 	box-shadow: 10px 10px 5px #cccccc;
 }
 
+
+#mycontent {
+	background: white;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 30px;
+	padding-bottom: 50px;
+	max-width: 1000px;
+}
+
+
+a {
+	color: {{site.primary_background_color}};
+
+}
+
+
+code {
+	color: #808;
+	background-color: #f8f8f8;
+
+}
+
 </style>
+
+
 

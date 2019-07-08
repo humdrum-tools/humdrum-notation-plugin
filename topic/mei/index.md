@@ -2,7 +2,7 @@
 vim:	ts=3
 ---
 
-{% include default-header.html %}
+# Embedding MEI #
 
 In addition to Humdrum data, MEI files can be embedded in the 
 webpage (or loaded from an external URL).  In general doing this is slower since 
@@ -18,9 +18,6 @@ convert to Humdrum, and then paste the Humdrum conversion into your
 webpage, rather than converting the XML data files on the fly to
 Humdrum data.
 
-
-# Embedding MEI #
-
 MEI content can be embedded into the webpage in place of Humdrum
 data.  When the plugin reads the Humdrum script element and sees
 MEI instead of Humdrum data, it will convert it automatically
@@ -31,21 +28,20 @@ internally to Humdrum data before generating graphical notation.
 Scroll through the following box to view all of the MEI content
 enclosed in the Humdrum script element:
 
-<div class="scrolling">
-{% highlight html %}
+<div class="scrolling"></div>
+``` html
 {% include_relative trinklied.txt %}
-{% endhighlight %}
+```
+
 {% include_relative trinklied.txt %}
-</div>
 
 
 Here is the converted Humdrum data:
 
-<div class="scrolling">
-{% highlight text %}
+<div class="scrolling"></div>
+``` html
 {% include_relative Mendelssohn_Op75_3.krn -%}
-{% endhighlight text %}
-</div>
+```
 
 
 # MEI from URL #
@@ -60,9 +56,9 @@ Here is the same music loaded from a URL coming from the same
 location as this webpage rather than stored directly inside of the
 webpage:
 
-{% highlight html %}
+``` html
 {% include_relative trinklied-url.txt %}
-{% endhighlight %}
+```
 
 {% include_relative trinklied-url.txt %}
 
@@ -75,7 +71,7 @@ and then the filter line is added to the Humdrum data before being
 rendered into graphical music notation.  The filter pipe-line for
 this example means:
 
-|  Command  |  Options       | Meaning
+|  Command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Options&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Meaning
 |-----------|----------------|--------
 | myank     | -m&nbsp;0-5    | yank the first five measures of the music (0 means include the pickup-measure)
 | extract   | -i&nbsp;kern   | keep only the kern data spines (getting rid of lyrics and dynamics)
@@ -83,6 +79,18 @@ this example means:
 | transpose | -b&nbsp;5      | transpose music up a minor second (base-40 interval-class 5)
 | satb2gs   |                | convert SATB system into a grand-staff system
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+	var list = document.querySelectorAll("div.scrolling");
+	for (var i=0; i<list.length; i++) {
+		var element = list[i].nextElementSibling;
+		if (element) {
+			list[i].innerHTML = element.outerHTML;
+			element.style.display = "none";
+		}
+	}
+});
+</script>
 
 
 {% comment %}

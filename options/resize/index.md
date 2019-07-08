@@ -2,8 +2,6 @@
 vim:	ts=3:ft=liquid
 ---
 
-{% include default-header.html %}
-
 <style>
 section {
 	min-height: 1000px;

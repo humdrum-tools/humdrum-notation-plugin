@@ -2,7 +2,6 @@
 vim:	ts=3
 ---
 
-{% include default-header.html %}
 {% include_relative click-event-delegation.txt %}
 {% include_relative prepare-song-list.txt %}
 

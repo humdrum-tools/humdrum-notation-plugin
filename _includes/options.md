@@ -8,7 +8,6 @@
 | `header`        | false         | When set to "true", display embedded title, composer, lyricist information in musical notation.
 | `incipit`       | false         | When set to "true", only the first system of the music notation will be displayed. 
 | `postFunction`  |               | The name of a function to run after notation has been rendered to an SVG image.
-| `renderer`      | vrvToolkit    | The name of the variable that contains the verovio toolkit, which is used to generate SVG of the music notation.  If the toolkit is stored in a variable called `vrvToolkit`, then this parameter is optional.
 | `source`        |               | A required ID for an element that stored the Humdrum data to generate notation from.  The location of this element on the page will determine the position of the generated notation.  If the data is downloaded via a URL, then this is the ID of the element where the downloaded data will be stored.
 | `suppressSvg`   | false         | Setup the container for an SVG image, but do not actually create one.  This option is useful for pre-loading Humdrum data onto the page for later rendering. ([see example usage](/topic/toggle))
 | `target`        |               | An optional ID for the target container (useful for sharing a source with multiple notation displays).

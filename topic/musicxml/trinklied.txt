@@ -1,7 +1,7 @@
 <script>
    displayHumdrum({
       source: "trinklied",
-      scale: 25,
+      scale: 28,
       spacingLinear: 0.32,
       header: true
    });

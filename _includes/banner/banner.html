@@ -1,0 +1,158 @@
+
+<style>
+	{% include banner/banner.css %}
+</style>
+
+
+<script>
+// vim: ts=3
+
+var TITLE_OPTIONS = {
+	source: "title-notation",
+	scale: 20,
+	incipit: "true",
+	postFunction: displayTitle
+	
+};
+
+
+//////////////////////////////
+//
+// displayTitle --
+//
+
+function displayTitle() {
+	var element = document.querySelector("#title");
+	if (!element) {
+		return;
+	}
+	element.style.display = "block";
+}
+
+
+//////////////////////////////
+//
+// document DOMContentLoaded event listener --
+//
+
+document.addEventListener("DOMContentLoaded", function() {
+	var banner = document.querySelector("#newbanner");
+	if (!banner) {
+		console.log("CANNOT FIND BANNER");
+		return;
+	}
+
+	// banner.style.paddingTop = (header.offsetHeight + 0) + "px";
+
+	var bs = document.querySelector("#title-notation-source");
+	if (!bs) {
+		console.log("Warning: Cannot find source contents for header notation");
+		return;
+	}
+	var humtext = bs.innerHTML;
+
+	var humtitle = "";
+	var matches = humtext.match(/!!+title:\s*(.*)\s*$/m);
+	if (matches) {
+		humtitle = matches[1];
+	}
+
+	var e = "<div id='title'>";
+	e += humtitle;
+	e += "</div>";
+	e += '<div style="display:none;" type="text/x-humdrum" id="title-notation">\n';
+	e += humtext;
+	e += '</div>\n';
+
+	banner.innerHTML = e;
+	displayHumdrum(TITLE_OPTIONS);
+
+	// adjustBannerHeight();
+	window.addEventListener("scroll", function(e) {
+		updateTitle();
+	});
+});
+
+
+
+//////////////////////////////
+//
+// updateTitle -- Adjust the transparency of the banner music title according to the
+//    scroll position in the window so that it fades out when the music example is
+//    scrolled out of the window.
+//
+
+function updateTitle() {
+	var banner = document.querySelector("#newbanner");
+	if (!banner) {
+		return;
+	}
+	var header = document.querySelector("header");
+	if (!header) {
+		return;
+	}
+	var title = banner.querySelector("#title");
+	if (!title) {
+		return;
+	}
+	var bannerheight = banner.offsetHeight - header.offsetHeight;
+
+/*
+
+	var titley = header.offsetHeight - 0 + window.scrollY;
+	var transparency = window.scrollY / bannerheight;
+	if (transparency > 1.0) {
+		transparency = 1.0;
+	}
+	title.style.opacity = 1.0 - transparency;
+	title.style.top = titley + "px";
+*/
+}
+
+
+
+///////////////////////////////
+//
+// window resize event listener --
+//
+
+// window.addEventListener("resize", function() {
+	// adjustBannerHeight();
+// });
+
+
+
+//////////////////////////////
+//
+// adjustBannerHeight --
+//
+
+/*
+function adjustBannerHeight() {
+	var banner = document.querySelector("#newbanner");
+	if (!banner) {
+		console.log("Warning: Cannot find banner to resize it");
+		return;
+	}
+	var header = document.querySelector("header");
+	if (!banner) {
+		console.log("Warning: Cannot find header to resize banner");
+		return;
+	}
+	var headerHeight = header.offsetHeight;
+	if (headerHeight > 80) {
+		banner.style.paddingTop = headerHeight + "px";
+	} else {
+		banner.style.paddingTop = 0 + "px";
+	}
+	// This is necessary for updating the width of the music when the page is resized:
+	displayHumdrum(TITLE_OPTIONS);
+	updateTitle();
+}
+*/
+
+
+
+</script>
+
+

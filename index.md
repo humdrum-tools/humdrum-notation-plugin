@@ -2,17 +2,18 @@
 vim:	ts=3
 ---
 
-{% include default-header.html %}
+{% include_relative styles-local.html %}
 
 
 # Introduction #
 
 
-This website documents a javascript plugin that can display music
-notation on any webpage, generated from <a target="_blank"
-href="https://www.humdrum.org">Humdrum</a> data embedded within the
-page.  Here is an example use of the plugin to display J.N.&nbsp;Hummel's
-prelude in D-flat major, op.&nbsp;67/15:
+This website documents a javascript plugin that creates music
+notation within any webpage, generated from <a target="_blank"
+href="https://www.humdrum.org">Humdrum</a> data either embedded
+within the same page or from an external source.  Here is an example result
+from plugin displaying J.N.&nbsp;Hummel's prelude in D-flat major,
+op.&nbsp;67/15:
 
 {% include hummel-interaction.html %}
 {% include_relative hummel-example.txt %}
@@ -22,14 +23,13 @@ browser as the page was loaded, using <a target="_blank"
 href="hummel-prelude-op67n15.txt">this Humdrum score</a> stored as
 <a target="_blank" href="hummel-example-b.txt">text</a> inside the
 webpage.  The notation is displayed as an SVG image, allowing
-interaction with notational elements.  For example the prelude
+interaction with notational elements.  For example, the prelude
 notation was made interactive by adding <a target="_blank"
 href="highlight-pitch-class.txt">CSS and javascript code</a>: try
-moving the mouse over a note in the music.  This will highlight
-other notes in the score that have the same pitch class.
+moving the mouse over a note in the music to see what happens.
 
 Try out the plugin by copy-and-pasting the following text into an
-HTML file to display the same musical score.  In this case, rather
+HTML file to display the above musical score.  In this case, rather
 than embedding the data within the webpage, it is being
 downloaded from a <a target="_blank" href="https://github.com/craigsapp/hummel-preludes/tree/master/kern">Github repository</a>.
 
@@ -38,9 +38,7 @@ downloaded from a <a target="_blank" href="https://github.com/craigsapp/hummel-p
 <html>
 <head>
 <title>Test example</title>
-<script src="{{site.veroviourl}}"></script>
 <script src="{{site.notationurl}}"></script>
-<script>var vrvToolkit = new verovio.toolkit()</script>
 </head>
 <body>
 
@@ -71,36 +69,35 @@ target="_blank"
 href="https://github.com/humdrum-tools/humdrum-plugin/issues">issues
 page</a> of the humdrum-plugin repository on Github. See also this
 <a target="_blank" href="https://chorales.sapp.org">J.S. Bach
-Chorales website</a> which uses the Humdrum Nontation Plugin to
+Chorales website</a> which uses the Humdrum Notation Plugin to
 display chorales, along with an <a target="_blank"
 href="https://chorales.sapp.org/typesetter">interactive chorale
-typesetter</a> that generates Humdurm Notation Plugin code for
+typesetter</a> that generates Humdrum Notation Plugin code for
 displaying chorales on any website.
 
-# Setup #
+# Embedding on webpage #
+
+The above example downloads data from another website.  This section
+demonstrates how to embed musical data onto the same page that it
+will be displayed on.  
+
+
+## Setup ##
 
 
 To use the Humdrum notation plugin on a webpage, copy the following 
 lines of text into your webpage:
 
 ```html
-<script src="{{site.veroviourl}}"></script>
 <script src="{{site.notationurl}}"></script>
-<script>var vrvToolkit = new verovio.toolkit()</script>
 ```
 
-The first line loads the <a target="_blank"
-href="http://www.verovio.org">verovio toolkit</a>, which is used to convert
-a Humdrum score into an SVG image, and the second line loads the plugin
-itself.  If you want to guarantee a stable setup, then copy these two
-javascript files into your website (and update periodically as needed
-with the latest version of verovio and/or the plugin).  The last 
 line of the setup code is a short javascript program that initializes
 the verovio toolkit on the webpage so that it can be used by the
 Humdrum notation plugin.
 
 
-# Displaying music #
+## Displaying music ##
 
 
 Adding a musical example on a webpage consists of two components:
@@ -109,10 +106,7 @@ of display options, such as:
 
 ```html
 <script>
-   displayHumdrum({
-      source:   "example",
-      renderer: vrvToolkit
-   });
+   displayHumdrum({source:   "example"});
 </script>
 ```
 
@@ -124,9 +118,9 @@ and (2) a corresponding Humdrum data script on the page, such as:
 </script>
 ```
 
-Note that colorization of the Humdrum data in the above box is random
-since the highlighter thinks that the example is HTML code.  Here is
-the resulting display for the above plugin code:
+The Humdrum script should be placed in the position where the
+corresponding notation should appear.  Here is the resulting display
+for the above plugin code:
 
 {% include_relative short-example.txt %}
 
@@ -137,27 +131,11 @@ the resulting display for the above plugin code:
 The `source` parameter is required as input to the `displayHumdrum()`
 function, and it must be set to the ID of a Humdrum content script.
 In this case the value is "example" since the ID of the Humdrum
-data script is "example".  Placement of the music notation for the
-example will be dependent on the location of the source element
-that contains the Humdrum data (the notation will be placed immediately
-before the source element).
+data script is "example".  Each musical example must have a different
+ID so that the Humdrum Notation Plugin can tell them apart.
 
 
-
-## Default renderer parameter ##
-
-The optional `renderer` parameter specifies the variable name of the verovio
-toolkit.  This parameter can be omitted if its Javascript variable name is
-`vrvToolkit`.  So a minimal example using the standard header setup
-described above would be:
-
-```html
-{% include_relative short-example.txt -%}
-```
-
-
-
-# Complete example #
+## Complete example ##
 
 
 Try copy-and-pasting the following HTML content into a file and view it in a
@@ -170,11 +148,7 @@ web browser:
 
 
 (or <a target="_blank" href="example.html"> click here</a> to view it
-online).  After opening the webpage in a browser, it should look
-something like:
-
-<img style="border: 1px solid #999999; border-radius: 3px; box-shadow: 10px 10px 5px #cccccc;" src="/images/example.png">
-
+online).  
 
 
 # Multiple examples #
@@ -216,7 +190,7 @@ to the online data file as input to the `displayHumdrum()` function:
 Notice that the Humdrum script element is empty since it will
 be filled in later with the downloaded Humdrum data.  Do not add
 any content to the Humdrum script when using the `url` parameter;
-otheriwse, the URL content download will be suppressed.  The Humdrum
+otherwise, the URL content download will be suppressed.  The Humdrum
 script's location on the page will control the display location of
 the final notation, and any initial contents of the data script will be
 ignored if a `url` parameter is given to the `displayHumdrum()`
@@ -364,14 +338,6 @@ the bass part) will be extracted along with its secondary analysis spines.
 
 
 
-# Additional topics #
-
-Here are a list of topics that give more examples or elaborate on the main documention
-on this page.
-
-{% include topic-list.txt %}
-
-
 # TODO #
 
 * Allow for shift-click in SVG image to toggle display of Humdrum text.
@@ -379,7 +345,6 @@ on this page.
 * Make examples interactive (typing Humdrum text will update notation).
 * Implement optional paged view for longer examples.
 * Implement optional MIDI playback of examples.
-
 
 
 

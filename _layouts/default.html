@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- source: http://web.stanford.edu/group/webdev/cardinal -->
+
+{% include head/head.html %}
+
+<body class="home"> <!-- class="home" underlines the Home link in the top nav -->
+<div id="su-wrap"> <!-- used to force footer to bottom of short pages -->
+  <div id="su-content"> <!-- used to force footer to bottom of short pages --> 
+
+   {% include menu/menu.html %}
+   {% include header/header.html %}
+
+    <!-- main content -->
+    <div id="mycontent" class="container" role="main" tabindex="0">
+	{{content}}
+    </div>
+    <!-- #content--> 
+    
+  </div>
+  <!-- #su-content --> 
+</div>
+<!-- #su-wrap --> 
+
+<!-- BEGIN footer -->
+<div id="footer" class="clearfix footer" role="contentinfo">
+  <!-- Fat footer start -->
+  <div class="container">
+    <div id="footer-content" class="row">
+<!--
+      <div class="col-xs-12 col-sm-6 col-sm-push-3">
+        <h3>More about us</h3>
+        <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean imperdiet lobortis libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean vitae tortor ligula, quis laoreet ante. Phasellus in turpis ac elit consectetur viverra. Praesent nec massa vitae dui facilisis venenatis et at nisi.</p>
+      </div>
+-->
+<!--
+      <div class="col-xs-12 col-sm-3 col-sm-push-3">
+        <h3>Related Links</h3>
+        <ul>
+          <li><a href="#">Particularly relevant</a></li>
+          <li><a href="#">Related and really quite interesting</a></li>
+          <li><a href="#">Useful in certain circumstances</a></li>
+          <li><a href="#">Purely tangential information</a></li>
+        </ul>
+      </div>
+-->
+    </div>
+  </div>
+  <!-- Fat footer end -->
+  
+  <!-- Global footer snippet start -->
+  <div id="global-footer">
+    <div class="container">
+      <div class="row">
+        <!-- #bottom-logo end -->
+        <div id="bottom-text" class="col-xs-6 col-sm-10">
+        </div>
+        <!-- .bottom-text end -->
+        <div class="clear"></div>
+      </div>
+      <!-- .row end --> 
+    </div>
+    <!-- .container end --> 
+  </div>
+  <!-- Global footer snippet end --> 
+  
+</div>
+<!-- END footer --> 
+
+</body>
+</html>
+

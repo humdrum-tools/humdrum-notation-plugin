@@ -17,5 +17,13 @@ veroviourl: https://verovio-script.humdrum.org/scripts/verovio-toolkit.js
 #notationurl: /scripts/humdrum-notation-plugin.js
 notationurl: https://plugin.humdrum.org/scripts/humdrum-notation-plugin.js
 
+primary_background_color: "#4276b6"
+secondary_color: "#ffcc00"
+
+
+#markdown: kramdown
+#highlighter: rouge
+
+theme: jekyll-theme-midnight
 
 

@@ -4,7 +4,7 @@
       target: "hummel-extract",
       spacingStaff: 14,
       spacingSystem: 0,
-      scale: 29,
+      scale: 35,
       postFunction: highlightPitchClasses,
       filter: "myank -m 1-3 | transpose -k c"
    });

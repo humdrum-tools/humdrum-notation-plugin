@@ -2,8 +2,6 @@
 vim:	ts=3
 ---
 
-{% include default-header.html %}
-
 This page describes option parameters related to downloading musical
 scores into the webpage rather than embedding digital scores within the
 page.

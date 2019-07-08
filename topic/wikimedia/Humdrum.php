@@ -10,15 +10,10 @@
  *
  * This <humdrum> tag extension converts Humdrum scores into SVG images using
  * the Verovio toolkit on a MediaWiki-based wiki (https://www.mediawiki.org/wiki/MediaWiki).
- * The extension loads two external javascript libraries to produce SVG images
+ * The extension loads an external javascript program to produce SVG images
  * directly within a user's web browser:
- *   (1) Verovio (https://www.verovio.org), using a Humdrum-aware version stored at
- *       https://verovio-script.humdrum.org.
- *   (2) humdrum-plugin (https://plugin.humdrum.org) which serves as a front-end to
- *       manage options for the Verovio toolkit.
- * Since the extension inserts javascript code onto a webpage (which in turn inserts
- * SVG images onto the page), the extension is not suitable for publically editable
- * wikis (such as Wikipedia).
+ *   humdrum-plugin (https://plugin.humdrum.org) 
+ * which serves as a front-end to manage options for the Verovio toolkit (https://www.verovio.org).
  *
  * The extension will convert a <humdrum> tag such as this:
  *
@@ -54,7 +49,6 @@
  *   <script src="https://verovio-script.humdrum.org/scripts/verovio-toolkit.js"></script>
  *   <script src="https://plugin.humdrum.org/scripts/humdrum-notation-plugin.js"></script>
  *   <script>var vrvToolkit = new verovio.toolkit()</script>
- *
  *
  * Programming References:
  *    https://www.mediawiki.org/wiki/Manual:Tag_extensions
@@ -130,9 +124,7 @@ class Humdrum {
       $initialization = "";
       if ($tagCounter == 100) {
          # Only include this code the first time an example is placed on the page.
-         $initialization .= "<script src=\"https://verovio-script.humdrum.org/scripts/verovio-toolkit.js\"></script>";
          $initialization .= "<script src=\"https://plugin.humdrum.org/scripts/humdrum-notation-plugin.js\"></script>";
-         $initialization .= "<script>var vrvToolkit = new verovio.toolkit()</script>";
       }
       $tagCounter++;
 

@@ -47,4 +47,8 @@
 {% include code/ReferenceRecords.js %}
 
 
+{% include code/verovio-interface.js %}
+{% include code/basket.full.min.js %}
+
+
 

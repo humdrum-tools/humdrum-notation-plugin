@@ -8,8 +8,6 @@ section {
 }
 </style>
 
-{% include default-header.html %}
-
 
 {% include save-button-style.txt %}
 
@@ -53,11 +51,10 @@ Opening the saved SVG image into another tab in the web browser:
 
 Here is the source code for the placement of the incipits on the page:
 
-<div class="scrolling">
-{% highlight html %}
+<div class="scrolling"></div>
+``` html
 {% include_relative sonata-list.txt %}
-{% endhighlight %}
-</div>
+```
 
 The `spacingStaff: 12` option is used to set a minimum distance between
 the grand-staff staves so that the width is more consistent across
@@ -145,11 +142,10 @@ save the SVG image and the other to save the Humdrum data:
 Here is the HTML code that was used to generate the above example:
 
 
-<div class="scrolling">
-{% highlight html %}
+<div class="scrolling"></div>
+``` html
 {% include_relative sonata-transposed.txt %}
-{% endhighlight %}
-</div>
+```
 
 Notice any filters located in the options used in `displayHumdrum()`
 will be applied to the saved Humdrum data files.   For example, each of
@@ -178,7 +174,18 @@ is different.  The function will merge all Humdrum data into a single
 multi-segment file called `humdrum.txt`.  This file can then be split
 into separate Humdrum files by using the Humdrum Extras humsplit tool.
 
-
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+	var list = document.querySelectorAll("div.scrolling");
+	for (var i=0; i<list.length; i++) {
+		var element = list[i].nextElementSibling;
+		if (element) {
+			list[i].innerHTML = element.outerHTML;
+			element.style.display = "none";
+		}
+	}
+});
+</script>
 
 {% comment %}
 	The following data is used to print some music in the header of this page.

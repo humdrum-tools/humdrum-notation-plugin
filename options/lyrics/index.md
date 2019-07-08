@@ -2,8 +2,6 @@
 vim:	ts=3:ft=liquid
 ---
 
-{% include default-header.html %}
-
 
 # Lyrics-related options #
 

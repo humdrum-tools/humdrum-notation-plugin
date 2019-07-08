@@ -2,8 +2,6 @@
 vim:	ts=3
 ---
 
-{% include default-header.html %}
-
 
 # Coloring with RDF marks #
 
@@ -19,6 +17,7 @@ automatically be rendered in red when converting into notation.
 ```html
 {% include_relative rdf1.txt %}
 ```
+
 {% include_relative rdf1.txt %}
 
 
@@ -27,6 +26,7 @@ The color of the mark can be changed by adding a color parameter to the RDF line
 ```html
 {% include_relative rdf2.txt %}
 ```
+
 {% include_relative rdf2.txt %}
 
 
@@ -35,6 +35,7 @@ And multiple colors can be used on different notes by defining multiple markers:
 ```html
 {% include_relative rdf3.txt %}
 ```
+
 {% include_relative rdf3.txt %}
 
 Note that any CSS/SVG color can be used, either a named color or a numeric one.  However, 
@@ -49,6 +50,7 @@ the color "black" is used to stop coloring the notes).
 ```html
 {% include_relative interpretation.txt %}
 ```
+
 {% include_relative interpretation.txt %}
 
 
@@ -61,12 +63,12 @@ current line until another color is given (using "black" is equivalent to turnin
 the color).  You can scroll in this example to see the changes in color at measures
 7, 12, 16, and 24.  Green means G major, red is D major, and yellow is C major.
 
-<div class="scrolling">
-{% highlight html %}
+<div class="scrolling"></div>
+```html
 {% include_relative chopin-color.txt %}
-{% endhighlight html %}
+```
+
 {% include_relative chopin-color.txt %}
-</div>
 
 If there is a color spine anywhere to the right of of a kern spine, it will be
 used to color the notes found in that kern spine.  If you want to color notes
@@ -87,11 +89,21 @@ melodic sequence "A G A B".
 ```html
 {% include_relative msearch.txt %}
 ```
+
 {% include_relative msearch.txt %}
 
-
-
-
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+	var list = document.querySelectorAll("div.scrolling");
+	for (var i=0; i<list.length; i++) {
+		var element = list[i].nextElementSibling;
+		if (element) {
+			list[i].innerHTML = element.outerHTML;
+			element.style.display = "none";
+		}
+	}
+});
+</script>
 
 {% comment %}
 	The following data is used to print some music in the header of this page.

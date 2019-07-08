@@ -2,8 +2,6 @@
 vim:	ts=3:ft=liquid
 ---
 
-{% include default-header.html %}
-
 <style>
 li.tag-h2 {
 	display: block;

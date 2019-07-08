@@ -1,0 +1,22 @@
+
+
+#newbanner {
+	padding-top: 0px;
+}
+
+
+div#title {
+	font-size: 80%;
+	margin-top: -20px;
+	padding-left: 3px;
+	position: absolute;
+	z-index: 2000;
+	color: #ffcc00;
+	display: none;
+}
+
+div#title a {
+	color: #ffcc00;
+}
+
+

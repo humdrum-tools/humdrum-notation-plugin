@@ -2,9 +2,8 @@
    displayHumdrum({
       source: "trink-url",
       url: "Mendelssohn_Op75_3.mei",
-      scale: 26,
+      scale: 35,
       filter: "myank -m 1-6 | extract -i kern | autobeam | transpose -b 5 | satb2gs"
    });
 </script>
 <script type="text/x-humdrum" id="trink-url"></script>
-

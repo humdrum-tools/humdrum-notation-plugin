@@ -97,10 +97,16 @@ HumdrumNotationPluginEntry.prototype.copyContentToContainer = function () {
 		console.log("Error: Source property required for options:", this.options);
 		return;
 	}
+	if (!this.humdrum) {
+		console.log("Error: Humdrum container target not initialized:", this);
+		return;
+	}
+
 	var source = document.querySelector("#" + this.options.source);
 
 	if (!source) {
 		console.log("Error: No Humdrum source for", this.baseId);
+		console.log("ID that is empty:", this.options.source);
 		return;
 	}
 	if (!this.container) {
@@ -146,24 +152,20 @@ HumdrumNotationPluginEntry.prototype.copyContentToContainer = function () {
 			options = {
 				format: "musicxml-hum"
 			};
-			content = convertMusicXmlToHumdrum(content, options, poptions);
+			convertMusicXmlToHumdrum(this.humdrum, content, options, poptions);
 		} else if (ctype === "mei") {
 			// convert MEI data into Humdrum data
 			options = {
 				format: "mei-hum"
 			};
-			content = convertMeiToHumdrum(content, options, poptions);
+			convertMeiToHumdrum(this.humdrum, content, options, poptions);
 		} else {
 			console.log("Warning: given some strange XML data:", content);
 		}
+	} else {
+		this.humdrum.textContent = content;
 	}
 
-	if (!this.humdrum) {
-		console.log("Error: Humdrum element not initialized:", this);
-	}
-
-	this.humdrum.textContent = content;
-	this.humdrum.style.display = "block";
 }
 
 

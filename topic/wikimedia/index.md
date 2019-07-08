@@ -2,17 +2,14 @@
 vim:	ts=3
 ---
 
-{% include default-header.html %}
-
 # Wikimedia humdrum tag extension #
 
 Here is an implementation of a humdrum tag extension for Wikimedia:
 
-<div class="scrolling">
-{% highlight php %}
+<div class="scrolling"></div>
+``` php
 {% include_relative Humdrum.php %}
-{% endhighlight %}
-</div>
+```
 
 # Installation #
 
@@ -70,14 +67,21 @@ which produces the SVG image:
 
 {% include_relative twinkle-example2.txt %}
 
-
-
-
-
-
-
 See <a target="_blank" href="http://wiki.ccarh.org/wiki/Humdrum_wiki_extension">this wiki page</a>
 for some demonstrations of the tag extension.
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+	var list = document.querySelectorAll("div.scrolling");
+	for (var i=0; i<list.length; i++) {
+		var element = list[i].nextElementSibling;
+		if (element) {
+			list[i].innerHTML = element.outerHTML;
+			element.style.display = "none";
+		}
+	}
+});
+</script>
 
 
 {% comment %}

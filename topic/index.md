@@ -2,8 +2,6 @@
 vim:	ts=3
 ---
 
-{% include default-header.html %}
-
 <style>
 nav {
 	padding-top: 100px;
