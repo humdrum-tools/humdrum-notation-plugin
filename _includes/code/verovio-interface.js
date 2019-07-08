@@ -71,7 +71,7 @@ vrvInterface.prototype.createWorkerInterface = function (onReady) {
 	this.renderDataPending = 0;
 	this.renderDataWaiting = null;
 
-	var request = new XMLHttpRequest(0;
+	var request = new XMLHttpRequest();
 	request.open("GET", "{{site.sitename}}/scripts/verovio-worker.js");
 	request.responseType = "blob";
 	request.onload = function(event) {
