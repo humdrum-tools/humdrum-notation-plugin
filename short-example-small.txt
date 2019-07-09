@@ -1,0 +1,10 @@
+<script>
+   var options = {
+      source: "example",
+      target: "example-small",
+      scale: 20
+   };
+   displayHumdrum(options);
+</script>
+
+<script type="text/x-humdrum" id="example-small"></script>
