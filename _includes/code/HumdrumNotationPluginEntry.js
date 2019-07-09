@@ -195,6 +195,7 @@ HumdrumNotationPluginEntry.prototype.copyContentToContainer = function () {
 		console.log("Error: Humdrum element not initialized:", this);
 	}
 	this.humdrum.textContent = content;
+console.log("HUMDRUM CONTENT: ", content);
 	this.humdrum.style.display = "block";
 	{% endif %}
 }
