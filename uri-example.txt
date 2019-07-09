@@ -1,7 +1,7 @@
 <script>
    displayHumdrum({
       source: "uri-example",
-      scale: 29,
+      scale: 32,
       uri: "github://craigsapp/mozart-piano-sonatas/kern/sonata06-3b.krn"
    });
 </script>

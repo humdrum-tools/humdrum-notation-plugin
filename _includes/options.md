@@ -1,7 +1,7 @@
 
 
-| option name     | default value | description 
-|-----------------|---------------|------------
+| option name     | default&nbsp;value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | description 
+|-----------------|:-------------:|------------
 | `appendText `   |               | Append the given text line(s) at the end of the Humdrum data before it is rendered.  This is typically used to add reference records for printing the title information.
 | `autoResize `   | false         | Re-typeset the music whenever the browser window is resized. See [this page](/options/resize) for examples.
 | `filter `       |               | A <a target="_blank" href="https://doc.verovio.humdrum.org/filters">filter command</a> which will be run on the Humdrum data before it is sent to the renderer to generate graphical music notation.
@@ -17,7 +17,7 @@
 
 Numeric options:
 
-| option name        | default       | min       | max       | description 
+| option name        | default&nbsp;&nbsp;&nbsp;       | min       | max       | description 
 |--------------------|---------------|-----------|-----------|-------------
 | `pageWidth`        | *none*        | 100       | 60000     | Width of the music notation.  By default, the humdrum plugin will set the width of the notation to match the width of the parent element that contains the notation.
 | `pageMarginBottom` | 50            | 0         | 500       | Height of the bottom margin.

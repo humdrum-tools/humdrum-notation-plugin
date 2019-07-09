@@ -1,7 +1,7 @@
 <script>
    displayHumdrum({
       source: "url-example1",
-      scale: 38,
+      scale: 32,
       header: true,
       url: "sonata06-3a.txt"
    });

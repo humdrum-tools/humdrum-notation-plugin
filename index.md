@@ -9,37 +9,36 @@ permalink: /index.html
 
 # Introduction #
 
-This website documents a javascript plugin that creates music
-notation from <a target="_blank" href="https://www.humdrum.org">Humdrum</a>
-data either embedded within the same webpage or from an external
-source.  Here is an example result from the plugin displaying
+The Humdrum Notation Plugin creates music notation for web pages
+from <a target="_blank" href="https://www.humdrum.org">Humdrum</a>
+digital scores, either embedded within the same page or from an
+external source.  Here is an example of the plugin displaying
 J.N.&nbsp;Hummel's prelude in D-flat major, op.&nbsp;67/15:
 
 
 {% include hummel-interaction.html %}
-<div id="hummel-prelude-op67n15-container" style="height:323.73px;">
-{% include_relative hummel-prelude-op67n15.svg %}
+<div id="hummel-prelude-op67n15-container" style="height:573.2px;">
+{% include_relative hummel-prelude-op67n15.svg -%}
 </div>
-{% include_relative hummel-example.txt %}
+{% include_relative hummel-example.txt -%}
 
 The above music notation was created dynamically inside your web
 browser as the page was loaded, using <a target="_blank"
-href="hummel-prelude-op67n15.txt">this Humdrum score</a> stored as
-<a target="_blank" href="hummel-example-b.txt">text</a> inside the
-webpage.  The notation is displayed as an SVG image, allowing
-interaction with notational elements.  For example, the above prelude
-notation is interactive: trying moving the mouse over a note to see what happens.
-(<a target="_blank" href="highlight-pitch-class.txt">Here</a>
-is the javascript code for the interaction).
-
-
-In addition to embedding the digital score within the webpage, the plugin 
-can also download scores from external sources, such as
-this example of the same score downloaded from <a target="_blank"
+href="hummel-prelude-op67n15.txt">this Humdrum score</a> stored in
+a <a target="_blank" href="hummel-example-b.txt">plugin wrapper</a>
+inside the webpage.  The notation is displayed as an SVG image,
+allowing interaction with notational elements.  For example, the
+above prelude notation is dynamic: trying moving the mouse over
+a note to see what happens.  (<a target="_blank"
+href="highlight-pitch-class.txt">Here</a> is the javascript code
+for the interaction).  In addition to embedding the musical data
+within the webpage, the plugin can also download scores from external
+sources, such as this example of the same score downloaded from <a
+target="_blank"
 href="https://github.com/craigsapp/hummel-preludes/tree/master/kern">Github</a>:
 
-```html
-{% include_relative hummel-example2b.txt %}
+``` html
+{% include_relative hummel-example2b.txt -%}
 ```
 
 Different views of the score can be created on a webpage using the
@@ -47,12 +46,12 @@ same data.  Here is an example that extracts the first three measures
 of the prelude and transposes it to C major:
 
 <div id="hummel-extract-container" style="height:200.2px;">
-{% include_relative hummel-extract.svg %}
+{% include_relative hummel-extract.svg -%}
 </div>
-{% include_relative hummel-example2.txt %}
+{% include_relative hummel-example2.txt -%}
 
-```html
-{% include_relative hummel-example2.txt %}
+``` html
+{% include_relative hummel-example2.txt -%}
 ```
 
 This example applies the filter `myank -m 1-3 | transpose -k
@@ -76,83 +75,105 @@ href="https://chorales.sapp.org/typesetter">interactive chorale
 typesetter</a> that generates Humdrum Notation Plugin code for
 displaying chorales on any website.
 
-# Embedding on webpage #
-
-The above example downloads data from another website.  This section
-demonstrates how to embed musical data onto the same page that it
-will be displayed on.  
+# Embedding digital scores on webpage #
 
 
 ## Setup ##
 
 To use the Humdrum Notation Plugin on a webpage, copy the following 
-lines of text into your webpage:
+line somewhere into your webpage:
 
-```html
+``` html
 <script src="https://plugin.humdrum.org/scripts/humdrum-notation-plugin-worker.js"></script>
 ```
 
 If you are displaying a webpage from a local file on your computer without
 using a webserver, you will instead need to use these setup lines:
 
-```html
+``` html
 <script src="https://verovio-script.humdrum.org/scripts/verovio-toolkit.js"></script>
 <script src="https://plugin.humdrum.org/scripts/humdrum-notation-plugin.js"></script>
 <script>var vrvToolkit = new verovio.toolkit()</script>
 ```
 
-The first case is best for online use, particular when lots of music
+The first case is best for online use, particularly when lots of music
 notation examples are given on the same page.  The second case can
 also be used for online situations but performs best when there
-are few examples on a page.
+are few examples on a page.  
+
+Notation rendering is handled by <a target="_blank" href="">Vervio</a>.
+For the single-line setup shown above, the verovio toolkit is loaded
+automatically by the Humdrum Notation Plugin, while in the second
+case it is loaded independetly (on the first line of the three-line
+setup method), and then the toolkit is initialized within the webpage
+with the last line.
 
 
 ## Displaying music ##
 
 
-Adding a musical example on a webpage consists of two components:
+Adding a musical example onto a webpage consists of two components:
 (1) a javascript function call to `displayHumdrum()` with a list
 of display options, such as:
 
-```html
+``` html
 <script>
-   displayHumdrum({source:   "example"});
+   displayHumdrum({source: "example"});
 </script>
 ```
 
 and (2) a corresponding Humdrum data script on the page, such as:
 
-```html
+``` html
 <script type="text/x-humdrum" id="example">
 {% include_relative example.krn -%}
 </script>
 ```
 
-The Humdrum script should be placed in the position where the
-corresponding notation should appear.  Here is the resulting display
+The rendered notation will be placed immediately above the Humdrum script 
+in the file, so the call to `displayHumdrum()` and the Humdrum script do
+not need to be adjacent to each other.  Here is the resulting display
 for the above plugin code:
 
-{% include_relative short-example.txt %}
+<div id="example-container" style="height:106.4px;"></div>
+{% include_relative short-example.txt -%}
 
 
 
 ## Required source parameter ##
 
-The `source` parameter is required as input to the `displayHumdrum()`
-function, and it must be set to the ID of a Humdrum content script.
-In this case the value is "example" since the ID of the Humdrum
-data script is "example".  Each musical example must have a different
-ID so that the Humdrum Notation Plugin can tell them apart.
+The `displayHumdrum()` function is given a list of options to control
+generation of the notation.  The `source` parameter is the only
+required parameter, and it must be set to the ID of a Humdrum content
+script.  Note that each musical example must have a different ID
+so that the Humdrum Notation Plugin can tell them apart.
 
+You can view a list of the plugin options further below, or refer to the same list
+on the <a target="_blank" href="/options">options page</a>.  Here is an example
+of displaying the notation at a smaller size using the `scale` parameter:
 
-## Complete example ##
+<div id="example-small-container" style="height:53.2px;"></div>
+{% include_relative short-example-small.txt -%}
+
+<div style="height:20px;"></div>
+
+``` html
+{% include_relative short-example-small.txt -%}
+```
+
+In this case the digital score from the previous example is also being
+recycled using the `source` parameter as the ID of the original data, 
+and the `target` parameter is the ID of the Humdrum script element into which
+the source data will be duplicated.
+
+## Complete webpage example ##
 
 
 Try copy-and-pasting the following HTML content into a file and view it in a
-web browser:
+web browser (typically by double-clicking on the newly created file):
 
 
-```html
+``` html
 {% include_relative example2.html -%}
 ```
 
@@ -167,34 +188,49 @@ online).
 More than one musical example can be placed on a page by giving
 a unique ID name to each Humdrum data script:
 
-```html
-{% include_relative multiple-example.txt %}
+``` html
+{% include_relative multiple-example.txt -%}
 ```
 
 The above HTML code produces the following two musical examples:
 
 <div style="width:450px; border: 1px solid #dddddd; padding:50px; text-align:left; background-color:#ffffff;">
-{% include_relative multiple-example.txt %}
+{% include_relative multiple-example.txt -%}
 </div>
+
+<div height="20px"></div>
+
+Note that the javascript scripts can be merged and/or placed independently
+from the Humdrum scripts that contain the digital scores:
+
+``` html
+{% include_relative multiple-example-merged.txt -%}
+```
+
+And here is a variation on the above example where all notation examples will 
+automatically be identified and rendered with a single javascript script (provided
+they all use the same options set):
+
+``` html
+{% include_relative multiple-example-auto.txt -%}
+```
 
 <br/>
 
 # URL content #
 
 
-Humdrum data can be downloaded from the server that hosts the
-webpage or from another website that disables the <a target="_blank"
+Humdrum data can be downloaded from the server that hosts the webpage
+or from another website that disables the <a target="_blank"
 href="https://en.wikipedia.org/wiki/Same-origin_policy">same-origin
-policy</a> (allowing direct web browser access to a server that is not
-directly hosting the webpage).
+policy</a> (allowing direct web browser access to a server that is
+not directly hosting the webpage).  Here is an example of downloading
+a Humdrum score from the same server as the webpage.  This is done
+by adding a `url` parameter pointing to the online data file as
+input to the `displayHumdrum()` function:
 
-
-Here is an example of downloading a Humdrum score from the same server
-as the webpage.  This is done by adding a `url` parameter pointing 
-to the online data file as input to the `displayHumdrum()` function:
-
-```html
-{% include_relative url-example.txt %}
+``` html
+{% include_relative url-example.txt -%}
 ```
 
 Notice that the Humdrum script element is empty since it will
@@ -210,30 +246,31 @@ href="sonata06-3a.txt">https://plugin.humdrum.org/sonata06-3a.txt</a>.
 Also notice that the parameter `header` is set to true.  This causes title
 and composer information to be added above the first system of music.
 
-{% include_relative url-example.txt %}
+{% include_relative url-example.txt -%}
 
 Here is an example of downloading data for the first variation of the
 same sonata movement using a URL pointing to a file on Github 
 from the <a target="_blank"
 href="https://github.com/craigsapp/mozart-piano-sonatas">Mozart
-piano sonata repository</a>:
+piano sonata repository</a> (also available on <a target="blank"
+href="http://verovio.humdrum.org/?k=e&file=beethoven/sonatas">VHV</a>):
 
-```html
-{% include_relative url-example2.txt %}
+``` html
+{% include_relative url-example2.txt -%}
 ```
 
-{% include_relative url-example2.txt %}
+{% include_relative url-example2.txt -%}
 
 
 There are also [URI](/options/uri) shortcuts for various Humdrum repositories
 on the web.  Here is the same score as above, but downloaded with the `github://`
 URI to simplify the address to the data:
 
-```html
-{% include_relative uri-example.txt %}
+``` html
+{% include_relative uri-example.txt -%}
 ```
 
-{% include_relative uri-example.txt %}
+{% include_relative uri-example.txt -%}
 
 The URI
 
@@ -268,15 +305,15 @@ using the <a target="_blank"
 href="http://doc.verovio.humdrum.org/filters/transpose">transpose</a> tool to 
 transpose music in C major to E-flat major:
 
-```html
-{% include_relative transpose-example.txt %}
+``` html
+{% include_relative transpose-example.txt -%}
 ```
 
 Notice that the Humdrum encoding is in C major, but the filter
 command transposes the music to E-flat major
 before the music notation is generated:
 
-{% include_relative transpose-example.txt %}
+{% include_relative transpose-example.txt -%}
 
 Another useful filtering tool given
 in this example is the <a target="_blank"
@@ -307,20 +344,20 @@ of the musical data, followed by extracting measures 1&ndash;18
 from the full score, and then extracting only the bass part to display:
 
 
-```html
-{% include_relative obrecht.txt %}
+``` html
+{% include_relative obrecht.txt -%}
 ```
 
 The digital score downloaded from the `url` parameter does not contain any
 filtering instructions, but by adding the option:
 
-```javascript
+``` javascript
 filter: "dissonant --colorize | myank -m 1-18 | extract -k 1"
 ```
 
 the music will be processed by this filter before notation is generated:
 
-{% include_relative obrecht.txt %}
+{% include_relative obrecht.txt -%}
 
 Colored notes form a dissonance with other voices in the polyphonic
 texture (blue means a seventh against another note, green is a second
@@ -334,7 +371,7 @@ is a descending accented passing tone.  For more information, see
 The `filter` option can also be set to an array of filters, which will be applied in the same sequence.  The 
 above pipe-lined filter can be equivalently expressed as:
 
-```javascript
+``` javascript
 filter: [
       "dissonant --colorize",
       "myank -m 1-18",
@@ -345,8 +382,6 @@ filter: [
 First the music will be analyzed by the dissonant tool, then the first 18
 measures will be excerpted from the score, then the first kern spine (for
 the bass part) will be extracted along with its secondary analysis spines.
-
-
 
 # TODO #
 
@@ -364,6 +399,18 @@ the bass part) will be extracted along with its secondary analysis spines.
 	the notation in the header.  If there is a !!!title: record in the
 	Humdrum data below, then it will be placed above the musical example.
 {% endcomment %}
+
+<script>
+	window.addEventListener("DOMContentLoaded", function() {
+		var element = document.querySelector("#title");
+		if (!element) {
+			return;
+		}
+		element.style.display = "block";
+		element.style.color = "red";
+		element.innerHTML = "J.S. Bach: Cello suite no. 5 in C minor, BWV 1011, Sarabande"
+	}
+</script>
 
 <div style="display:none" id="title-notation-source">
 !!!title: <a target="_blank" title="Pablo Casals playing the sarabande" href='https://www.youtube.com/watch?v=XEN-Xhx8aDA'>J.S. Bach: Cello suite no. 5 in C minor, BWV 1011, Sarabande</a>

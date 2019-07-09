@@ -1,0 +1,34 @@
+Falling melody:
+
+<script type="text/x-humdrum" id="example1">
+**kern
+*M4/4
+=1-
+4g
+8fL
+8eJ
+4d
+4c
+=
+*-
+</script>
+
+Rising melody:
+<script type="text/x-humdrum" id="example2">
+**kern
+*M4/4
+=1-
+4c
+8dL
+8eJ
+4f
+4g
+=
+*-
+</script>
+
+
+<script>
+   displayHumdrum({source: "example1"});
+   displayHumdrum({source: "example2"});
+</script>

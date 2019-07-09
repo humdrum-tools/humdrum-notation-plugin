@@ -1,0 +1,4 @@
+<script>
+   var figures = document.querySelectorAll("script[type='text/x-humdrum']");
+   x.forEach((figure) => { displayHumdrum({"source": figure.id })});
+</script>

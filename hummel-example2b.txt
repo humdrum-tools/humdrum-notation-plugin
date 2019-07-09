@@ -4,7 +4,10 @@
       source: "hummel-op67-no15",
       spacingStaff: 14,
       spacingSystem: 0,
-      scale: 29
+      scale: 33,
+      postFunction: highlightPitchClasses
+
    });
 </script>
+
 <script type="text/x-humdrum" id="hummel-op67-no15"></script>

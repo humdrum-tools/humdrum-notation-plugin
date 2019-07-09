@@ -180,7 +180,7 @@ HumdrumNotationPluginEntry.prototype.copyContentToContainer = function () {
 			{% if page.worker %}
 			convertMeiToHumdrum(this.humdrum, content, options, poptions);
 			{% else %}
-			content = convertMeiToHumdru(content, options, poptions);
+			content = convertMeiToHumdrum(content, options, poptions);
 			{% endif %}
 		} else {
 			console.log("Warning: given some strange XML data:", content);
@@ -194,7 +194,7 @@ HumdrumNotationPluginEntry.prototype.copyContentToContainer = function () {
 	if (!this.humdrum) {
 		console.log("Error: Humdrum element not initialized:", this);
 	}
-	this.humdrum.textcontent = content;
+	this.humdrum.textContent = content;
 	this.humdrum.style.display = "block";
 	{% endif %}
 }
