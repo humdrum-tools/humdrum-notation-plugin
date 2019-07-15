@@ -19,26 +19,31 @@ window.addEventListener("click", function(event) {
 console.log("CLICK", event);
    var titleelement = null;
    var i;
-   for (i=0; i<event.path.length; i++) {
-      if (!event.path[i].className || typeof event.path[i].className === "object") {
+   var path = [], target = event.target;
+   while (target) {
+    path.push(target);
+    target = target.parentNode;
+   };
+   for (i=0; i<path.length; i++) {
+      if (!path[i].className || typeof path[i].className === "object") {
          // needed for SVG elements.
          continue;
       }
 
-      if (event.path[i].className.match(/\bsong-title\b/)) {
-         titleelement = event.path[i];
+      if (path[i].className.match(/\bsong-title\b/)) {
+         titleelement = path[i];
          break;
       }
    }
    var svgcontainerelement = null;
-   for (i=event.path.length-1; i>=0; i--) {
+   for (i=path.length-1; i>=0; i--) {
       // SVG elements can be nested, so only looking for outer-most:
-      if (event.path[i].nodeName === "svg") {
+      if (path[i].nodeName === "svg") {
          // the parent node should have an ID ending in "-svg"
          // attached to the base ID for the Humdrum container.
-         var pid = event.path[i].parentNode.id;
+         var pid = path[i].parentNode.id;
          if (pid.match(/-svg$/)) {
-            svgcontainerelement = event.path[i].parentNode;
+            svgcontainerelement = path[i].parentNode;
          }
          break;
       }
