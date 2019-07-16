@@ -423,7 +423,7 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 		try {
 			sourcetext = pluginOptions.prepareData(baseid, sourcetext);
 		} catch (error) {
-			sourcetext = executeFunctionByName(pluginOptions.prepareData, window, [baseid, textcontent]);
+			sourcetext = executeFunctionByName(pluginOptions.prepareData, window, [baseid, sourcetext]);
 		}
 	}
 
