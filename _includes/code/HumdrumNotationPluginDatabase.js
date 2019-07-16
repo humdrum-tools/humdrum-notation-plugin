@@ -419,6 +419,14 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 		}
 	}
 
+	if (pluginOptions.prepareData) {
+		try {
+			sourcetext = pluginOptions.prepareData(baseid, sourcetext);
+		} catch (error) {
+			sourcetext = executeFunctionByName(pluginOptions.prepareData, window, [baseid, textcontent]);
+		}
+	}
+
 	{% if page.worker %}
 	vrvWorker.renderData(vrvOptions, sourcetext)
 	.then(function(svg) {
