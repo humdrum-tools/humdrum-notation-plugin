@@ -21,6 +21,7 @@ J.N.&nbsp;Hummel's prelude in D-flat major, op.&nbsp;67/15:
 {% include_relative hummel-prelude-op67n15.svg -%}
 </div>
 {% include_relative hummel-example.txt -%}
+{% include tryit.html id="G67FY3DSQPMJ" marginTop="-25px" %}
 
 The above music notation was created dynamically inside your web
 browser as the page was loaded, using <a target="_blank"
@@ -40,6 +41,7 @@ href="https://github.com/craigsapp/hummel-preludes/tree/master/kern">Github</a>:
 ``` html
 {% include_relative hummel-example2b.txt -%}
 ```
+{% include tryit.html id="G67GAX50ACYE" marginTop="-25px" %}
 
 Different views of the score can be created on a webpage using the
 same data.  Here is an example that extracts the first three measures
@@ -53,6 +55,7 @@ of the prelude and transposes it to C major:
 ``` html
 {% include_relative hummel-example2.txt -%}
 ```
+{% include tryit.html id="G67GILRVM07N" marginTop="-25px" %}
 
 This example applies the filter `myank -m 1-3 | transpose -k
 c` to the full score, generating a transposed excerpt.
@@ -176,10 +179,7 @@ web browser (typically by double-clicking on the newly created file):
 ``` html
 {% include_relative example2.html -%}
 ```
-
-
-(or <a target="_blank" href="example.html"> click here</a> to view it
-online).  
+{% include tryit.html id="G67CR2SIWSCG" marginTop="-25px" %}
 
 
 # Multiple examples #
@@ -191,6 +191,7 @@ a unique ID name to each Humdrum data script:
 ``` html
 {% include_relative multiple-example.txt -%}
 ```
+{% include tryit.html id="G67GLTD5XMTH" marginTop="-25px" %}
 
 The above HTML code produces the following two musical examples:
 
@@ -407,9 +408,8 @@ the bass part) will be extracted along with its secondary analysis spines.
 			return;
 		}
 		element.style.display = "block";
-		element.style.color = "red";
 		element.innerHTML = "J.S. Bach: Cello suite no. 5 in C minor, BWV 1011, Sarabande"
-	}
+	});
 </script>
 
 <div style="display:none" id="title-notation-source">

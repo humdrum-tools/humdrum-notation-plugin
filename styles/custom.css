@@ -1,6 +1,32 @@
 ---
 ---
 
+.tryit {
+        /* background: #aa0000; */
+        background: #4caf50;
+        border-radius: 1rem;
+	float: right;
+        font-family: Arial;
+        color: white;
+        font-size: 1rem;
+        padding: 0px 5px 0px 5px;
+        text-decoration: none;
+        margin-left: 1px;
+        margin-right: 1px;
+}
+
+.tryit a {
+	color: white !important;
+}
+
+.tryit:hover {
+        background: #7cdf80;
+}
+
+.tryit a:hover {
+	text-decoration: none;
+}
+
 #content {
 }
 
