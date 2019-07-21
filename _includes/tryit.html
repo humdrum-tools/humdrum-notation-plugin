@@ -1,8 +1,15 @@
 
 <div class="tryit"
 	style="
+	position: relative;
 	{% if include.marginTop %}
 		margin-top:{{include.marginTop}};
+	{% endif %}
+	{% if include.marginBottom %}
+		margin-bottom:{{include.marginBottom}};
+	{% endif %}
+	{% if include.paddingBottom %}
+		padding-bottom:{{include.paddingBottom}};
 	{% endif %}
 	{% if include.marginRight %}
 		margin-top:{{include.marginRight}};

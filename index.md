@@ -12,25 +12,25 @@ permalink: /index.html
 The Humdrum Notation Plugin creates music notation for web pages
 from <a target="_blank" href="https://www.humdrum.org">Humdrum</a>
 digital scores, either embedded within the same page or from an
-external source.  Here is an example of the plugin displaying
+external source.  Here is an example use of the plugin to display
 J.N.&nbsp;Hummel's prelude in D-flat major, op.&nbsp;67/15:
 
 
+{% include tryit.html id="G67FY3DSQPMJ" marginBottom="-20px" zIndex="2000" %}
 {% include hummel-interaction.html %}
 <div id="hummel-prelude-op67n15-container" style="height:573.2px;">
 {% include_relative hummel-prelude-op67n15.svg -%}
 </div>
 {% include_relative hummel-example.txt -%}
-{% include tryit.html id="G67FY3DSQPMJ" marginTop="-25px" %}
 
 The above music notation was created dynamically inside your web
 browser as the page was loaded, using <a target="_blank"
 href="hummel-prelude-op67n15.txt">this Humdrum score</a> stored in
 a <a target="_blank" href="hummel-example-b.txt">plugin wrapper</a>
 inside the webpage.  The notation is displayed as an SVG image,
-allowing interaction with notational elements.  For example, the
-above prelude notation is dynamic: trying moving the mouse over
-a note to see what happens.  (<a target="_blank"
+allowing interaction with notational elements: 
+trying moving the mouse over
+a note and see what happens.  (<a target="_blank"
 href="highlight-pitch-class.txt">Here</a> is the javascript code
 for the interaction).  In addition to embedding the musical data
 within the webpage, the plugin can also download scores from external
@@ -41,7 +41,7 @@ href="https://github.com/craigsapp/hummel-preludes/tree/master/kern">Github</a>:
 ``` html
 {% include_relative hummel-example2b.txt -%}
 ```
-{% include tryit.html id="G67GAX50ACYE" marginTop="-25px" %}
+{% include tryit.html id="G67GAX50ACYE" marginTop="-65px" %}
 
 Different views of the score can be created on a webpage using the
 same data.  Here is an example that extracts the first three measures
@@ -55,7 +55,7 @@ of the prelude and transposes it to C major:
 ``` html
 {% include_relative hummel-example2.txt -%}
 ```
-{% include tryit.html id="G67GILRVM07N" marginTop="-25px" %}
+{% include tryit.html id="G67GILRVM07N" marginTop="-65px" %}
 
 This example applies the filter `myank -m 1-3 | transpose -k
 c` to the full score, generating a transposed excerpt.
@@ -64,7 +64,7 @@ documentation for more information, or the <a target="_blank"
 href="https://doc.verovio.humdrum.org/filters/index.html">filter documentation</a> for
 <a target="_blank" href="http://verovio.humdrum.org">Verovio Humdrum
 Viewer</a>, which is an online interactive music editor where you can
-prepare scores for use with the Humdrum notation plugin.
+prepare scores for use with the Humdrum Notation Plugin.
 
 
 Feature requests and bug-reports can be submitted to the <a
@@ -89,6 +89,7 @@ line somewhere into your webpage:
 ``` html
 <script src="https://plugin.humdrum.org/scripts/humdrum-notation-plugin-worker.js"></script>
 ```
+{% include tryit.html id="G68EZ6WSUC28" marginTop="-62px" %}
 
 If you are displaying a webpage from a local file on your computer without
 using a webserver, you will instead need to use these setup lines:
@@ -98,6 +99,7 @@ using a webserver, you will instead need to use these setup lines:
 <script src="https://plugin.humdrum.org/scripts/humdrum-notation-plugin.js"></script>
 <script>var vrvToolkit = new verovio.toolkit()</script>
 ```
+{% include tryit.html id="G68F298DVD3V" marginTop="-65px" %}
 
 The first case is best for online use, particularly when lots of music
 notation examples are given on the same page.  The second case can
@@ -132,6 +134,7 @@ and (2) a corresponding Humdrum data script on the page, such as:
 {% include_relative example.krn -%}
 </script>
 ```
+{% include tryit.html id="G68FJ82HV2QZ" marginTop="-65px" %}
 
 The rendered notation will be placed immediately above the Humdrum script 
 in the file, so the call to `displayHumdrum()` and the Humdrum script do
@@ -163,6 +166,7 @@ of displaying the notation at a smaller size using the `scale` parameter:
 ``` html
 {% include_relative short-example-small.txt -%}
 ```
+{% include tryit.html id="G68F5Q42WG9V" marginTop="-65px" %}
 
 In this case the digital score from the previous example is also being
 recycled using the `source` parameter as the ID of the original data, 
@@ -179,7 +183,7 @@ web browser (typically by double-clicking on the newly created file):
 ``` html
 {% include_relative example2.html -%}
 ```
-{% include tryit.html id="G67CR2SIWSCG" marginTop="-25px" %}
+{% include tryit.html id="G67CR2SIWSCG" marginTop="-65px" %}
 
 
 # Multiple examples #
@@ -191,7 +195,7 @@ a unique ID name to each Humdrum data script:
 ``` html
 {% include_relative multiple-example.txt -%}
 ```
-{% include tryit.html id="G67GLTD5XMTH" marginTop="-25px" %}
+{% include tryit.html id="G67GLTD5XMTH" marginTop="-65px" %}
 
 The above HTML code produces the following two musical examples:
 
@@ -207,14 +211,16 @@ from the Humdrum scripts that contain the digital scores:
 ``` html
 {% include_relative multiple-example-merged.txt -%}
 ```
+{% include tryit.html id="G68FBWIZHTCV" marginTop="-65px" %}
 
-And here is a variation on the above example where all notation examples will 
+And here is a variation of the above example where all notation examples will 
 automatically be identified and rendered with a single javascript script (provided
 they all use the same options set):
 
 ``` html
 {% include_relative multiple-example-auto.txt -%}
 ```
+{% include tryit.html id="G68FH1Y4QUG5" marginTop="-65px" %}
 
 <br/>
 
@@ -259,6 +265,7 @@ href="http://verovio.humdrum.org/?k=e&file=beethoven/sonatas">VHV</a>):
 ``` html
 {% include_relative url-example2.txt -%}
 ```
+{% include tryit.html id="G68FZRJ7V8CD" marginTop="-65px" %}
 
 {% include_relative url-example2.txt -%}
 
@@ -270,6 +277,7 @@ URI to simplify the address to the data:
 ``` html
 {% include_relative uri-example.txt -%}
 ```
+{% include tryit.html id="G68G20YS2BCS" marginTop="-65px" %}
 
 {% include_relative uri-example.txt -%}
 
@@ -279,7 +287,7 @@ The URI
 github://craigsapp/mozart-piano-sonatas/kern/sonata06-3b.krn
 ```
 
-will be mapped internally by the Humdrum notation plugin into the URL:
+will be mapped internally by the Humdrum Notation Plugin into the URL:
 
 ```
 https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/master/kern/sonata06-3b.krn
@@ -309,6 +317,7 @@ transpose music in C major to E-flat major:
 ``` html
 {% include_relative transpose-example.txt -%}
 ```
+{% include tryit.html id="G68G20YS2BCS" marginTop="-65px" %}
 
 Notice that the Humdrum encoding is in C major, but the filter
 command transposes the music to E-flat major
@@ -348,6 +357,7 @@ from the full score, and then extracting only the bass part to display:
 ``` html
 {% include_relative obrecht.txt -%}
 ```
+{% include tryit.html id="G68G7S27GW3R" marginTop="-65px" %}
 
 The digital score downloaded from the `url` parameter does not contain any
 filtering instructions, but by adding the option:
@@ -379,6 +389,7 @@ filter: [
       "extract -k 1"
    ]
 ```
+{% include tryit.html id="G68G9ICOCPQF" marginTop="-65px" %}
 
 First the music will be analyzed by the dissonant tool, then the first 18
 measures will be excerpted from the score, then the first kern spine (for
