@@ -137,7 +137,7 @@
 
 
 @@BEGIN: OPTION
-@NAME:	Breaks
+@NAME:	breaks
 @CAT:	input and page layout options
 @INFO:	Define page and system breaks layout
 @ARG:	string
