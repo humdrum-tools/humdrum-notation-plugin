@@ -99,6 +99,14 @@
 @MIN:	1
 @@END: OPTION
 
+@@BEGIN: OPTION
+@NAME:	minLastJustification
+@INFO:	Minimum length of last system which can be stretched to 100% width of page.
+@ARG:	float
+@DEF:	0.8
+@MIN:	0.0
+@MAX:	1.0
+@@END: OPTION
 
 @@BEGIN: OPTION
 @NAME:	type
