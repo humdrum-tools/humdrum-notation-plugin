@@ -585,7 +585,7 @@ HumdrumNotationPluginDatabase.prototype.insertDefaultOptions = function (baseid,
 	if (entry.options.header === "true" ||
        entry.options.header === true ||
        entry.options.header === 1) {
-		vrvOptions.noHeader = 0;
+		vrvOptions.header = "encoded";
 	}
 
 	if (!vrvOptions.hasOwnProperty("scale")) {
@@ -676,8 +676,8 @@ HumdrumNotationPluginDatabase.prototype.insertDefaultOptions = function (baseid,
 	if (!vrvOptions.hasOwnProperty("footer")) {
 		vrvOptions.footer = "none";
 	}
-	if (!vrvOptions.hasOwnProperty("noHeader")) {
-		vrvOptions.noHeader = 1;
+	if (!vrvOptions.hasOwnProperty("header")) {
+		vrvOptions.header = "none";
 	}
 
 	return vrvOptions;

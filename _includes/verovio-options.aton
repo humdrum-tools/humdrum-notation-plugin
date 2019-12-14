@@ -206,10 +206,13 @@
 
 
 @@BEGIN: OPTION
-@NAME:	noHeader
+@NAME:	header
 @CAT:	input and page layout options
-@INFO:	Do not add any header
-@ARG:	none
+@INFO:	Do not add any header, add a header, use automatic header
+@ARG:	string
+@DEF:	auto
+@ALT:	encoded
+@ALT:	none
 @@END: OPTION
 
 
