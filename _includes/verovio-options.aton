@@ -195,10 +195,13 @@
 
 
 @@BEGIN: OPTION
-@NAME:	noFooter
+@NAME:	footer
 @CAT:	input and page layout options
-@INFO:	Do not add any footer
-@ARG:	none
+@INFO:	Do not add any footer, add a footer, use automatic footer
+@ARG:	string
+@DEF:	auto
+@ALT:	encoded
+@ALT:	none
 @@END: OPTION
 
 

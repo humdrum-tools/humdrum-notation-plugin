@@ -673,8 +673,8 @@ HumdrumNotationPluginDatabase.prototype.insertDefaultOptions = function (baseid,
 	if (!vrvOptions.hasOwnProperty("humType")) {
 		vrvOptions.humType = 1;
 	}
-	if (!vrvOptions.hasOwnProperty("noFooter")) {
-		vrvOptions.noFooter = 1;
+	if (!vrvOptions.hasOwnProperty("footer")) {
+		vrvOptions.footer = "none";
 	}
 	if (!vrvOptions.hasOwnProperty("noHeader")) {
 		vrvOptions.noHeader = 1;
