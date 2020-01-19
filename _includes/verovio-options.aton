@@ -383,17 +383,6 @@
 
 
 @@BEGIN: OPTION
-@NAME:	leftPosition
-@CAT:	general layout
-@ARG:	float
-@INFO:	The left position
-@DEF:	0.80
-@MIN:	0.00
-@MAX:	2.00
-@@END: OPTION
-
-
-@@BEGIN: OPTION
 @NAME:	lyricHyphenWidth
 @CAT:	general layout
 @ARG:	float
