@@ -618,11 +618,11 @@ HumdrumNotationPluginDatabase.prototype.insertDefaultOptions = function (baseid,
 	if (!vrvOptions.hasOwnProperty("barLineWidth")) {
 		vrvOptions.barLineWidth = 0.12;
 	}
-	if (!vrvOptions.hasOwnProperty("format")) {
-		vrvOptions.format = "auto";
+	if (!vrvOptions.hasOwnProperty("from")) {
+		vrvOptions.from = "auto";
 	}
-	if (!vrvOptions.hasOwnProperty("format")) {
-		vrvOptions.format = "auto";
+	if (!vrvOptions.hasOwnProperty("from")) {
+		vrvOptions.from = "auto";
 	}
 
 	// Need to superimpose default options since verovio will keep old
@@ -647,7 +647,7 @@ HumdrumNotationPluginDatabase.prototype.insertDefaultOptions = function (baseid,
 			if (name === "pageHeight")     { continue; }
 			if (name === "staffLineWidth") { continue; }
 			if (name === "barLineWidth")   { continue; }
-			if (name === "format")         { continue; }
+			if (name === "from")           { continue; }
 
 			// Fill in default values for parameters that are not set:
 			if ((option.ARG === "integer") && (typeof option.DEF !== 'undefined')) {

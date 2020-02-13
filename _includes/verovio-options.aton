@@ -41,10 +41,10 @@
 
 
 @@BEGIN: OPTION
-@NAME:	format
-@NAME_CLI:	format
+@NAME:	from
+@NAME_CLI:	from
 @ABBR:	f
-@INFO:	Select input format
+@INFO:	Select input data type
 @ARG:	string
 @DEF:	mei
 @ALT:	auto
@@ -109,9 +109,9 @@
 @@END: OPTION
 
 @@BEGIN: OPTION
-@NAME:	type
+@NAME:	to
 @ABBR:	t
-@INFO:	Select output format
+@INFO:	Select output data format
 @ARG:	string
 @DEF:	svg
 @ALT:	mei

@@ -15,10 +15,10 @@
          "CLI_ONLY": "true?"
       },
       {
-         "NAME": "format",
-         "NAME_CLI": "format",
+         "NAME": "from",
+         "NAME_CLI": "from",
          "ABBR": "f",
-         "INFO": "Select input format",
+         "INFO": "Select input data from",
          "ARG": "string",
          "DEF": "mei",
          "ALT": [
@@ -72,9 +72,9 @@
          "MAX": "1.0"
       },
       {
-         "NAME": "type",
+         "NAME": "to",
          "ABBR": "t",
-         "INFO": "Select output format",
+         "INFO": "Select output data format",
          "ARG": "string",
          "DEF": "svg",
          "ALT": [
