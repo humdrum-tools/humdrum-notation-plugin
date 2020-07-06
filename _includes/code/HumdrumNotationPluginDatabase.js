@@ -240,6 +240,11 @@ HumdrumNotationPluginDatabase.prototype.downloadUriAndDisplay = function (baseid
 		url = this.makeUrlHumdrum(uri);
 	} else if (uri.match(/^(j|jrp):\/\//i)) {
 		url = this.makeUrlJrp(uri);
+	} else if (uri.match(/^(https?):\/\//i)) {
+		url = uri;
+	} else {
+		// Assume local file URL:
+		url = uri;
 	}
 	if (url) {
 		entry.options.url = url;
