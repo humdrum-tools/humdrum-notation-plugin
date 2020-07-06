@@ -249,7 +249,7 @@ HumdrumNotationPluginDatabase.prototype.downloadUriAndDisplay = function (baseid
 	if (url) {
 		entry.options.url = url;
 		this.downloadUrlAndDisplay(baseid);
-	} else [
+	} else {
 		console.log("Warning: No URL for URI:", uri);
 	}
 }
