@@ -817,7 +817,7 @@ HumdrumNotationPluginDatabase.prototype.makeUrlJrp = function (uri, opts) {
 
 HumdrumNotationPluginDatabase.prototype.makeUrlNifc = function (uri, opts) {
 	var url = uri;
-	var matches = uri.match(/^(nifc):\/\/(.*)$/i);
+	var matches = uri.match(/^(?:nifc):\/\/(.*)$/i);
 	if (matches) {
 		var filename = matches[1];
 		url = "https://humdrum.nifc.pl/" + filename;
