@@ -240,6 +240,8 @@ HumdrumNotationPluginDatabase.prototype.downloadUriAndDisplay = function (baseid
 		url = this.makeUrlHumdrum(uri);
 	} else if (uri.match(/^(j|jrp):\/\//i)) {
 		url = this.makeUrlJrp(uri);
+	} else if (uri.match(/^(nifc):\/\//i)) {
+		url = this.makeUrlNifc(uri);
 	} else if (uri.match(/^(https?):\/\//i)) {
 		url = uri;
 	} else {
@@ -746,7 +748,7 @@ HumdrumNotationPluginDatabase.prototype.extractVerovioOptions = function (baseid
 //
 
 HumdrumNotationPluginDatabase.prototype.makeUrlGithub = function (uri, opts) {
-	var url = "";
+	var url = uri;
 	var matches = uri.match(/^(g|gh|github):\/\/([^\/]+)\/([^\/]+)\/(.*)\s*$/);
 	if (matches) {
 		var account = matches[2];
@@ -767,11 +769,11 @@ HumdrumNotationPluginDatabase.prototype.makeUrlGithub = function (uri, opts) {
 
 ///////////////////////////////
 //
-// HumdrumNotationPluginDatabase::MakeUrlHumdrum -- Convert a (kernScores) Humdrum URI into a URL.
+// HumdrumNotationPluginDatabase::makeUrlHumdrum -- Convert a (kernScores) Humdrum URI into a URL.
 //
 
-HumdrumNotationPluginDatabase.prototype.MakeUrlHumdrum = function (uri, opts) {
-	var url = "";
+HumdrumNotationPluginDatabase.prototype.makeUrlHumdrum = function (uri, opts) {
+	var url = uri;
 	var matches = uri.match(/^(h|hum|humdrum):\/\/(.*)\s*$/);
 	if (matches) {
 		url = "http://kern.humdrum.org/data?s=" + matches[2];
@@ -783,11 +785,11 @@ HumdrumNotationPluginDatabase.prototype.MakeUrlHumdrum = function (uri, opts) {
 
 ///////////////////////////////
 //
-// HumdrumNotationPluginDatabase::MakeUrlJrp -- Convert a (kernScores) JRP URI into a URL.
+// HumdrumNotationPluginDatabase::makeUrlJrp -- Convert a (kernScores) JRP URI into a URL.
 //
 
-HumdrumNotationPluginDatabase.prototype.MakeUrlJrp = function (uri, opts) {
-	var url = "";
+HumdrumNotationPluginDatabase.prototype.makeUrlJrp = function (uri, opts) {
+	var url = uri;
 	var composerid;
 	var jrpid;
 	var filename;
@@ -802,6 +804,23 @@ HumdrumNotationPluginDatabase.prototype.MakeUrlJrp = function (uri, opts) {
 			jrpid += "-" + filename;
 		}
 		url = "http://jrp.ccarh.org/cgi-bin/jrp?a=humdrum&f=" + jrpid;
+	}
+	return url;
+}
+
+
+
+///////////////////////////////
+//
+// HumdrumNotationPluginDatabase::makeUrlNifc -- Convert a NIFC URI into a URL.
+//
+
+HumdrumNotationPluginDatabase.prototype.makeUrlNifc = function (uri, opts) {
+	var url = uri;
+	var matches = uri.match(/^(nifc):\/\/(.*)$/i);
+	if (matches) {
+		var filename = matches[1];
+		url = "https://humdrum.nifc.pl/" + filename;
 	}
 	return url;
 }
