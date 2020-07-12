@@ -7,21 +7,44 @@ permalink: scripts/verovio-worker.js
 {% comment %}
 <!--  vim: ts=3 : -->
 
-Web worker interface for verovio, which separates notation rendering into a separate
-thread from the user interface.
+Web worker interface for verovio, which separates notation rendering
+into a separate thread from the user interface.
 
 For more information about web workers:
      https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
 
 {% endcomment %}
 
+self.methods = null;
+
+
+/////////////////////////////
+//
+// WASM installation variable:
+//
+
+self.Module = {
+    onRuntimeInitialized: function() {
+         methods = new verovioCalls();
+         methods.vrvToolkit = new verovio.toolkit();
+         console.log(`Verovio (WASM) ${methods.vrvToolkit.getVersion()} loaded`);
+      postMessage({method: "ready"});
+      // postMessage(["loaded", false, {}]);
+      }
+};
+
+//
+// WASM
+//
+//////////////////////////////
+
 
 {% if site.local == "true" %}
-	importScripts('/scripts/verovio-toolkit.js');
+	importScripts('/scripts/verovio-toolkit-wasm.js');
 	importScripts("/scripts/humdrumValidator.js");
 	importScripts("/scripts/verovio-calls.js");
 {% else %}
-	importScripts("https://verovio-script.humdrum.org/scripts/verovio-toolkit.js");
+	importScripts("https://verovio-script.humdrum.org/scripts/verovio-toolkit-wasm.js");
 	importScripts("https://plugin.humdrum.org/scripts/humdrumValidator.js");
 	importScripts("https://plugin.humdrum.org/scripts/verovio-calls.js");
 {% endif %}
@@ -78,9 +101,9 @@ addEventListener("message", function(oEvent) {
 });
 
 
-methods = new verovioCalls();
-methods.vrvToolkit = new verovio.toolkit();
-
-postMessage({method: "ready"});
+// non-wasm:
+// methods = new verovioCalls();
+// methods.vrvToolkit = new verovio.toolkit();
+// postMessage({method: "ready"});
 
 
