@@ -117,15 +117,16 @@ function getHumdrumOption(baseid, key) {
 //
 
 function displayHumdrum(opts) {
+	{% if page.worker %}
 	if (HNP.ready) {
-//	if (document.readyState === "complete" ||
-//	    document.readyState === "loaded" ||
-//	    document.readyState === "interactive") {
-console.log("DISPLAYING HUMDRUM NOW", opts);
+	{% else %}
+	if (document.readyState === "complete" ||
+			document.readyState === "loaded" ||
+			document.readyState === "interactive") {
+	{% endif %}
      	HNP.displayHumdrumNow(opts);
 	} else {
 		// Wait until the page has finished loading resources.
-console.log("DELAYING DISPLAY OF HUMDRUM", opts);
 		HNP.waiting.push(opts);
 		// document.addEventListener("DOMContentLoaded", function() {
 		// 	HNP.displayHumdrumNow(opts);
@@ -136,7 +137,6 @@ console.log("DELAYING DISPLAY OF HUMDRUM", opts);
 {% if page.worker %}
 {% else %}
 document.addEventListener("DOMContentLoaded", function() {
-console.log("========= DISPLAY WATING HUMDRUM");
 	HNP.displayWaiting();
 });
 {% endif %}
