@@ -42,6 +42,7 @@ function HumdrumNotationPluginDatabase() {
 	this.entries = {};  // Hash of notation ids and their related information.
 	this.mutex = 0;
 	this.waiting = [];  // Notation entries to process after verovio has loaded.
+	this.ready = 0;     // Set to 1 when verovio toolkit is loaded
 	HumdrumNotationPluginDatabase.prototype.prepareOptions();
 	return this;
 }

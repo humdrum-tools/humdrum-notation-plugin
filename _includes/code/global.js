@@ -33,6 +33,7 @@ function downloadVerovioToolkit(use_worker) {
 
 function callbackAfterInitialized() {
 	console.log("Initialized verovio worker");
+	HNP.ready = 1;
 	HNP.displayWaiting();
 }
 
@@ -116,9 +117,10 @@ function getHumdrumOption(baseid, key) {
 //
 
 function displayHumdrum(opts) {
-	if (document.readyState === "complete" ||
-	    document.readyState === "loaded" ||
-	    document.readyState === "interactive") {
+	if (HNP.ready) {
+//	if (document.readyState === "complete" ||
+//	    document.readyState === "loaded" ||
+//	    document.readyState === "interactive") {
 console.log("DISPLAYING HUMDRUM NOW", opts);
      	HNP.displayHumdrumNow(opts);
 	} else {

@@ -24,13 +24,13 @@ self.methods = null;
 //
 
 self.Module = {
-    onRuntimeInitialized: function() {
-         methods = new verovioCalls();
-         methods.vrvToolkit = new verovio.toolkit();
-         console.log(`Verovio (WASM) ${methods.vrvToolkit.getVersion()} loaded`);
-      postMessage({method: "ready"});
-      // postMessage(["loaded", false, {}]);
-      }
+	onRuntimeInitialized: function() {
+			methods = new verovioCalls();
+			methods.vrvToolkit = new verovio.toolkit();
+			console.log(`Verovio (WASM) ${methods.vrvToolkit.getVersion()} loaded`);
+			postMessage({method: "ready"});
+		// postMessage(["loaded", false, {}]);
+	}
 };
 
 //
