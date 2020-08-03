@@ -16,7 +16,7 @@ external source.  Here is an example use of the plugin to display
 J.N.&nbsp;Hummel's prelude in D-flat major, op.&nbsp;67/15:
 
 
-{% include tryit.html id="G67FY3DSQPMJ" marginBottom="-20px" zIndex="2000" %}
+{% include tryit.html id="G67FY3DSQPMJ" marginBottom="-10px" zIndex="2000" %}
 {% include hummel-interaction.html %}
 <div id="hummel-prelude-op67n15-container" style="height:573.2px;">
 {% include_relative hummel-prelude-op67n15.svg -%}
