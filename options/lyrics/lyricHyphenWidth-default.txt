@@ -1,9 +1,0 @@
-<script>
-   displayHumdrum({
-      source: "lyricExample",
-      target: "lyricHyphenWidth-default",
-      incipit: true,
-      scale: 30,
-   });
-</script>
-<script type="text/x-humdrum" id="lyricHyphenWidth-default"></script>

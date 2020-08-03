@@ -30,6 +30,4 @@ Numeric options:
 | `spacingNonLinear` | 0.6           | 0.0       | 1.0       | This parameter controls the relative widths of notes compared to those that are twice as long.  For example 0.6 means that half notes take up 60% of the space that two quarter notes would.  A value of 0.0 means that all rhythms are equally spaced, and 1.0 means that note spacings are directly proportional to their durations.  Small values will tend to compress the music wile large value tend to expand the musical spacing.
 | `lyricSize`      ` | 4.5           | 2.0       | 8.0       | The height of lyric text in units of diatonic steps. ([see lyrics option doc.](/options/lyrics))
 | `lyricTopMinMargin`| 2.0           | 0.0       | 8.0       | The minimum margin between lyrics and the music on the staff above them in units of diatonic steps ([see lyrics options doc.](/options/lyrics)).
-| `lyricHyphenWidth` | 0.2           | 0.1       | 0.5       | The minimum margin between lyrics and the music on the staff above them in units of diatonic steps ([see lyrics options doc.](/options/lyrics)).
-
 

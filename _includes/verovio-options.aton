@@ -383,17 +383,6 @@
 
 
 @@BEGIN: OPTION
-@NAME:	lyricHyphenWidth
-@CAT:	general layout
-@ARG:	float
-@INFO:	The lyric hyphen and dash width
-@DEF:	0.20
-@MIN:	0.10
-@MAX:	0.50
-@@END: OPTION
-
-
-@@BEGIN: OPTION
 @NAME:	lyricSize
 @CAT:	general layout
 @ARG:	float

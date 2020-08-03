@@ -30,12 +30,6 @@ default style for the lyrics:
 
 
 
-# lyricHyphenWidth #
-
-{% include_relative lyricHyphenWidth-option-documentation.txt %}
-
-
-
 # Coloring lyrics with CSS #
 
 {% include_relative coloringLyricsWithCss-documentation.txt %}

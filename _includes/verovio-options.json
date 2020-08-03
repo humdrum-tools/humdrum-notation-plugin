@@ -291,15 +291,6 @@
          "MAX": "8.00"
       },
       {
-         "NAME": "lyricHyphenWidth",
-         "CAT": "general layout",
-         "ARG": "float",
-         "INFO": "The lyric hyphen and dash width",
-         "DEF": "0.20",
-         "MIN": "0.10",
-         "MAX": "0.50"
-      },
-      {
          "NAME": "lyricSize",
          "CAT": "general layout",
          "ARG": "float",
