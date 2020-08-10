@@ -1235,7 +1235,7 @@ in the grid.  Do this sixteen times to generate a randomized score.
 
 
 
-<pre id="humdrum-score"></pre>
+<pre style="display:none; tab-size:12; -moz-tab-size:12;" id="humdrum-score"></pre>
 
 
 

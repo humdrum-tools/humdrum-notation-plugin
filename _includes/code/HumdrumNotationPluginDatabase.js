@@ -518,6 +518,7 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 	var humdrumOut = toolkit.getHumdrum();
 console.log("HUMDRUM OUT", humdrumOut);
 	entry.humdrumOutput = humdrumOut;
+console.log("STORED IN ENTRY", entry);
 
 	if (pluginOptions.postFunction) {
 		// Need to run a function after the image has been created or redrawn

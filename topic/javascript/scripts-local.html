@@ -173,28 +173,31 @@ function prepareMeasureGrid(grid) {
 //
 
 function displayHumdrumData(hid, hnpdatabase) {
-console.log("=================================================");
+console.log("=============================================");
 	var entry = hnpdatabase.entries[hid];
-console.log("HNPDATABASE", hnpdatabase);
+console.log("ENTRY", entry);
 	if (!entry) {
+		console.log("NO HUMDRUM NOTATION PLUGIN DATABASE");
 		return;
 	}
-	var toolkit = entry.toolkit;
-	if (!toolkit) {
+console.log("GOT HERE AAA");
+	var humdrum = entry.humdrumOutput;
+	if (!humdrum) {
+		console.log("NO HUMDRUM OUTPUT FROM VEROVIO");
 		return;
 	}
-	console.log("HNP toolkit", toolkit);
-	var worker = toolkit.worker;
-	if (!worker) {
+console.log("GOT HERE BBB");
+	var target = document.querySelector("pre#humdrum-data");
+	if (!taret) {
+		console.log("NO TARGET ELEMENT FOR DISPLAYING HUMDRUM SCORE");
 		return;
 	}
-	console.log("HNP bez worker", worker);
-	var value = worker.getHumdrum()
-	.then(function(text) {
-console.log("ARGUMENTS", arguments);
-		console.log("TEXT OF HUMDRUM FILTER OUTPUT IS", text);
-	});
-	console.log("VALUE = ", value);
+console.log("GOT HERE CCC");
+	target.display = "block";
+	var lines = humdrum.split(/\r?\n/);
+	console.log("LINES", lines)
+console.log("GOT HERE DDD");
+
 
 }
 
