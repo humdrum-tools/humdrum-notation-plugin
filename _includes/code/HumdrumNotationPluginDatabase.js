@@ -507,12 +507,15 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 				});
 			}
 		}
-	});
-	vrvWorker.getHumdrum()
-	.then(function(humdrumdata) {
-		this.humdrumOutput
-		entry.humdrumOutput = humdrumdata;
+	})
+	.then(function() {
+		vrvWorker.getHumdrum()
+		.then(function(humdrumdata) {
+			this.humdrumOutput
+			entry.humdrumOutput = humdrumdata;
+console.log("++++++++++++++++++++++++++++++++");
 console.log("STORED2 HUMDRUM DATA IN ENTRY", entry);
+		});
 	});
 	{% else %}
 	var svg = toolkit.renderData(sourcetext, vrvOptions);
