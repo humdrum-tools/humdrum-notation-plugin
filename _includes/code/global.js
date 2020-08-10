@@ -167,18 +167,18 @@ console.log("   URL = ", url);
 	request.addEventListener("load", function() {
 		source.textContent = this.responseText;
 		HNP.displayHumdrumNow(opts);
-	}
+	});
 	request.addEventListener("error", function() {
 		downloadFallback(source, opts, fallback);
-	};
+	});
 	request.addEventListener("loadstart", function() {
 		// display a busy cursor
 		document.body.style.cursor = "wait !important";
-	}
+	});
 	request.addEventListener("loadstart", function() {
 		// display a normal cursor
 		if (document.body.style.cursor = "auto";
-	}
+	});
 	request.open("GET", url);
 	request.send();
 
