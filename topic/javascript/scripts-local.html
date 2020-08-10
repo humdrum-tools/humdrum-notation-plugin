@@ -172,8 +172,25 @@ function prepareMeasureGrid(grid) {
 //    at bottom of page.
 //
 
-function displayHumdrumData() {
-	console.log("DISPLAY HUMDRUM DATA", arguments);
+function displayHumdrumData(hid, hnpdatabase) {
+	var entry = hnpdatabase.entries[hid];
+	if (!entry) {
+		return;
+	}
+	var toolkit = entry.toolkit;
+	if (!toolkit) {
+		return;
+	}
+	console.log("HNP toolkit", toolkit);
+	var worker = toolkit.worker;
+	if (!worker) {
+		return;
+	}
+	console.log("HNP worker", worker);
+	worker.getHumdrum()
+	.then(function(text) {
+		console.log("TEXT OF HUMDRUM FILTER OUTPUT IS", text);
+	});
 
 }
 

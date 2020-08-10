@@ -300,6 +300,46 @@ function convertMusicXmlToHumdrum(sourcetext, vrvOptions, pluginOptions) {
 
 //////////////////////////////
 //
+// getHumdrum -- Return the Humdrum data used to render the last
+//    SVG image(s).  This Humdrum data is the potentially
+//    filtered input Humdrum data (otherwise the last raw
+//    Humdrum input data).
+//
+
+{% if page.worker %}
+function getHumdrum(pluginOptions) {
+	var toolkit = pluginOptions.renderer;
+	if (typeof vrvWorker !== "undefined") {
+		toolkit = vrvWorker;
+	}
+{% else %}
+function getHumdrum(pluginOptions) {
+	var toolkit = pluginOptions.renderer;
+	if (typeof vrvToolkit !== "undefined") {
+		toolkit = vrvToolkit;
+	}
+{% endif %}
+
+	if (!toolkit) {
+		console.log("Error: Cannot find verovio toolkit!");
+		return;
+	}
+
+{% if page.worker %}
+	vrvWorker.getHumdrum()
+	.then(function(content) {
+		return content;
+	});
+{% else %}
+	var humdrum = toolkit.getHumdrum();
+	return humdrum;
+{% endif %}
+}
+
+
+
+//////////////////////////////
+//
 // convertMeiToHumdrum --
 //
 
