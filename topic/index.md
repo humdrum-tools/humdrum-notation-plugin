@@ -11,6 +11,11 @@ nav {
 .tag-h2 {
 	display: none;
 }
+
+li {
+	padding-bottom: 10px;
+}
+
 </style>
 
 # Additional topics #

@@ -17,9 +17,84 @@ section {
 }
 </style>
 
+# Options #
 
+There are many options that can be used to control display of music
+notation in HNP.  These options are given within an object passed
+to the `displayHumdrum` function.  Here is a a minimal call to
+`displayHumdrum`, giving only a source option for the Humdrum data to display:
+
+<script>
+displayHumdrum({source: "default"});
+</script>
+<script tyle="text/x-humdrum" id="default">
+**kern
+*M4/4
+1c;
+==
+*-
+</script>
+
+
+```html
+<script>
+   displayHumdrum({source: "default"});
+</script>
+
+<script tyle="text/x-humdrum" id="default">
+**kern
+*M4/4
+1c;
+==
+*-
+</script>
+```
+
+To give more options, add them to the input object for `displayHumdrum`.
+Here is an example of changing the size:
+
+<script>
+	var options = {
+		source: "large-print",
+		scale: 80
+	};
+
+	displayHumdrum(options);
+</script>
+
+<script tyle="text/x-humdrum" id="large-print">
+**kern
+*M4/4
+1c;
+==
+*-
+</script>
+
+
+```html
+<script>
+   var options = {
+      source: "large-print",
+      scale: 80
+   };
+
+   displayHumdrum(options);
+</script>
+
+<script tyle="text/x-humdrum" id="large-print">
+**kern
+*M4/4
+1c;
+==
+*-
+</script>
+```
+
+
+<a name="list"> </a>
 
 # List of options #
+
 
 {% include options.md %}
 
@@ -27,6 +102,9 @@ section {
 
 # Discussion and Examples #
 
+<style>
+	li { padding-bottom: 10px; }
+</style>
 
 * <a href="url">URL-related options</a>
 * <a href="uri">URI option demo</a>
