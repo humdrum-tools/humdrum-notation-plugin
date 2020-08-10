@@ -175,9 +175,9 @@ console.log("   URL = ", url);
 		// display a busy cursor
 		document.body.style.cursor = "wait !important";
 	});
-	request.addEventListener("loadstart", function() {
+	request.addEventListener("loadend", function() {
 		// display a normal cursor
-		if (document.body.style.cursor = "auto";
+		document.body.style.cursor = "auto";
 	});
 	request.open("GET", url);
 	request.send();
