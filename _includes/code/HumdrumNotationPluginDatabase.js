@@ -240,7 +240,7 @@ console.log("DOWNLOAD URI AND DISPLAY", baseid);
 		url = this.makeUrlGithub(uri);
 	} else if (uri.match(/^(h|hum|humdrum):\/\//i)) {
 		url = this.makeUrlHumdrum(uri);
-console.log("HUMDRUM URL EQUIVALENT:" url);
+console.log("HUMDRUM URL EQUIVALENT:", url);
 	} else if (uri.match(/^(j|jrp):\/\//i)) {
 		url = this.makeUrlJrp(uri);
 	} else if (uri.match(/^(nifc):\/\//i)) {
