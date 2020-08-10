@@ -324,6 +324,7 @@ HumdrumNotationPluginDatabase.prototype.getEmbeddedOptions = function (humdrumfi
 //
 
 HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
+	var that2 = this;
 	var entry = this.entries[baseid];
 	if (!entry) {
 		console.log("Error: Notation entry is not defined for ID:", baseid);
@@ -447,9 +448,9 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 		if (pluginOptions.postFunction) {
 			// Need to run a function after the image has been created or redrawn
 			try {
-				pluginOptions.postFunction(baseid);
+				pluginOptions.postFunction(baseid, that2);
 			} catch (error) {
-				executeFunctionByName(pluginOptions.postFunction, window, [baseid]);
+				executeFunctionByName(pluginOptions.postFunction, window, [baseid, that2]);
 			}
 			pluginOptions._processedPostFunction = pluginOptions.postFunction;
 			delete pluginOptions.postFunction;
@@ -517,9 +518,9 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 	if (pluginOptions.postFunction) {
 		// Need to run a function after the image has been created or redrawn
 		try {
-			pluginOptions.postFunction(baseid);
+			pluginOptions.postFunction(baseid, that2);
 		} catch (error) {
-			executeFunctionByName(pluginOptions.postFunction, window, [baseid]);
+			executeFunctionByName(pluginOptions.postFunction, window, [baseid, that2]);
 		}
 		pluginOptions._processedPostFunction = pluginOptions.postFunction;
 		delete pluginOptions.postFunction;
