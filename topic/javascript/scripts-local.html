@@ -173,7 +173,9 @@ function prepareMeasureGrid(grid) {
 //
 
 function displayHumdrumData(hid, hnpdatabase) {
+console.log("=================================================");
 	var entry = hnpdatabase.entries[hid];
+console.log("HNPDATABASE", hnpdatabase);
 	if (!entry) {
 		return;
 	}
@@ -186,11 +188,13 @@ function displayHumdrumData(hid, hnpdatabase) {
 	if (!worker) {
 		return;
 	}
-	console.log("HNP worker", worker);
-	worker.getHumdrum()
+	console.log("HNP bez worker", worker);
+	var value = worker.getHumdrum()
 	.then(function(text) {
+console.log("ARGUMENTS", arguments);
 		console.log("TEXT OF HUMDRUM FILTER OUTPUT IS", text);
 	});
+	console.log("VALUE = ", value);
 
 }
 

@@ -515,6 +515,10 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 	// clear the height styling which may have been given as a placeholder:
 	entry.container.style.height = "";
 
+	var humdrumOut = toolkit.getHumdrum();
+console.log("HUMDRUM OUT", humdrumOut);
+	entry.humdrumOutput = humdrumOut;
+
 	if (pluginOptions.postFunction) {
 		// Need to run a function after the image has been created or redrawn
 		try {

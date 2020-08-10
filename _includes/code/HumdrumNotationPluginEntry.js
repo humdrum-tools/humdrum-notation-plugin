@@ -29,6 +29,7 @@ function HumdrumNotationPluginEntry(baseid, opts) {
 	this.container = null; // container element for notation
 	this.humdrum   = null; // storage for Humdrum data
 	this.svg       = null; // storage for SVG image
+	this.humdrumOutput = null; // storage for Humdrum after filtering to create SVG image
 	this.pages     = [];   // storage buffer for SVG of each page (multi-page examples)
 
 	return this;

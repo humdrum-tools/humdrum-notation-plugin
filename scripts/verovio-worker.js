@@ -1,11 +1,10 @@
 ---
 layout: empty
 permalink: scripts/verovio-worker.js
+vim: ts=3 
 ---
 
-
 {% comment %}
-<!--  vim: ts=3 : -->
 
 Web worker interface for verovio, which separates notation rendering
 into a separate thread from the user interface.
