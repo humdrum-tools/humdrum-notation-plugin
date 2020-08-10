@@ -508,17 +508,23 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 			}
 		}
 	});
+	vrvWorker.getHumdrum()
+	.then(function(humdrumdata) {
+		this.humdrumOutput
+		entry.humdrumOutput = humdrumdata;
+console.log("STORED2 HUMDRUM DATA IN ENTRY", entry);
+	});
 	{% else %}
 	var svg = toolkit.renderData(sourcetext, vrvOptions);
-
 	entry.svg.innerHTML = svg;
+
+	var hdata = toolkit.getHumdrum();
+	entry.humdrumOutput = hdata;
+console.log("STORED HUMDRUM DATA IN ENTRY", entry);
+
 	// clear the height styling which may have been given as a placeholder:
 	entry.container.style.height = "";
 
-	var humdrumOut = toolkit.getHumdrum();
-console.log("HUMDRUM OUT", humdrumOut);
-	entry.humdrumOutput = humdrumOut;
-console.log("STORED IN ENTRY", entry);
 
 	if (pluginOptions.postFunction) {
 		// Need to run a function after the image has been created or redrawn

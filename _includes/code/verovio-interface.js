@@ -231,6 +231,20 @@ vrvInterface.prototype.renderData = function (opts, data, page) {
 
 //////////////////////////////
 //
+// vrvInterface::getHumdrum --
+//
+
+vrvInterface.prototype.getHumdrum = function () {
+	// console.log("%cvrvInterface.getHumdrum", "color: #aa8800; font-weight: bold");
+var value = this.execute("getHumdrum", arguments);
+console.log("GOT HUMDRUM DATA XXX", value);
+	return value;
+};
+
+
+
+//////////////////////////////
+//
 // vrvInterface::redoLayout --
 //
 

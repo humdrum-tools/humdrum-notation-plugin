@@ -114,6 +114,19 @@ console.log("SETTING HUMDRUM OUTPUT OF THIS", this, "TO", this.humdrumOutput, "I
 
 
 
+	///////////////////////////
+	//
+	// verovioCalls.getHumdrum -- Return processed Humdrum data from last call to
+	//     renderData.
+	//
+
+	this.getHumdrum = function() {
+console.log("====== OUTPUT HUMDRUM ", this.humdrumOutput);
+		return this.humdrumOutput;
+	}
+
+
+
 	////////////////////////////
 	//
 	// verovioCalls.redoLayout --
