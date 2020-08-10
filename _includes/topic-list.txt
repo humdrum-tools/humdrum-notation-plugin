@@ -3,7 +3,7 @@
 * <a href="/topic/musicxml">How to import MusicXML data</a>
 * <a href="/topic/mei">How to import MEI data</a>
 * <a href="/topic/coloring">How to highlight notes with color</a>
-* <a href="/topic/javscript">How to create dynamic notation with javascript</a>
+* <a href="/topic/javscript">How to create dynamic score generation with javascript</a>
 * <a href="/topic/saving">How to add buttons to save SVG images or Humdrum data from a webpage</a>
 * <a href="/topic/toggle">How to load many small pieces onto a webpage and toggle their display</a>
 * <a href="/options/resize">How to resize music notation automatically and manually</a>

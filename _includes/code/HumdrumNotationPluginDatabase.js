@@ -218,6 +218,7 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumNow = function (opts) {
 //
 
 HumdrumNotationPluginDatabase.prototype.downloadUriAndDisplay = function (baseid) {
+console.log("DOWNLOAD URI AND DISPLAY", baseid);
 	var entry = this.entries[baseid];
 	if (!entry) {
 		console.log("Error: Cannot find entry for URI download:", baseid);
@@ -239,6 +240,7 @@ HumdrumNotationPluginDatabase.prototype.downloadUriAndDisplay = function (baseid
 		url = this.makeUrlGithub(uri);
 	} else if (uri.match(/^(h|hum|humdrum):\/\//i)) {
 		url = this.makeUrlHumdrum(uri);
+console.log("HUMDRUM URL EQUIVALENT:" url);
 	} else if (uri.match(/^(j|jrp):\/\//i)) {
 		url = this.makeUrlJrp(uri);
 	} else if (uri.match(/^(nifc):\/\//i)) {
@@ -251,6 +253,7 @@ HumdrumNotationPluginDatabase.prototype.downloadUriAndDisplay = function (baseid
 	}
 	if (url) {
 		entry.options.url = url;
+console.log("SETTING URL IN OPTIONS TO ", url);
 		this.downloadUrlAndDisplay(baseid);
 	} else {
 		console.log("Warning: No URL for URI:", uri);
@@ -265,12 +268,14 @@ HumdrumNotationPluginDatabase.prototype.downloadUriAndDisplay = function (baseid
 //
 
 HumdrumNotationPluginDatabase.prototype.downloadUrlAndDisplay = function (baseid) {
+console.log("DOWNLOAD URL AND DISPLAY", baseid);
 	var entry = this.entries[baseid];
 	if (!entry) {
 		console.log("Error: Cannot find entry for URL download:", baseid);
 		return;
 	}
 
+console.log("   URL =", entry.options.url);
 	if (entry.options.url) {
 		entry.options.processedUrl = entry.options.url;
 		delete entry.options.url;

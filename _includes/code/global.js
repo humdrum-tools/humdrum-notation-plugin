@@ -149,6 +149,7 @@ document.addEventListener("DOMContentLoaded", function() {
 //
 
 function downloadHumdrumUrlData(source, opts) {
+console.log("GOT INTO DOWNLOAD HUMDRUM URL DATA, source=", source, "OPTS", opts);
 	if (!source) {
 		return;
 	}
@@ -159,20 +160,25 @@ function downloadHumdrumUrlData(source, opts) {
 		return;
 	}
 	var url = opts.processedUrl;
+console.log("   URL = ", url);
 	var fallback = opts.urlFallback;
 	var request = new XMLHttpRequest();
 
-	request.onload = function() {
-		if (this.status == 200) {
-			source.textContent = this.responseText;
-			HNP.displayHumdrumNow(opts);
-		} else {
-			downloadFallback(source, opts, fallback);
-		}
-	};
-	request.onerror = function() {
+	request.addEventListener("load", function() {
+		source.textContent = this.responseText;
+		HNP.displayHumdrumNow(opts);
+	}
+	request.addEventListener("error", function() {
 		downloadFallback(source, opts, fallback);
 	};
+	request.addEventListener("loadstart", function() {
+		// display a busy cursor
+		document.body.style.cursor = "wait !important";
+	}
+	request.addEventListener("loadstart", function() {
+		// display a normal cursor
+		if (document.body.style.cursor = "auto";
+	}
 	request.open("GET", url);
 	request.send();
 
