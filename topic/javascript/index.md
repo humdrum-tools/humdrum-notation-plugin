@@ -30,7 +30,7 @@ in the grid.  Do this sixteen times to generate a randomized score.
 	var HnpOptions = {
 		/* uri: "h://dice/mozart/k516f.krn", */
 		source: "dice",
-		postFunction: displayHumdrumData
+		postFunctionHumdrum: displayHumdrumData
 	}
 
 	displayHumdrum(HnpOptions);

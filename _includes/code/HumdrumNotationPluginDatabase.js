@@ -513,17 +513,12 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 		.then(function(humdrumdata) {
 			this.humdrumOutput
 			entry.humdrumOutput = humdrumdata;
-
-console.log("++++++++++++++++++++++++++++++++");
-console.log("STORED2 HUMDRUM DATA IN ENTRY", entry);
-
 			if (pluginOptions.postFunctionHumdrum) {
-console.log("RUNNING POST HUMDRUM FUNCTION");
 				// Need to run a function after the image has been created or redrawn
 				try {
-					pluginOptions.postFunctionHumdrum(baseid, entry.humdrumOutput);
+					pluginOptions.postFunctionHumdrum(entry.humdrumOutput, baseid, that2);
 				} catch (error) {
-					executeFunctionByName(pluginOptions.postFunctionHumdrum, window, [baseid, entry.humdrumOutput]);
+					executeFunctionByName(pluginOptions.postFunctionHumdrum, window, [entry.humdrumOutput, baseid, that2]);
 				}
 				pluginOptions._processedPostFunction = pluginOptions.postFunctionHumdrum;
 				delete pluginOptions.postFunctionHumdrum;
@@ -537,7 +532,6 @@ console.log("RUNNING POST HUMDRUM FUNCTION");
 
 	var hdata = toolkit.getHumdrum();
 	entry.humdrumOutput = hdata;
-console.log("STORED HUMDRUM DATA IN ENTRY", entry);
 
 	// clear the height styling which may have been given as a placeholder:
 	entry.container.style.height = "";
