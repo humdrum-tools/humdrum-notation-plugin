@@ -107,7 +107,6 @@ function verovioCalls() {
 			};
 			this.page = page;
 			this.humdrumOutput = this.vrvToolkit.getHumdrum();
-console.log("SETTING HUMDRUM OUTPUT OF THIS", this, "TO", this.humdrumOutput, "IN RENDERDATA");
 			return svg;
 		};
 	};
@@ -121,7 +120,6 @@ console.log("SETTING HUMDRUM OUTPUT OF THIS", this, "TO", this.humdrumOutput, "I
 	//
 
 	this.getHumdrum = function() {
-console.log("====== OUTPUT HUMDRUM ", this.humdrumOutput);
 		return this.humdrumOutput;
 	}
 

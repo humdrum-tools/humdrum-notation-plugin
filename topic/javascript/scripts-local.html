@@ -173,24 +173,68 @@ function prepareMeasureGrid(grid) {
 //
 
 function displayHumdrumData(humdrumData, hid, hnpdatabase) {
-console.log("=============================================");
-console.log("FINAL HUMDRUM DATA", humdrumData);
+	var elink = document.querySelector("#humdrum-link");
+	if (elink) {
+		elink.style.display = "none";
+	}
 
-console.log("GOT HERE BBB ZZZ");
 	var target = document.querySelector("pre#humdrum-score");
 	if (!target) {
 		console.log("NO TARGET ELEMENT FOR DISPLAYING HUMDRUM SCORE");
 		return;
 	}
-console.log("GOT HERE CCC");
-	target.display = "block";
+
 	var lines = humdrumData.split(/\r?\n/);
-	console.log("Humdrum LINES", lines)
-console.log("GOT HERE DDD");
 
+	if (lines.length > 1000) {
+		// When the entire input score is displayed, hide the 
+		// output Humdrum score (since it is not the output score,
+		// but rather the input score.
+		target.style.display = "none";
+		return;
+	}
+
+	var entry = hnpdatabase.entries[hid];
+	if (!entry) {
+		console.log("NO ENTRY IN", hnpdatabase);
+		return;
+	}
 	
+	var filter = entry.options.filter || "";
+	if (!filter) {
+		console.log("NO FILTER FOR", hid);
+		return;
+	}
+	var urlfilter = filter.replace(/-m /, "-m").replace(/\s+/g, "%20");
 
+	var url = "https://verovio.humdrum.org/?file=dice/mozart/k516f.krn&filter=";
+	url += urlfilter;
 
+	if (elink) {
+		var eoutput = "To listen to the generated score, click here to load into VHV";
+		eoutput = "<a href='" + url  + "' target='_blank'>" + eoutput + "</a>";
+		eoutput += " and then click on the play button in the top right corner of the ";
+		eoutput += "page, or copy and paste the following Humdrum score into the ";
+		eoutput += "<a target='_blank' href='https://verovio.humdrum.org?k=e'>VHV editor</a>.";
+		elink.innerHTML = eoutput;
+		elink.style.display = "block";
+	}
+
+	var output = "";
+	for (var i=0; i<lines.length; i++) {
+		if (lines[i].match(/^!!/)) {
+			continue;
+		}
+		if (lines[i].match(/^\s*$/)) {
+			continue;
+		}
+		output += lines[i] + "\n";
+	
+	}
+
+	target.style.display = "block";
+
+	target.innerHTML = output;
 }
 
 

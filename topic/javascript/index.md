@@ -14,7 +14,7 @@ vim:	ts=3
 {% include_relative listeners.html %}
 {% include_relative scripts-local.html %}
 
-This is a musical dice game attributed to Mozart (K<sup>6</sup>.
+Below is a musical dice game attributed to Mozart (K<sup>6</sup>.
 516f).  The <a
 href="https://kern.humdrum.org/cgi-bin/ksdata?file=k516f.krn&l=users/craig/dice/mozart&format=pdf"
 target="_new">original score</a> was printed in a musical magazine
@@ -1235,6 +1235,7 @@ in the grid.  Do this sixteen times to generate a randomized score.
 
 
 
+<div style="display:none" id="humdrum-link"></div>
 <pre style="display:none; tab-size:12; -moz-tab-size:12;" id="humdrum-score"></pre>
 
 
