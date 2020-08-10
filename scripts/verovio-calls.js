@@ -3,6 +3,7 @@
 function verovioCalls() {
 	this.page = 1;
 	this.pageCount = 0;
+	this.humdrumData = "";
 
 
 	////////////////////////////
@@ -105,10 +106,21 @@ function verovioCalls() {
 				svg = this.vrvToolkit.renderData(data, cleanopts);
 			};
 			this.page = page;
+			this.humdrumData = this.vrvToolkit.getHumdrum();
 			return svg;
 		};
 	};
 
+
+	////////////////////////////
+	//
+	// verovioCalls.getHumdrum -- return the potentially filtered
+	//    Humdrum data from the last SVG generation.
+	//
+
+	this.getHumdrum = function () {
+		return this.humdrumData;
+	}
 
 
 	////////////////////////////

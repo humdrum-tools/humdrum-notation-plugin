@@ -1,6 +1,7 @@
 
 
 <script>
+// vim: ts=3
 
 // 17 cells in OutputMeasures first cell is unused.  The dice number is
 // stored in this list, which can then be used to access the measure number
@@ -163,6 +164,19 @@ function prepareMeasureGrid(grid) {
 	var contents = createDiceTable(grid);
 	element.innerHTML = contents;
 }
+
+
+//////////////////////////////
+//
+// displayHumdrumData -- Copy filtered humdrum data from verovio and display
+//    at bottom of page.
+//
+
+function displayHumdrumData() {
+	console.log("DISPLAY HUMDRUM DATA");
+
+}
+
 
 
 
