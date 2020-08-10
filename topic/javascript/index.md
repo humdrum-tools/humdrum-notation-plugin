@@ -14,8 +14,7 @@ vim:	ts=3
 {% include_relative listeners.html %}
 {% include_relative scripts-local.html %}
 
-Below is a musical dice game attributed to Mozart (K<sup>6</sup>.
-516f).  The <a
+Below is a musical dice game attributed to Mozart (K<sup>6</sup> 516f).  The <a
 href="https://kern.humdrum.org/cgi-bin/ksdata?file=k516f.krn&l=users/craig/dice/mozart&format=pdf"
 target="_new">original score</a> was printed in a musical magazine
 in Berlin around 1790.  Click on measure numbers in the following
