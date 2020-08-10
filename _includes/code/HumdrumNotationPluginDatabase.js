@@ -513,8 +513,22 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 		.then(function(humdrumdata) {
 			this.humdrumOutput
 			entry.humdrumOutput = humdrumdata;
+
 console.log("++++++++++++++++++++++++++++++++");
 console.log("STORED2 HUMDRUM DATA IN ENTRY", entry);
+
+			if (pluginOptions.postFunctionHumdrum) {
+console.log("RUNNING POST HUMDRUM FUNCTION");
+				// Need to run a function after the image has been created or redrawn
+				try {
+					pluginOptions.postFunctionHumdrum(baseid, entry.humdrumOutput);
+				} catch (error) {
+					executeFunctionByName(pluginOptions.postFunctionHumdrum, window, [baseid, entry.humdrumOutput]);
+				}
+				pluginOptions._processedPostFunction = pluginOptions.postFunctionHumdrum;
+				delete pluginOptions.postFunctionHumdrum;
+			}
+
 		});
 	});
 	{% else %}
