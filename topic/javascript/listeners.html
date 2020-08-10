@@ -1,0 +1,55 @@
+
+<script>
+
+//////////////////////////////
+//
+// DOMContentLoaded event listener -- What to do when the page has
+//   finished loading.
+//
+
+document.addEventListener("DOMContentLoaded", function() {
+	prepareMeasureGrid(MeasureGrid);
+})
+
+
+
+//////////////////////////////
+//
+// click event listener delegate -- Check to see if a cell in the dice
+//    table was clicked on, and update the score based on that click.
+//
+
+document.addEventListener("click", function(event) {
+	target = event.target;
+	if (!target) {
+		return;
+	}
+	if (target.nodeName.toUpperCase() !== "TD") {
+		return;
+	}
+	var id = target.id;
+	console.log("ID = ", id);
+	if (!id) {
+		return;
+	}
+	var matches = id.match(/M(\d+)D(\d+)/);
+	if (!matches) {
+		reutrn;
+	}
+	var measure = parseInt(matches[1]);
+	var dice = parseInt(matches[2]);
+
+	if (OutputMeasures[measure] === dice) {
+		OutputMeasures[measure] = 0;
+	} else {
+		OutputMeasures[measure] = dice;
+	}
+	updateTableDisplay(OutputMeasures);
+	prepareFilter(OutputMeasures, MeasureGrid);
+	displayHumdrum(HnpOptions);
+});
+
+
+
+</script>
+

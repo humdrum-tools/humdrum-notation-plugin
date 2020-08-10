@@ -1,0 +1,171 @@
+
+
+<script>
+
+// 17 cells in OutputMeasures first cell is unused.  The dice number is
+// stored in this list, which can then be used to access the measure number
+// in the MeasureGrid array.
+var OutputMeasures = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+// MeasureGrid contains a list of the 16 measures in the composition, indexed
+// from 1.  For each measure, there are 11 possible dice rolls, and for each 
+// measure/roll the measure number from the input score is listed.
+var MeasureGrid = [
+// dice rolls:
+	//      2    3    4    5    6    7    8    9   10   11   12
+	[0,0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
+	[0,0,  96,  32,  69,  40, 148, 104, 152, 119,  98,   3,  54], // measure 1
+	[0,0,  22,   6,  95,  17,  74, 157,  60,  84, 142,  87, 130], // measure 2
+	[0,0, 141, 128, 158, 113, 163,  27, 171, 114,  42, 165,  10], // measure 3
+	[0,0,  41,  63,  13,  85,  45, 167,  53,  50, 156,  61, 103], // measure 4
+	[0,0, 105, 146, 153, 161,  80, 154,  99, 140,  75, 135,  28], // measure 5
+	[0,0, 122,  46,  55,   2,  97,  68, 133,  86, 129,  47,  37], // measure 6
+	[0,0,  11, 134, 110, 159,  36, 118,  21, 169,  62, 147, 106], // measure 7
+	[0,0,  30,  81,  24, 100, 107,  91, 127,  94, 123,  33,   5], // measure 8
+	[0,0,  70, 117,  66,  90,  25, 138,  16, 120,  65, 102,  35], // measure 9
+	[0,0, 121,  39, 139, 176, 143,  71, 155,  88,  77,   4,  20], // measure 10
+	[0,0,  26, 126,  15,   7,  64, 150,  57,  48,  19,  31, 108], // measure 11
+	[0,0,   9,  56, 132,  34, 125,  29, 175, 166,  82, 164,  92], // measure 12
+	[0,0, 112, 174,  73,  67,  76, 101,  43,  51, 137, 144,  12], // measure 13
+	[0,0,  49,  18,  58, 160, 136, 162, 168, 115,  38,  59, 124], // measure 14
+	[0,0, 109, 116, 145,  52,   1,  23,  89,  72, 149, 173,  44], // measure 15
+	[0,0,  14,  83,  79, 170,  93, 151, 172, 111,   8,  78, 131]  // measure 16
+];
+
+
+
+//////////////////////////////
+//
+// createDiceTable -- Create an HTML table to display on the page
+//     from the grid of measure numbers in the input score.
+//
+
+function createDiceTable(grid) {
+	var d;
+	var m;
+	var output = "";
+	output += "<table class='dice-grid'>\n";
+
+	// display output measure numbers
+	output += "<tr>";
+	output += "<td></td>"; // top left corner of table
+	for (m=1; m<=16; m++) {
+		output += "<td class='output-measure'>m" + m + "</td>";
+	}
+	output += "</tr>";
+	
+	for (d=2; d<=12; d++) {
+		output += "<tr>\n";
+		output += "<td class='dice'>roll " + d + "</td>";
+		// display input measure numbers
+		for (m=1; m<=16; m++) {
+			output += "<td"
+			output += " id='M" + m + "D" + d + "'";
+			output += " >";
+			output += grid[m][d];
+			output += "</td>";
+		}
+		output += "</tr>\n";
+	}
+	output += "</table>\n";
+	return output;
+}
+
+
+
+//////////////////////////////
+//
+// createMyankFilter --
+//
+
+function createMyankFilter(measures, grid) {
+	var list = [];
+	var i;
+	for (i=0; i<measures.length; i++) {
+		if (measures[i] > 0) {
+			list.push(grid[i][measures[i]]);
+		}
+	}
+	if (measures.length == 0) {
+		return "";
+	}
+	var output = "myank -m ";
+	for (i=0; i<list.length; i++) {
+		output += list[i];
+		if (i < list.length - 1) {
+			output += ',';
+		}
+	}
+	return output;
+}
+
+
+
+//////////////////////////////
+//
+// prepareFilter --
+//
+
+function prepareFilter(measures, grid) {
+	var filter = createMyankFilter(measures, grid);
+	if (!filter) {
+		delete HnpOptions.filter;
+	} else {
+		HnpOptions.filter = filter;
+	}
+}
+
+
+//////////////////////////////
+//
+// updateTableDisplay --
+//
+
+function updateTableDisplay(measures) {
+	// clear previous markers
+	var table = document.querySelector("table.dice-grid");
+	if (!table) {
+		return;
+	}
+	var active = table.querySelectorAll("td.active");
+	var i;
+	for (i=0; i<active.length; i++) {
+		active[i].classList.remove("active");
+	}
+
+	// add new active markers:
+	for (i=0; i<measures.length; i++) {
+		if (measures[i] <= 0) {
+			continue;
+		}
+		var measure = i;
+		var dice = measures[i];
+		var id = "M" + measure + "D" + dice;
+		var cell = table.querySelector("#" + id);
+		if (cell) {
+			cell.classList.add("active");
+		}
+	}
+}
+
+
+
+//////////////////////////////
+//
+// prepareMeasureGrid --
+//
+
+function prepareMeasureGrid(grid) {
+	var element = document.querySelector("#measure-grid");
+	if (!element) {
+		return;
+	}
+	var contents = createDiceTable(grid);
+	element.innerHTML = contents;
+}
+
+
+
+</script>
+
+

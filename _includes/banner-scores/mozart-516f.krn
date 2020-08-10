@@ -1,0 +1,159 @@
+!!!OTL:  Musikalisches Würfelspiel, K<sup>6</sup>. 516f
+**kern	**kern
+*thru	*thru
+*clefF4	*clefG2
+*k[]	*k[]
+*M3/8	*M3/8
+*MM80	*MM80
+*>A	*>A
+=104	=104
+4C	16eeLL
+.	16dd
+.	16ee
+.	16gg
+8r	16ccc
+.	16ggJJ
+=95	=95
+*^	*
+4E	4C	8ggL
+.	.	8ee
+*v	*v	*
+8rBB	8ccJ
+=158	=158
+4GG	8bL
+.	16ddL
+.	16b
+8r	16a
+.	16gJJ
+=13	=13
+4E 4G	(8ccL
+.	8g
+8r	8eJ)
+=161	=161
+8CL	8f#L 8cc
+8C	8f# 8cc
+8CJ	8f#J 8cc
+=47	=47
+4BB 4D	8ggL
+.	16ggL
+.	16ddJ
+8r	8bbJ
+=11	=11
+8CL	16eeLL
+.	16cc
+8D	16b
+.	16a
+8DDJ	16g
+.	16f#JJ
+=5	=5
+*>A1	*>A1
+*	*^
+8GGL	4dd 4gg	4g 4b
+16BL	.	.
+16G	.	.
+*	*v	*v
+16F#	8r
+16EJJ	.
+=:|!	=:|!
+*>A	*>A
+=104	=104
+4C	16eeLL
+.	16dd
+.	16ee
+.	16gg
+8r	16ccc
+.	16ggJJ
+=95	=95
+*^	*
+4E	4C	8ggL
+.	.	8ee
+*v	*v	*
+8rBB	8ccJ
+=158	=158
+4GG	8bL
+.	16ddL
+.	16b
+8r	16a
+.	16gJJ
+=13	=13
+4E 4G	(8ccL
+.	8g
+8r	8eJ)
+=161	=161
+8CL	8f#L 8cc
+8C	8f# 8cc
+8CJ	8f#J 8cc
+=47	=47
+4BB 4D	8ggL
+.	16ggL
+.	16ddJ
+8r	8bbJ
+=11	=11
+8CL	16eeLL
+.	16cc
+8D	16b
+.	16a
+8DDJ	16g
+.	16f#JJ
+=5	=5
+*>A2	*>A2
+*	*^
+8GGL	4dd 4gg	4g 4b
+16GL	.	.
+16Fn	.	.
+*	*v	*v
+16E	8r
+16DJJ	.
+*>B	*>B
+=90||	=90||
+4C 4A	16ff#LL
+.	16aa
+.	16ddd
+.	16aa
+8C 8A	16ff#
+.	16aaJJ
+=77	=77
+*^	*
+4D	4BB	16ggLL
+.	.	16bbJ
+.	.	8gg
+8G	8BB	8ddJ
+*v	*v	*
+=15	=15
+*^	*
+4G	4C	8eeL
+.	.	16ggL
+.	.	16eeJ
+8E	8C	8ccJ
+*v	*v	*
+=9	=9
+4G	8ccL 8ee
+.	8bJ 8dd
+8GG	8r
+=112	=112
+16CLL 16E	8eeL
+16G	.
+16C 16E	8cc
+16G	.
+16C 16E	8gJ
+16GJJ	.
+=49	=49
+16CLL 16E	(8eeL
+16G	.
+16C 16E	8cc
+16G	.
+16C 16E	8gJ)
+16GJJ	.
+=109	=109
+4F 4A	16ddLL
+.	16ff
+.	16dd
+.	16ff
+8E 8d	16b
+.	16ddJJ
+=8	=8
+8CL	4cc
+8GG	.
+8CCJ	8r
+==	==
+*-	*-

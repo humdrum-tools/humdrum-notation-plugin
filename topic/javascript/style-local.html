@@ -1,0 +1,46 @@
+
+
+<style>
+
+table.dice-grid {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table.dice-grid td {
+	text-align: center;
+	border-radius: 25px;
+	padding: 4px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+table.dice-grid td:nth-child(9) {
+	border-right: 1px double #999;
+}
+
+table.dice-grid td:hover {
+	background: tomato;
+}
+
+table.dice-grid td:first-child:hover,
+table.dice-grid tr:first-child td:hover {
+	background: transparent;
+}
+
+table.dice-grid td.active {
+	background: gold;
+}
+
+
+table.dice-grid td.dice, table.dice-grid td.output-measure {
+	font-style: italic;
+	font-family: serif;
+	color: #999;
+}
+
+
+</style>
+
+
+
