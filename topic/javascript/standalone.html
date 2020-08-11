@@ -1,7 +1,93 @@
+<html>
+<head>
+<title>Musical Dice Game</title>
+<script src="https://plugin.humdrum.org/scripts/humdrum-notation-plugin-worker.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h1> Musikalisches Würfelspiel </h1>
+
+<p>
+Below is a musical dice game attributed to Mozart (K<sup>6</sup>
+516f).  Click on measure numbers in the following grid to construct
+a score.  To play the game, roll two dice at a time to select a
+specific row in each column of the grid based on the sum of the two
+dice.  Do this sixteen times to generate a randomized score.
+</p>
+
+<div id="measure-grid"></div>
+
+<a id="vhv-link" target="_blank" href="https://verovio.humdrum.org/?file=dice/mozart/k516f.krn&k=e">
+Listen to or print the score in VHV</a>
+(click on play button in upper right corner, or menu: <tt>File&rarr;Save PDF</tt>).
+
+<script>
+	var HnpOptions = {
+		uri: "humdrum://dice/mozart/k516f.krn",
+		source: "dice"
+	}
+	displayHumdrum(HnpOptions);
+</script>
+<script type="text/x-humdrum" id="dice"></script>
+
 
 
 <script>
-// vim: ts=3
+///////////////////////////////////////////////////////////////////////////
+//
+// Javascript code to handle interaction with the dice grid of measures
+//
+
+
+//////////////////////////////
+//
+// DOMContentLoaded event listener -- What to do when the page has
+//   finished loading.
+//
+
+document.addEventListener("DOMContentLoaded", function() {
+	prepareMeasureGrid(MeasureGrid);
+});
+
+
+
+//////////////////////////////
+//
+// click event listener delegate -- Check to see if a cell in the dice
+//    table was clicked on, and update the score based on that click.
+//
+
+document.addEventListener("click", function(event) {
+	target = event.target;
+	if (!target) {
+		return;
+	}
+	if (target.nodeName.toUpperCase() !== "TD") {
+		return;
+	}
+	var id = target.id;
+	console.log("ID = ", id);
+	if (!id) {
+		return;
+	}
+	var matches = id.match(/M(\d+)D(\d+)/);
+	if (!matches) {
+		reutrn;
+	}
+	var measure = parseInt(matches[1]);
+	var dice = parseInt(matches[2]);
+
+	if (OutputMeasures[measure] === dice) {
+		OutputMeasures[measure] = 0;
+	} else {
+		OutputMeasures[measure] = dice;
+	}
+	updateTableDisplay(OutputMeasures);
+	prepareFilter(OutputMeasures, MeasureGrid);
+	displayHumdrum(HnpOptions);
+});
+
 
 // 17 cells in OutputMeasures first cell is unused.  The dice number is
 // stored in this list, which can then be used to access the measure number
@@ -112,7 +198,18 @@ function prepareFilter(measures, grid) {
 	} else {
 		HnpOptions.filter = filter;
 	}
+	var elink = document.querySelector("#vhv-link");
+	if (elink) {
+		var url = "https://verovio.humdrum.org/?file=dice/mozart/k516f.krn";
+		if (filter) {
+			url += "&k=ey&filter=" + encodeURIComponent(filter);
+		} else {
+			url += "&k=e";
+		}
+		elink.href = url;
+	}
 }
+
 
 
 //////////////////////////////
@@ -164,77 +261,78 @@ function prepareMeasureGrid(grid) {
 	element.innerHTML = contents;
 }
 
-
-//////////////////////////////
-//
-// displayHumdrumFilteredData -- Copy filtered humdrum data from
-//    verovio and display at bottom of page.
-//
-
-function displayHumdrumFilteredData(humdrumData, hid, hnpdatabase) {
-	var elink = document.querySelector("#humdrum-link");
-	if (elink) {
-		elink.style.display = "none";
-	}
-
-	var target = document.querySelector("pre#humdrum-score");
-	if (!target) {
-		console.log("NO TARGET ELEMENT FOR DISPLAYING HUMDRUM SCORE");
-		return;
-	}
-
-	var lines = humdrumData.split(/\r?\n/);
-
-	if (lines.length > 1000) {
-		// When the entire input score is displayed, hide the 
-		// output Humdrum score (since it is not the output score,
-		// but rather the input score.
-		target.style.display = "none";
-		return;
-	}
-
-	var entry = hnpdatabase.entries[hid];
-	if (!entry) {
-		console.log("NO ENTRY IN", hnpdatabase);
-		return;
-	}
-	
-	var filter = entry.options.filter || "";
-	if (!filter) {
-		console.log("NO FILTER FOR", hid);
-		return;
-	}
-	var url = "https://verovio.humdrum.org/?file=dice/mozart/k516f.krn&filter=";
-	url += encodURIComponent(filter);;
-
-	if (elink) {
-		var eoutput = "To listen to the generated score, click here to load into VHV";
-		eoutput = "<a href='" + url  + "' target='_blank'>" + eoutput + "</a>";
-		eoutput += " and then click on the play button in the top right corner of the ";
-		eoutput += "page, or copy and paste the following Humdrum score into the ";
-		eoutput += "<a target='_blank' href='https://verovio.humdrum.org?k=e'>VHV editor</a>.";
-		elink.innerHTML = eoutput;
-		elink.style.display = "block";
-	}
-
-	var output = "";
-	for (var i=0; i<lines.length; i++) {
-		if (lines[i].match(/^!!/)) {
-			continue;
-		}
-		if (lines[i].match(/^\s*$/)) {
-			continue;
-		}
-		output += lines[i] + "\n";
-	
-	}
-
-	target.style.display = "block";
-	target.innerHTML = output;
-}
-
-
-
 </script>
 
 
+<style>
+
+body {
+	margin: 100px;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	color: #333;
+}
+
+a {
+	text-decoration: none;
+}
+
+p {
+	font-size: 1.25rem;
+	width: 50rem;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: justify;
+	word-spacing: 0.5px;
+}
+
+h1 {
+	font-family: 'UnifrakturMaguntia', cursive;
+	display: block;
+	color: #003;
+	font-size: 2.5rem;
+	letter-spacing: 3px;
+	text-align: center;
+}
+
+table.dice-grid {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table.dice-grid td {
+	text-align: center;
+	border-radius: 25px;
+	padding: 4px;
+	cursor: pointer;
+	font-weight: bold;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+table.dice-grid td:hover {
+	background: tomato;
+}
+
+table.dice-grid td:first-child:hover,
+table.dice-grid tr:first-child td:hover {
+	background: transparent;
+}
+
+table.dice-grid td.active {
+	background: gold;
+}
+
+table.dice-grid td.dice,
+table.dice-grid td.output-measure {
+	font-style: italic;
+	font-family: serif;
+	white-space: nowrap;
+	color: #999;
+}
+
+
+</style>
+
+</body>
+</html>
