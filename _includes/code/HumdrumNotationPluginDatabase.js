@@ -804,7 +804,7 @@ HumdrumNotationPluginDatabase.prototype.makeUrlHumdrum = function (uri, opts) {
 	var url = uri;
 	var matches = uri.match(/^(h|hum|humdrum):\/\/(.*)\s*$/);
 	if (matches) {
-		url = "http://kern.humdrum.org/data?s=" + matches[2];
+		url = "https://kern.humdrum.org/data?s=" + matches[2];
 	}
 	return url;
 }
@@ -831,7 +831,7 @@ HumdrumNotationPluginDatabase.prototype.makeUrlJrp = function (uri, opts) {
 		if (filename) {
 			jrpid += "-" + filename;
 		}
-		url = "http://jrp.ccarh.org/cgi-bin/jrp?a=humdrum&f=" + jrpid;
+		url = "https://jrp.ccarh.org/cgi-bin/jrp?a=humdrum&f=" + jrpid;
 	}
 	return url;
 }
