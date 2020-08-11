@@ -149,7 +149,6 @@ document.addEventListener("DOMContentLoaded", function() {
 //
 
 function downloadHumdrumUrlData(source, opts) {
-console.log("GOT INTO DOWNLOAD HUMDRUM URL DATA, source=", source, "OPTS", opts);
 	if (!source) {
 		return;
 	}
@@ -160,7 +159,6 @@ console.log("GOT INTO DOWNLOAD HUMDRUM URL DATA, source=", source, "OPTS", opts)
 		return;
 	}
 	var url = opts.processedUrl;
-console.log("   URL = ", url);
 	var fallback = opts.urlFallback;
 	var request = new XMLHttpRequest();
 
