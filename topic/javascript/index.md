@@ -35,7 +35,7 @@ the myank filter.
 	displayHumdrum(HnpOptions);
 </script>
 
-<script type="text/x-humdrum" id="dice"> /script>
+<script type="text/x-humdrum" id="dice"></script>
 
 
 <div style="display:none" id="humdrum-link"></div>
