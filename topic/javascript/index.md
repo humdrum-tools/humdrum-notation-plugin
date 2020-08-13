@@ -21,7 +21,15 @@ sixteen times to generate a randomized score.  <a target="_blank"
 href="https://verovio.humdrum.org/?k=e&file=dice/mozart/k516f.krn">Click
 here</a> to load the full Humdrum score into Verovio Humdrum Viewer,
 where you can also arrange the measures for the composition using
-the myank filter.
+the myank filter.  [Click
+here](https://github.com/humdrum-tools/humdrum-notation-plugin/tree/master/topic/javascript)
+to view the source code for this page.  The website
+[dice.humdrum.org](https://dice.humdrum.org) gives a stand-alone
+example of this interactive javascript example with more features and is implemented
+as a [single HTML
+page](https://github.com/craigsapp/Musikalisches-Wuerfelspiel).
+
+
 
 <div id="measure-grid"></div>
 

@@ -78,25 +78,51 @@ function createDiceTable(grid) {
 //
 
 function createMyankFilter(measures, grid) {
-	var list = [];
+	var endmeasure = -1;
 	var i;
+
+	for (i=measures.length-1; i>=0; i--) {
+		if (measures[i] > 0) {
+			endmeasure = i;
+			break;
+		}
+	}
+
+	var list = [];
+	var item = "";
+	var lasti = -1;
 	for (i=0; i<measures.length; i++) {
 		if (measures[i] > 0) {
-			list.push(grid[i][measures[i]]);
+			item = grid[i][measures[i]];
+			if (i == 16) {
+				item += "==";
+			}
+			if (i == 8) {
+				item += "||";
+			} else if ((lasti > 0) && (lasti < i - 1)) {
+				// double barline if missing measure(s)
+				item = "||" + item;
+			}
+			list.push(item.toString());
+			lasti = i;
 		}
 	}
 	if (measures.length == 0) {
 		return "";
 	}
-	var output = "myank -m";
+	var output = "myank -m '";
+	var suppress = 0;
 	for (i=0; i<list.length; i++) {
 		output += list[i];
-		if (i < list.length - 1) {
+		if (list[i].match(/\d$/) && (i < list.length - 1) && list[i+1].match(/^\d/)) {
 			output += ',';
 		}
 	}
+	output += "'";
 	return output;
 }
+
+
 
 
 
@@ -201,18 +227,22 @@ function displayHumdrumFilteredData(humdrumData, hid, hnpdatabase) {
 	
 	var filter = entry.options.filter || "";
 	if (!filter) {
-		console.log("NO FILTER FOR", hid);
 		return;
 	}
 	var url = "https://verovio.humdrum.org/?file=dice/mozart/k516f.krn&filter=";
-	url += encodURIComponent(filter);;
+	url += encodeURIComponent(filter);
 
 	if (elink) {
-		var eoutput = "To listen to the generated score, click here to load into VHV";
-		eoutput = "<a href='" + url  + "' target='_blank'>" + eoutput + "</a>";
+		var eoutput = "<p style='margin-bottom:20px;'>";
+		eoutput += "To listen to the generated score, ";
+		eoutput += "<a href='" + url + "' target='_blank'>";
+		eoutput += "click here to load into VHV";
+		eoutput += "</a>";
 		eoutput += " and then click on the play button in the top right corner of the ";
 		eoutput += "page, or copy and paste the following Humdrum score into the ";
 		eoutput += "<a target='_blank' href='https://verovio.humdrum.org?k=e'>VHV editor</a>.";
+		eoutput += " Here is the realized Humdrum score:";
+		eoutput += "</p>";
 		elink.innerHTML = eoutput;
 		elink.style.display = "block";
 	}
@@ -229,8 +259,8 @@ function displayHumdrumFilteredData(humdrumData, hid, hnpdatabase) {
 	
 	}
 
-	target.style.display = "block";
 	target.innerHTML = output;
+	target.style.display = "block";
 }
 
 
