@@ -392,9 +392,8 @@ vrvInterface.prototype.handleWaitingRenderData = function () {
 //
 
 vrvInterface.prototype.postRenderData = function (method, args) {
-/* Don't squash pending renderings:
+	// squash pending renderings:
 	if (this.renderDataPending > 0) {
-
 		if (!this.renderDataWaiting) {
 			this.renderDataWaiting = {
 				deferred: new RSVP.defer(),
@@ -403,11 +402,10 @@ vrvInterface.prototype.postRenderData = function (method, args) {
 		this.renderDataWaiting.args = args;
 		return this.renderDataWaiting.deferred.promise;
 	} else {
-*/
 		this.renderDataPending++;
 		this.renderDataWaiting = null;
 		return this.post(method, args);
-//	};
+	};
 };
 
 
