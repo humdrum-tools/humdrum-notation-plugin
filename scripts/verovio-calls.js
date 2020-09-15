@@ -17,8 +17,8 @@ function verovioCalls() {
 		}
 		var error = false,
 		// [20190613: Allow multiple tabs between spine fields]
-		hum = data.split("\n").map(function (l) { return l.split(/\t+/) });
-		// hum = data.split("\n").map(function (l) { return l.split("\t") });
+		// [20200914: Allow Windows newlines]
+		hum = data.split(/\r\n|\n|\r/).map(function (l) { return l.split(/\t+/) });
 		validateHumdrum_Process(hum, function () {
 			//break on error
 			error = true;
