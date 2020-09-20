@@ -103,6 +103,7 @@ function verovioCalls() {
 				}
 				svg = this.vrvToolkit.renderToSVG(page, {});
 			} else {
+console.log("OPTIONS FOR RENDERDATA", cleanopts);
 				svg = this.vrvToolkit.renderData(data, cleanopts);
 			};
 			this.page = page;
