@@ -430,7 +430,7 @@
 
 
 @@BEGIN: OPTION
-@NAME:	slurControlPointsr
+@NAME:	slurControlPoints
 @ARG:	integer
 @INFO:	Slur control points - higher value means more curved at the end
 @CAT:	general layout
