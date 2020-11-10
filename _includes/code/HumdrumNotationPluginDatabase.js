@@ -630,7 +630,7 @@ HumdrumNotationPluginDatabase.prototype.insertDefaultOptions = function (baseid,
 		vrvOptions.pageMarginTop = 100;
 	}
 
-	if (!vrvOptions.hasOwnProperty("justifyVertically") {
+	if (!vrvOptions.hasOwnProperty("justifyVertically")) {
 		vrvOptions.justifyVertically = 0;
 	}
 
