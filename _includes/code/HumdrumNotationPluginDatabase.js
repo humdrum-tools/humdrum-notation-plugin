@@ -630,6 +630,10 @@ HumdrumNotationPluginDatabase.prototype.insertDefaultOptions = function (baseid,
 		vrvOptions.pageMarginTop = 100;
 	}
 
+	if (!vrvOptions.hasOwnProperty("justifyVertically") {
+		vrvOptions.justifyVertically = 0;
+	}
+
 	if (!vrvOptions.pageWidth) {
 		// set the width of the notation automatically to the width of the parent element
 		var style = window.getComputedStyle(entry.container, null);
