@@ -1,8 +1,6 @@
 <script>
    displayHumdrum({
       source: "hummel-prelude-op67n15",
-      spacingStaff: 14,
-      spacingSystem: 0,
       scale: 33,
       postFunction: highlightPitchClasses
    });

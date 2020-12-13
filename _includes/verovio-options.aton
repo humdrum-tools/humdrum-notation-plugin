@@ -533,9 +533,9 @@
 @ARG:	integer
 @INFO:	The staff minimal spacing in MEI units
 @CAT:	general layout
-@DEF:	8
+@DEF:	12
 @MIN:	0
-@MAX:	24
+@MAX:	48
 @@END: OPTION
 
 
@@ -544,9 +544,9 @@
 @ARG:	integer
 @INFO:	The system minimal spacing in MEI units
 @CAT:	general layout
-@DEF:	3
+@DEF:	12
 @MIN:	0
-@MAX:	12
+@MAX:	48
 @@END: OPTION
 
 
