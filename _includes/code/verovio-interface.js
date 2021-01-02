@@ -300,6 +300,7 @@ vrvInterface.prototype.gotoPage = function (page) {
 //
 
 vrvInterface.prototype.getMEI = function (page) {
+console.log("HNP verovio-interface.js getMEI arguments", arguments);
 	return this.execute("getMEI", arguments);
 };
 
