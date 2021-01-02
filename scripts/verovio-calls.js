@@ -69,7 +69,7 @@ function verovioCalls() {
 				newdata = this.vrvToolkit.getHumdrum();
 				break;
 			case "mei":
-				newdata = this.vrvToolkit.getMEI(0, 1);
+				newdata = this.vrvToolkit.getMEI({pageNo: 0, scoreBased: 1});
 				break;
 		};
 		return newdata;
@@ -210,7 +210,7 @@ console.log("OPTIONS FOR RENDERDATA", cleanopts);
 	//
 
 	this.getMEI = function () {
-		var meidata = this.vrvToolkit.getMEI(0, 1);
+		var meidata = this.vrvToolkit.getMEI({pageNo: 0, scoreBased: 1});
 		return meidata;
 	};
 
