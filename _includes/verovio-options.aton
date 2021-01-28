@@ -89,6 +89,11 @@
 @CLI_ONLY:	true
 @@END: OPTION
 
+@@BEGIN: OPTION
+@NAME:	removeIds
+@INFO:	Remove unused IDs
+@ARG:	none
+@@END: OPTION
 
 @@BEGIN: OPTION
 @NAME:	scale

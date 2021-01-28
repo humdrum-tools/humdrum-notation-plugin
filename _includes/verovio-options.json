@@ -56,6 +56,11 @@
          "CLI_ONLY": "true"
       },
       {
+         "NAME": "removeIds",
+         "INFO": "Remove unused IDs",
+         "ARG": "none"
+      },
+      {
          "NAME": "scale",
          "ABBR": "s",
          "INFO": "Scale percent",
