@@ -90,12 +90,6 @@
 @@END: OPTION
 
 @@BEGIN: OPTION
-@NAME:	removeIds
-@INFO:	Remove unused IDs
-@ARG:	none
-@@END: OPTION
-
-@@BEGIN: OPTION
 @NAME:	scale
 @ABBR:	s
 @INFO:	Scale percent
