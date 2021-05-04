@@ -197,8 +197,10 @@ console.log("ENTERING displayHumdrumNow", opts);
 	}
 
 	if (entry.options.hasOwnProperty("uri")) {
+console.log("going into downloadUriAndDisplay for", entry.baseId);
 		this.downloadUriAndDisplay(entry.baseId);
 	} else if (entry.options.hasOwnProperty("url")) {
+console.log("going into downloadUrlAndDisplay for", entry.baseId);
 		this.downloadUrlAndDisplay(entry.baseId);
 	} else {
 		if (entry._timer) {
@@ -207,7 +209,8 @@ console.log("ENTERING displayHumdrumNow", opts);
 		entry._timer = setTimeout(function() {
 			entry.copyContentToContainer();
 			HNP.displayHumdrumSvg(entry.baseId)
-		}, {% if page.worker %}100{% else %}250{% endif %});
+		// }, {% if page.worker %}100{% else %}250{% endif %});
+		}, {% if page.worker %}500{% else %}500{% endif %});
 	}
 };
 
