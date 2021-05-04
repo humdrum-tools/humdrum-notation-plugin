@@ -142,6 +142,7 @@ HumdrumNotationPluginDatabase.prototype.createEntry = function (baseid, options)
 //
 
 HumdrumNotationPluginDatabase.prototype.displayHumdrumNow = function (opts) {
+console.log("ENTERING displayHumdrumNow", opts);
 
 	if (opts instanceof Element) {
 		// Currently not allowed, but maybe allow the container element, and then
@@ -324,6 +325,7 @@ HumdrumNotationPluginDatabase.prototype.getEmbeddedOptions = function (humdrumfi
 //
 
 HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
+console.log("ENTERING displayHumdrumSvg ID=", baseid);
 	var that2 = this;
 	var entry = this.entries[baseid];
 	if (!entry) {
