@@ -210,7 +210,7 @@ console.log("going into downloadUrlAndDisplay for", entry.baseId);
 			entry.copyContentToContainer();
 			HNP.displayHumdrumSvg(entry.baseId)
 		// }, {% if page.worker %}100{% else %}250{% endif %});
-		}, {% if page.worker %}500{% else %}500{% endif %});
+		}, {% if page.worker %}1500{% else %}1500{% endif %});
 	}
 };
 
