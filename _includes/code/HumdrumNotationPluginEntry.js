@@ -101,6 +101,7 @@ HumdrumNotationPluginEntry.prototype.createContainer = function () {
 //
 
 HumdrumNotationPluginEntry.prototype.copyContentToContainer = function () {
+console.log("ENTERING COPYCONTENTTOCONTANER", this);
 	if (!this.options) {
 		console.log("Error: options required for entry:", this);
 		return;

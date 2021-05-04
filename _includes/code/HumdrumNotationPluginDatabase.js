@@ -169,6 +169,7 @@ console.log("ENTERING displayHumdrumNow", opts);
 			return;
 		}
 		entry = this.entries[id];
+console.log("ENTRY1", entry);
 		if (!entry) {
 			entry = this.createEntry(id, opts);
 		}
@@ -207,10 +208,11 @@ console.log("going into downloadUrlAndDisplay for", entry.baseId);
 			clearTimeout(entry._timer);
 		}
 		entry._timer = setTimeout(function() {
+console.log("ENTRY2", entry);
 			entry.copyContentToContainer();
+console.log("GOING TO DISPLAY SVG FOR", entry.baseId);
 			HNP.displayHumdrumSvg(entry.baseId)
-		// }, {% if page.worker %}100{% else %}250{% endif %});
-		}, {% if page.worker %}1500{% else %}1500{% endif %});
+		}, {% if page.worker %}100{% else %}250{% endif %});
 	}
 };
 
@@ -444,8 +446,10 @@ console.log("ENTERING displayHumdrumSvg ID=", baseid);
 	}
 
 	{% if page.worker %}
+console.log("GOING TO RENDER DATA FOR", vrvOptions);
 	vrvWorker.renderData(vrvOptions, sourcetext)
 	.then(function(svg) {
+console.log("RENDERED DATA");
 		entry.svg.innerHTML = svg;
 		// clear the height styling which may have been given as a placeholder:
 		entry.container.style.height = "";
