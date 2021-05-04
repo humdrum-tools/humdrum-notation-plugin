@@ -449,7 +449,7 @@ console.log("ENTERING displayHumdrumSvg ID=", baseid);
 console.log("GOING TO RENDER DATA FOR", vrvOptions);
 	vrvWorker.renderData(vrvOptions, sourcetext)
 	.then(function(svg) {
-console.log("RENDERED DATA");
+console.log("RENDERED DATA for", vrvOptions);
 		entry.svg.innerHTML = svg;
 		// clear the height styling which may have been given as a placeholder:
 		entry.container.style.height = "";
