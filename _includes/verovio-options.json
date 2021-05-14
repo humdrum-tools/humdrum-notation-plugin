@@ -15,8 +15,7 @@
          "CLI_ONLY": "true?"
       },
       {
-         "NAME": "from",
-         "NAME_CLI": "from",
+         "NAME": "inputFrom",
          "ABBR": "f",
          "INFO": "Select input data from",
          "ARG": "string",

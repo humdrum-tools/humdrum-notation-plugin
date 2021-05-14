@@ -283,8 +283,8 @@ function convertMusicXmlToHumdrum(sourcetext, vrvOptions, pluginOptions) {
 		console.log("Error: Cannot find verovio toolkit!");
 		return;
 	}
-	// from = input data type
-	vrvOptions.from = "musicxml-hum";
+	// inputFrom = input data type
+	vrvOptions.inputFrom = "musicxml-hum";
 
 {% if page.worker %}
 	vrvWorker.filterData(vrvOptions, sourcetext, "humdrum")
@@ -365,8 +365,8 @@ function convertMeiToHumdrum(sourcetext, vrvOptions, pluginOptions) {
 		console.log("Error: Cannot find verovio toolkit!");
 		return;
 	}
-	// from = input data type
-	vrvOptions.from = "mei-hum";
+	// inputFrom = input data type
+	vrvOptions.inputFrom = "mei-hum";
 
 {% if page.worker %}
 	vrvWorker.filterData(vrvOptions, sourcetext, "humdrum")

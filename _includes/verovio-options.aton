@@ -41,8 +41,7 @@
 
 
 @@BEGIN: OPTION
-@NAME:	from
-@NAME_CLI:	from
+@NAME:	inputFrom
 @ABBR:	f
 @INFO:	Select input data type
 @ARG:	string
