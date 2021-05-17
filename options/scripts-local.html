@@ -4,6 +4,26 @@
 // vim:	ts=3:ft=javascript
 
 
+
+//////////////////////////////
+//
+// makeIndexByName --
+//
+
+function makeIndexByName(list) {
+	let output = {};
+	for (let i=0; i<list.length; i++) {
+		let name = list[i].NAME;
+		if (!name) {
+			continue;
+		}
+		output[name] = list[i];
+	}
+	return output;
+}
+
+
+
 //////////////////////////////
 //
 // fillNumericOptions --
@@ -33,6 +53,7 @@ function fillNumericOptions(optionlist, id) {
 		return;
 	}
 	let firstcol = tbody.querySelectorAll("tr td:first-child");
+	let verovioindex = makeIndexByName(optionlist);
 	let present = {};
 	for (let i=0; i<firstcol.length; i++) {
 		let code = firstcol[i].querySelector("code");
@@ -41,6 +62,9 @@ function fillNumericOptions(optionlist, id) {
 		}
 		let text = code.textContent;
 		present[text] = 1;
+		if (!verovioindex[text]) {
+			code.classList.add("hnp");
+		}
 	}
 	for (let i=0; i<optionlist.length; i++) {
 		let entry = optionlist[i];
@@ -179,6 +203,7 @@ function fillNonNumericOptions(optionlist, id) {
 		return;
 	}
 	let firstcol = tbody.querySelectorAll("tr td:first-child");
+	let verovioindex = makeIndexByName(optionlist);
 	let present = {};
 
 	for (let i=0; i<firstcol.length; i++) {
@@ -188,6 +213,9 @@ function fillNonNumericOptions(optionlist, id) {
 		}
 		let text = code.textContent;
 		present[text] = 1;
+		if (!verovioindex[text]) {
+			code.classList.add("hnp");
+		}
 	}
 
 	for (let i=0; i<optionlist.length; i++) {

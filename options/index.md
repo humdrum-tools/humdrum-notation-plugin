@@ -8,10 +8,13 @@ vim:	ts=3
 
 # Options #
 
-There are many options that can be used to control display of music
-notation in HNP.  These options are given within an object passed
-to the `displayHumdrum` function.  Here is a a minimal call to
-`displayHumdrum`, giving only a source option for the Humdrum data to display:
+
+This page lists options for controlling the display and formatting
+of music notation.  These options are given within an object passed
+to the `displayHumdrum` function.  
+
+Here is a a minimal call to `displayHumdrum`, giving only a source
+ID for the Humdrum data to display:
 
 <script>
 displayHumdrum({source: "default"});
@@ -82,7 +85,11 @@ Here is an example of changing the size:
 
 <a name="list"> </a>
 
-# List of options #
+# Options list #
+
+Options that can be used in `displayHumdrum()` are displayed below.
+HNP-specific options names are colored in green, and verovio-specific
+options are colored in purple.
 
 
 {% include options.md %}
