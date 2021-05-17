@@ -1,0 +1,258 @@
+
+
+<script>
+// vim:	ts=3:ft=javascript
+
+
+//////////////////////////////
+//
+// fillNumericOptions --
+//
+
+function fillNumericOptions(optionlist, id) {
+	if (!optionlist) {
+		optionlist = VEROVIOOPTIONS.OPTION;
+	}
+	if (!optionlist) {
+		return;
+	}
+	if (!id) {
+		id = "numeric-options";
+	}
+	if (!id) {
+		return;
+	}
+	let table = document.querySelector("#" + id);
+	if (!table) {
+		console.log("No numeric option table");
+		return;
+	}
+	let tbody = table.querySelector("tbody");
+	if (!tbody) {
+		console.log("No numeric option table body found");
+		return;
+	}
+	let firstcol = tbody.querySelectorAll("tr td:first-child");
+	let present = {};
+	for (let i=0; i<firstcol.length; i++) {
+		let code = firstcol[i].querySelector("code");
+		if (!code) {
+			continue;
+		}
+		let text = code.textContent;
+		present[text] = 1;
+	}
+	for (let i=0; i<optionlist.length; i++) {
+		let entry = optionlist[i];
+		if (typeof entry.CLI_ONLY !== "undefined") {
+			if (entry.CLI_ONLY.match(/true/i)) {
+				continue;
+			}
+		}
+		if (typeof entry.ARG !== "undefined") {
+			if (!(entry.ARG.match(/integer/i) || entry.ARG.match(/float/i))) {
+				continue;
+			}
+		}
+		if (typeof entry.NAME !== "undefined") {
+			if (present[entry.NAME]) {
+				// already in the list
+				continue;
+			}
+		} else {
+			return;
+		}
+		attachNumericOptionRow(tbody, entry);
+	}
+	
+}
+
+
+
+//////////////////////////////
+//
+// attachNumericOptionRow --
+//
+
+function attachNumericOptionRow(tbody, entry) {
+	if (!tbody) {
+		return;
+	}
+	if (!tbody) {
+		return;
+	}
+	let tr = document.createElement("TR");
+	let tdname = document.createElement("TD");
+	let code = document.createElement("CODE");
+	code.classList.add("language-plaintext");
+	code.classList.add("highlighter-rogue");
+	code.innerHTML = entry.NAME;
+
+	let tddef = document.createElement("TD");
+	if (typeof entry.DEF !== "undefined") {
+		tddef.innerHTML = entry.DEF;
+	}
+
+	let tdmin = document.createElement("TD");
+	if (typeof entry.MIN !== "undefined") {
+		tdmin.innerHTML = entry.MIN;
+	}
+
+	let tdmax = document.createElement("TD");
+	if (typeof entry.MAX !== "undefined") {
+		tdmax.innerHTML = entry.MAX;
+	}
+
+	let tdinfo = document.createElement("TD");
+	if (typeof entry.INFO !== "undefined") {
+		tdinfo.innerHTML = entry.INFO + getAlternates(entry);
+	}
+
+	tbody.appendChild(tr);
+	tr.appendChild(tdname);
+	tdname.append(code);
+	tr.appendChild(tddef);
+	tr.appendChild(tdmin);
+	tr.appendChild(tdmax);
+	tr.appendChild(tdinfo);
+}
+
+
+
+//////////////////////////////
+//
+// getAlternates --
+//
+
+function getAlternates(entry) {
+	let output = "";
+	if (typeof entry.ALT === "undefined") {
+		return output;
+	}
+	let list = [];
+	if (typeof entry.ALT === "string") {
+		list = [ entry.ALT ];
+	} else {
+		list = entry.ALT;
+	}
+	output = "  Other parameter values: ";
+	for (let i=0; i<list.length; i++) {
+		output += '"';
+		output += list[i];
+		output += '"';
+		if (i < list.length - 1) {
+			output += ", ";
+		}
+	}
+	output += ".";
+	return output;
+}
+
+
+
+//////////////////////////////
+//
+// fillNonNumericOptions --
+//
+
+function fillNonNumericOptions(optionlist, id) {
+	if (!optionlist) {
+		optionlist = VEROVIOOPTIONS.OPTION;
+	}
+	if (!optionlist) {
+		return;
+	}
+	if (!id) {
+		id = "non-numeric-options";
+	}
+	if (!id) {
+		return;
+	}
+	let table = document.querySelector("#" + id);
+	if (!table) {
+		console.log("No non-numeric option table");
+		return;
+	}
+	let tbody = table.querySelector("tbody");
+	if (!tbody) {
+		console.log("No non-numeric option table body found");
+		return;
+	}
+	let firstcol = tbody.querySelectorAll("tr td:first-child");
+	let present = {};
+
+	for (let i=0; i<firstcol.length; i++) {
+		let code = firstcol[i].querySelector("code");
+		if (!code) {
+			continue;
+		}
+		let text = code.textContent;
+		present[text] = 1;
+	}
+
+	for (let i=0; i<optionlist.length; i++) {
+		let entry = optionlist[i];
+		if (typeof entry.CLI_ONLY !== "undefined") {
+			if (entry.CLI_ONLY.match(/true/i)) {
+				continue;
+			}
+		}
+		if (typeof entry.ARG !== "undefined") {
+			if ((entry.ARG.match(/integer/i) || entry.ARG.match(/float/i))) {
+				continue;
+			}
+		}
+		if (typeof entry.NAME !== "undefined") {
+			if (present[entry.NAME]) {
+				// already in the list
+				continue;
+			}
+		} else {
+			return;
+		}
+		attachNonNumericOptionRow(tbody, entry);
+	}
+	
+}
+
+
+
+//////////////////////////////
+//
+// attachNonNumericOptionRow --
+//
+
+function attachNonNumericOptionRow(tbody, entry) {
+	if (!tbody) {
+		return;
+	}
+	if (!tbody) {
+		return;
+	}
+	let tr = document.createElement("TR");
+	let tdname = document.createElement("TD");
+	let code = document.createElement("CODE");
+	code.classList.add("language-plaintext");
+	code.classList.add("highlighter-rogue");
+	code.innerHTML = entry.NAME;
+
+	let tddef = document.createElement("TD");
+	if (typeof entry.DEF !== "undefined") {
+		tddef.innerHTML = entry.DEF;
+	}
+
+	let tdinfo = document.createElement("TD");
+	if (typeof entry.INFO !== "undefined") {
+		tdinfo.innerHTML = entry.INFO + getAlternates(entry);
+	}
+
+	tbody.appendChild(tr);
+	tr.appendChild(tdname);
+	tdname.append(code);
+	tr.appendChild(tddef);
+	tr.appendChild(tdinfo);
+}
+
+
+</script>
+

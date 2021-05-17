@@ -1,6 +1,8 @@
 
 Numeric options:
 
+<div markdown="1" id="numeric-options">
+
 | option name        | default&nbsp;&nbsp;&nbsp;       | min       | max       | description 
 |--------------------|---------------|-----------|-----------|-------------
 | `pageWidth`        | *none*        | 100       | 60000     | Width of the music notation.  By default, the humdrum plugin will set the width of the notation to match the width of the parent element that contains the notation.
@@ -15,8 +17,14 @@ Numeric options:
 | `lyricSize`      ` | 4.5           | 2.0       | 8.0       | The height of lyric text in units of diatonic steps. ([see lyrics option doc.](/options/lyrics))
 | `lyricTopMinMargin`| 2.0           | 0.0       | 8.0       | The minimum margin between lyrics and the music on the staff above them in units of diatonic steps ([see lyrics options doc.](/options/lyrics)).
 
+</div>
 
+
+<p style="padding-top:30px;">
 Non-numeric options:
+</p>
+
+<div markdown="1" id="non-numeric-options">
 
 | option name            | default&nbsp;value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | description 
 |------------------------|:-------------:|------------
@@ -33,5 +41,7 @@ Non-numeric options:
 | `uri`                  |               | A predefined URI shortcut for Humdrum data located on the web. ([example](/options/uri))
 | `url`                  |               | The URL from which to download data can be given with this parameter.  By default musical data is stored extracted from the page, but this parameter allowed it to be downloaded from a separate file on the web server, or in certain cases, downloaded from other web servers such as Github. ([see url documentation](/options/url))
 | `urlFallback`          |               | An alternate URL if data downloading with the `url` parameter fails.  This allows downloading data from a mirror site if the primary one is down or inaccessible for some reason. ([see url documentation](/options/url))
+
+</div>
 
 

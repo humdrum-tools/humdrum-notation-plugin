@@ -2,20 +2,9 @@
 vim:	ts=3
 ---
 
-<style>
-nav {
-	position: fixed;
-	top: 380px;
-}
-section {
-	margin-top: 0px !important;
-}
-@media print, screen and (max-width: 1060px) { 
-	section {
-		margin-top: 0px !important;
-	}
-}
-</style>
+{% include_relative listeners.html %}
+{% include_relative scripts-local.html %}
+{% include_relative styles-local.html %}
 
 # Options #
 
@@ -27,7 +16,7 @@ to the `displayHumdrum` function.  Here is a a minimal call to
 <script>
 displayHumdrum({source: "default"});
 </script>
-<script tyle="text/x-humdrum" id="default">
+<script type="text/x-humdrum" id="default">
 **kern
 *M4/4
 1c;
@@ -41,7 +30,7 @@ displayHumdrum({source: "default"});
    displayHumdrum({source: "default"});
 </script>
 
-<script tyle="text/x-humdrum" id="default">
+<script type="text/x-humdrum" id="default">
 **kern
 *M4/4
 1c;
@@ -62,7 +51,7 @@ Here is an example of changing the size:
 	displayHumdrum(options);
 </script>
 
-<script tyle="text/x-humdrum" id="large-print">
+<script type="text/x-humdrum" id="large-print">
 **kern
 *M4/4
 1c;
@@ -81,7 +70,7 @@ Here is an example of changing the size:
    displayHumdrum(options);
 </script>
 
-<script tyle="text/x-humdrum" id="large-print">
+<script type="text/x-humdrum" id="large-print">
 **kern
 *M4/4
 1c;
@@ -97,7 +86,6 @@ Here is an example of changing the size:
 
 
 {% include options.md %}
-
 
 
 # Discussion and Examples #
