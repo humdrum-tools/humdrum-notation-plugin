@@ -136,6 +136,7 @@ console.log("ENTERING COPYCONTENTTOCONTANER", this);
 	// Probably use the real plugin options here later:
 	var poptions = {};
 	var options;
+/*
 	if (initial.match(/^\s*</)) {
 		// some sort of XML junk, so convert to Humdrum
 		var ctype = "unknown";
@@ -187,12 +188,13 @@ console.log("ENTERING COPYCONTENTTOCONTANER", this);
 		} else {
 			console.log("Warning: given some strange XML data:", content);
 		}
+*/
 	{% if page.worker %}
-	} else {
+//	} else {
 		this.humdrum.textContent = content;
-	}
+//	}
 	{% else %}
-	}
+//	}
 	if (!this.humdrum) {
 		console.log("Error: Humdrum element not initialized:", this);
 	}
