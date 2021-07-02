@@ -446,7 +446,7 @@ console.log("ENTERING displayHumdrumSvg ID=", baseid);
 	}
 
 	{% if page.worker %}
-console.log("GOING TO RENDER DATA FOR", vrvOptions);
+console.log("GOING TO RENDER DATA FOR", vrvOptions, sourcetext);
 	vrvWorker.renderData(vrvOptions, sourcetext)
 	.then(function(svg) {
 console.log("RENDERED DATA for", vrvOptions);
