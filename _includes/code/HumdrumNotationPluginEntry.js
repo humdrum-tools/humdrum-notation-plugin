@@ -167,7 +167,7 @@ console.log("ENTERING COPYCONTENTTOCONTANER", this);
 		if (ctype === "musicxml") {
 			// convert MusicXML data into Humdrum data
 			options = {
-				format: "musicxml-hum"
+				inputFrom: "musicxml-hum"
 			};
 			{% if page.worker %}
 			convertMusicXmlToHumdrum(this.humdrum, content, options, poptions);
@@ -177,7 +177,7 @@ console.log("ENTERING COPYCONTENTTOCONTANER", this);
 		} else if (ctype === "mei") {
 			// convert MEI data into Humdrum data
 			options = {
-				format: "mei-hum"
+				inputFrom: "mei-hum"
 			};
 			{% if page.worker %}
 			convertMeiToHumdrum(this.humdrum, content, options, poptions);

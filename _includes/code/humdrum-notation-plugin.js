@@ -25,7 +25,7 @@
 //		border           default 50
 //		evenNoteSpacing  default 0
 //		font             default "Leipzig"
-//		format           default "auto"
+//		inputFrom        default "auto"
 //		# page           default 1
 //		# header         default 0
 //		# footer         default 0
