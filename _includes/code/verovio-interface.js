@@ -376,7 +376,7 @@ console.log("GOING TO RENDER DATA HERE YYY");
 //
 
 vrvInterface.prototype.handleWaitingRenderData = function () {
-console.log("HANDLE WAITING RENDER DATA");
+console.log("HANDLE WAITING RENDER DATA", this);
 	if (this.renderDataWaiting) {
 		this.postDeferredMessage("renderData",
 				this.renderDataWaiting.args,
