@@ -350,6 +350,7 @@ vrvInterface.prototype.execute = function (method, args) {
 		var arr = Array.prototype.slice.call(args);
 		switch(method) {
 			case "renderData":
+console.log("GOING TO RENDER DATA HERE YYY");
 				return vrv.postRenderData(method, arr);
 			default:
 				vrv.handleWaitingRenderData();
@@ -375,6 +376,7 @@ vrvInterface.prototype.execute = function (method, args) {
 //
 
 vrvInterface.prototype.handleWaitingRenderData = function () {
+console.log("HANDLE WAITING RENDER DATA");
 	if (this.renderDataWaiting) {
 		this.postDeferredMessage("renderData",
 				this.renderDataWaiting.args,
