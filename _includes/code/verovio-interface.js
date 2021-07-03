@@ -88,8 +88,10 @@ vrvInterface.prototype.createWorkerInterface = function (onReady) {
 
 
 
-	var workerUrl = "{{site.sitename}}/scripts/verovio-worker.js";
-	console.log("LOADING {{site.sitename}}/scripts/verovio-worker.js");
+//	var workerUrl = "{{site.sitename}}/scripts/verovio-worker.js";
+//	console.log("LOADING {{site.sitename}}/scripts/verovio-worker.js");
+	var workerUrl = "https://verovio-script.humdrum.org/scripts/verovio-worker.js";
+	console.log("LOADING https://verovio-script.humdrum.org/scripts/verovio-worker.js");
 	this.worker = null;
 	var that = this;
 	try {
@@ -433,6 +435,7 @@ vrvInterface.prototype.post = function (method, args) {
 //
 
 vrvInterface.prototype.postDeferredMessage = function (method, args, deferred) {
+console.log("ENTERING POST DEFERRED MESSAGE METHOD=", method);
 	this.worker.postMessage({
 		idx: this.promiseIdx,
 		method: method,
