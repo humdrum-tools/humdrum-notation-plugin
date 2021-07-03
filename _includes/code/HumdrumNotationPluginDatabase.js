@@ -367,12 +367,13 @@ console.log("ENTERING displayHumdrumSvg ID=", baseid);
 			console.log("Error: No humdrum content in", entry.humdrum);
 			console.log("For ID", baseid, "ENTRY:", entry);
 		}
-
 	}
+console.log("SOURCE TEXT IN DISPLAYHUMDRUMSVG", sourcetext);
 
 	// Cannot display an empty score, since this will cause verovio to display the
 	// previously prepared score.
 	if (sourcetext.match(/^\s*$/)) {
+console.log("SOURCE TEXT IS EMPTY");
 		{% if page.worker %}
 		//console.log("Error: No humdrum content in", entry.humdrum);
 		//console.log("For ID", baseid, "ENTRY:", entry);
@@ -449,7 +450,7 @@ console.log("ENTERING displayHumdrumSvg ID=", baseid);
 console.log("GOING TO RENDER DATA FOR", vrvOptions, sourcetext);
 	vrvWorker.renderData(vrvOptions, sourcetext)
 	.then(function(svg) {
-console.log("RENDERED DATA for", vrvOptions);
+console.log("RENDERED DATA for", vrvOptions, "SVG OUTPUT IS", svg);
 		entry.svg.innerHTML = svg;
 		// clear the height styling which may have been given as a placeholder:
 		entry.container.style.height = "";
@@ -516,6 +517,9 @@ console.log("RENDERED DATA for", vrvOptions);
 				});
 			}
 		}
+	})
+	.catch((message) => {
+		console.log("PROBLEM HERE", message);
 	})
 	.then(function() {
 		vrvWorker.getHumdrum()
