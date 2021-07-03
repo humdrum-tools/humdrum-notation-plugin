@@ -352,7 +352,6 @@ vrvInterface.prototype.execute = function (method, args) {
 		var arr = Array.prototype.slice.call(args);
 		switch(method) {
 			case "renderData":
-console.log("GOING TO RENDER DATA HERE YYY");
 				return vrv.postRenderData(method, arr);
 			default:
 				vrv.handleWaitingRenderData();
@@ -378,9 +377,7 @@ console.log("GOING TO RENDER DATA HERE YYY");
 //
 
 vrvInterface.prototype.handleWaitingRenderData = function () {
-console.log("HANDLE WAITING RENDER DATA", this, JSON.stringify(this));
 	if (this.renderDataWaiting) {
-console.log("GOT HERE TTT");
 		this.postDeferredMessage("renderData",
 				this.renderDataWaiting.args,
 				this.renderDataWaiting.deferred);
@@ -397,10 +394,8 @@ console.log("GOT HERE TTT");
 //
 
 vrvInterface.prototype.postRenderData = function (method, args) {
-console.log("ENTERING POST RENDER DATA");
 	// squash pending renderings:
 	if (this.renderDataPending > 0) {
-console.log("POSITIVE RENDER DATA PENDING:", this.renderDataPending);
 		if (!this.renderDataWaiting) {
 			this.renderDataWaiting = {
 				deferred: new RSVP.defer(),
@@ -409,7 +404,6 @@ console.log("POSITIVE RENDER DATA PENDING:", this.renderDataPending);
 		this.renderDataWaiting.args = args;
 		return this.renderDataWaiting.deferred.promise;
 	} else {
-console.log("ZERO RENDER DATA PENDING");
 		this.renderDataPending++;
 		this.renderDataWaiting = null;
 		return this.post(method, args);
@@ -435,7 +429,6 @@ vrvInterface.prototype.post = function (method, args) {
 //
 
 vrvInterface.prototype.postDeferredMessage = function (method, args, deferred) {
-console.log("ENTERING POST DEFERRED MESSAGE METHOD=", method);
 	this.worker.postMessage({
 		idx: this.promiseIdx,
 		method: method,

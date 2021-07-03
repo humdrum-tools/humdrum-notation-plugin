@@ -142,7 +142,6 @@ HumdrumNotationPluginDatabase.prototype.createEntry = function (baseid, options)
 //
 
 HumdrumNotationPluginDatabase.prototype.displayHumdrumNow = function (opts) {
-console.log("ENTERING displayHumdrumNow", opts);
 
 	if (opts instanceof Element) {
 		// Currently not allowed, but maybe allow the container element, and then
@@ -169,7 +168,6 @@ console.log("ENTERING displayHumdrumNow", opts);
 			return;
 		}
 		entry = this.entries[id];
-console.log("ENTRY1", entry);
 		if (!entry) {
 			entry = this.createEntry(id, opts);
 		}
@@ -198,19 +196,15 @@ console.log("ENTRY1", entry);
 	}
 
 	if (entry.options.hasOwnProperty("uri")) {
-console.log("going into downloadUriAndDisplay for", entry.baseId);
 		this.downloadUriAndDisplay(entry.baseId);
 	} else if (entry.options.hasOwnProperty("url")) {
-console.log("going into downloadUrlAndDisplay for", entry.baseId);
 		this.downloadUrlAndDisplay(entry.baseId);
 	} else {
 		if (entry._timer) {
 			clearTimeout(entry._timer);
 		}
 		entry._timer = setTimeout(function() {
-console.log("ENTRY2", entry);
 			entry.copyContentToContainer();
-console.log("GOING TO DISPLAY SVG FOR", entry.baseId);
 			HNP.displayHumdrumSvg(entry.baseId)
 		}, {% if page.worker %}100{% else %}250{% endif %});
 	}
@@ -330,7 +324,6 @@ HumdrumNotationPluginDatabase.prototype.getEmbeddedOptions = function (humdrumfi
 //
 
 HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
-console.log("ENTERING displayHumdrumSvg ID=", baseid);
 	var that2 = this;
 	var entry = this.entries[baseid];
 	if (!entry) {
@@ -368,12 +361,10 @@ console.log("ENTERING displayHumdrumSvg ID=", baseid);
 			console.log("For ID", baseid, "ENTRY:", entry);
 		}
 	}
-console.log("SOURCE TEXT IN DISPLAYHUMDRUMSVG", sourcetext);
 
 	// Cannot display an empty score, since this will cause verovio to display the
 	// previously prepared score.
 	if (sourcetext.match(/^\s*$/)) {
-console.log("SOURCE TEXT IS EMPTY");
 		{% if page.worker %}
 		//console.log("Error: No humdrum content in", entry.humdrum);
 		//console.log("For ID", baseid, "ENTRY:", entry);
@@ -447,10 +438,8 @@ console.log("SOURCE TEXT IS EMPTY");
 	}
 
 	{% if page.worker %}
-console.log("GOING TO RENDER DATA FOR", vrvOptions, sourcetext);
 	vrvWorker.renderData(vrvOptions, sourcetext)
 	.then(function(svg) {
-console.log("RENDERED DATA for", vrvOptions, "SVG OUTPUT IS", svg);
 		entry.svg.innerHTML = svg;
 		// clear the height styling which may have been given as a placeholder:
 		entry.container.style.height = "";
