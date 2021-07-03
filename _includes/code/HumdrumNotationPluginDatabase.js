@@ -519,7 +519,7 @@ console.log("RENDERED DATA for", vrvOptions, "SVG OUTPUT IS", svg);
 		}
 	})
 	.catch((message) => {
-		console.log("PROBLEM HERE", message);
+		console.log("PROBLEM RENDERING DATA WITH VEROVIO WORKER, ERROR:", message);
 	})
 	.then(function() {
 		vrvWorker.getHumdrum()
