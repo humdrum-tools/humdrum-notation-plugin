@@ -868,50 +868,6 @@
 
 
 @@BEGIN: OPTION
-@NAME:	slurControlPoints
-@INFO:	Slur control points.  Higher values mean more curvature at endpoints.
-@CAT:	General layout
-@ARG:	integer
-@DEF:	5
-@MIN:	1
-@MAX:	10
-@@END: OPTION
-
-
-@@BEGIN: OPTION
-@NAME:	slurHeightFactor
-@INFO:	Slur height factor.  Higher values mean flatter slurs.
-@CAT:	General layout
-@ARG:	integer
-@DEF:	5
-@MIN:	1
-@MAX:	100
-@@END: OPTION
-
-
-@@BEGIN: OPTION
-@NAME:	slurMinHeight
-@INFO:	Minimum slur height.
-@CAT:	General layout
-@ARG:	float
-@DEF:	1.20
-@MIN:	0.30
-@MAX:	2.00
-@@END: OPTION
-
-
-@@BEGIN: OPTION
-@NAME:	slurMaxHeight
-@INFO:	Maximum slur height.
-@CAT:	General layout
-@ARG:	float
-@DEF:	3.00
-@MIN:	2.00
-@MAX:	6.00
-@@END: OPTION
-
-
-@@BEGIN: OPTION
 @NAME:	slurMaxSlope
 @INFO:	Maximum slur slope in degrees.
 @CAT:	General layout
@@ -971,17 +927,6 @@
 @INFO:	Detect long duration for adjusting spacing.
 @CAT:	General layout
 @ARG:	boolean
-@@END: OPTION
-
-
-@@BEGIN: OPTION
-@NAME:	slurCurveFactor
-@INFO:	Slur curve factor.  Higher values mean rounder slurs.
-@CAT:	General layout
-@ARG:	integer
-@DEF:	10
-@MIN:	1
-@MAX:	100
 @@END: OPTION
 
 
