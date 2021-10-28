@@ -214,19 +214,6 @@ vrvInterface.prototype.renderData = function (opts, data, page) {
 
 //////////////////////////////
 //
-// vrvInterface::renderToTimemap --
-//
-
-vrvInterface.prototype.renderToTimemap = function (opts, data) {
-	// console.log("%cvrvInterface.renderToTimemap", "color: #aa8800; font-weight: bold");
-	this.options = opts;
-	return this.execute("renderToTimemap", arguments);
-};
-
-
-
-//////////////////////////////
-//
 // vrvInterface::getHumdrum --
 //
 
@@ -309,6 +296,18 @@ vrvInterface.prototype.getMEI = function (page) {
 vrvInterface.prototype.renderToMidi = function () {
 	var value = this.execute("renderToMidi", arguments);
 	return value;
+};
+
+
+
+//////////////////////////////
+//
+// vrvInterface::renderToTimemap --
+//
+
+vrvInterface.prototype.renderToTimemap = function () {
+	console.log("%cvrvInterface.renderToTimemap", "color: #aa8800; font-weight: bold");
+	return this.execute("renderToTimemap", arguments);
 };
 
 
