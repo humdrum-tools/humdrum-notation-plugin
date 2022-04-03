@@ -640,15 +640,6 @@
          "MAX": "3.00"
       },
       {
-         "NAME": "minMeasureWidth",
-         "INFO": "The minimal measure width.",
-         "CAT": "General layout",
-         "ARG": "integer",
-         "DEF": "15",
-         "MIN": "1",
-         "MAX": "30"
-      },
-      {
          "NAME": "mnumInterval",
          "INFO": "Repeat measure numbers at the given cycle size.",
          "CAT": "General layout",
@@ -689,9 +680,9 @@
          "INFO": "Maximum slur slope in degrees.",
          "CAT": "General layout",
          "ARG": "float",
-         "DEF": "20",
-         "MIN": "0",
-         "MAX": "60"
+         "DEF": "60",
+         "MIN": "30",
+         "MAX": "85"
       },
       {
          "NAME": "slurEndpointThickness",
