@@ -293,6 +293,7 @@ function convertMusicXmlToHumdrum(sourcetext, vrvOptions, pluginOptions) {
 		targetElement.style.display = "block";
 	});
 {% else %}
+	toolkit.resetOptions();
 	var svg = toolkit.renderData(sourcetext, vrvOptions);
 	// don't want SVG, but rather Humdrum:
 	var humdrum = toolkit.getHumdrum();
@@ -375,6 +376,7 @@ function convertMeiToHumdrum(sourcetext, vrvOptions, pluginOptions) {
 		targetElement.style.display = "block";
 	});
 {% else %}
+	toolkit.resetOptions();
 	var svg = toolkit.renderData(sourcetext, vrvOptions);
 	// don't want SVG, but rather Humdrum:
 	var humdrum = toolkit.getHumdrum();

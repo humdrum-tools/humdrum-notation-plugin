@@ -438,6 +438,7 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 	}
 
 	{% if page.worker %}
+	vrvWorker.resetOptions();
 	vrvWorker.renderData(vrvOptions, sourcetext)
 	.then(function(svg) {
 		entry.svg.innerHTML = svg;
@@ -529,6 +530,7 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 		});
 	});
 	{% else %}
+	toolkit.resetOptions();
 	var svg = toolkit.renderData(sourcetext, vrvOptions);
 	entry.svg.innerHTML = svg;
 

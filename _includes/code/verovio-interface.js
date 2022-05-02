@@ -214,6 +214,17 @@ vrvInterface.prototype.renderData = function (opts, data, page) {
 
 //////////////////////////////
 //
+// vrvInterface::resetOptions -- Clear old option settings
+//
+
+vrvInterface.prototype.resetOptions = function () {
+	return this.execute("resetOptions", arguments);
+};
+
+
+
+//////////////////////////////
+//
 // vrvInterface::getHumdrum --
 //
 
