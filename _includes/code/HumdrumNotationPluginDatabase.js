@@ -457,7 +457,7 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 		}
 		pluginOptions._currentPageWidth = vrvOptions.pageWidth;
 
-		processHtml(that2, pluginOptions);
+		processHtml(that2.entries[baseid]);
 
 		// Update stored options
 		var autoresize = pluginOptions.autoResize === "true" ||

@@ -67,7 +67,7 @@ function setHumdrumOption(baseid, key, value) {
 		console.log("Error: property must be a string, but is", key, "which is a", typeof baseid);
 		return;
 	}
-	var entry = HNP.entries[baseid];
+	let entry = HNP.entries[baseid];
 	if (!entry) {
 		console.log("Error: ID does not reference a Humdrum notation script:", baseid);
 		return;
@@ -95,7 +95,7 @@ function getHumdrumOption(baseid, key) {
 		console.log("Error: property must be a string, but is", key, "which is a", typeof baseid);
 		return;
 	}
-	var entry = HNP.entries[baseid];
+	let entry = HNP.entries[baseid];
 	if (!entry) {
 		console.log("Error: ID does not reference a Humdrum notation script:", baseid);
 		return;
@@ -158,9 +158,9 @@ function downloadHumdrumUrlData(source, opts) {
 	if (opts.processedUrl.match(/^\s*$/)) {
 		return;
 	}
-	var url = opts.processedUrl;
-	var fallback = opts.urlFallback;
-	var request = new XMLHttpRequest();
+	let url = opts.processedUrl;
+	let fallback = opts.urlFallback;
+	let request = new XMLHttpRequest();
 
 	request.addEventListener("load", function() {
 		source.textContent = this.responseText;
@@ -194,7 +194,7 @@ function downloadFallback(source, opts, url) {
 		HNP.displayHumdrumNow(opts);
 	}
 
-	var request = new XMLHttpRequest();
+	let request = new XMLHttpRequest();
 	request.onload = function() {
 		if (this.status == 200) {
 			source.textContent = this.responseText;
@@ -220,25 +220,25 @@ function downloadFallback(source, opts, url) {
 //
 
 function checkParentResize(baseid) {
-	var entry = HNP.entries[baseid];
+	let entry = HNP.entries[baseid];
 	if (!entry) {
 		console.log("Error: cannot find data for ID", baseid);
 		return;
 	}
-	var container = entry.container;
+	let container = entry.container;
 	if (!container) {
 		console.log("Error: cannot find container for ID", baseid);
 		return;
 	}
-	var pluginOptions = entry.options;
+	let pluginOptions = entry.options;
 	if (!pluginOptions) {
 		console.log("Error: cannot find options for ID", baseid);
 		return;
 	}
-	var scale = pluginOptions.scale;
-	var previousWidth = parseInt(pluginOptions._currentPageWidth * scale / 100.0);
-	var style = window.getComputedStyle(container, null);
-	var currentWidth = parseInt(style.getPropertyValue("width"));
+	let scale = pluginOptions.scale;
+	let previousWidth = parseInt(pluginOptions._currentPageWidth * scale / 100.0);
+	let style = window.getComputedStyle(container, null);
+	let currentWidth = parseInt(style.getPropertyValue("width"));
 	if (currentWidth == previousWidth) {
 		// nothing to do
 		return;
@@ -268,13 +268,13 @@ function checkParentResize(baseid) {
 
 {% if page.worker %}
 function convertMusicXmlToHumdrum(targetElement, sourcetext, vrvOptions, pluginOptions) {
-	// var toolkit = pluginOptions.renderer;
+	// let toolkit = pluginOptions.renderer;
 	if (typeof vrvWorker !== "undefined") {
 		toolkit = vrvWorker;
 	}
 {% else %}
 function convertMusicXmlToHumdrum(sourcetext, vrvOptions, pluginOptions) {
-	var toolkit = pluginOptions.renderer;
+	let toolkit = pluginOptions.renderer;
 	if (typeof vrvToolkit !== "undefined") {
 		toolkit = vrvToolkit;
 	}
@@ -294,9 +294,9 @@ function convertMusicXmlToHumdrum(sourcetext, vrvOptions, pluginOptions) {
 	});
 {% else %}
 	toolkit.resetOptions();
-	var svg = toolkit.renderData(sourcetext, vrvOptions);
+	let svg = toolkit.renderData(sourcetext, vrvOptions);
 	// don't want SVG, but rather Humdrum:
-	var humdrum = toolkit.getHumdrum();
+	let humdrum = toolkit.getHumdrum();
 	return humdrum;
 {% endif %}
 }
@@ -313,13 +313,13 @@ function convertMusicXmlToHumdrum(sourcetext, vrvOptions, pluginOptions) {
 
 {% if page.worker %}
 function getHumdrum(pluginOptions) {
-	var toolkit = pluginOptions.renderer;
+	let toolkit = pluginOptions.renderer;
 	if (typeof vrvWorker !== "undefined") {
 		toolkit = vrvWorker;
 	}
 {% else %}
 function getHumdrum(pluginOptions) {
-	var toolkit = pluginOptions.renderer;
+	let toolkit = pluginOptions.renderer;
 	if (typeof vrvToolkit !== "undefined") {
 		toolkit = vrvToolkit;
 	}
@@ -336,7 +336,7 @@ function getHumdrum(pluginOptions) {
 		return content;
 	});
 {% else %}
-	var humdrum = toolkit.getHumdrum();
+	let humdrum = toolkit.getHumdrum();
 	return humdrum;
 {% endif %}
 }
@@ -350,13 +350,13 @@ function getHumdrum(pluginOptions) {
 
 {% if page.worker %}
 function convertMeiToHumdrum(targetElement, sourcetext, vrvOptions, pluginOptions) {
-	var toolkit = pluginOptions.renderer;
+	let toolkit = pluginOptions.renderer;
 	if (typeof vrvWorker !== "undefined") {
 		toolkit = vrvWorker;
 	}
 {% else %}
 function convertMeiToHumdrum(sourcetext, vrvOptions, pluginOptions) {
-	var toolkit = pluginOptions.renderer;
+	let toolkit = pluginOptions.renderer;
 	if (typeof vrvToolkit !== "undefined") {
 		toolkit = vrvToolkit;
 	}
@@ -377,9 +377,9 @@ function convertMeiToHumdrum(sourcetext, vrvOptions, pluginOptions) {
 	});
 {% else %}
 	toolkit.resetOptions();
-	var svg = toolkit.renderData(sourcetext, vrvOptions);
+	let svg = toolkit.renderData(sourcetext, vrvOptions);
 	// don't want SVG, but rather Humdrum:
-	var humdrum = toolkit.getHumdrum();
+	let humdrum = toolkit.getHumdrum();
 	console.log("HUMDRUM IS", humdrum);
 	return humdrum;
 {% endif %}
@@ -394,7 +394,7 @@ function convertMeiToHumdrum(sourcetext, vrvOptions, pluginOptions) {
 //
 
 function getFilters(options) {
-	var filters = options.filter;
+	let filters = options.filter;
 	if (!filters) {
 		filters = options.filters;
 	}
@@ -407,8 +407,8 @@ function getFilters(options) {
 		// expected to be a string or array, so giving up
 		return "";
 	}
-	var output = "";
-	for (var i=0; i<filters.length; i++) {
+	let output = "";
+	for (let i=0; i<filters.length; i++) {
 		output += "!!!filter: " + filters[i] + "\n";
 	}
 
@@ -423,8 +423,201 @@ function getFilters(options) {
 //    place into div.PREHTML element and div.POSTHTML element.
 //
 
-function processHtml(entry, options) {
-	console.log("IN PROCESS HTML OPTIONS ARE", entry, options);
+function processHtml(entry) {
+	// console.log("PROCESSHTML ENTRY", entry);
+	if (!entry) {
+		console.error("Error: No entry in processHtml");
+		return;
+	}
+	if (!entry.humdrumOutput) {
+		return;
+	}
+	let parameters = getHumdrumParameters(entry.humdrumOutput);
+	// console.log("EXTRACTED PARAMETERS", parameters);
+
+	if (!parameters) {
+		return;
+	}
+
+	let preHtml = parameters.PREHTML;
+	let postHtml = parameters.POSTHTML;
+
+	let preElement = entry.container.querySelector("div.PREHTML");
+	let postElement = entry.container.querySelector("div.POSTHTML");
+
+	if (!preHtml) {
+		if (preElement) {
+			preElement.style.display = "none";
+		}
+	}
+	if (!postHtml) {
+		if (postElement) {
+			postElement.style.display = "none";
+		}
+	}
+	if (!preHtml && !postHtml) {
+		return;
+	}
+
+	// Also deal with paged content: show preHtml only above first page
+	// and postHtml only below last page.
+
+	let lang = entry.options.lang || "";
+	let preContent = "";
+	let postContent = "";
+	if (lang) {
+		if (preHtml) {
+			preContent = preHtml[`CONTENT-${lang}`];
+		} 
+		if (postHtml) {
+			postContent = postHtml[`CONTENT-${lang}`];
+		}
+		if (typeof preContent === 'undefined') {
+			if (preHtml) {
+				preContent = preHtml.CONTENT;
+			}
+		}
+		if (typeof postContent === 'undefined') {
+			if (postHtml) {
+				postContent = postHtml.CONTENT;
+			}
+		}
+	} else {
+		if (preHtml) {
+			preContent = preHtml.CONTENT;
+		}
+		if (postHtml) {
+			postContent = postHtml.CONTENT;
+		}
+	}
+
+	// Get the first content-lang parameter:
+	if (typeof preContent === 'undefined') {
+		if (preHtml) {
+			for (var name in preHtml) {
+				if (name.match(/^CONTENT/)) {
+					preContent = preHtml[name];
+					break;
+				}
+			}
+		}
+	}
+	if (typeof postContent === 'undefined') {
+		if (postHtml) {
+			for (var name in postHtml) {
+				if (name.match(/^CONTENT/)) {
+					postContent = postHtml[name];
+					break;
+				}
+			}
+		}
+	}
+
+	let preStyle = "";
+	let postStyle = "";
+
+	if (preHtml) {
+		preStyle = preHtml.STYLE || "";
+	}
+	if (postHtml) {
+		postStyle = postHtml.STYLE || "";
+	}
+
+	if (!preContent) {
+		if (preElement) {
+			preElement.style.display = "none";
+		}
+	} else if (preElement) {
+		preElement.style.display = "block";
+		if (preStyle) {
+			preElement.style.cssText = preStyle;
+		}
+		preElement.innerHTML = preContent;
+	}
+
+	if (!postContent) {
+		if (postElement) {
+			postElement.style.display = "none";
+		}
+	} else if (postElement) {
+		postElement.style.display = "block";
+		if (postStyle) {
+			postElement.style.cssText = postStyle;
+		}
+		postElement.innerHTML = postContent;
+	}
+}
+
+
+
+//////////////////////////////
+//
+// getHumdrumParameters --
+//
+
+function getHumdrumParameters(humdrum) {
+	let REFS = {};
+
+	let atonlines = "";
+	let lines = humdrum.split(/\r?\n/);
+	let atonactive = "";
+
+	for (let i=0; i<lines.length; i++) {
+		if (!lines[i].match(/^!!/)) {
+			continue;
+		}
+		let matches = lines[i].match(/^!!!\s*([^:]+)\s*:\s*(.*)\s*/);
+		if (matches) {
+			let key = matches[1];
+			let value = matches[2];
+			let item = {
+				key: key,
+				value: value,
+				line: i+1
+			};
+			if (typeof REFS[key] === "undefined") {
+				REFS[key] = item;
+			} else if (Array.isArray(REFS[key]) == false) {
+				REFS[key] = [ REFS[key], item ];
+			} else {
+				REFS[key].push(item);
+			}
+			continue;
+		}
+		matches = lines[i].match(/^!!(?!!)/);
+		if (!matches) {
+			continue;
+		}
+		let newline = lines[i].substr(2);
+		if (atonactive) {
+			atonlines += newline + "\n";
+			let stringg = `^@@END:\\s*${atonactive}\\s*$`;
+			let regex = new RegExp(stringg);
+			if (newline.match(regex)) {
+				atonactive = "";
+			}
+			continue;
+		} else {
+			matches = newline.match(/^@@BEGIN:\s*(.*)\s*$/);
+			if (matches) {
+				atonactive = matches[1];
+				atonlines += newline + "\n";
+			}
+		}
+	}
+
+	let output = {};
+	if (atonlines) {
+		let aton = new ATON;
+		try {
+			output = aton.parse(atonlines);
+		} catch (error) {
+			console.error("Error in ATON data:\n", atonlines);
+		}
+	}
+	output._REFS = REFS;
+
+	return output;
 }
 
 
@@ -438,10 +631,10 @@ function executeFunctionByName(functionName, context /*, args */) {
 	if (typeof functionName === "function") {
 		return
 	}
-	var args = Array.prototype.slice.call(arguments, 2);
-	var namespaces = functionName.split(".");
-	var func = namespaces.pop();
-	for (var i = 0; i < namespaces.length; i++) {
+	let args = Array.prototype.slice.call(arguments, 2);
+	let namespaces = functionName.split(".");
+	let func = namespaces.pop();
+	for (let i = 0; i < namespaces.length; i++) {
 		context = context[namespaces[i]];
 		if (context && context[func]) {
 			break;
@@ -458,7 +651,7 @@ function executeFunctionByName(functionName, context /*, args */) {
 //
 
 function functionName(fun) {
-  var ret = fun.toString();
+  let ret = fun.toString();
   ret = ret.substr('function '.length);
   ret = ret.substr(0, ret.indexOf('('));
   return ret;
@@ -481,16 +674,16 @@ function functionName(fun) {
 function saveHumdrumSvg(tags, savename) {
 	if ((tags instanceof Element) && (tags.nodeName === "svg")) {
 		// Save a single SVG element's contents to the hard disk.
-		var sid = "";
+		let sid = "";
 		sid = tags.id;
 		if (!sid) {
 			sid = tags.parentNode.id;
 		}
-		var filename = savename;
+		let filename = savename;
 		if (!filename) {
 			filename = sid.replace(/-svg$/, "") + ".svg";
 		}
-		var text = tags.outerHTML.replace(/&nbsp;/g, " ").replace(/&#160;/g, " ");;
+		let text = tags.outerHTML.replace(/&nbsp;/g, " ").replace(/&#160;/g, " ");;
 		blob = new Blob([text], { type: 'image/svg+xml' }),
 		anchor = document.createElement('a');
 		anchor.download = filename;
@@ -506,19 +699,18 @@ function saveHumdrumSvg(tags, savename) {
 		return;
 	}
 
-	var i;
 	if (!tags) {
-		// var selector = 'script[type="text/x-humdrum"]';
-		var selector = '.humdrum-text[id$="-humdrum"]';
-		var items = document.querySelectorAll(selector);
+		// let selector = 'script[type="text/x-humdrum"]';
+		let selector = '.humdrum-text[id$="-humdrum"]';
+		let items = document.querySelectorAll(selector);
 		tags = [];
-		for (i=0; i<items.length; i++) {
-			var id = items[i].id.replace(/-humdrum$/, "");
+		for (let i=0; i<items.length; i++) {
+			let id = items[i].id.replace(/-humdrum$/, "");
 			if (!id) {
 				continue;
 			}
-			var ss = "#" + id + "-svg svg";
-			var item = document.querySelector(ss);
+			let ss = "#" + id + "-svg svg";
+			let item = document.querySelector(ss);
 			if (item) {
 				tags.push(item);
 			}
@@ -530,13 +722,13 @@ function saveHumdrumSvg(tags, savename) {
 
 	(function (i, sname) {
 		(function j () {
-			var tag = tags[i++];
+			let tag = tags[i++];
 			if (typeof tag  === "string" || tag instanceof String) {
-				var s = tag
+				let s = tag
 				if (!tag.match(/-svg$/)) {
 					s += "-svg";
 				}
-				var thing = document.querySelector("#" + s + " svg");
+				let thing = document.querySelector("#" + s + " svg");
 				if (thing) {
 					saveHumdrumSvg(thing, sname);
 				}
@@ -583,7 +775,7 @@ function saveHumdrumText(tags, savename, savetext) {
 			savename = "humdrum.txt";
 		}
 		// Unescaping < and >, which may cause problems in certain conditions, but not many:
-		var stext = savetext.replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+		let stext = savetext.replace(/&lt;/g, "<").replace(/&gt;/g, ">");
 		blob = new Blob([stext], { type: 'text/plain' }),
 		anchor = document.createElement('a');
 		anchor.download = savename;
@@ -601,16 +793,16 @@ function saveHumdrumText(tags, savename, savetext) {
 
 	if ((tags instanceof Element) && (tags.className.match(/humdrum-text/))) {
 		// Save the text from a single element.
-		var sid = "";
+		let sid = "";
 		sid = tags.id;
 		if (!sid) {
 			sid = tags.parentNode.id;
 		}
-		var filename = savename;
+		let filename = savename;
 		if (!filename) {
 			filename = sid.replace(/-humdrum$/, "") + ".txt";
 		}
-		var text = tags.textContent.replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+		let text = tags.textContent.replace(/&lt;/g, "<").replace(/&gt;/g, ">");
 		blob = new Blob([text], { type: 'text/plain' }),
 		anchor = document.createElement('a');
 		anchor.download = filename;
@@ -624,8 +816,8 @@ function saveHumdrumText(tags, savename, savetext) {
 
 	if (typeof tags  === "string" || tags instanceof String) {
 		// Convert a Humdrum ID into an element and save contents in that element.
-		var myid = tags.replace(/-humdrum$/, "");
-		var myelement = document.querySelector("#" + myid + "-humdrum");
+		let myid = tags.replace(/-humdrum$/, "");
+		let myelement = document.querySelector("#" + myid + "-humdrum");
 		if (!myelement) {
 			myelement = document.querySelector("#" + myid);
 		}
@@ -636,7 +828,7 @@ function saveHumdrumText(tags, savename, savetext) {
 	if (!tags) {
 		// If tags is empty, then create a list of all elements that
 		// should contain Humdrum content.
-		var selector = '.humdrum-text[id$="-humdrum"]';
+		let selector = '.humdrum-text[id$="-humdrum"]';
 		tags = document.querySelectorAll(selector);
 	}
 	if (tags.constructor !== NodeList) {
@@ -660,21 +852,20 @@ function saveHumdrumText(tags, savename, savetext) {
 	// be saved to the hard-disk.  Combine all of the content into a single data
 	// stream, and then save (with a default filename of "humdrum.txt").
 
-	var i;
-	var outputtext = "";
-	var humtext = "";
-	for (i=0; i<tags.length; i++) {
+	let outputtext = "";
+	let humtext = "";
+	for (let i=0; i<tags.length; i++) {
 		if (!tags[i]) {
 			continue;
 		}
 		if (typeof tags[i]  === "string" || tags[i] instanceof String) {
 			saveHumdrumText(tags[i]);
 			// convert a tag to an element:
-			var s = tags[i];
+			let s = tags[i];
 			if (!tags[i].match(/-humdrum$/)) {
 				s += "-humdrum";
 			}
-			var thing = document.querySelector("#" + s);
+			let thing = document.querySelector("#" + s);
 			if (thing) {
 				tags[i] = thing;
 			} else {
@@ -683,7 +874,7 @@ function saveHumdrumText(tags, savename, savetext) {
 		}
 		// Collect the Humdrum file text of the element.
 		if (tags[i] instanceof Element) {
-			var segmentname = tags[i].id.replace(/-humdrum$/, "");
+			let segmentname = tags[i].id.replace(/-humdrum$/, "");
 			if (!segmentname.match(/\.[.]*$/)) {
 				segmentname += ".krn";
 			}
