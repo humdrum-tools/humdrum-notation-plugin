@@ -273,6 +273,7 @@ HumdrumNotationPluginEntry.prototype.initializeContainer = function () {
 		hvisible = true;
 	}
 
+	output += "<div style='display:none' class='PREHTML'></div>\n";
 	output += "<table class='humdrum-verovio'";
 	output += " style='border:0; border-collapse:collapse;'";
 	output += ">\n";
@@ -304,6 +305,7 @@ HumdrumNotationPluginEntry.prototype.initializeContainer = function () {
 	output += "</tr>\n";
 	output += "</tbody>\n";
 	output += "</table>\n";
+	output += "<div style='display:none' class='POSTHTML'></div>\n";
 
 	var oldcontent = this.container.innerHTML;
 	this.container.innerHTML = output;
