@@ -419,6 +419,18 @@ function getFilters(options) {
 
 //////////////////////////////
 //
+// processHtml -- Extract PREHTML/POSTHTML content from file and 
+//    place into div.PREHTML element and div.POSTHTML element.
+//
+
+function processHtml(options) {
+	console.log("IN PROCESS HTML OPTIONS ARE", options);
+}
+
+
+
+//////////////////////////////
+//
 // executeFunctionByName -- Also allow variable names that store functions.
 //
 

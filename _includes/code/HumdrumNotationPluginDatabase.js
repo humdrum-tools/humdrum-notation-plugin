@@ -457,6 +457,8 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 		}
 		pluginOptions._currentPageWidth = vrvOptions.pageWidth;
 
+		processHtml(pluginOptions);
+
 		// Update stored options
 		var autoresize = pluginOptions.autoResize === "true" ||
 	                 	pluginOptions.autoResize === true ||
@@ -539,7 +541,6 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumSvg = function (baseid) {
 
 	// clear the height styling which may have been given as a placeholder:
 	entry.container.style.height = "";
-
 
 	if (pluginOptions.postFunction) {
 		// Need to run a function after the image has been created or redrawn
