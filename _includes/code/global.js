@@ -423,8 +423,8 @@ function getFilters(options) {
 //    place into div.PREHTML element and div.POSTHTML element.
 //
 
-function processHtml(options) {
-	console.log("IN PROCESS HTML OPTIONS ARE", options);
+function processHtml(entry, options) {
+	console.log("IN PROCESS HTML OPTIONS ARE", entry, options);
 }
 
 
