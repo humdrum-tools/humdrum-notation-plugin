@@ -319,7 +319,7 @@ vrvInterface.prototype.renderToMidi = function () {
 vrvInterface.prototype.renderToTimemap = function () {
 	// console.log("%cvrvInterface.renderToTimemap", "color: #aa8800; font-weight: bold");
 	let result = this.execute("renderToTimemap", arguments);
-	if( (typeof result === "object" || typeof result === 'function') && (result !== null) ) {
+	if ((typeof result === "object") && (result !== null)) {
 		if (typeof result._result !== "undefined") {
 			result = result._result;
 		}
