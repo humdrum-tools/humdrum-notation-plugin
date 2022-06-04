@@ -251,18 +251,6 @@ vrvInterface.prototype.redoLayout = function (opts, redo, measure) {
 
 //////////////////////////////
 //
-// vrvInterface::renderToTimemap --
-//
-
-vrvInterface.prototype.renderToTimemap = function () {
-	// console.log("%cvrvInterface.renderToTimemap", "color: #8800aa; font-weight: bold");
-	return this.execute("renderToTimemap", arguments);
-};
-
-
-
-//////////////////////////////
-//
 // vrvInterface::renderPage --
 //
 
@@ -329,8 +317,14 @@ vrvInterface.prototype.renderToMidi = function () {
 //
 
 vrvInterface.prototype.renderToTimemap = function () {
-	console.log("%cvrvInterface.renderToTimemap", "color: #aa8800; font-weight: bold");
-	return this.execute("renderToTimemap", arguments);
+	// console.log("%cvrvInterface.renderToTimemap", "color: #aa8800; font-weight: bold");
+	let result = this.execute("renderToTimemap", arguments);
+	if( (typeof result === "object" || typeof result === 'function') && (result !== null) ) {
+		if (typeof result._result !== "undefined) {
+			result = result._result;
+		}
+	}
+	return result;
 };
 
 
