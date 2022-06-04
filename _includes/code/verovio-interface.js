@@ -251,6 +251,18 @@ vrvInterface.prototype.redoLayout = function (opts, redo, measure) {
 
 //////////////////////////////
 //
+// vrvInterface::renderToTimemap --
+//
+
+vrvInterface.prototype.renderToTimemap = function () {
+	// console.log("%cvrvInterface.renderToTimemap", "color: #8800aa; font-weight: bold");
+	return this.execute("renderToTimemap", arguments);
+};
+
+
+
+//////////////////////////////
+//
 // vrvInterface::renderPage --
 //
 
