@@ -317,7 +317,7 @@ vrvInterface.prototype.renderToMidi = function () {
 //
 
 vrvInterface.prototype.renderToTimemap = function () {
-	// console.log("%cvrvInterface.renderToTimemap", "color: #aa8800; font-weight: bold");
+	console.log("%cvrvInterface.renderToTimemap", "color: #aa8800; font-weight: bold");
 	let result = this.execute("renderToTimemap", arguments);
 	return result;
 };

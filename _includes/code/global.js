@@ -502,6 +502,9 @@ function processHtml(entry) {
 		}
 	}
 
+	preContent = applyParameters(text, parameters.PREHTML, parameters._REFS, langs);
+	postContent = applyParameters(text, parameters.POSTHTML, parameters._REFS, langs);
+
 	// Get the first content-lang parameter:
 	if (typeof preContent === 'undefined') {
 		if (preHtml) {
@@ -558,6 +561,95 @@ function processHtml(entry) {
 		postElement.innerHTML = postContent;
 	}
 }
+
+
+
+//////////////////////////////
+//
+// applyParameters --
+//
+
+function applyParameters(text, refs1, refs2, langs) {
+	if (typeof text === "undefined") {
+		return;
+	}
+
+	if (!langs) {
+		langs = [];
+	}
+
+	for (let i=0; i<langs.length; i++) {
+		let regex = /@\{(.*?)\}/g;
+		text = text.replace(regex, function(value0, value1) {
+			let output = "";
+			console.warn("VALUE0", value0, "VALUE1", value1);
+			let key = value1;
+			let keyolang;
+			let keylang;
+	
+			if (language) {
+				keyolang = `${key}@@${language}`;
+				keylang = `${key}@${language}`;
+			}
+	
+			if ((typeof keyolang !== "undefined") && (typeof refs1 !== "undefined") && (typeof refs1[keyolang] !== "undefined")) {
+				if (Array.isArray(refs1[keyolang])) {
+					output = refs1[keyolang][0];
+					return output;
+				} else if (typeof refs1[keyolang] === "string") {
+					output = refs1[keyolang];
+					return output;
+				}
+			} else if ((typeof keylang !== "undefined") && (typeof refs1 !== "undefined") && (typeof refs1[keylang] !== "undefined")) {
+				if (Array.isArray(refs1[keylang])) {
+					output = refs1[keylang][0];
+					return output;
+				} else if (typeof refs1[keylang] === "string") {
+					output = refs1[keylang];
+					return output;
+				}
+			} else if ((typeof refs1 !== "undefined") && (typeof refs1[key] !== "undefined")) {
+				if (Array.isArray(refs1[key])) {
+					output = refs1[key][0];
+					return output;
+				} else if (typeof refs1[key] === "string") {
+					output = refs1[key];
+					return output;
+				}
+			} else if ((typeof keyolang !== "undefined") && (typeof refs2 !== "undefined") && (typeof refs2[keyolang] !== "undefined")) {
+				if (Array.isArray(refs2[keyolang])) {
+					output = refs2[keyolang][0].value;
+					return output;
+				} else if (typeof refs2[keyolang].value === "string") {
+					output = refs2[keyolang].value;
+					return output;
+				}
+			} else if ((typeof keylang !== "undefined") && (typeof refs2 !== "undefined") && (typeof refs2[keylang] !== "undefined")) {
+				if (Array.isArray(refs2[keylang])) {
+					output = refs2[keylang][0].value;
+					return output;
+				} else if (typeof refs2[keylang].value === "string") {
+					output = refs2[keylang].value;
+					return output;
+				}
+			} else if ((typeof refs2 !== "undefined") && (typeof refs2[key] !== "undefined")) {
+				if (Array.isArray(refs2[key])) {
+					output = refs2[key][0].value;
+					return output;
+				} else if (typeof refs2[key].value === "string") {
+					output = refs2[key].value;
+					return output;
+				}
+			}
+			return output;
+
+		});
+	}
+
+	return text;
+}
+
+
 
 
 
