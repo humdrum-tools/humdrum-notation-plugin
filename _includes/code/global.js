@@ -651,8 +651,6 @@ function applyParameters(text, refs1, refs2, langs) {
 
 
 
-
-
 //////////////////////////////
 //
 // getHumdrumParameters --
