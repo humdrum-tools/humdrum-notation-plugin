@@ -1941,14 +1941,14 @@
 @@@
 
 @@BEGIN: OPTION
-@NAME:	MidiNoCue
+@NAME:	midiNoCue
 @CAT:	MIDI options
 @INFO:	Ignore cue notes when converting to MIDI.
 @ARG:	boolearn
 @@END: OPTION
 
 @@BEGIN: OPTION
-@NAME:	MidiTempoAdjustment
+@NAME:	midiTempoAdjustment
 @CAT:	MIDI options
 @INFO:	MIDI tempo adjustment factor.
 @ARG:	float
