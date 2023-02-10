@@ -1119,9 +1119,9 @@
 @CAT:	General layout
 @INFO:	Allow more endpoint movement during adjustment.
 @ARG:	float
-@DEF:	
-@MIN:	
-@MAX:	
+@DEF:	0.0
+@MIN:	0.0
+@MAX:	1.0
 @@END: OPTION
 
 
@@ -1174,9 +1174,9 @@
 @CAT:	General layout
 @INFO:	High value means more symmetric slurs.
 @ARG:	float
-@DEF:	
-@MIN:	
-@MAX:	
+@DEF:	0.0
+@MIN:	0.0
+@MAX:	1.0
 @@END: OPTION
 
 

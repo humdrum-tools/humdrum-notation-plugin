@@ -883,9 +883,9 @@
       "CAT": "General layout",
       "INFO": "Allow more endpoint movement during adjustment.",
       "ARG": "float",
-      "DEF": "",
-      "MIN": "",
-      "MAX": ""
+      "DEF": "0.00",
+      "MIN": "0.00",
+      "MAX": "1.00"
     },
     {
       "NAME": "slurEndpointThickness",
@@ -928,9 +928,9 @@
       "CAT": "General layout",
       "INFO": "High value means more symmetric slurs.",
       "ARG": "float",
-      "DEF": "",
-      "MIN": "",
-      "MAX": ""
+      "DEF": "0.00",
+      "MIN": "0.00",
+      "MAX": "1.00"
     },
     {
       "NAME": "spacingBraceGroup",
