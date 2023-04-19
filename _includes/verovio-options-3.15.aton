@@ -935,6 +935,17 @@
 
 
 @@BEGIN: OPTION
+@NAME:	lyricHyphenLength
+@CAT:	General layout
+@INFO:	Lyric hyphen and dash length.
+@ARG:	float
+@DEF:	1.20
+@MIN:	0.50
+@MAX:	3.00
+@@END: OPTION
+
+
+@@BEGIN: OPTION
 @NAME:	lyricLineThickness
 @CAT:	General layout
 @INFO:	Lyric extender line thickness.
