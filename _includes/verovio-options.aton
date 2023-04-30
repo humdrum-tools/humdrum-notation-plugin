@@ -1237,7 +1237,7 @@
 @CAT:	General layout
 @INFO:	System minimal spacing in diatonic-step units.
 @ARG:	integer
-@DEF:	12
+@DEF:	4
 @MIN:	0
 @MAX:	48
 @@END: OPTION
