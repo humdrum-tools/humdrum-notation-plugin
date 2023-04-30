@@ -35,7 +35,7 @@
 //		spacingLinear    default 0.25
 //		spacingNonLinear default 0.6
 //		spacingStaff     default 12
-//		spacingSystem    default 12
+//		spacingSystem    default 4
 //
 
 {% include code/global.js %}
