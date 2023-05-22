@@ -10,4 +10,5 @@
 * <a href="/options/url">How to download from external URLs and deal with download errors</a>
 * <a href="/topic/embedded">How to embed Humdrum notation plugin options into Humdrum digital scores</a>
 * <a href="/topic/wikimedia">How to display music notation on a wiki page</a>
+* <a href="/topic/shiny">How to display music notation in a shiny app</a>
 
