@@ -253,7 +253,7 @@ HumdrumNotationPluginDatabase.prototype.downloadUriAndDisplay = function (baseid
 			let repo = matches[2];
 			let branch = matches[3];
 			let rest = matches[4];
-			url = `https://raw.githubusercontent.com/${acocunt}/${repo}/${branch)/${rest}`;
+			url = `https://raw.githubusercontent.com/${acocunt}/${repo}/${branch}/${rest}`;
 		}
 		// do also for other online repos, such as Bitbucket.
 
