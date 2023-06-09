@@ -796,13 +796,16 @@ HumdrumNotationPluginDatabase.prototype.makeUrlGithub = function (uri, opts) {
 		var account = matches[2];
 		var repo    = matches[3];
 		var file    = matches[4];
-		var variant;
+		var branch;
 		if (opts && opts.commitHash && (typeof opts.commitHash === "string" || text instanceof String)) {
-			variant = opts.commitHash;
+			branch = opts.commitHash;
 		} else {
-			variant = "master";
+			branch = "master";
+			if (uri.match(/\/main\/)) {
+				branch = "main";
+			}
 		}
-		url = "https://raw.githubusercontent.com/" + account + "/" + repo + "/" + variant + "/" + file;
+		url = "https://raw.githubusercontent.com/" + account + "/" + repo + "/" + branch + "/" + file;
 	}
 	return url;
 };

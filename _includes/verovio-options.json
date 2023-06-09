@@ -199,12 +199,6 @@
       "ARG": "boolean"
     },
     {
-      "NAME": "incipit",
-      "CAT": "Input and page configuration options",
-      "INFO": "Display incipit elements as data input.",
-      "ARG": "boolean"
-    },
-    {
       "NAME": "justifyVertically",
       "CAT": "Input and page configuration options",
       "INFO": "Justify spacing vertically to fill a page.",
