@@ -245,6 +245,18 @@ HumdrumNotationPluginDatabase.prototype.downloadUriAndDisplay = function (baseid
 		url = this.makeUrlNifc(uri);
 	} else if (uri.match(/^(https?):\/\//i)) {
 		url = uri;
+
+		// convert URL to Github into raw data URL:
+		let matches = url.match(/^https:\/\/github.com/(.*?)/(.*?)/tree/(.*?)/(.*)$/) {
+		if (matches) {
+			let account = matches[1];
+			let repo = matches[2];
+			let branch = matches[3];
+			let rest = matches[4];
+			url = `https://raw.githubusercontent.com/${acocunt}/${repo}/${branch)/${rest}`;
+		}
+		// do also for other online repos, such as Bitbucket.
+
 	} else {
 		// Assume local file URL:
 		url = uri;
