@@ -247,7 +247,7 @@ HumdrumNotationPluginDatabase.prototype.downloadUriAndDisplay = function (baseid
 		url = uri;
 
 		// convert URL to Github into raw data URL:
-		let matches = url.match(/^https:\/\/github.com/(.*?)/(.*?)/tree/(.*?)/(.*)$/) {
+		let matches = url.match(/^https:\/\/github.com\/(.*?)\/(.*?)\/tree\/(.*?)/(.*)$/) {
 		if (matches) {
 			let account = matches[1];
 			let repo = matches[2];
