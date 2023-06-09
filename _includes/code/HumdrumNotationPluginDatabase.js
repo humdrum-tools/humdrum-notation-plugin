@@ -219,6 +219,7 @@ HumdrumNotationPluginDatabase.prototype.displayHumdrumNow = function (opts) {
 
 HumdrumNotationPluginDatabase.prototype.downloadUriAndDisplay = function (baseid) {
 	var entry = this.entries[baseid];
+console.log("ENTRY", entry);
 	if (!entry) {
 		console.log("Error: Cannot find entry for URI download:", baseid);
 		return;
@@ -261,6 +262,7 @@ HumdrumNotationPluginDatabase.prototype.downloadUriAndDisplay = function (baseid
 		// Assume local file URL:
 		url = uri;
 	}
+console.warn("URL TO DOWNLOAD", url);
 	if (url) {
 		entry.options.url = url;
 		this.downloadUrlAndDisplay(baseid);
