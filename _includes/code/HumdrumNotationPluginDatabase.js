@@ -254,7 +254,7 @@ console.log("ENTRY", entry);
 			let repo = matches[2];
 			let branch = matches[3];
 			let rest = matches[4];
-			url = `https://raw.githubusercontent.com/${acocunt}/${repo}/${branch}/${rest}`;
+			url = `https://raw.githubusercontent.com/${account}/${repo}/${branch}/${rest}`;
 		}
 		// do also for other online repos, such as Bitbucket.
 
@@ -294,7 +294,7 @@ HumdrumNotationPluginDatabase.prototype.downloadUrlAndDisplay = function (baseid
 			let repo = matches[2];
 			let branch = matches[3];
 			let rest = matches[4];
-			entry.options.url = `https://raw.githubusercontent.com/${acocunt}/${repo}/${branch}/${rest}`;
+			entry.options.url = `https://raw.githubusercontent.com/${account}/${repo}/${branch}/${rest}`;
 		}
 		// do also for other online repos, such as Bitbucket.
 
