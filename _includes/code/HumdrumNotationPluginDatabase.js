@@ -801,7 +801,7 @@ HumdrumNotationPluginDatabase.prototype.makeUrlGithub = function (uri, opts) {
 			branch = opts.commitHash;
 		} else {
 			branch = "master";
-			if (uri.match(/\/main\/)) {
+			if (uri.match(/\/main\//)) {
 				branch = "main";
 			}
 		}
