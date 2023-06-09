@@ -286,6 +286,18 @@ HumdrumNotationPluginDatabase.prototype.downloadUrlAndDisplay = function (baseid
 	}
 
 	if (entry.options.url) {
+
+		// convert URL to Github into raw data URL:
+		let matches = entry.options.url.match(/^https:\/\/github.com\/(.*?)\/(.*?)\/tree\/(.*?)\/(.*)$/);
+		if (matches) {
+			let account = matches[1];
+			let repo = matches[2];
+			let branch = matches[3];
+			let rest = matches[4];
+			entry.options.url = `https://raw.githubusercontent.com/${acocunt}/${repo}/${branch}/${rest}`;
+		}
+		// do also for other online repos, such as Bitbucket.
+
 		entry.options.processedUrl = entry.options.url;
 		delete entry.options.url;
 	} else {
