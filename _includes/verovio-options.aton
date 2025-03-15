@@ -22,11 +22,19 @@
 @@
 
 
-
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@
 @@ base options
 @@
+
+@@BEGIN: OPTION
+@NAME:	stdin
+@ABBR:	-
+@INFO:	Read input data from standard input.
+@CAT:   Base options
+@ARG:	string
+@CLI_ONLY:	true
+@@END: OPTION
 
 @@BEGIN: OPTION
 @NAME:	help
@@ -44,15 +52,6 @@
 @ALT:   mensural
 @ALT:   json
 @ALT:   full
-@CLI_ONLY:	true
-@@END: OPTION
-
-@@BEGIN: OPTION
-@NAME:	stdin
-@ABBR:	-
-@INFO:	Read input data from standard input.
-@CAT:   Base options
-@ARG:	string
 @CLI_ONLY:	true
 @@END: OPTION
 
@@ -180,7 +179,7 @@
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@
-@@ general options (Input and page configuration options)
+@@ general options
 @@
 
 @@BEGIN: OPTION
@@ -275,7 +274,6 @@
 @ALT:	always
 @@END: OPTION
 
-
 @@BEGIN: OPTION
 @NAME:	header
 @CAT:	Input and page configuration options.
@@ -303,7 +301,7 @@
 @@BEGIN: OPTION
 @NAME:	justifyVertically
 @CAT:	Input and page configuration options
-@INFO:	Justify spacing veritcally to fill page.
+@INFO:	Justify spacing vertically to fill a page.
 @ARG:	boolean
 @@END: OPTION
 
@@ -316,11 +314,12 @@
 
 @@BEGIN: OPTION
 @NAME:	minLastJustification
+@CAT:	Input and page configuration options
 @INFO:	Minimum length of last system which can be stretched to 100% width of page.
 @ARG:	float
-@DEF:	0.8
-@MIN:	0.0
-@MAX:	1.0
+@DEF:	0.80
+@MIN:	0.00
+@MAX:	1.00
 @@END: OPTION
 
 @@BEGIN: OPTION
@@ -333,7 +332,7 @@
 @@BEGIN: OPTION
 @NAME:	moveScoreDefinitionToStaff
 @CAT:	Input and page configuration options
-@INFO:	Move score definition from scoreDef to staffDef.
+@INFO:	Move score definition (clef, keySig, meterSig, etc.) from scoreDef to staffDef.
 @ARG:	boolean
 @@END: OPTION
 
@@ -343,73 +342,6 @@
 @INFO:	Render neumes as noteheads instead of original notation.
 @ARG:	boolean
 @@END: OPTION
-
-@@BEGIN: OPTION
-@NAME:	humType
-@CAT:	Input and page configuration options
-@INFO:	Include type attributes when importing from Humdrum.
-@ARG:	boolean
-@@END: OPTION
-
-
-#@@BEGIN: OPTION
-#@NAME:	incipit
-#@CAT:	Input and page configuration options
-#@INFO:	Display incipit elements as data input.
-#@ARG:	boolean
-#@@END: OPTION
-
-
-@@BEGIN: OPTION
-@NAME:	justifyVertically
-@CAT:	Input and page configuration options
-@INFO:	Justify spacing vertically to fill a page.
-@ARG:	boolean
-@@END: OPTION
-
-
-@@BEGIN: OPTION
-@NAME:	landscape
-@CAT:	Input and page configuration options
-@INFO:	Landscape paper orientation flag.
-@ARG:	boolean
-@@END: OPTION
-
-
-@@BEGIN: OPTION
-@NAME:	mensuralToMeasure
-@CAT:	Input and page configuration options
-@INFO:	Convert mensural sections to measure-based MEI.
-@ARG:	boolean
-@@END: OPTION
-
-
-@@BEGIN: OPTION
-@NAME:	minLastJustification
-@CAT:	Input and page configuration options
-@INFO:	Last system is only justified if the unjustified width is great than the given percent.
-@ARG:	float
-@DEF:	0.80
-@MIN:	0.00
-@MAX:	1.00
-@@END: OPTION
-
-
-@@BEGIN: OPTION
-@NAME:	mmOutput
-@CAT:	Input and page configuration options
-@INFO:	Specify that the output in the SVG is given in mm (default is px).
-@ARG:	boolean
-@@END: OPTION
-
-
-@@BEGIN: OPTION
-@NAME:	moveScoreDefinitionToStaff
-@CAT:	Input and page configuration options
-@INFO:	Move score definition (clef, keySig, meterSig, etc.) from scoreDef to staffDef.
-@ARG:	boolean
-@@END: OPTION
-
 
 @@BEGIN: OPTION
 @NAME:	noJustification
@@ -507,6 +439,16 @@
 @@END: OPTION
 
 @@BEGIN: OPTION
+@NAME:	pageWidth
+@CAT:	Input and page configuration options
+@INFO:	Page width
+@ARG:	float
+@DEF:	2100
+@MIN:	100
+@MAX:	100000
+@@END: OPTION
+
+@@BEGIN: OPTION
 @NAME:	pedalStyle
 @CAT:	Input and page configuration options
 @INFO:	Global pedal style
@@ -516,18 +458,6 @@
 @ALT:	pedstar
 @ALT:	altpedstar
 @@END: OPTION
-
-@@BEGIN: OPTION
-@NAME:	pedalStyle
-@CAT:	Input and page configuration options
-@INFO:	Global pedal style.
-@ARG:	string
-@DEF:	auto
-@ALT:	line
-@ALT:	pedstar
-@ALT:	altpedstar
-@@END: OPTION
-
 
 @@BEGIN: OPTION
 @NAME:	preserveAnalyticalMarkup
@@ -573,7 +503,7 @@
 @@END: OPTION
 
 @@BEGIN: OPTION
-@NAME:	smufl-text-font
+@NAME:	smuflTextFont
 @CAT:	Input and page configuration options
 @INFO:	Specify if the SMuFL text font access.
 @ARG:	string
@@ -590,25 +520,6 @@
 @@END: OPTION
 
 @@BEGIN: OPTION
-@NAME:	smuflTextFont
-@CAT:	Input and page configuration options
-@INFO:	Specify if the SMuFL text font is embedded, linked, or ignored.
-@ARG:	string
-@DEF:	embedded
-@ALT:   linked
-@ALT:   none
-@@END: OPTION
-
-
-@@BEGIN: OPTION
-@NAME:	staccatoCenter
-@CAT:	Input and page configuration options
-@INFO:	Align staccato and staccatissimo articulations with center of the note.
-@ARG:	boolean
-@@END: OPTION
-
-
-@@BEGIN: OPTION
 @NAME:	svgBoundingBoxes
 @CAT:	Input and page configuration options
 @INFO:	Include bounding boxes in SVG output.
@@ -621,14 +532,6 @@
 @INFO:	CSS to embed in SVG output.
 @ARG:	string
 @@END: OPTION
-
-@@BEGIN: OPTION
-@NAME:	svgCss
-@CAT:	Input and page configuration options
-@INFO:	CSS (as a string) to be added top the SVG output.
-@ARG:	string
-@@END: OPTION
-
 
 @@BEGIN: OPTION
 @NAME:	svgViewBox
@@ -654,13 +557,6 @@
 @@BEGIN: OPTION
 @NAME:	svgRemoveXlink
 @CAT:	Input and page configuration options
-@INFO:	Removes xlink previs on href attributes for compatibility with some newer browsers.
-@ARG:	boolean
-@@END: OPTION
-
-@@BEGIN: OPTION
-@NAME:	svgRemoveXlink
-@CAT:	Input and page configuration options
 @INFO:	Removes the "xlink:" prefix from href attributes for compatibility with some newer browsers.
 @ARG:	boolean
 @@END: OPTION
@@ -672,15 +568,6 @@
 @ARG:	string
 @REPEAT:	true
 @@END: OPTION
-
-@@BEGIN: OPTION
-@NAME:	svgAdditionalAttribute
-@CAT:	Input and page configuration options
-@INFO:	Add additional attributes for graphical elements in SVG as 'data-*'h for example, 'note@pname' would add 'data-pname' to all elements.  Option be used more than once to add multiple data fields.
-@ARG:	string
-@REPEAT:	true
-@@END: OPTION
-
 
 @@BEGIN: OPTION
 @NAME:	unit
@@ -728,6 +615,7 @@
 @@END:	OPTION
 
 
+
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@
 @@ layout options
@@ -759,14 +647,6 @@
 @INFO:	Note stems stop at first beam rather than last.
 @ARG:	boolean
 @@END: OPTION
-
-@@BEGIN: OPTION
-@NAME:	beamFrenchStyle
-@CAT:	General layout
-@INFO:	For notes in beams, stems will stop at first outermost sub-beam without crossing it.
-@ARG:	boolean
-@@END: OPTION
-
 
 @@BEGIN: OPTION
 @NAME:	beamMaxSlope
@@ -803,36 +683,6 @@
 @DEF:	1.00
 @MIN:	0.50
 @MAX:	2.00
-@@END: OPTION
-
-
-@@BEGIN: OPTION
-@NAME:	breaksNoWidow
-@CAT:	General layout
-@INFO:	Prevent single measures on the last page by fitting it into previous system.
-@ARG:	boolean
-@@END: OPTION
-
-
-@@BEGIN: OPTION
-@NAME:	dashedBarLineDashLength
-@CAT:	General layout
-@INFO:	Dash length of dashed barlines.
-@ARG:	float
-@DEF:	1.14
-@MIN:	0.10
-@MAX:	5.00
-@@END: OPTION
-
-
-@@BEGIN: OPTION
-@NAME:	dashedBarLineGapLength
-@CAT:	General layout
-@INFO:	Gap length of dashed barlines.
-@ARG:	float
-@DEF:	1.14
-@MIN:	0.10
-@MAX:	5.00
 @@END: OPTION
 
 @@BEGIN: OPTION
@@ -880,10 +730,17 @@
 @@END: OPTION
 
 @@BEGIN: OPTION
-@NAME:	dynamSingleGlyphs
+@NAME:	engravingDefaults
+@INFO:	Default options for engraving SMuFL font as JSON string.
 @CAT:	General layout
-@INFO:	Do not use SMuFL predefined dynamics glyph combinations.
-@ARG:	boolean
+@ARG:	string
+@@END: OPTION
+
+@@BEGIN: OPTION
+@NAME:	engravingDefaultsFile
+@INFO:	Path to JSON file for engraving SMuFL font as JSON string.
+@CAT:	General layout
+@ARG:	string
 @@END: OPTION
 
 @@BEGIN: OPTION
@@ -896,31 +753,10 @@
 @MAX:	10.0
 @@END: OPTION
 
-
 @@BEGIN: OPTION
 @NAME:	fingeringScale
 @CAT:	General layout
 @INFO:	Scale of fingering numbers compared to default font size.
-@ARG:	float
-@DEF:	0.75
-@MIN:	0.25
-@MAX:	1.00
-@@END: OPTION
-
-@@BEGIN: OPTION
-@NAME:	extenderLineMinSpace
-@INFO:	Minimum space required for extender line
-@CAT:	General layout
-@ARG:	float
-@DEF:	1.50
-@MIN:	1.50
-@MAX:	10.00
-@@END: OPTION
-
-@@BEGIN: OPTION
-@NAME:	fingeringScale
-@INFO:	Size of fingerings compared to default size.
-@CAT:	General layout
 @ARG:	float
 @DEF:	0.75
 @MIN:	0.25
@@ -1011,17 +847,8 @@
 @CAT:	General layout
 @INFO:	Handwriting fonts that require special handling.
 @ARG:	string
-@REPEAT: true
+@REPEAT:	true
 @@END: OPTION
-
-@@BEGIN: OPTION
-@NAME:	handwrittenFont
-@CAT:	General layout
-@INFO:	Fonts that emulate hand writing and require special handling.  This option can be repeated.
-@ARG:	string
-@REPEAT: true
-@@END: OPTION
-
 
 @@BEGIN: OPTION
 @NAME:	harmDist
@@ -1076,23 +903,12 @@
 @@BEGIN: OPTION
 @NAME:	justificationMaxVertical
 @CAT:	General layout
-@INFO:	Maximum ratio of justifiable height to page height that can be used for vertical justification.
-@ARG:	float
-@DEF:	0.20
-@MIN:	0.00
-@MAX:	1.00
-@@END: OPTION
-
-@@BEGIN: OPTION
-@NAME:	justificationMaxVertical
-@CAT:	General layout
 @INFO:	Maximum ratio of justifiable height to page height that can be used for the vertical justification.
 @ARG:	float
 @DEF:	0.30
 @MIN:	0.00
 @MAX:	1.00
 @@END: OPTION
-
 
 @@BEGIN: OPTION
 @NAME:	ledgerLineThickness
@@ -1153,16 +969,6 @@
 @@END: OPTION
 
 @@BEGIN: OPTION
-@NAME:	lyricElision
-@CAT:	General layout
-@INFO:	Size of lyric text in diatonic steps.
-@ARG:	float
-@DEF:	4.50
-@MIN:	2.00
-@MAX:	8.00
-@@END: OPTION
-
-@@BEGIN: OPTION
 @NAME:	lyricSize
 @CAT:	General layout
 @INFO:	Size of lyric text in diatonic-step units.
@@ -1171,7 +977,6 @@
 @MIN:	2.00
 @MAX:	8.00
 @@END: OPTION
-
 
 @@BEGIN: OPTION
 @NAME:	lyricTopMinMargin
@@ -1199,15 +1004,6 @@
 @INFO:	Remove unused verse numbers from score.
 @ARG:	boolean
 @@END: OPTION
-
-@@BEGIN: OPTION
-@NAME:	minMeasureWidth
-@INFO:	The minimum measure width in diatonic steps.
-@CAT:	General layout
-@INFO:	Collapse empty verse lines in lyrics.
-@ARG:	boolean
-@@END: OPTION
-
 
 @@BEGIN: OPTION
 @NAME:	measureMinWidth
@@ -1242,14 +1038,13 @@
 @@END: OPTION
 
 @@BEGIN: OPTION
-@NAME:	mnumInterval
-@INFO:	Thickness of multirest (in diatonic steps).
+@NAME:	multiRestThickness
 @CAT:	General layout
-@INFO:	Thickness of the multi rest in diatonic-step units.
+@INFO:	Thickness of multi rest in diatonic steps.
 @ARG:	float
-@DEF:   2.00
-@MIN:   0.50
-@MIN:   6.00
+@DEF:	2.00
+@MIN:	0.50
+@MAX:	6.00
 @@END: OPTION
 
 @@BEGIN: OPTION
@@ -1507,7 +1302,6 @@
 @MAX:	0.80
 @@END: OPTION
 
-
 @@BEGIN: OPTION
 @NAME:	thickBarlineThickness
 @CAT:	General layout
@@ -1556,17 +1350,6 @@
 @@END: OPTION
 
 @@BEGIN: OPTION
-@NAME:	tieMinLength
-@CAT:	General layout
-@INFO:	Minimum length of a tie in diatonic-step units.
-@ARG:	float
-@DEF:	2.00
-@MIN:	0.00
-@MAX:	10.00
-@@END: OPTION
-
-
-@@BEGIN: OPTION
 @NAME:	tupletBracketThickness
 @CAT:	General layout
 @INFO:	Tuplet bracket thickness in diatonic-step units.
@@ -1582,6 +1365,7 @@
 @INFO:	Place tuplet number on notehead-side.
 @ARG:	boolean
 @@END: OPTION
+
 
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -1673,23 +1457,11 @@
 @@END: OPTION
 
 
+
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@
 @@ margin options
 @@
-
-@@BEGIN: OPTION
-@NAME:	transposeToSoundingPitch
-@CAT:	Element selectors and processing
-@INFO:	Transpose to sounding pitch by evaluation @trans.semi.
-@ARG:	boolean
-@@END: OPTION
-
-
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@
-@@@ Element selectors and processing options
-@@@
 
 @@BEGIN: OPTION
 @NAME:	defaultBottomMargin
@@ -1753,16 +1525,6 @@
 
 @@BEGIN: OPTION
 @NAME:	bottomMarginOctave
-@CAT:	Element margins
-@INFO:	Bottom margin for octave lines in diatonic-step units.
-@ARG:	float
-@DEF:	1.00
-@MIN:	0.00
-@MAX:	10.00
-@@END: OPTION
-
-@@BEGIN: OPTION
-@NAME:	bottomMarginOctave
 @CAT:	element margins
 @INFO:	Margin for octave (diatonic steps).
 @ARG:	float
@@ -1792,17 +1554,6 @@
 @@END: OPTION
 
 @@BEGIN: OPTION
-@NAME:	leftMarginAccid
-@CAT:	Element margins
-@INFO:	Left margin for accidentals in diatonic-step units.
-@ARG:	float
-@DEF:	1.00
-@MIN:	0.00
-@MAX:	2.00
-@@END: OPTION
-
-
-@@BEGIN: OPTION
 @NAME:	leftMarginBarLine
 @CAT:	Element margins
 @INFO:	Left margin for barlines in diatonic-step units.
@@ -1811,7 +1562,6 @@
 @MIN:	0.00
 @MAX:	2.00
 @@END: OPTION
-
 
 @@BEGIN: OPTION
 @NAME:	leftMarginBeatRpt
@@ -2083,7 +1833,6 @@
 @MAX:	2.00
 @@END: OPTION
 
-
 @@BEGIN: OPTION
 @NAME:	rightMarginMultiRpt
 @CAT:	Element margins
@@ -2165,6 +1914,7 @@
 @@END: OPTION
 
 
+
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@
 @@ midi options
@@ -2186,6 +1936,7 @@
 @MIN:	0.20
 @MAX:	4.00
 @@END: OPTION
+
 
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -2232,6 +1983,7 @@
 @@END: OPTION
 
 
+
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@
 @@ JSON options
@@ -2243,40 +1995,6 @@
 @INFO:	JSON options for producing timemap.
 @ARG:	string
 @DEF:	{}
-@@END: OPTION
-
-
-@@BEGIN: OPTION
-@NAME:	topMarginPgFooter
-@CAT:	Element margins
-@INFO:	Top margin for page footers in diatonic-step units.
-@ARG:	float
-@DEF:	2.00
-@MIN:	0.00
-@MAX:	24.00
-@@END: OPTION
-
-
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@
-@@@ MIDI options
-@@@
-
-@@BEGIN: OPTION
-@NAME:	midiNoCue
-@CAT:	MIDI options
-@INFO:	Ignore cue notes when converting to MIDI.
-@ARG:	boolearn
-@@END: OPTION
-
-@@BEGIN: OPTION
-@NAME:	midiTempoAdjustment
-@CAT:	MIDI options
-@INFO:	MIDI tempo adjustment factor.
-@ARG:	float
-@DEF:	1.00
-@MIN:	0.20
-@MAX:	4.00
 @@END: OPTION
 
 
