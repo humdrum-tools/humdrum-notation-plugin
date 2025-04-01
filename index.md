@@ -2,6 +2,7 @@
 vim:	ts=3
 cachedBannerSvg: 60.2px
 permalink: /index.html
+layout: default
 ---
 
 {% include_relative styles-local.html %}

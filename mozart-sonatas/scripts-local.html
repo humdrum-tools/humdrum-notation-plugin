@@ -1,0 +1,125 @@
+
+
+<script>
+
+//////////////////////////////
+//
+// DOMContentLoaded event listener -- Various hacks to the default styling
+//   of the jekyll theme.
+//
+
+document.addEventListener("DOMContentLoaded", function(event) {
+	var section = document.querySelector("section");
+	section.style.height = "";
+	section.style.minHeight = "1000px";
+
+
+	// display the first movement
+	displayHumdrum({
+		source: "sonata01-1",
+		target: "viewer",
+		scale: 30
+	});
+	var tag = document.querySelector("li.tag-h2");
+	tag.style.textShadow = "0px 0px 10px #aa0000";
+});
+
+
+
+//////////////////////////////
+//
+// DOMContentLoaded event listener -- Add click event callbacks for 
+//   movement headings that will display the notation for the movement
+//   in the main section.
+//
+
+document.addEventListener("DOMContentLoaded", function(event) {
+	var mtags = document.querySelectorAll("li.tag-h2");
+	console.log("MTAGS", mtags);
+	for (var i=0; i<mtags.length; i++) {
+		addClickCallback(mtags[i]);
+	}
+});
+
+
+
+//////////////////////////////
+//
+// addClickCallback --
+//
+
+function addClickCallback(element) {
+	var mvmt = 0;
+	var matches = element.textContent.match(/^\s*(\d[a-z]?)\.?\s/);
+	if (matches) {
+		mvmt = parseInt(matches[1]);
+	}
+	if (mvmt < 1) {
+		console.log("Warning: could not find movement number from heading", element);
+		return;
+	}
+	var laste = element;
+	while (laste && !laste.className.match(/tag-h1/)) {
+		laste = laste.previousSibling;
+	}
+	if (!laste || !laste.className.match(/tag-h1/)) {
+		console.log("Warning: could not find sonata entry for movement:", element, laste);
+		return;
+	}
+
+	matches = laste.textContent.match(/Sonata\s+no\.?\s+(\d+)/i);
+	if (!matches) {
+		console.log("Warning: could not find sonata number from heading", laste);
+		return;
+	}
+	var sonata = parseInt(matches[1]);
+	// console.log("SONATA", sonata, "MOVEMENT", mvmt);
+
+	element.addEventListener("click", function(event) {
+		var m = mvmt;
+		var s = sonata;
+		var source = "sonata";
+		if (s < 10) {
+			source += "0";
+		}
+		source += s;
+		source += '-';
+		source += m;
+		console.log("SOURCE", source);
+		target = "viewer";
+		// wait styling is not updating until displayHumdrum is finished...
+		document.body.style.cursor = "wait";
+
+		displayHumdrum({
+			source: source,
+			target: target,
+			scale: 30,
+			postFunction: cursorNormal
+		});
+
+		var tags = document.querySelectorAll("li.tag-h2");
+		var i;
+		for (i=0; i<tags.length; i++) {
+			tags[i].style.textShadow = "";
+		}
+		console.log("EVENT", event);
+		var element = null;
+		for (i=0; i<event.path.length; i++) {
+			if (event.path[i].className.match(/tag-h2/)) {
+				element = event.path[i];
+				break;
+			}
+		}
+		if (element) {
+			element.style.textShadow = "0px 0px 10px #aa0000";
+		}
+	})
+}
+
+function cursorNormal() {
+	document.body.style.cursor = "";
+}
+
+</script>
+
+

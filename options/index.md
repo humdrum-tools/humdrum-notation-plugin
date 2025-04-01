@@ -1,5 +1,6 @@
 ---
-vim:	ts=3
+heading: "Options"
+layout: page
 ---
 
 {% include_relative listeners.html %}
@@ -7,7 +8,6 @@ vim:	ts=3
 {% include_relative styles-local.html %}
 
 # Options #
-
 
 This page lists options for controlling the display and formatting
 of music notation.  These options are given within an object passed
